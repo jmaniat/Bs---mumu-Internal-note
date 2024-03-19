@@ -5,7 +5,7 @@
 # Adjust TEXLIVE if it is not correct, or pass it to "make new".
 # Replace BIBTEX = biber with BIBTEX = bibtex if you use bibtex instead of biber.
 # Adjust FIGSDIR for your figures directory tree.
-# Adjust the %.pdf dependencies according to your directory structure.
+# Adjust the %.pdf  according to your directory structure.
 # Use "make clean" to cleanup.
 # Use "make cleanpdf" to delete $(BASENAME).pdf.
 # "make cleanall" also deletes the PDF file $(BASENAME).pdf.
@@ -65,7 +65,7 @@ run_latexmk:
 # Specify the tex and bib file dependencies for running pdflatex
 # If your bib files are not in the main directory adjust this target accordingly
 #%.pdf: %.tex *.tex bib/*.bib
-%.pdf:  %.tex *.tex *.bib
+%.pdf:  %.tex *.tex *.bib sections/*.tex
 	$(PDFLATEX) $<
 	-$(BIBTEX)  $(basename $<)
 	$(PDFLATEX) $<
@@ -161,7 +161,7 @@ dvips:  $(BASENAME).dvi
 
 # Specify dependencies for running latex
 #%.dvi: %.tex tex/*.tex bibtex/bib/*.bib
-%.dvi:  %.tex *.tex *.bib
+%.dvi:  %.tex *.tex *.bib sections/*.tex
 	$(LATEX)    $<
 	-$(BIBTEX)  $(basename $<)
 	$(LATEX)    $<

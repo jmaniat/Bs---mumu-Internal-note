@@ -1,0 +1,51 @@
+The triggers used for selection events for the signal and reference channels are summarised in Table~\ref{tab:triggers_signal}. 
+
+
+% Signal
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|p{0.1\linewidth}|p{0.55\linewidth}|p{0.1\linewidth}|p{0.12\linewidth}|}
+    \hline
+    Period & Trigger Chains & Stream & Unprescaled?\\
+    \hline
+    2015 & HLT\_mu6\_mu4\_bBmumu & main & yes \\
+    \hline
+    2016 & HLT\_mu6\_mu4\_bBmumu\_Lxy0 & main & yes \\
+    \hline
+    \multirow{2}{*}{2017} & HLT\_2mu6\_bBmumu\_Lxy0\_L1BPH-2M9-2MU6\_BPH-2DR15-2MU6 & BLS & yes \\
+    & HLT\_mu6\_mu4\_bBmumu\_Lxy0\_L1BPH-2M9-MU6MU4\_BPH-0DR15-MU6MU4 & BLS & no \\
+    \hline
+    \multirow{3}{*}{2018} & HLT\_2mu6\_bBmumu\_Lxy0\_L1BPH-2M9-2MU6\_BPH-2DR15-2MU6 & BLS & yes \\
+    & HLT\_mu6\_mu4\_bBmumu\_Lxy0\_L1BPH-2M9-MU6MU4\_BPH-0DR15-MU6MU4 & BLS & no \\ 
+    & HLT\_2mu4\_bBmumu\_Lxy0\_L1BPH-2M9-2MU4\_BPH-0DR15-2MU4 & BLS & no \\    
+    \hline
+    \end{tabular}
+    \caption[Triggers]{HLTs used per data taking period for the signal channel.}
+    \label{tab:triggers_signal}
+\end{table}
+
+
+% Reference Channel 
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|p{0.1\linewidth}|p{0.55\linewidth}|p{0.1\linewidth}|p{0.12\linewidth}|}
+    \hline
+    Period & Trigger Chains & Stream & Unprescaled?\\
+    \hline
+    \multirow{2}{*}{2015} & HLT\_mu6\_mu4\_bJpsimumu & main & yes \\
+    & HLT\_2mu4\_bJpsimumu & main & no \\
+    \hline
+    \multirow{2}{*}{2016} & HLT\_mu6\_mu4\_bJpsimumu\_Lxy0 & main & no \\
+    & HLT\_mu6\_mu4\_bJpsimumu\_Lxy0\_delayed & Bphys-Delayed & no \\
+    \hline
+    \multirow{2}{*}{2017} & HLT\_2mu6\_bJpsimumu\_L1BPH-2M9-2MU6\_BPH-2DR15-2MU6 & BLS & yes \\
+    & HLT\_mu6\_mu4\_bJpsimumu\_Lxy0\_L1BPH-2M9-MU6MU4\_BPH-0DR15-MU6MU4 & BLS & no \\
+    \hline
+    \multirow{3}{*}{2018} & HLT\_2mu6\_bJpsimumu\_L1BPH-2M9-2MU6\_BPH-2DR15-2MU6 & BLS & yes \\
+    & HLT\_mu6\_mu4\_bJpsimumu\_Lxy0\_L1BPH-2M9-MU6MU4\_BPH-0DR15-MU6MU4 & BLS & no \\
+    & HLT\_2mu4\_bJpsimumu\_Lxy0\_L1BPH-2M9-2MU4\_BPH-0DR15-2MU4 & BLS & no \\
+    \hline
+    \end{tabular}
+    \caption[Triggers]{HLTs used by data taking period for the reference channel.}
+    \label{tab:triggers_reference}
+\end{table}
