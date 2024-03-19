@@ -16,9 +16,8 @@ image: gitlab-registry.cern.ch/atlas-physics-office/gitlab-integration/pogitlab
 # -- VARIABLES --
 variables:
   DOCNAME: ANA-BPHY-2019-03-INT1
-  MAND_TAG: "5.0.3"
   FROZEN: newest
-  IMAGE_POTL: gitlab-registry.cern.ch/atlas-physics-office/gitlab-integration/potl-2016
+  IMAGE_TAG: latest
   JOBS_SCRIPTS_PATH: "/usr/share/scripts"
 # -- END OF VARIABLES --
 
