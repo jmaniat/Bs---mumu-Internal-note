@@ -11,8 +11,6 @@
 #
 #################################################################
 
-image: gitlab-registry.cern.ch/atlas-physics-office/gitlab-integration/pogitlab
-
 # -- VARIABLES --
 variables:
   DOCNAME: ANA-BPHY-2019-03-INT1
