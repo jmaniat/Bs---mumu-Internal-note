@@ -9,5 +9,8 @@ If on lxplus or similar, you may need to do
 export PATH=/cvmfs/sft.cern.ch/lcg/external/texlive/2020/bin/x86_64-linux:$PATH
 ```
 
+## Workflow
+If we're editing things simultaneous, will perhaps be easiest to keep updates on separate branches then we can merge them as and when they are ready. 
+
 ## Notes
 * Common bits of latex can be found in `ANA-BPHY-2019-03-INT1-defs.sty`. Please use these defintions to keep things consistent. Feel free  add your own definitions to this file. 
