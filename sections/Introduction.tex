@@ -1,3 +1,33 @@
 \section{Introduction}
 \label{sec:intro}
-Measurement of rare \bstomumu and \bdtomumu decays using the Full Run 2 dataset collected between 2015 and 2018.
+This note provides supporting material for the analysis of the rare \bstomumu and \bdtomumu decays using for the first time the Full Run 2 dataset collected by the ATLAS Experiment between 2015 and 2018.
+The primary aim of the analysis is to use this dataset to make the most precise measurement to date of the branching fraction of these decays with ATLAS. 
+
+Being heavily suppressed in the Standard Model, precise measurements of the branching fractions of these decays serve as powerful probes of potential new physics. 
+The most up to date (\textcolor{red}{check}) theoretical predictions of the branching fractions are: 
+
+\begin{itemize}
+    \item \BRbstomumu = $(3.66 \pm 0.14) \times 10^{-9}$ \cite{Beneke:2019slt}  
+    \item \BRbdtomumu = $(1.03 \pm 0.05) \times 10^{-10}$ \cite{Beneke:2019slt}  
+\end{itemize}
+
+% previous measurements 
+The first evidence for the \bstomumu decay came from a combination of measurements of the 2011-2012 data collected by the \lhcb and \cms experiments.  
+Since then, observation of this decay has been confirmed by these experiments and by \atlas individually (\atlas~\cite{ATLAS:2018cur}, \cms~\cite{CMS:2019bbr}, \lhcb~\cite{LHCb:2017rmj}). 
+The most precise measurement of the branching fraction comes from the combination of the ATLAS, CMS and LHCb partial Run 2 results~\cite{CMS-PAS-BPH-20-003} and is equal to ($2.69^{+0.37}_{-0.35}) \times 10^{-9}$, differing by 2.4 standard deviations from the theoretical prediction. 
+The \cms and \lhcb experiments have also performed measurements of \BRbstomumu using their respective Full Run 2 datasets, yielding values of $(3.83^{+0.44}_{-0.41} \times 10^{-9})$~\cite{CMS:2022mgd} and $(3.09^{+0.48}_{-0.44} \times 10^{-9})$~\cite{LHCb:2021vsc} respectively. 
+The statistical uncertainty in both of these Full Run 2 measurements and in the Run 1 combination is the dominant contribution to the total uncertainty. 
+
+The decay \bdtomumu is yet to be observed, being approximately ten times smaller than \bstomumu in terms of expected yield.  
+The most stringent upper limit on \BRbdtomumu at 95\% confidence level is $1.9 \times 10^{-9}$ coming separately from the Full Run 2 \cms measurement and the ATLAS-CMS-LHCb Run 1 combination.   
+
+% refer to previous analyses
+The analysis strategy of the ATLAS Full Run 2 measurement documented here follows closely that of the previous ATLAS analysis using the Partial Run 2 dataset (2015-2016), henceforth referred to as the Partial Run 2 (PR2) analysis.  
+An overview of the strategy is provided in the next section. 
+Aside from the approximately four times larger dataset, the main differences with respect to the PR2 analysis are:
+\begin{itemize}
+    \item In 2017 and 2018, topological triggers are used instead of the comparatively simpler triggers used in 2015-2016.  
+    \item Improvements to the fit model and uncertainty evaluation of the \bptojpsik reference channel.  
+    \item An improved Boosted Decision Tree (BDT) for reducing the combinatorial background, making use of custom track isolation variables. A dedicated cut and binning optimization on the BDT score for the FR2 dataset is also performed. 
+\end{itemize}
+Each of these is covered in detail in this note, as are aspects of the analysis more closely aligned with the PR2 methodology. 

@@ -1,21 +1,25 @@
 \subsection{Triggers}
 \label{subsec:Triggers}
 
-The triggers used for selection events for the signal and reference channels are summarised in Table~\ref{tab:triggers_signal}. 
+The triggers used for the signal and reference channels are shown in Table~\ref{tab:triggers_signal} with their recorded integrated luminosities. 
+For 2015 and 2016, the triggers used are the same ones as in the Partial Run 2 analysis, while for 2017 and 2018 new triggers were developed which required topological cuts at Level 1, in order to maintain manageable rates with the increased instantaneous luminosity.
+For 2017 and 2018, the triggers requiring muons with \pT above 6~\GeV are active for most of the data taking, while the triggers with lower \pT thresholds are prescaled in the sense that they were only activated (without a prescale) towards the end of fills.
+\textcolor{red}{(Confirm this and check if also the case for 2015/2016)}. 
 
+\textcolor{red}{Why don't we use HLT\_2mu6\_bBmumu\_Lxy0? Just to be consistent with PR2 analysis? They only did not use it due to time constraints.}
 
 % Signal
 \begin{table}[h]
     \centering
     \begin{tabular}{|p{0.1\linewidth}|p{0.55\linewidth}|p{0.1\linewidth}|p{0.12\linewidth}|}
     \hline
-    Period & Trigger Chains & Stream & Unprescaled?\\
+    Period & Trigger Chains & Stream & Recored lumi / \ifb\\
     \hline
-    2015 & HLT\_mu6\_mu4\_bBmumu & main & yes \\
+    2015 & HLT\_mu6\_mu4\_bBmumu & main & None \\
     \hline
-    2016 & HLT\_mu6\_mu4\_bBmumu\_Lxy0 & main & yes \\
+    2016 & HLT\_mu6\_mu4\_bBmumu\_Lxy0 & main & None \\
     \hline
-    \multirow{2}{*}{2017} & HLT\_2mu6\_bBmumu\_Lxy0\_L1BPH-2M9-2MU6\_BPH-2DR15-2MU6 & BLS & yes \\
+    \multirow{2}{*}{2017} & HLT\_2mu6\_bBmumu\_Lxy0\_L1BPH-2M9-2MU6\_BPH-2DR15-2MU6 & BLS & None \\
     & HLT\_mu6\_mu4\_bBmumu\_Lxy0\_L1BPH-2M9-MU6MU4\_BPH-0DR15-MU6MU4 & BLS & no \\
     \hline
     \multirow{3}{*}{2018} & HLT\_2mu6\_bBmumu\_Lxy0\_L1BPH-2M9-2MU6\_BPH-2DR15-2MU6 & BLS & yes \\
@@ -51,4 +55,48 @@ The triggers used for selection events for the signal and reference channels are
     \end{tabular}
     \caption[Triggers]{HLTs used by data taking period for the reference channel.}
     \label{tab:triggers_reference}
+\end{table}
+
+
+
+% yields
+\begin{table}
+\centering
+\begin{tabular}{|p{0.06\linewidth}|p{0.45\linewidth}|p{0.1\linewidth}|p{0.1\linewidth}|p{0.1\linewidth}|}
+\hline
+Period & Trigger Chains & Yield (OR with above) & Relative Gain & Approx Av. Prescale \\
+\hline
+MC16a & HLT\_mu6\_mu4\_bBmumu & 92,656 & N/A & 1 \\
+\hline
+\multirow{2}{*}{MC16d} & HLT\_2mu6\_bBmumu\_Lxy0\_L1BPH-2M9-2MU6\_BPH-2DR15-2MU6 & 76,065 & N/A & 1 \\
+ & HLT\_mu6\_mu4\_bBmumu\_Lxy0\_L1BPH-2M9-MU6MU4\_BPH-0DR15-MU6MU4 & 139,902 & +84\% & 1.1 \\
+\hline
+\multirow{3}{*}{MC16e} & HLT\_2mu6\_bBmumu\_Lxy0\_L1BPH-2M9-2MU6\_BPH-2DR15-2MU6 & 103,684 & N/A & 1 \\
+ & HLT\_mu6\_mu4\_bBmumu\_Lxy0\_L1BPH-2M9-MU6MU4\_BPH-0DR15-MU6MU4 & 201,327 & +94\% & 1.2 \\
+ & HLT\_2mu4\_bBmumu\_Lxy0\_L1BPH-2M9-2MU4\_BPH-0DR15-2MU4 & 216,539 & +8\% & 2.4 \\
+\hline
+\end{tabular}
+\caption{Trigger yields for Bsmumu MC, passing nominal signal channel selections excluding BDT cut.}
+\end{table}
+
+
+
+\begin{table}
+\centering
+\begin{tabular}{|p{0.06\linewidth}|p{0.45\linewidth}|p{0.1\linewidth}|p{0.1\linewidth}|p{0.1\linewidth}|}
+\hline
+Period & Trigger Chains & Yield (OR with above) & Relative Gain & Approx Av. Prescale \\
+\hline
+\multirow{2}{*}{MC16a} & HLT\_mu6\_mu4\_bJpsimumu, HLT\_mu6\_mu4\_bJpsimumu\_Lxy0(\_delayed) & 505,003 & N/A & 1 \\
+ & HLT\_2mu4\_bJpsimumu & 521,761 & +3\% & 1.2 \\
+\hline
+\multirow{2}{*}{MC16d} & HLT\_2mu6\_bJpsimumu\_L1BPH-2M9-2MU6\_BPH-2DR15-2MU6 & 608,694 & N/A & 1 \\
+ & HLT\_mu6\_mu4\_bJpsimumu\_Lxy0\_L1BPH-2M9-MU6MU4\_BPH-0DR15-MU6MU4 & 627,893 & +3\% & 30? \\
+\hline
+\multirow{3}{*}{MC16e} & HLT\_2mu6\_bJpsimumu\_L1BPH-2M9-2MU6\_BPH-2DR15-2MU6 & 822,290 & N/A & 1 \\
+ & HLT\_mu6\_mu4\_bJpsimumu\_Lxy0\_L1BPH-2M9-MU6MU4\_BPH-0DR15-MU6MU4 & 1,233,116 & +50\% & 2.4 \\
+ & HLT\_2mu4\_bJpsimumu\_Lxy0\_L1BPH-2M9-2MU4\_BPH-0DR15-2MU4 & 1,262,796 & +2\% & 12 \\
+\hline
+\end{tabular}
+\caption{Trigger yields for BpmJpsiKpm MC, passing BpmJpsiKpm reference channel selections excluding BDT score cut.}
 \end{table}
