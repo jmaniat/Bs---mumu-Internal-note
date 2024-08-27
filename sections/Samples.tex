@@ -1,2 +1,112 @@
 \section{Data and Monte Carlo Samples}
 \label{sec:Samples}
+
+
+\subsection{Data Samples}
+\label{sec:DataSamples}
+
+The analysis uses the data collected by the ATLAS experiment between 2015-2018. 
+For un-prescaled triggers, this corresponds to an integrated luminosity of $140 \pm 1.2\,\ifb$~\cite{ATLAS:2022hro}.  
+\textred{Check data quality requirements (Event Cleaning).}
+
+As the analysis makes use of combined muons, the data events used are required to come from runs in which the Inner Detector and Muon Spectrometer were fully operational. 
+The recommended Good Run Lists (GRLs) are used and are listed for each data period are listed in Table~\ref{tab:GRLs}.   
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|p{1\linewidth}|}
+        \hline
+        Good Run Lists \\
+        \hline
+        data15\_13TeV.periodAllYear\_DetStatus-v89-pro21-02\_Unknown\_PHYS\_StandardGRL\_All\_Good\_25ns.xml \\
+        data16\_13TeV.periodAllYear\_DetStatus-v89-pro21-01\_DQDefects-00-02-04\_PHYS\_StandardGRL\_All\_Good\_25ns.xml \\
+        data17\_13TeV.periodAllYear\_DetStatus-v99-pro22-01\_Unknown\_PHYS\_StandardGRL\_All\_Good\_25ns\break\_Triggerno17e33prim.xml \\
+        data18\_13TeV.periodAllYear\_DetStatus-v102-pro22-04\_Unknown\_PHYS\_StandardGRL\_All\_Good\_25ns\break\_Triggerno17e33prim.xml \\
+        \hline
+    \end{tabular}
+    \caption{Good Run Lists used to select the data events.}
+    \label{tab:GRLs}
+\end{table}
+
+
+\subsection{Monte Carlo Samples}
+\label{sec:MCSamples}
+
+Monte Carlo simulation is used for various aspects of the analysis, in particular for evaluating selection efficiencies.
+Signal and background processes are generated. 
+Table~\ref{tab:MCsamples} list the samples. 
+The datasets used are listed in Appendix~\ref{sec:App_DataMCSamples}.
+
+% generator
+% simulation 
+% compare to previous round of analysis?
+
+% Sample Overview table
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|l|l|l|l|}
+      \hline
+      Process & Type & Generator & Simulation \\
+      \hline
+      \Bsmumu & signal & \Pythia 8B + EvtGen & Atlfast-II
+      \\
+      \Bdmumu & signal & \Pythia 8B + EvtGen & Atlfast-II
+      \\
+      \BpKpJpsi\ with \JpsiMuMu & reference &
+      \Pythia 8B + EvtGen & Atlfast-II \\
+      \BmKmJpsi\ with \JpsiMuMu & reference &
+      \Pythia 8B + EvtGen & Atlfast-II \\
+      \BpPipJpsi\ with \JpsiMuMu & reference &
+      \Pythia 8B + EvtGen & Atlfast-II \\
+      \BmPimJpsi\ with \JpsiMuMu & reference &
+      \Pythia 8B + EvtGen & Atlfast-II \\
+      \BsJpsiPhi\ with \JpsiMuMu, \Phikk & control &
+      \Pythia 8B + Photospp & Atlfast-II \\
+      \Bhh & peaking bkg. &
+      \Pythia 8B & full simulation \\
+      \BsKmMupNu & part. rec. bkg. &
+      \Pythia 8B + EvtGen & Atlfast-II \\
+      \BdPimMuPNu & part. rec. bkg. &
+      \Pythia 8B + EvtGen & Atlfast-II \\
+      \LPMuNu & part. rec. bkg. &
+      \Pythia 8B + EvtGen & Atlfast-II \\
+      \bbJpsiX with \JpsiMuMu & cont. bkg. &
+      \Pythia 8B + EvtGen & Atlfast-II \\
+      \bbmumuX & cont. bkg. & 
+      \Pythia 8B + Photospp & Atlfast-II \\
+      \hline
+  \end{tabular}
+  \caption{Monte Carlo samples for signal, reference, control and
+    background channels.  The background channels are sub-divided
+    into peaking background (peaking bkg.),
+    partially reconstructed background (part. rec. bkg.) and
+    continuum background (cont. bkg.).
+  }
+  \label{tab:MCsamples}
+\end{table}
+
+
+\begin{table}[!hbp]
+  \centering
+  \begin{tabular}{|c|c|c|c|}
+  \hline
+  \multirow{2}{*}{Process} & \multicolumn{3}{c|}{Number of Events Generated (AOD)} \\
+  \cline{2-4}
+  & MC16a & MC16d & MC16e \\
+  \hline
+  \Bsmumu & 1,000,000 & 1,248,000 & 1,696,000\\
+  \Bdmumu & 1,000,000 & 1,250,000 & 1,695,000\\
+  \BpKpJpsi & 4,949,000 & 6,274,000 & 8,457,000\\
+  \BmKmJpsi & 4,989,000 & 6,238,000 & 8,527,000\\
+  \BsJpsiPhi & 2,991,000 & 3,743,000 & 4,977,000\\
+  \Bhh & 49,546,000 & 62,644,000 & 84,494,000\\
+  \BsKmMupNu & 250,000 & 330,000 & 429,000\\
+  \BdPimMuPNu & 500,000 & 629,000 & 848,000\\
+  \LPMuNu & 250,000 & 330,000 & 430,000\\
+  \AntiLPMuNu & 250,000 & 330,000 & 430,000\\
+  \bbJpsiX & 10,000,000 & 12,500,000 & 16,488,000\\
+  \bbmumuX & 629,491,000 & 568,933,000 & 799,506,000\\
+  \hline
+  \end{tabular}
+  \caption{Number of events generated at AOD level for each MC sample}\label{tab:MCSampleNumbers}
+\end{table}
