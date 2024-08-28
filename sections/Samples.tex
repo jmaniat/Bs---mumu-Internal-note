@@ -36,6 +36,12 @@ Monte Carlo simulation is used for various aspects of the analysis, in particula
 Signal and background processes are generated. 
 Table~\ref{tab:MCsamples} list the samples. 
 The datasets used are listed in Appendix~\ref{sec:App_DataMCSamples}.
+\textred{Add in BpJpsiPi when Full sim samples are done (also in appendix).}
+Compared to the previous iteration of the analysis, the \BpmKpmJpsi, \BpmPipmJpsi, \BsJpsiPhi and partially reconstructed background samples are here simulated using full simulation rather than fast simulation. 
+
+For the \BpmKpmJpsi, \BpmPipmJpsi and partially reconstructed background samples this change is motivated by the differences in the fake background estimation methods which requires full simulation in order to be accurate. 
+There is also a notable increase in the number of generated events for these samples, beyond that of the luminosity scaling, to reduce associated uncertainties in the fake background estimation. 
+
 
 % generator
 % simulation 
@@ -52,28 +58,18 @@ The datasets used are listed in Appendix~\ref{sec:App_DataMCSamples}.
       \\
       \Bdmumu & signal & \Pythia 8B + EvtGen & Atlfast-II
       \\
-      \BpKpJpsi\ with \JpsiMuMu & reference &
-      \Pythia 8B + EvtGen & Atlfast-II \\
-      \BmKmJpsi\ with \JpsiMuMu & reference &
-      \Pythia 8B + EvtGen & Atlfast-II \\
-      \BpPipJpsi\ with \JpsiMuMu & reference &
-      \Pythia 8B + EvtGen & Atlfast-II \\
-      \BmPimJpsi\ with \JpsiMuMu & reference &
-      \Pythia 8B + EvtGen & Atlfast-II \\
-      \BsJpsiPhi\ with \JpsiMuMu, \Phikk & control &
-      \Pythia 8B + Photospp & Atlfast-II \\
-      \Bhh & peaking bkg. &
-      \Pythia 8B & full simulation \\
-      \BsKmMupNu & part. rec. bkg. &
-      \Pythia 8B + EvtGen & Atlfast-II \\
-      \BdPimMuPNu & part. rec. bkg. &
-      \Pythia 8B + EvtGen & Atlfast-II \\
-      \LPMuNu & part. rec. bkg. &
-      \Pythia 8B + EvtGen & Atlfast-II \\
-      \bbJpsiX with \JpsiMuMu & cont. bkg. &
-      \Pythia 8B + EvtGen & Atlfast-II \\
-      \bbmumuX & cont. bkg. & 
-      \Pythia 8B + Photospp & Atlfast-II \\
+      \BpKpJpsi\ with \JpsiMuMu & reference & \Pythia 8B + EvtGen & Full Sim \\
+      \BmKmJpsi\ with \JpsiMuMu & reference & \Pythia 8B + EvtGen & Full sim \\
+      \BpPipJpsi\ with \JpsiMuMu & reference & \Pythia 8B + EvtGen & Full Sim \\
+      \BmPimJpsi\ with \JpsiMuMu & reference & \Pythia 8B + EvtGen & Full Sim \\
+      \BsJpsiPhi\ with \JpsiMuMu, \Phikk & control & \Pythia 8B + Photospp & Full Sim \\
+      \Bhh & peaking bkg. & \Pythia 8B & Full Sim \\
+      \BsKmMupNu & part. rec. bkg. & \Pythia 8B + EvtGen & Full Sim \\
+      \BdPimMuPNu & part. rec. bkg. & \Pythia 8B + EvtGen & Full Sim \\
+      \LPMuNu & part. rec. bkg. & \Pythia 8B + EvtGen & Full Sim \\
+      \AntiLPMuNu & part. rec. bkg. & \Pythia 8B + EvtGen & Full Sim \\
+      \bbJpsiX with \JpsiMuMu & cont. bkg. & \Pythia 8B + Photospp & Atlfast-II \\
+      \bbmumuX & cont. bkg. & \Pythia 8B & Atlfast-II \\
       \hline
   \end{tabular}
   \caption{Monte Carlo samples for signal, reference, control and
