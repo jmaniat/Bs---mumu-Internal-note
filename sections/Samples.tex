@@ -34,20 +34,17 @@ As mentioned in the strategy overview, in the signal channel the region with $B$
 \subsection{Monte Carlo Samples}
 \label{sec:MCSamples}
 
-Monte Carlo simulation is used for various aspects of the analysis, in particular for evaluating selection efficiencies.
-
-Table~\ref{tab:MCsamples} lists the different samples. 
-The datasets used are listed in Appendix~\ref{sec:App_DataMCSamples}.
+Monte Carlo simulation of the signal, reference and background processes is used for various aspects of the analysis, in particular for evaluating the efficiencies of the selections for the signal and reference processes.
+Table~\ref{tab:MCsamples} lists the different samples used with the generator and simulation type. 
+Most of the samples are generated with \Pythia8B plus EvtGen.
+For the \BsJpsiPhi and \bbJpsiX process \Pythia8B plus Photos while for the \Bhh channel just \Pythia8B is used.   
+\textred{Explain reasons for the differences.}
+The specific datasets used are listed in Appendix~\ref{sec:App_DataMCSamples}.
 \textred{Add in BpJpsiPi when Full sim samples are done (also in appendix).}
-Compared to the previous iteration of the analysis, the \BpmKpmJpsi, \BpmPipmJpsi, \BsJpsiPhi and partially reconstructed background samples are here simulated using full simulation rather than fast simulation. 
 
+Compared to the previous iteration of the analysis, the \BpmKpmJpsi, \BpmPipmJpsi, \BsJpsiPhi and partially reconstructed background samples are here simulated using full simulation rather than fast simulation. 
 For the \BpmKpmJpsi, \BpmPipmJpsi and partially reconstructed background samples this change is motivated by the differences in the fake background estimation methods which requires full simulation in order to be accurate. 
 There is also a notable increase in the number of generated events for these samples, beyond that of the luminosity scaling, to reduce associated uncertainties in the fake background estimation. 
-
-
-% generator
-% simulation 
-% compare to previous round of analysis?
 
 % Sample Overview table
 \begin{table}[h]
@@ -61,7 +58,7 @@ There is also a notable increase in the number of generated events for these sam
       \Bdmumu & signal & \Pythia 8B + EvtGen & Atlfast-II
       \\
       \BpKpJpsi\ with \JpsiMuMu & reference & \Pythia 8B + EvtGen & Full Sim \\
-      \BmKmJpsi\ with \JpsiMuMu & reference & \Pythia 8B + EvtGen & Full sim \\
+      \BmKmJpsi\ with \JpsiMuMu & reference & \Pythia 8B + EvtGen & Full Sim \\
       \BpPipJpsi\ with \JpsiMuMu & reference & \Pythia 8B + EvtGen & Full Sim \\
       \BmPimJpsi\ with \JpsiMuMu & reference & \Pythia 8B + EvtGen & Full Sim \\
       \BsJpsiPhi\ with \JpsiMuMu, \Phikk & control & \Pythia 8B + Photospp & Full Sim \\
