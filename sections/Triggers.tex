@@ -1,59 +1,69 @@
 \subsection{Triggers}
 \label{subsec:Triggers}
 
-The triggers used for the signal and reference channels are shown in Table~\ref{tab:triggers_signal} and Table~\ref{tab:triggers_reference} respectively with the recorded integrated luminosities. 
-For 2015 and 2016, the triggers used are the same ones as in the PR2 analysis, while for 2017 and 2018 new triggers were developed which required topological cuts at Level-1.
+The triggers available for use in the signal and reference channels per year are shown in Table~\ref{tab:triggers_signal} and Table~\ref{tab:triggers_reference} respectively with their recorded integrated luminosities. 
+For consistency with the PR2 analysis, the same triggers used in that analysis are used for 2015-2016 here. 
+\textcolor{red}{DJ: Note for 2015-2016 as in PR2 we don't use HLT\_2mu6\_bBmumu\_Lxy0, which has a recorded lumi around $37\,\ifb$. PR2 INT note states it was not included due to time constraints - here I guess we just want to be consistent with PR2?}
+At Level-1 (L1), these triggers simply require two muons with \pT thresholds of $6\,\GeV$ and $4\,\GeV$. 
+For the High Level Trigger (HLT), they additional require an invariant mass cut and in 2016 that $L_{xy} > 0$, where $L_{xy}$ is as defined in Section~\ref{subsec:BaselineEventSelection}. 
+For 2017 and 2018 new triggers were developed which include topological cuts at L1. 
 This was necessary in order to maintain manageable rates with the increased instantaneous luminosity in 2017 and 2018.
-For 2017 and 2018, the triggers requiring muons with \pT above 6~\GeV are active for most of the data taking, while the triggers with lower \pT thresholds were only activated towards the end of fills.
-\textcolor{red}{(Also the case for 2015/2016?)} 
+Specifically, the topological triggers require the invariant mass of the muon candidates at L1 to be between $2\,\GeV$ and $9\,\GeV$ (as indicated by 2M9 in the trigger chains) and the $\Delta R$ of the muon candidates to be between 0 and 1.5 (0DR15) or 0.2 and 1.5 (2DR15). 
+Note that the L1 invariant mass is computed using the \pT trigger thresholds as the \pT of the candidates, not their actual \pT at L1.
 
-\textcolor{red}{Note for 2015-2016 as in PR2 we don't use HLT\_2mu6\_bBmumu\_Lxy0. Not included in PR2 due to time constraints - here I guess we just want to be consistent with PR2?.}
-For Monte-Carlo, the effect of the pre-scales is handled using the pile-up reweighting tool~\cite{Buttinger:2014726} with the \verb|UseRunDependentPrescaleWeight| option set to true. 
+In 2017, the topological triggers are available with \pT thresholds on both muon candidates of $6\,\GeV$ (referred to as \verb|2mu6|) or with only the leading candidate \pT being above $6\,\GeV$ and the sub-leading candidate \pT being above $4\,\GeV$ (\verb|mu6mu4|). 
+Additionally, in 2018, triggers with $4\,\GeV$ \pT thresholds on both candidates are available (\verb|2mu4|). 
+The lower \pT threshold triggers have lower integrated luminosities as they are subject to pre-scales but otherwise have higher efficiencies due to the lower thresholds.
+In practice, these triggers mostly have actual prescales of 1 but are only turned-on towards the end of fills where the instantaneous luminosity is lower. 
+The choice of which triggers to use in each data taking period is based upon the impact on the total signal yield passing the nominal analysis selections discussed in Section~\ref{subsec:BaselineEventSelection}, which is studied using MC.  
+The effect of the pre-scales on MC is handled using the pile-up reweighting tool~\cite{Buttinger:2014726} with the \verb|UseRunDependentPrescaleWeight| option set to true. 
+\textcolor{red}{DJ: To be discussed exactly what we want to add here (.e.g MC yields).} 
+
 
 % Signal
 \begin{table}[h]
     \centering
-    \begin{tabular}{|p{0.1\linewidth}|p{0.55\linewidth}|p{0.1\linewidth}|p{0.12\linewidth}|}
+    \begin{tabular}{|p{0.1\linewidth}|p{0.45\linewidth}|p{0.1\linewidth}|p{0.12\linewidth}|p{0.08\linewidth}|}
     \hline
-    Period & Trigger Chains & Stream & Recored lumi / \ifb\\
+    Period & Trigger Chains & Stream & Recorded lumi / \ifb & Used?\\
     \hline
-    2015 & HLT\_mu6\_mu4\_bBmumu & main & None \\
+    2015 & HLT\_mu6\_mu4\_bBmumu & main & 3.24 & Yes \\
     \hline
-    2016 & HLT\_mu6\_mu4\_bBmumu\_Lxy0 & main & None \\
+    2016 & HLT\_mu6\_mu4\_bBmumu\_Lxy0 & main & 23.3 & Yes \\
     \hline
-    \multirow{2}{*}{2017} & HLT\_2mu6\_bBmumu\_Lxy0\_L1BPH-2M9-2MU6\_BPH-2DR15-2MU6 & BLS & None \\
-    & HLT\_mu6\_mu4\_bBmumu\_Lxy0\_L1BPH-2M9-MU6MU4\_BPH-0DR15-MU6MU4 & BLS & no \\
+    \multirow{2}{*}{2017} & HLT\_2mu6\_bBmumu\_Lxy0\_L1BPH-2M9-2MU6\_BPH-2DR15-2MU6 & BLS & 43.3 & Yes\\
+    & HLT\_mu6\_mu4\_bBmumu\_Lxy0\_L1BPH-2M9-MU6MU4\_BPH-0DR15-MU6MU4 & BLS & 35.2 & Yes \\
     \hline
-    \multirow{3}{*}{2018} & HLT\_2mu6\_bBmumu\_Lxy0\_L1BPH-2M9-2MU6\_BPH-2DR15-2MU6 & BLS & yes \\
-    & HLT\_mu6\_mu4\_bBmumu\_Lxy0\_L1BPH-2M9-MU6MU4\_BPH-0DR15-MU6MU4 & BLS & no \\ 
-    & HLT\_2mu4\_bBmumu\_Lxy0\_L1BPH-2M9-2MU4\_BPH-0DR15-2MU4 & BLS & no \\    
+    \multirow{3}{*}{2018} & HLT\_2mu6\_bBmumu\_Lxy0\_L1BPH-2M9-2MU6\_BPH-2DR15-2MU6 & BLS & 58.8 & Yes\\
+    & HLT\_mu6\_mu4\_bBmumu\_Lxy0\_L1BPH-2M9-MU6MU4\_BPH-0DR15-MU6MU4 & BLS & 50.2 & Yes\\ 
+    & HLT\_2mu4\_bBmumu\_Lxy0\_L1BPH-2M9-2MU4\_BPH-0DR15-2MU4 & BLS & 24.8 & \textred{No?} \\    
     \hline
     \end{tabular}
-    \caption[Triggers]{HLTs used per data taking period for the signal channel.}
+    \caption[Triggers]{Triggers used per data taking period for the signal channel.}
     \label{tab:triggers_signal}
 \end{table}
 
 % Reference Channel 
 \begin{table}[h]
     \centering
-    \begin{tabular}{|p{0.1\linewidth}|p{0.55\linewidth}|p{0.1\linewidth}|p{0.12\linewidth}|}
+    \begin{tabular}{|p{0.1\linewidth}|p{0.45\linewidth}|p{0.1\linewidth}|p{0.12\linewidth}|p{0.08\linewidth}|}
     \hline
-    Period & Trigger Chains & Stream & Unprescaled?\\
+    Period & Trigger Chains & Stream & Recorded lumi / \ifb & Used?\\
     \hline
-    \multirow{2}{*}{2015} & HLT\_mu6\_mu4\_bJpsimumu & main & yes \\
-    & HLT\_2mu4\_bJpsimumu & main & no \\
+    \multirow{2}{*}{2015} & HLT\_mu6\_mu4\_bJpsimumu & main & 3.24 & Yes \\
+    & HLT\_2mu4\_bJpsimumu & main & 2.59 & Yes\\
     \hline
-    \multirow{2}{*}{2016} & HLT\_mu6\_mu4\_bJpsimumu\_Lxy0 & main & no \\
-    & HLT\_mu6\_mu4\_bJpsimumu\_Lxy0\_delayed & Bphys-Delayed & no \\
+    \multirow{2}{*}{2016} & HLT\_mu6\_mu4\_bJpsimumu\_Lxy0 & main & 3.00 & Yes \\
+    & HLT\_mu6\_mu4\_bJpsimumu\_Lxy0\_delayed & Bphys-Delayed & 9.70 & Yes\\
     \hline
-    \multirow{2}{*}{2017} & HLT\_2mu6\_bJpsimumu\_L1BPH-2M9-2MU6\_BPH-2DR15-2MU6 & BLS & yes \\
-    & HLT\_mu6\_mu4\_bJpsimumu\_Lxy0\_L1BPH-2M9-MU6MU4\_BPH-0DR15-MU6MU4 & BLS & no \\
+    \multirow{2}{*}{2017} & HLT\_2mu6\_bJpsimumu\_L1BPH-2M9-2MU6\_BPH-2DR15-2MU6 & BLS & 43.3 & Yes \\
+    & HLT\_mu6\_mu4\_bJpsimumu\_Lxy0\_L1BPH-2M9-MU6MU4\_BPH-0DR15-MU6MU4 & BLS & 1.24 & Yes \\
     \hline
-    \multirow{3}{*}{2018} & HLT\_2mu6\_bJpsimumu\_L1BPH-2M9-2MU6\_BPH-2DR15-2MU6 & BLS & yes \\
-    & HLT\_mu6\_mu4\_bJpsimumu\_Lxy0\_L1BPH-2M9-MU6MU4\_BPH-0DR15-MU6MU4 & BLS & no \\
-    & HLT\_2mu4\_bJpsimumu\_Lxy0\_L1BPH-2M9-2MU4\_BPH-0DR15-2MU4 & BLS & no \\
+    \multirow{3}{*}{2018} & HLT\_2mu6\_bJpsimumu\_L1BPH-2M9-2MU6\_BPH-2DR15-2MU6 & BLS & 58.8 & Yes \\
+    & HLT\_mu6\_mu4\_bJpsimumu\_Lxy0\_L1BPH-2M9-MU6MU4\_BPH-0DR15-MU6MU4 & BLS & 25.4 & Yes\\
+    & HLT\_2mu4\_bJpsimumu\_Lxy0\_L1BPH-2M9-2MU4\_BPH-0DR15-2MU4 & BLS & 4.97 & \textred{No?}\\
     \hline
     \end{tabular}
-    \caption[Triggers]{HLTs used by data taking period for the reference channel.}
+    \caption[Triggers]{Triggers used by data taking period for the reference channel.}
     \label{tab:triggers_reference}
 \end{table}
