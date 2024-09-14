@@ -1,9 +1,136 @@
 \subsection{Objects and Baseline Event Selection}
-\label{subsec:BaselineEventSelection}
+On top of the trigger requirements, there exists a baseline offline event selection in order to select events compatible with the signal and reference channel topologies. 
+
+\subsubsection{Derivation Level Selection}
+\label{subsubsec:DerivationLevelSelection}
+
+Beginning at derivation level, as in the PR2 analysis the \verb|BPHY8| derivation is used to construct the \bmeson and \Jpsi candidates. 
+This aspect of the analysis is largely unchanged from the PR2 analysis, most of the text below is taken directly from the PR2 Internal note. 
+
+In the signal channel, the \Bds candidates are constructed from pairs of oppositely charged combined muons, which are themselves constructed from tracks in the Inner Detector (ID) matched to hits in the Muon Spectrometer (MS). 
+The muon momenta are calibrated before vertexing following the recommendations of the the Muon Combined Performance (MCP) group. 
+\textred{Add more info here?}
+Using the \texttt{JpsiFinder} tool, the \Bds\ candidates are 
+constructed by a fit of the two muon's inner detector tracks to a
+common vertex requiring $\chi^2_{\Bds}/NDF < 15$ and $3500~\mathrm{MeV} 
+< m_{\Bds} < 7000~\mathrm{MeV}$.  
+The muon-based mass \mucalcmassBds and the corresponding 
+uncertainty are calculated as the invariant
+mass from the four-momentum sum using the combined muon
+information of the two muons comprising the candidate.  
+This is to be distinguished from the vertex mass, \muvtxmassBds, which is computed using the four-momentum of the ID tracks. 
+The PDG-mass for muons is used in the \mucalcmassBds calculation.
+On data, both masses are blinded if both \mucalcmassBds and \muvtxmassBds values of fall into the blinded region around the nominal $\Bs$, i.e. into the interval from 5166~MeV to 5526~MeV.
+\textred{DJ: are the PDG masses used also in the VTX mass calculations? I guess yes but should confirm.}
+
+For the \BpmKpmJpsi reference channel, first \JpsiMuMu candidates are reconstructed using the \texttt{JpsiFinder} with a mass range of $2000~\mathrm{MeV} < m_{\Jpsi} < 7000~\mathrm{MeV}$.
+The \texttt{JpsiPlus1TrackFinder} tool is then used to combine the \Jpsi\ 
+candidates with an additional track\footnote{
+  The BLS group's standard inner detector track preselection
+  for vertexing as defined in \texttt{configureVertexing.py} is applied, among
+  them 
+  \texttt{pTMin = 400.0}~MeV,
+  and the minimal track hit requirements
+  \texttt{nHitBLayer = 0}, 
+  \texttt{nHitPix = 1},
+  \texttt{nHitBLayerPlusPix = 1},
+  \texttt{nHitSct = 2},
+  \texttt{nHitSi = 3},
+  \texttt{NHitTrt = 0} 
+  as well as
+  \texttt{TrtMaxEtaAcceptance = 1.9}.
+}
+which is assigned the charged Kaon mass and is required to have  
+$\pt > 1$~GeV and $|\eta| < 2.5$.
+A mass constraint of the \Jpsi\ candidate's mass to the \Jpsi\ PDG mass is applied. 
+The \Bpm\ candidates are accepted if $\pt^{K^\pm} > 1$~GeV, $\chi^2_{\Bpm}/NDF < 15$ and $3500~\mathrm{MeV} < m_{\Bpm} < 7000~\mathrm{MeV}$.
+As in the signal channel, two different invariant mass quantities and uncertainties are computed; 
+the combined muon-based mass values \mucalcmassBpm using the four-momenta of the two muons and the additional kaon
+track, assuming PDG values for the masses of the muons and the kaon
+as appropriate, and an ID-based mass \muvtxmassBpm.    
+No mass-value blinding is applied to the reference channel. 
+
+For the \BsJpsiPhi control channel, the \Jpsi\ candidates are reconstructed in the same way as in the \BpmKpmJpsi\ channel and are combined with two oppositely-charged inner detector tracks assigned to be kaons from the $\phi$ decay. 
+These tracks must satisfy the same requirements as the kaon track in the \BpmKpmJpsi reconstruction. 
+This reconstruction is done with the \texttt{JpsiPlus2TracksFinder} tool. 
+A mass constraint of the \Jpsi\ candidate's mass to the \Jpsi\ PDG mass is applied.
+As in the other channels, invariant masses using the combined muon four vectors and just the ID information are computed.  
+No mass-value blinding is applied to the control channel candidates.
+
+
+For the exclusive MC samples, only the reconstruction of relevant decay modes is applied.  
+For the \Bhh and semi-leptonic samples, the requirements that the inner detector tracks must be identified as combined muons is relaxed in order to study fake-rates.  
+Instead, two oppositely charged tracks with $\pt > 3.5$~GeV and $|\eta| < 2.5$ are required.
+\textred{DJ: Semi lep do we require one real muon?}
+For the \BpPipJpsi\ Monte Carlo sample, the reconstruction of the \Bpm assumes 
+the PDG kaon mass for the pion.  %The second version is needed as
+This is needed since to model \BpPipJpsi\ data events that pass the  \BpmKpmJpsi\ channell selections. 
+(due to the wrongly-assigned mass values for the pion track).
+
+\subsubsection{Kinematic Variables}
+At derivation level each $B$ and $\Jpsi$ candidate is provided with
+additional information about the separation w.r.t. the associated 
+primary vertex (see Section~\ref{subsec:PVdetermination}), 
+the isolation of the candidate, as well as topological and kinematic variables.
+
+% diagram indicating geometry 
+
+\textred{check isolation variables - see Aidan's note.}
+
+\begin{itemize}
+\item Isolation of the decay candidate $I_{0.7}$ and 
+  number of tracks around the candidate $N^{trks}_{0.7}$\\
+  Only 
+  tracks of the CP-type ``loose'' being part of the primary vertex 
+  associated to the secondary vertex and tracks not associated to any
+  primary vertex are taken into acount.  The tracks which are not part
+  of the secondary vertex candidate are required to
+  have $\pt > 0.5$~GeV and to stem 
+  from within a cone of $\Delta R < 0.7$ around the $B$ candidates
+  momentum vector.  The tracks considered also need to be close enough
+  to the primary vertex, i.e. $\log\chi^2_{DCA} < 5$ where
+  \[ 
+  \log\chi^2_{DCA} = \log\left(\left(\frac{d_0}{\sigma_{d_0}}\right)^2 
+    + \left(\frac{z_0}{\sigma_{z_0}}\right)^2\right)
+  \]
+  with the transverse and longtidinal impact parameters $d_0$ and 
+  $z_0$ respectively.
+  $N^{trks}_{0.7}$ records the number of non-decay-candidate tracks
+  within the cone.
+\item Isolation of the muons $I_{0.7}^{\mu_i}$ and
+  number of tracks around the muons $N_{0.7, \mu_i}^{trks}$\\
+  Similar to the isolation variables for the decay candidate,
+  $I_{0.7}^{\mu_i}$ are calculated as the isolation values for 
+  the two muons within a cone of $\Delta R<0.7$ around each muon's
+  momentum vector w.r.t. inner detector tracks.  The number of 
+  tracks within the cone is recorded by $N_{0.7, \mu_i}^{trks}$.
+\item Closest track to the vertex candidate and number of close
+  tracks $N^{close}_{trks}$\\
+  Link to the track closest to the decay vertex candidates from 
+  the set of tracks fulfilling the same requirements as for the
+  determination of the isolation variable except for the 
+  missing cone size requirement and an adjusted  
+  $\log\chi^2_{DCA} < 7$ cut.
+  In addition the number of all qualifying closest track candidates
+  with $\log\chi^2_{DCA,SV} < 1$ is recorded as  $N^{close}_{trks}$ where $\log\chi^2_{DCA,SV}$ is calculated w.r.t.
+  the secondary vertex' position.
+\item \texttt{minLogChi2ToAnyPV}\\
+  The minimum distance in $\chi^2$ of the two signal candidate muons to any primary
+  vertex, using information from the refitted primary vertices.
+\item Transverse, longitudinal and 3-dimensional impact parameters 
+  w.r.t. the associated primary vertex and corresponding uncertainties
+\item Transverse decay distance $L_{xy}$ w.r.t. the associated primary
+  vertex and its uncertainty\\
+%  See Table~\ref{tab:15vars} for the definition of $L_{xy}$.
+\item Proper decay time $\tau$ and its uncertainty
+\end{itemize}
 
 The baseline selections cuts are the same as in the PR2 analysis and are summarized in the Table~\ref{tab:baselineSelection} below. 
 
+
 % add definition of kinematic variables
+
+\subsubsection{Baseline Selection Summary table}
 
 \begin{table}[h]
     \centering
