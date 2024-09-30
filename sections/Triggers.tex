@@ -5,7 +5,7 @@ The triggers available for use in the signal and reference channels per year are
 For consistency with the PR2 analysis, the same triggers used in that analysis are used for 2015-2016 here. 
 \textcolor{red}{DJ: Note for 2015-2016 as in PR2 we don't use HLT\_2mu6\_bBmumu\_Lxy0, which has a recorded lumi around $37\,\ifb$. PR2 INT note states it was not included due to time constraints - here I guess we just want to be consistent with PR2?}
 At Level-1 (L1), these triggers simply require two muons with \pT thresholds of $6\,\GeV$ and $4\,\GeV$. 
-For the High Level Trigger (HLT), they additional require an invariant mass cut and in 2016 that $L_{xy} > 0$, where $L_{xy}$ is as defined in Section~\ref{subsec:BaselineEventSelection}. 
+For the High Level Trigger (HLT), they additional require an invariant mass cut and in 2016 that $L_{xy} > 0$, where $L_{xy}$ is as defined in Section~\ref{subsec:KinematicVariables}. 
 For 2017 and 2018 new triggers were developed which include topological cuts at L1. 
 This was necessary in order to maintain manageable rates with the increased instantaneous luminosity in 2017 and 2018.
 Specifically, the topological triggers require the invariant mass of the muon candidates at L1 to be between $2\,\GeV$ and $9\,\GeV$ (as indicated by 2M9 in the trigger chains) and the $\Delta R$ of the muon candidates to be between 0 and 1.5 (0DR15) or 0.2 and 1.5 (2DR15). 
@@ -15,7 +15,7 @@ In 2017, the topological triggers are available with \pT thresholds on both muon
 Additionally, in 2018, triggers with $4\,\GeV$ \pT thresholds on both candidates are available (\verb|2mu4|). 
 The lower \pT threshold triggers have lower integrated luminosities as they are subject to pre-scales but otherwise have higher efficiencies due to the lower thresholds.
 In practice, these triggers mostly have actual prescales of 1 but are only turned-on towards the end of fills where the instantaneous luminosity is lower. 
-The choice of which triggers to use in each data taking period is based upon the impact on the total signal yield passing the nominal analysis selections discussed in Section~\ref{subsec:BaselineEventSelection}, which is studied using MC.  
+The choice of which triggers to use in each data taking period is based upon the impact on the total signal yield passing the nominal analysis selections discussed in Section~\ref{subsec:ObjectsAndBaselineSelection}, which is studied using MC.  
 The effect of the pre-scales on MC is handled using the pile-up reweighting tool~\cite{Buttinger:2014726} with the \verb|UseRunDependentPrescaleWeight| option set to true. 
 \textcolor{red}{DJ: To be discussed exactly what we want to add here (.e.g MC yields).} 
 
