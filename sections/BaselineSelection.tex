@@ -8,7 +8,7 @@ Beginning at derivation level, as in the PR2 analysis the \verb|BPHY8| derivatio
 This aspect of the analysis is largely unchanged from the PR2 analysis, most of the text below is taken directly from the PR2 Internal note. 
 
 In the signal channel, the \Bds candidates are constructed from pairs of oppositely charged combined muons, which are themselves constructed from tracks in the Inner Detector (ID) matched to hits in the Muon Spectrometer (MS). 
-The muon momenta are calibrated before vertexing following the recommendations of the the Muon Combined Performance (MCP) group. 
+The muon momenta are calibrated before vertexing following the recommendations of the Muon Combined Performance (MCP) group. 
 \textred{Add more info here?}
 Using the \texttt{JpsiFinder} tool, the \Bds\ candidates are 
 constructed by a fit of the two muon's inner detector tracks to a
@@ -68,69 +68,47 @@ This is needed since to model \BpPipJpsi\ data events that pass the  \BpmKpmJpsi
 (due to the wrongly-assigned mass values for the pion track).
 
 \subsubsection{Kinematic Variables}
-At derivation level each $B$ and $\Jpsi$ candidate is provided with
-additional information about the separation w.r.t. the associated 
-primary vertex (see Section~\ref{subsec:PVdetermination}), 
-the isolation of the candidate, as well as topological and kinematic variables.
+Various kinematic variables describing the separation of the $B$-candidate with respect to the associated primary vertex, the isolation of the candidate and the candidate topology are used in the analysis.
+For convenience, these variables are defined in Table~\ref{tab:KinematicVariables}.
+\input{Tables/KinematicVariablesTable.tex}
 
-% diagram indicating geometry 
+Compared to the previous iteration of the analysis, there is a change in the track to vertex association used to compute the $B$-isolation variables, specifically \biso, \docaxtrk and \nclosetrk.
+This is motivated by the higher pile-up in 2017 and 2018 compared to 2015-2016. 
+The changes are discussed in detail in a dedicated note~\cite{Grummer:2766854} and are summarized here briefly. 
+In general, the proximity of a track to a vertex $V$ can be described by 
+\begin{equation}
+  \ln(\chi^2)_{\text{trk}}^{V} = \ln\left(\left(\frac{d_0}{\sigma_{d_0}}\right)^2 
+    + \left(\frac{z_0}{\sigma_{z_0}}\right)^2\right),
+\end{equation}
+where $d_0$ and $z_0$ are the transverse and longitudinal impact parameters respectively with resolutions $\sigma_{d_0}$ and $\sigma_{z_0}$.
 
-\textred{check isolation variables - see Aidan's note.}
+In both the PR2 analysis and this analysis, the primary vertex associated to the $B$-candidate is chosen as the one with the shortest separation along $z$ from the point of closest approach of the $B$-extrapolation to the beam line. 
 
-\begin{itemize}
-\item Isolation of the decay candidate $I_{0.7}$ and 
-  number of tracks around the candidate $N^{trks}_{0.7}$\\
-  Only 
-  tracks of the CP-type ``loose'' being part of the primary vertex 
-  associated to the secondary vertex and tracks not associated to any
-  primary vertex are taken into acount.  The tracks which are not part
-  of the secondary vertex candidate are required to
-  have $\pt > 0.5$~GeV and to stem 
-  from within a cone of $\Delta R < 0.7$ around the $B$ candidates
-  momentum vector.  The tracks considered also need to be close enough
-  to the primary vertex, i.e. $\log\chi^2_{DCA} < 5$ where
-  \[ 
-  \log\chi^2_{DCA} = \log\left(\left(\frac{d_0}{\sigma_{d_0}}\right)^2 
-    + \left(\frac{z_0}{\sigma_{z_0}}\right)^2\right)
-  \]
-  with the transverse and longtidinal impact parameters $d_0$ and 
-  $z_0$ respectively.
-  $N^{trks}_{0.7}$ records the number of non-decay-candidate tracks
-  within the cone.
-\item Isolation of the muons $I_{0.7}^{\mu_i}$ and
-  number of tracks around the muons $N_{0.7, \mu_i}^{trks}$\\
-  Similar to the isolation variables for the decay candidate,
-  $I_{0.7}^{\mu_i}$ are calculated as the isolation values for 
-  the two muons within a cone of $\Delta R<0.7$ around each muon's
-  momentum vector w.r.t. inner detector tracks.  The number of 
-  tracks within the cone is recorded by $N_{0.7, \mu_i}^{trks}$.
-\item Closest track to the vertex candidate and number of close
-  tracks $N^{close}_{trks}$\\
-  Link to the track closest to the decay vertex candidates from 
-  the set of tracks fulfilling the same requirements as for the
-  determination of the isolation variable except for the 
-  missing cone size requirement and an adjusted  
-  $\log\chi^2_{DCA} < 7$ cut.
-  In addition the number of all qualifying closest track candidates
-  with $\log\chi^2_{DCA,SV} < 1$ is recorded as  $N^{close}_{trks}$ where $\log\chi^2_{DCA,SV}$ is calculated w.r.t.
-  the secondary vertex' position.
-\item \texttt{minLogChi2ToAnyPV}\\
-  The minimum distance in $\chi^2$ of the two signal candidate muons to any primary
-  vertex, using information from the refitted primary vertices.
-\item Transverse, longitudinal and 3-dimensional impact parameters 
-  w.r.t. the associated primary vertex and corresponding uncertainties
-\item Transverse decay distance $L_{xy}$ w.r.t. the associated primary
-  vertex and its uncertainty\\
-%  See Table~\ref{tab:15vars} for the definition of $L_{xy}$.
-\item Proper decay time $\tau$ and its uncertainty
-\end{itemize}
+In the PR2 analysis, tracks are associated to this primary vertex if $\ln(\chi^2)_{\text{trk}}^{V} \leq 5$. 
+In this analysis, a custom track to vertex association is used instead whereby all primary vertices are considered and tracks are matched to the primary vertex for which the $\ln(\chi^2)_{\text{trk}}^{V}$ is minimized. 
+Additional requirements are imposed on the tracks associated to the primary vertex for the computation of the isolation variables.
+Some of these additional requirements also differ slightly with respect to the PR2 analysis.   
+The unique requirements for each variable are summarized in Table~\ref{tab:IsoTrackRequirements}, which details also the requirements used in the PR2 analysis for reference. 
+In all cases the tracks selected are required to have $\pT > 500\,\MeV$, as was the case in the PR2 analysis. 
 
-The baseline selections cuts are the same as in the PR2 analysis and are summarized in the Table~\ref{tab:baselineSelection} below. 
+\begin{table}
+  \centering
+  \begin{tabular}{c|c|c}
+    \hline
+    Variable & FR2 track requirements & PR2 track requirements \\ 
+    \hline
+    \biso & $\Delta R(B, \text{trk}) < 1.0$ & $\Delta R(B, \text{trk}) < 0.7$ \\ & & \\
+    $\text{DOCA}_{\text{xtrk}}$ & $\ln(\chi^2)^{SV}_{\text{trk}} \leq 7$ & $\ln(\chi^2)^{SV}_{\text{trk}} < 7$ \\ & & \\
+    $N^{\text{close}}_{\text{trks}}$ & $\ln(\chi^2)^{SV}_{\text{trk}} \leq 2$ & $\ln(\chi^2)^{SV}_{\text{trk}} \leq 1$ \\ & & \\
+    \hline
+  \end{tabular}
+  \caption{Requirements on the tracks used in the computation of the $B$-isolation variables}
+  \label{tab:IsoTrackRequirements}
+\end{table}
 
+\subsubsection{Ntuple level selection}
 
-% add definition of kinematic variables
-
-\subsubsection{Baseline Selection Summary table}
+The baseline selections cuts applied at the ntuple level are the same as in the PR2 analysis and are summarized in the Table~\ref{tab:baselineSelection} below. 
 
 \begin{table}[h]
     \centering
