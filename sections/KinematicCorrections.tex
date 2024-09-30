@@ -1,2 +1,65 @@
 \section{Kinematic Corrections to Monte Carlo Samples}
 \label{sec:KinematicCorrections}
+
+The Monte Carlo samples listed in Section~\ref{sec:MCSamples} are used for various aspects of the analysis, including the evaluation of the acceptances and efficiencies in Equation~\ref{eq:BRFormula}.
+In order to be accurate, various corrections are applied to the MC samples as weights for use in these computations and studies. 
+The different corrections are:
+\begin{itemize}
+    \item  \textit{Pile Up Weights (PUWs)}: these are computed using the \verb|getCombinedWeight| function of the pile-up reweighting tool\cite{Buttinger:2014726} mentioned in Section~\ref{subsec:Triggers}. These weights correct the pile-up profile of the different MC periods to match that of data, scale the MC periods to match the relative production luminosity and account for the effect of trigger pre-scales.   
+    \item \textit{Muon reconstruction scale factors (MSFs)}: these weights correct for data/MC discrepancies in muon reconstruction, as prescribed by the Muon CP group. 
+    \item \textit{Trigger Scale Factors (TSFs)}: these weights account for differences between the trigger efficiencies between data and MC. \textred{At present only make sense for MC16a/2015-2016}.
+    \item \textit{Quark Level Corrections (QLCs)}: the nominal MC samples are generated with quark level cuts in order to improve statistics passing the analysis selections. Such cuts can induce a bias as they change the shape of kinematic variables. The QLCs correct for this bias. The computation of the QLCs is discussed in more detail later in this section. 
+    \item \textit{Data-Driven Weights (DDWs)}: these weights account for differences in the MC modelling and actual data. They are evaluated using the \BpmKpmJpsi reference channel. The procedure for computing them is also discussed in more detail in this section.  
+\end{itemize}
+
+These corrections are the same as was used in the PR2 analysis but are re-evaluated for the Full Run 2 samples. 
+Additionally, the procedure for evaluating the DDWs has been revised, as detailed later in this section.  
+Except for studies where it is stated otherwise, PUWs, TSFs and MSFs are applied to all samples, however QLCs and DDWs are not applied to the \bbJpsiX and \bbmumuX samples.
+This is because these samples are not used to compute efficiencies or acceptances; their main purpose is to check function forms of different backgrounds in the signal and reference channels. 
+
+% DJ: don't think a table is necessary - assume we're always applying all weights and we should state explicitly where we are not.
+%\begin{table}[h]
+%    \centering
+%    \begin{tabular}{|c|c|c|c|}
+%        \hline
+%        Sample &  QLCs & DDWs \\
+%        \hline 
+%        \Bsmumu & \checkmark & \checkmark 
+%        \\
+%        \Bdmumu & \checkmark & \checkmark
+%        \\
+%        \BpKpJpsi\ with \JpsiMuMu & \checkmark & \checkmark
+%        \\
+%        \BmKmJpsi\ with \JpsiMuMu & \checkmark & \checkmark
+%        \\
+%        \BpPipJpsi\ with \JpsiMuMu & \checkmark & \checkmark
+%        \\
+%        \BmPimJpsi\ with \JpsiMuMu & \checkmark & \checkmark
+%        \\
+%        \BsJpsiPhi\ with \JpsiMuMu, \Phikk & \checkmark & \checkmark
+%        \\
+%        \Bhh & \cross & \cross
+%        \\
+%        \BsKmMupNu & \checkmark & \checkmark
+%        \\
+%        \BdPimMuPNu & \checkmark & \checkmark
+%        \\
+%        \LPMuNu & \checkmark & \checkmark
+%        \\
+%        \AntiLPMuNu & \checkmark & \checkmark
+%        \\
+%        \bbJpsiX with \JpsiMuMu & \cross & \cross
+%        \\
+%        \bbmumuX & \cross & \cross
+%        \\
+%        \hline
+%    \end{tabular}
+%    \caption{Summary of which samples have Muon reconstruction scale factors (MSFs), Quark Level Corrections (QLCs) and Data Driven Weights (DDWs) applied. For the semi-leptonic samples, }
+%\end{table} 
+
+
+\subsection{Quark Level Corrections (QLCs)}
+\label{sec:QLCs}
+
+\subsection{Data Driven Weights (DDWs)}
+\label{sec:DDWs}
