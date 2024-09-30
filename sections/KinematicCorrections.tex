@@ -14,8 +14,9 @@ The different corrections are:
 
 These corrections are the same as was used in the PR2 analysis but are re-evaluated for the Full Run 2 samples. 
 Additionally, the procedure for evaluating the DDWs has been revised, as detailed later in this section.  
-Except for studies where it is stated otherwise, PUWs, TSFs and MSFs are applied to all samples, however QLCs and DDWs are not applied to the \bbJpsiX and \bbmumuX samples.
-This is because these samples are not used to compute efficiencies or acceptances; their main purpose is to check function forms of different backgrounds in the signal and reference channels. 
+Except for studies where it is stated otherwise, PUWs, TSFs and MSFs are always applied to all samples.
+On the other hand, QLCs and DDWs are only applied to the \Bmumu, \BpmKpmJpsi and \BsJpsiPhi samples (i.e. they are not applied to the \Bhh, semi-leptonic, \bbJpsiX and \bbmumuX samples).
+This is because only these samples are used to compute efficiencies and acceptances; the main purpose of the other samples is to check functional forms of different backgrounds in the signal and reference channels. 
 
 % DJ: don't think a table is necessary - assume we're always applying all weights and we should state explicitly where we are not.
 %\begin{table}[h]
@@ -57,9 +58,8 @@ This is because these samples are not used to compute efficiencies or acceptance
 %    \caption{Summary of which samples have Muon reconstruction scale factors (MSFs), Quark Level Corrections (QLCs) and Data Driven Weights (DDWs) applied. For the semi-leptonic samples, }
 %\end{table} 
 
+\input{sections/QLCs.tex}
 
-\subsection{Quark Level Corrections (QLCs)}
-\label{sec:QLCs}
 
 \subsection{Data Driven Weights (DDWs)}
 \label{sec:DDWs}

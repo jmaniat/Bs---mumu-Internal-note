@@ -1,0 +1,46 @@
+\subsection{Quark Level Corrections (QLCs)}
+\label{sec:QLCs}
+
+The nominal set of MC samples used in the analysis have two different types of cuts applied in their generation:
+\begin{itemize}
+    \item \textit{Quark Level Cuts}: These are cuts applied on the $b$-quark kinematics
+    \item \textit{Final State Cuts}: These are cuts applied on the final state objects, e.g. muons.  
+\end{itemize}
+The Quark Level Corrections (QLCs) correct for the bias of the quark level cuts, and are evaluated using dedicated sets of MC samples; one with the same quark-level cuts as used in the nominal samples, the other with significantly looser quark-level cuts.  
+No cuts on final state objects are applied to either set of MC samples for the QLC evaluation.
+As in the PR2 analysis, the QLCs are computed in bins of $pT_B$, $\eta_B$ as  
+\begin{equation}
+ W_{\text{QL}} = \nu^{\text{FScuts}}_{\text{quarkBiased}} \cdot \left(  \frac{\sigma^{\text{Pythia}}_{\text{quarkBiased}}}{N^{\text{tot}}_{\text{quarkBiased}}} \right) / \left[ \nu^{\text{FScuts}}_{\text{unbiased}} \cdot \left( \frac{\sigma^{\text{Pythia}}_{\text{unbiased}}}{N^{\text{tot}}_{\text{unbiased}}} \right) \right],
+\label{eq:QLCformula}
+\end{equation}
+where $\nu$ is the number of entries in a ($pT_B$, $\eta_B$) bin from 
+the unbiased or quark biased samples after applying the final state 
+particle cuts. $\sigma^{\text{Pythia}}$ and $N^{\text{tot}}$ are, respectively, the Pythia-calculated generation cross-section and the number of generated events for the given samples. 
+The $\frac{\sigma^{\text{Pythia}}}{N^{\text{tot}}}$ terms in equation~\ref{eq:QLCformula} account for the relative 'integrated luminosity' of the two MC samples considered.
+
+
+QLCs are evaluated separately for the \Bmumu, \BpmKpmJpsi and \BsJpsiPhi processes. 
+In the case of the \Bmumu samples, the same job options as in the PR2 analysis are used thus the QLCs do not need to be re-evaluated. 
+For the \BpmKpmJpsi and \BsJpsiPhi samples, the nominal MC samples have looser quark-level cuts then was used in the PR2 analysis, resulting in less extreme  values of the corrections (i.e. values closer to 1.0). 
+The values of the quark-level and final state cuts for the different samples are detailed in Table~\ref{tab:genCuts}. 
+
+\begin{table}[htb]
+  \begin{center} 
+    %\begin{tabular}{| c | c | c | c | c | c | c | c |}
+    \begin{tabular}{| p{3.0cm} | p{1.5cm} | p{1.5cm} | p{1.5cm} | p{1.5cm} | p{1.5cm} | p{1.5cm} | p{1.5cm} |}
+      \hline
+      & $\hat{\pt}\text{min}$ /\GeV &  anti-b $\eta$  &  anti-b \pt / \GeV  &  muons  $\eta$  &   muons \pt /\GeV  & final h  $\eta$  &  final h \pt /\GeV\\ \hline
+      nominal $B^+ \to J/\psi K^+$  & 5 &  2.6  &  7 &  2.6  &   3.5 & 2.6  & 0.9 \\ \hline
+      quark biased $B^+ \to J/\psi K^+$  & 5 &  2.6  &  7 &    &    &  & \\ \hline
+      unbiased $B^+ \to J/\psi K^+$  & 5 &  4  &  2.5 &   &    &  &  \\ \hline
+      nominal $B_s \to \mu^+ \mu^-$  & 5 &  2.6  & 5 &  2.6  &  3.5 &  &  \\ \hline
+      quark biased $B_s \to \mu^+ \mu^-$  &  5 & 2.6   &  5 &    &     &  &  \\ \hline
+      unbiased $B_s \to \mu^+ \mu^-$  & 5 &  4  & 2.5  &    &     &  &  \\ \hline
+      nominal $B_s \to J/\psi \phi$  & 5 &  2.5  & 9 &  2.6  &  3.5 &  2.6 &  0.8 \\ \hline
+      quark biased $B_s \to J/\psi \phi$  &  5 &  2.5  & 9  &    &     &  &  \\ \hline
+      unbiased $B_s \to J/\psi \phi$  & 5  & 4   & 2.5  &    &     &  &  \\ \hline
+    \end{tabular}
+    \caption{Quark-level and final state particle cuts per MC sample.}
+    \label{tab:genCuts}  
+  \end{center}
+\end{table}
