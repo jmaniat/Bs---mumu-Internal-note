@@ -22,11 +22,67 @@ This chapter will define the functional forms of the components relevant to the 
 \subsection{Signal Models}
 \label{subsec:SignalModels}
 
+The \Bsmumu and \Bdmumu signals are both modelled by a superposition of two Gaussians as shown in equation~\ref{eq:DoubleGaussian}
+\begin{eqnarray}
+  \hbox{\hspace{-16mm}}F(x) = f \cdot G(x; \mu_1, \sigma_1) + (1 - f) \cdot G(x; \mu_2, \sigma_2) =
+  \hbox{\hspace{-0mm}}f \cdot \frac{1}{\sqrt{2\pi}\sigma_1} \exp\left[-\frac{(x-\mu_1)^2}{2\sigma_1^2}\right] + (1-f) \cdot \frac{1}{\sqrt{2\
+      \pi}\sigma_2} \exp\left[-\frac{(x-\mu_2)^2}{2\sigma_2^2}\right]
+  \label{eq:DoubleGaussian}
+\end{eqnarray}
+, where to take into account the radiative tails of these signals the means of the two gaussians ($\mu_1$,$\mu_2$) are modelled independently. The other parameters in equation~\ref{eq:DoubleGaussian} include the indpendent sigmas of the two Gaussians ($\sigma_1$,$\sigma_2$), as well as the fraction of first Gaussian with respect to the second Gaussian ($f$). To extract the shape parameters of these distribution the signal MC is fit with the signal model. It was found that the shape parameters are not dependent on the BDT output as expected.
+
+Both the \Bsmumu and \Bdmumu MC samples of O($10^5$) events used in this study are significantly larger than the statistics expected in data of O(400) for \Bsmumu and O(40) for \Bdmumu. Due to the large MC sample size the fit would be sensitive to subtle details in the PDF shape, which are completely irrelevant for the fit to data where these details are indistinguishable due to the limited statistics. For this reason the fit is performed on bootstrapped MC samples where the bootstrapping procedure is:
+\begin{enumerate}
+    \item Separate the signal MC into 4 subsamples \textcolor{red}{for each of the 4 BDT bins}
+    \item For each of the subsamples select at random 4000 events
+    \item Simultaneously fit the 4 bootstrapped MC subsamples with a constraint that the shape is the same across all BDT bins
+    \item Repeat the procedure 1000 times
+    \item Take the average of the shape parameters from each bootstrap repetition
+\end{enumerate}
+
+\textcolor{red}{Paragraph about the mass offset from PGD values , check also for the reference channel}
+
+The mass scale variation will be taken into account in the systematics study.
+
+
 \subsubsection{\Bsmumu Model}
 \label{subsubsec:BsmumuModel}
 
+The average values of the \Bsmumu signal shape parameters from the bootstrapped MC subsamples are therefore:
+\begin{itemize}
+\item $\mu_1$: 5360.07 $\pm$ 0.92
+\item $\sigma_1$: 84.3 $\pm$ 1.3
+\item $\mu_2$: 5275 $\pm$ 10
+\item $\sigma_2$: 196.6 $\pm$ 7.0
+\item $f$: 0.863 $\pm$ 0.016 
+\end{itemize}
+, where the uncertainties are gived as the RMS from the corresponding fitted shape parameter histogram. Figure~\ref{fig:example_fit_Bs} shows 1 of 1000 bootstrapped MC sample fits. The shape parameters \textcolor{red}{add whether they are different or not to PR2 analysis and if yes give an answer why.}
+
+\begin{figure}[h]
+    \includegraphics[width=1.0\textwidth]{figures/SignalExtraction/example_fit_Bs.pdf}
+    \caption{Example of 1 random fit from 1000 bootstrapped \Bsmumu MC samples, where the green line is the first Gaussian and the red line is the second Gaussian.}
+    \label{fig:example_fit_Bs}
+\end{figure}
+
+
 \subsubsection{\Bdmumu Model}
 \label{subsubsec:BdmumuModel}
+
+The average values of the \Bdmumu signal shape parameters from the bootstrapped MC subsamples are therefore:
+\begin{itemize}
+   \item $\mu_1$: 5273.80 $\pm$ 0.90
+   \item $\sigma_1$: 79.6 $\pm$ 1.6
+   \item $\mu_2$: 5214.4 $\pm$ 8.5
+   \item $\sigma_2$: 172.5 $\pm$ 6.4
+   \item $f$: 0.815 $\pm$ 0.024 
+\end{itemize}
+, where the uncertainties are gived as the RMS from the corresponding fitted shape parameter histogram. Figure~\ref{fig:example_fit_Bd} shows 1 of 1000 bootstrapped MC sample fits. The shape parameters \textcolor{red}{add whether they are different or not to PR2 analysis and if yes give an answer why.}
+
+\begin{figure}[h]
+    \includegraphics[width=1.0\textwidth]{figures/SignalExtraction/example_fit_Bd.pdf}
+    \caption{Example of 1 random fit from 1000 bootstrapped \Bdmumu MC samples, where the green line is the first Gaussian and the red line is the second Gaussian.}
+    \label{fig:example_fit_Bd}
+\end{figure}
 
 
 \subsection{Resonant Background Model}
@@ -44,6 +100,18 @@ This chapter will define the functional forms of the components relevant to the 
 
 \subsection{Non-Resonant Background Components Models}
 \label{subsec:NonResonantBkgModel}
+
+The main source of background in the signal region are the \bb decays to two or more muons, with prompt contrinutions suppressed significantly by the BDT output selection. \textcolor{red}{Add a couple sentances about the confirmation of this in data sideabnds, and give the purity comparing to the PR2 analysis.}
+
+The large \bbmumuX MC sample is used to study the different non-resonant background contributions to the signal channel. The truth information from the \bbmumuX sample allows to classify the sources of this background according to their origin with the following classifications:
+\begin{itemize}
+   \item \textbf{Combinatorial} background, due to muons from opposite sides of the \bb legs. This is the dominant background contrinution that is highly suppressed by the BDT 
+   \item \textbf{Same-Side (SS)} background, due to muons originating by the same \bQuark leg from cascades \ensuremath{b\to c\mu^{-}\nu\to s(c)\mu^{-}\mu^{+}\nu}   
+   \item \textbf{Same-Vertex (SV)} background, due to partially reconstructed \bmeson decays containing muon pairs like \BpmKmumu
+   \item \textbf{\Bc} background, mostly due to \ensuremath{B^{\pm}\to\mu^{±}\nu J/\psi(\mu^{+}\mu^{-})} 
+   \item \textbf{\bQuark-Onia} background, due to heavier \bb bound states such as \UpsilonMeson decaying to two muons and photons
+   \item \textbf{Unmatched} background, which are events that could not be associated to MC truth that are comming from any underlying physics processes or pile-up vertices. This classification is very small compared to the combinatorial background and hence is merged with it. 
+\end{itemize}
 
 \subsubsection{Combinatorial Background}
 \label{subsubsec:COMBbkg}
