@@ -301,7 +301,7 @@ The semi-leptonic background originates from few-body semi-leptonic \B-decays wh
 
 \textcolor{red}{Describe the procedure to get estimation of the semileptonic yields from the fake rates.}
 
-With these few events expected to enter in the fit region we assume that the exponential (SS+SV) and Chebychev first degree polynomial (combinatorial) PDFs to absorb this contribution, so no explicit semi-leptonic component PDF is added to the default fit model. This assumption is taken into account in the evaluation of the fit systematic uncertainties in section~\ref{subsec:SystUncertaintySimultaneousFit}. To evaluate the impact of this fit systematic by including the semil-leptonic PDF in the full model, a functional form for this component is needed. The semi-leptonic decays are modelled by an exponential plus a gaussian tail as shown in equation~\ref{eq:expGaussTail}
+With these few events expected to enter in the fit region we assume that the exponential (SS+SV) and Chebychev first degree polynomial (combinatorial) PDFs to absorb this contribution, so no explicit semi-leptonic component PDF is added to the default fit model. This assumption is taken into account in the evaluation of the fit systematic uncertainties in section~\ref{subsec:SystUncertaintySimultaneousFit}. To evaluate the impact of this fit systematic by including the semileptonic PDF in the full model, a functional form for this component is needed. The semi-leptonic decays are modelled by an exponential plus a gaussian tail as shown in equation~\ref{eq:expGaussTail}
 \begin{eqnarray}
   F(x) = f \cdot E(x; \alpha) + (1 - f) \cdot G(x; \mu, \sigma)  
        = f \cdot \text{exp}(\alpha x) + (1 - f) \cdot \frac{1}{\sqrt{2\pi\sigma^2}} \text{exp}\left[-\frac{(x - \mu)^2}{2\sigma^2}\right]
@@ -309,7 +309,7 @@ With these few events expected to enter in the fit region we assume that the exp
 \end{eqnarray}
 , where $\alpha$ is the exponential constant, $f$ is the fraction of the exponetial with respect to the Gaussian, and the $\mu$ and $\sigma$ are resepctively the mean and sigma of the Gaussian.
 
-To validate the chosen PDF for the semi-leptonic background we fit the \B-candidate VTX mass distribution from the merged exclusive MC samples for the three modes with the PDF in equation~\ref{eq:expGaussTail} using a loosened selection: all final selections apart from the muon quality requirements and passing the online trigger are applied to the merged MC sample to allow for more statistics necessary for a good quality fit and convergence. Looseneing the selections on the semi-leptonic MC to extract the shape parameters for this background is justified because this PDF is only used in evaluation of the the fit systematics and is not indetneded for the final fit on data. The loosened selection MC fit results are shown in Figure~\ref{fig:semilepMCfitLoose} with the fitted PDF in all BDT output bins satisfactory reproducing the shape of the MC sample as can be seen from the residual destributions. With enough statistics the fit quality is also satisfactory with $p-value$ > 0.05 in each bin of the BDT output. These fitted shape parameters are used to fix the shape parameters for the fit in the full selection merged semi-leptonic MC sample as an extra step of validation: the shape from the loosened selection MC fit must be compatible with the full selection fit to validate this approach.
+To validate the chosen PDF for the semi-leptonic background we fit the \B-candidate VTX mass distribution from the merged exclusive MC samples for the three modes with the PDF in equation~\ref{eq:expGaussTail} using a loosened selection: all final selections apart from the muon quality requirements and passing the online trigger are applied to the merged MC sample to allow for more statistics necessary for a good quality fit and convergence. Loosening the selections on the semi-leptonic MC to extract the shape parameters for this background is justified because this PDF is only used in evaluation of the the fit systematics and is not intended for the final fit on data. The loosened selection MC fit results are shown in Figure~\ref{fig:semilepMCfitLoose} with the fitted PDF in all BDT output bins satisfactory reproducing the shape of the MC sample as can be seen from the residual distributions. With enough statistics the fit quality is also satisfactory with $p-value$ > 0.05 in each bin of the BDT output. These fitted shape parameters are used to fix the shape parameters for the fit in the full selection merged semi-leptonic MC sample as an extra step of validation: the shape from the loosened selection MC fit must be compatible with the full selection fit to validate this approach.
 \begin{figure}[h]
   \centering
   \subfloat[BDT bin 0 fit with BDT boundaries at {[0.1609,0.2636]}.]{
@@ -359,11 +359,82 @@ Figure~\ref{fig:semilepMCfit} shows the full selection merged semi-leptonic MC s
 
 
 
-\subsection{Non-Resonant Bacgkrounds Fits to MC and Data Sidebands}
+\subsection{Non-Resonant Background Fits to MC and Data Sidebands}
 \label{subsubsec:FitsMcDataSB}
+
+The non-resonant backgrounds in the fit to data are intended to be parametrised by an exponential (SS+SV background in the low-mass region) plus a first oder Chebychev polynomial (slowly falling combinatorial background in the full mass fit range). First we validate the combination of the chosen functional forms in section~\ref{subsubsec:SSSVplusCOMBcombinedFitMCandDataSB}, after which we validate the additional constraints on the exponential and polynomial slopes (arising from introducing the BDT-simultaneous fit strategy) in section~\ref{subsubsec:SimultaneousSSSVplusCOMBcombinedFitMCandDataSB}. In both these validations the MC fit results are compared to those from data by performing the relevant fits on the mass sidebands defined in section~\ref{sec:StrategyOverview}.
 
 \subsubsection{SS+SV and Combinatorial Combined Fit to MC and Data Sidebands}
 \label{subsubsec:SSSVplusCOMBcombinedFitMCandDataSB}
+
+In order to validate the combined background model (exponential + first order Chebychev polynomial) a blinded fit on the entire \bbmumuX MC sample is performed separately in each of the BDT bins considered. The slopes of the two PDFs along with the relevant uncertainties are then extracted and compared with what was obtained in the individual model fits to individual background MC samples of section~\ref{subsubsec:SSSVbkg} and section~\ref{subsubsec:COMBbkg}. The blinded fit results on combined MC sample are then compared to the blinded fit results on data.
+
+Figure~\ref{fig:blindedMCfitNonSim} shows the independent blinded fits on the entire \bbmumuX MC sample performed independently in the four BDT bins at high BDT output considered. The fits in all the BDT bins satisfactorily reproduce the MC shape with a $p$-value > 0.05. Similar fits are then performed on the data sidebands shown in Figure~\ref{fig:blindedDatafitNonSim}, where again the data shape is satisfactorily reproduced with a $p$-value > 0.05 in each BDT bin. 
+\begin{figure}[h]
+  \centering
+  \subfloat[BDT bin 0 fit with BDT boundaries at {[0.1609,0.2636]}.]{
+    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_non_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_MC_bin_0.pdf}
+    \label{fig:blindedMCfitNonSimBin0}
+  }
+  \subfloat[BDT bin 1 fit with BDT boundaries at {[0.2636,0.3405]}.]{
+    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_non_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_MC_bin_1.pdf}
+    \label{fig:blindedMCfitNonSimBin1}
+  }
+  \\
+  \subfloat[BDT bin 2 fit with BDT boundaries at {[0.3405,0.4055]}.]{
+    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_non_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_MC_bin_2.pdf}
+    \label{fig:blindedMCfitNonSimBin2}
+  }
+  \subfloat[BDT bin 3 fit with BDT boundaries at {[0.4055,1.0000]}.]{
+    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_non_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_MC_bin_3.pdf}
+    \label{fig:blindedMCfitNonSimBin3}
+  }
+  \caption{Unbinned extended maximum likelihood fits performed independently in BDT bin 0 \protect\subref{fig:blindedMCfitNonSimBin0}, 1 \protect\subref{fig:blindedMCfitNonSimBin1}, 2 \protect\subref{fig:blindedMCfitNonSimBin2}, and 3 \protect\subref{fig:blindedMCfitNonSimBin3} on the full \bbmumuX MC sample with a combined background model (exponential + first order Chebychev Polynomial). The MC sample has all final selections applied and is weighted.}
+  \label{fig:blindedMCfitNonSim}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \subfloat[BDT bin 0 fit with BDT boundaries at {[0.1609,0.2636]}.]{
+    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_non_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_data_bin_0.pdf}
+    \label{fig:blindedDatafitNonSimBin0}
+  }
+  \subfloat[BDT bin 1 fit with BDT boundaries at {[0.2636,0.3405]}.]{
+    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_non_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_data_bin_1.pdf}
+    \label{fig:blindedDatafitNonSimBin1}
+  }
+  \\
+  \subfloat[BDT bin 2 fit with BDT boundaries at {[0.3405,0.4055]}.]{
+    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_non_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_data_bin_2.pdf}
+    \label{fig:blindedDatafitNonSimBin2}
+  }
+  \subfloat[BDT bin 3 fit with BDT boundaries at {[0.4055,1.0000]}.]{
+    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_non_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_data_bin_3.pdf}
+    \label{fig:blindedDatafitNonSimBin3}
+  }
+  \caption{Unbinned extended maximum likelihood fits performed independently in BDT bin 0 \protect\subref{fig:blindedMCfitNonSimBin0}, 1 \protect\subref{fig:blindedMCfitNonSimBin1}, 2 \protect\subref{fig:blindedMCfitNonSimBin2}, and 3 \protect\subref{fig:blindedMCfitNonSimBin3} on data sidebands with a combined background model (exponential + first order Chebychev Polynomial).}
+  \label{fig:blindedDatafitNonSim}
+\end{figure}
+
+Figure~\ref{fig:shapesNonSim} shows the resulting slopes from all the fits on the Y-axis, whereas the X-axis is the average BDT output of the fitted events in each BDT bin. Bins at lower BDT outputs are not considered as they are not intended to be used in the extraction of the signal. The slopes of the first order Chebychev polynomials are shown in Figure~\ref{fig:COMBshapesNonSim} and the slopes of the exponentials are shown in Figure~\ref{fig:SSSVshapesNonSim}. Both the polynomial and the exponential slopes obtained with the combined model (red points) are compatible with those obtained independently (black points), which validates the combination of the SS+SV and combinatorial backgrounds functional forms in the final PDF intended to be used for the fit to data.
+
+The polynomial slopes of Figure~\ref{fig:COMBshapesNonSim} obtained from the data sidebands fits (green points) are compatible with those obtained from the MC sidebands fits (red points), which is in part due to their larger uncertainties. The larger data sidebands polynomial slope uncertainties are due to the reduced statistics available in data sidebands with respect to those available in the \bbmumuX MC sidebands. Visually linear dependence of the polynomial slope as a function of the average BDT output is present for the fits to both data and MC sidebands, and is consistent with observation made in section~\ref{subsubsec:COMBbkg}, hence confirming the choice of this linear constraint in the signal extraction model.
+
+The constant dependence of the exponential slopes with the average BDT output of Figure~\ref{fig:SSSVshapesNonSim} obtained from the data sidebands (green points) and MC sidebands (red points) is consistent with the observations made in section~\ref{subsubsec:SSSVbkg}, validating the flat line constraint for the exponential component in BDT bins to be included in the signal extraction model. 
+\begin{figure}[h]
+  \centering
+  \subfloat[Exponential slopes.]{
+    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_non_sim_FR2_BDT2024_BestNoMu_mu6mu4_SSSV_compare_points.pdf}
+    \label{fig:SSSVshapesNonSim}
+  }
+  \subfloat[First order Chebychev polynomial slopes.]{
+    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_non_sim_FR2_BDT2024_BestNoMu_mu6mu4_COMB_compare_points.pdf}
+    \label{fig:COMBshapesNonSim}
+  }
+  \caption{Exponential \protect\subref{fig:SSSVshapesNonSim} and first order Chebychev polynomial \protect\subref{fig:COMBshapesNonSim} constants from the fits performed individually in each of the four BDT bins. The X-axis shows the average BDT output value for the fitted events in the corresponding BDT bin, with horizontal error bars corresponding to the standard deviation of BDT output from events used in the fit. The black points represent the constants from the exponential and first order Chebychev polynomial fits to the individual SS+SV and combinatorial background components of the \bbmumuX MC sample respectively, whereas the red points represent the constants from the blinded fit to the entire \bbmumuX MC sample with the combined background model. The green points represent the constants obtained from the same fit configuration as was employed to obtain the red points but performed on the data sidebands. }
+  \label{fig:shapesNonSim}
+\end{figure}
+
 
 \subsubsection{BDT-Simultaneous SS+SV and Combinatorial Combined Fit to MC and Data Sidebands}
 \label{subsubsec:SimultaneousSSSVplusCOMBcombinedFitMCandDataSB}
