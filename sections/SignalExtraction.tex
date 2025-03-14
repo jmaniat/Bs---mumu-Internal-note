@@ -439,6 +439,93 @@ The constant dependence of the exponential slopes with the average BDT output of
 \subsubsection{BDT-Simultaneous SS+SV and Combinatorial Combined Fit to MC and Data Sidebands}
 \label{subsubsec:SimultaneousSSSVplusCOMBcombinedFitMCandDataSB}
 
+To reduce the complexity in the fit and based on the conclusions made in section~\ref{subsubsec:SSSVplusCOMBcombinedFitMCandDataSB} on the constraints of the background shapes, the final fit on data is inteded to be performed simultaneously in the four BDT bins. In this section we validate the additional constraints introduced by the simultaneous fit by performing it first on the \bbmumuX MC sidebands and then on data sidebands. The resulting shape parameters are then compared with the results of the non-simultaneous fit results of section~\ref{subsubsec:SSSVplusCOMBcombinedFitMCandDataSB} to validate this approach.
+
+In the simultaneous fit configuration The polynomial slopes are constrained to depend linearly on the average BDT output of the fitted events in each BDT bin, whereas the exponential slopes in each BDT bin are parametrised by a single shared exponential constant; the normalisations of the PDFs are allowed to be free. Figure~\ref{fig:blindedMCfitSim} shows the results of the simultaneous fit performed on the \bbmumuX MC sidebands and Figure~\ref{fig:blindedDatafitSim} shows the same fit configuration performed on data sidebands. Both these fits fully converge and satisfactorily reproduce the corresponding sample shape with $p$-value $\geq$ 0.05 in each BDT bin.
+\begin{figure}[h]
+  \centering
+  \subfloat[BDT bin 0 fit with BDT boundaries at {[0.1609,0.2636]}.]{
+    \includegraphics[width=0.5\textwidth, trim=0 0 0 30, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_MC_bin_0.pdf}
+    \label{fig:blindedMCfitSimBin0}
+  }
+  \subfloat[BDT bin 1 fit with BDT boundaries at {[0.2636,0.3405]}.]{
+    \includegraphics[width=0.5\textwidth, trim=0 0 0 30, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_MC_bin_1.pdf}
+    \label{fig:blindedMCfitSimBin1}
+  }
+  \\
+  \subfloat[BDT bin 2 fit with BDT boundaries at {[0.3405,0.4055]}.]{
+    \includegraphics[width=0.5\textwidth, trim=0 0 0 30, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_MC_bin_2.pdf}
+    \label{fig:blindedMCfitSimBin2}
+  }
+  \subfloat[BDT bin 3 fit with BDT boundaries at {[0.4055,1.0000]}.]{
+    \includegraphics[width=0.5\textwidth, trim=0 0 0 30, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_MC_bin_3.pdf}
+    \label{fig:blindedMCfitSimBin3}
+  }
+  \caption{Unbinned extended maximum likelihood fit performed simultaneously in BDT bin 0 \protect\subref{fig:blindedMCfitSimBin0}, 1 \protect\subref{fig:blindedMCfitSimBin1}, 2 \protect\subref{fig:blindedMCfitSimBin2}, and 3 \protect\subref{fig:blindedMCfitSimBin3} on the full \bbmumuX MC sample with a combined background model (exponential + first order Chebychev Polynomial). The shape parameter constraints are described in text and the MC sample has all final selections and weights applied.}
+  \label{fig:blindedMCfitSim}
+\end{figure}
+\begin{figure}[h]
+  \centering
+  \subfloat[BDT bin 0 fit with BDT boundaries at {[0.1609,0.2636]}.]{
+    \includegraphics[width=0.5\textwidth, trim=0 0 0 30, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_data_bin_0.pdf}
+    \label{fig:blindedDatafitSimBin0}
+  }
+  \subfloat[BDT bin 1 fit with BDT boundaries at {[0.2636,0.3405]}.]{
+    \includegraphics[width=0.5\textwidth, trim=0 0 0 30, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_data_bin_1.pdf}
+    \label{fig:blindedDatafitSimBin1}
+  }
+  \\
+  \subfloat[BDT bin 2 fit with BDT boundaries at {[0.3405,0.4055]}.]{
+    \includegraphics[width=0.5\textwidth, trim=0 0 0 30, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_data_bin_2.pdf}
+    \label{fig:blindedDatafitSimBin2}
+  }
+  \subfloat[BDT bin 3 fit with BDT boundaries at {[0.4055,1.0000]}.]{
+    \includegraphics[width=0.5\textwidth, trim=0 0 0 30, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_data_bin_3.pdf}
+    \label{fig:blindedDatafitSimBin3}
+  }
+  \caption{Unbinned extended maximum likelihood fit performed simultaneously in BDT bin 0 \protect\subref{fig:blindedMCfitSimBin0}, 1 \protect\subref{fig:blindedMCfitSimBin1}, 2 \protect\subref{fig:blindedMCfitSimBin2}, and 3 \protect\subref{fig:blindedMCfitSimBin3} on data sidebands with a combined background model (exponential + first order Chebychev Polynomial). The shape parameter constraints are described in text.}
+  \label{fig:blindedDatafitSim}
+\end{figure}
+
+Figure~\ref{fig:SSSVshapesSimNonSimCompare} shows the slopes of the exponential from the independent fits to \bbmumuX MC and data sidebands in the four BDT bins as described in section~\ref{subsubsec:SSSVplusCOMBcombinedFitMCandDataSB} (Figure~\ref{fig:SSSVshapesNonSimLinFit}), comparing these to the slopes of the exponential from the BDT bin simultaneous fit to \bbmumuX and data sidebands (Figure~\ref{fig:SSSVshapesSimNoLinFit}). The exponential slopes from BDT bin independent fits are fitted with a constant function, the result of which is compared to the corresponding exponential slope shared between the BDT bins in the simultaneous fit. The constant fit on MC and data sidebands is of good quality with $p$-value > 0.05. The BDT bin simultaneous exponential slope (Figure~\ref{fig:SSSVshapesSimNoLinFit}) is consistent with the result of the constant fit to BDT bin independent exponential slopes (Figure~\ref{fig:SSSVshapesNonSimLinFit}) both for MC (blue lines) and data (green lines) sidebands. The exponential slopes obtained from the simultaneous fit are not consistent between MC and data sidebands; this inconsistency is attributed to the imperfect modelling of the data by the MC and is taken into account in the systematics study in section~\ref{subsec:SystUncertaintySimultaneousFit}.
+\begin{figure}[h]
+  \centering
+  \subfloat[Exonential slopes from independent fits to BDT bins.]{
+    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_non_sim_FR2_BDT2024_BestNoMu_mu6mu4_SSSV_compare_fit.pdf}
+    \label{fig:SSSVshapesNonSimLinFit}
+  }
+  \subfloat[Exponential slopes from simultaneous fit to BDT bins.]{
+    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_sim_FR2_BDT2024_BestNoMu_mu6mu4_SSSV_compare_fit.pdf}
+    \label{fig:SSSVshapesSimNoLinFit}
+  }
+  \caption{Exponential constants from the fits performed individually in each of the four BDT bins \protect\subref{fig:SSSVshapesNonSimLinFit} compared to the exponential constants from the fit perfromed simultaneously in the four BDT bins \protect\subref{fig:SSSVshapesSimNoLinFit}. The X-axis shows the average BDT output value for the fitted events in the corresponding BDT bin, with horizontal error bars corresponding to the standard deviation of BDT output from events used in the fit. The black points represent the constants from the combined background model fit to \bbmumuX MC sidebands, whereas the red points represent the same fit on data sidebands. The blue and green lines in \protect\subref{fig:SSSVshapesNonSimLinFit} represent the result of the constant fit to the exponential constants in MC and data sidebands respectively, whereas the dashed lines represent the constant fit result error. Numerical fit results as well as the goodness of constant fit are also shown. The blue and green lines in \protect\subref{fig:SSSVshapesSimNoLinFit} represent the fitted value of the exponential constat shared between the four BDT bins in MC and data sidebands respectively, whereas the dashed lines represent the fitted exponential constant uncertainty. Numerical fit results along with their fit errors are also shown. The parameter p0 represents the shared exponential constant in \protect\subref{fig:SSSVshapesSimNoLinFit} and the result of the constant fit in \protect\subref{fig:SSSVshapesNonSimLinFit}.}
+  \label{fig:SSSVshapesSimNonSimCompare}
+\end{figure}
+
+Figure~\ref{fig:COMBshapesSimNonSimCompare} shows the slopes of the first order Chebychev polynomial from the independent fits to \bbmumuX MC and data sidebands in the four BDT bins as described in section~\ref{subsubsec:SSSVplusCOMBcombinedFitMCandDataSB} (Figure~\ref{fig:COMBshapesNonSimLinFit}), comparing these to the polynomial slopes from the BDT bin simultaneous fit to \bbmumuX and data sidebands (Figure~\ref{fig:COMBshapesSimNoLinFit}). The polynomial slopes from BDT bin independent fits are fitted with a linear function, the result of which is compared to the fitted linear parameters used to constrain the polynomial slopes in the simultaneous fit. The linear fit on MC and data sidebands is of good quality with $p$-value > 0.05. The fitted linear parameters constraining the polynomial slopes in the simultaneous fit (p0 and p1 in Figure~\ref{fig:COMBshapesSimNoLinFit} are consistent with the fitted linear parameters from the fit to the independent polynomial slopes (p0 and p1 in Figure~\ref{fig:COMBshapesNonSimLinFit})) both for MC (green lines) and data (blue lines) sidebands. Figure~\ref{fig:COMBshapesCompareDataMC} shows a direct comparison of the linear parameters constraining polynomial slopes obtained from data (red) and MC sidebands (black) simultaneous fits; the two sets of parameters are consistent within 2$\sigma$. Any inconsistency between the linear parametrisation of the shape constraint for the combinatorial background in data and MC is taken into account in the systematics study of section~\ref{subsec:SystUncertaintySimultaneousFit}. 
+\begin{figure}[h]
+  \centering
+  \subfloat[Polynomial slopes from independent fits to BDT bins.]{
+    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_non_sim_FR2_BDT2024_BestNoMu_mu6mu4_COMB_compare_fit.pdf}
+    \label{fig:COMBshapesNonSimLinFit}
+  }
+  \subfloat[Polynomial slopes from simultaneous fit to BDT bins.]{
+    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_sim_FR2_BDT2024_BestNoMu_mu6mu4_COMB_compare_fit.pdf}
+    \label{fig:COMBshapesSimNoLinFit}
+  }
+  \caption{First order Chebychev polynomial constants from the fits performed individually in each of the four BDT bins \protect\subref{fig:COMBshapesNonSimLinFit} compared to the polynomial constants from the fit perfromed simultaneously in the four BDT bins \protect\subref{fig:COMBshapesSimNoLinFit}. The X-axis shows the average BDT output value for the fitted events in the corresponding BDT bin, with horizontal error bars corresponding to the standard deviation of BDT output from events used in the fit. The black points represent the constants from the combined background model fit to \bbmumuX MC sidebands, whereas the red points represent the same fit on data sidebands. The blue and green lines in \protect\subref{fig:COMBshapesNonSimLinFit} represent the result of the linear fit to the polynomial constants in MC and data sidebands respectively. Numerical results as well as the goodness of linear fit are also shown. The blue and green lines in \protect\subref{fig:COMBshapesSimNoLinFit} represent the fitted linear constraints on the polynomial slopes in MC and data sidebands respectively. Numerical fit results for the linear parameters constraining the polynomial slopes along with their fit errors are also shown. The parameters p0 and p1 represent respectively the constant and slope coefficients of the line constraning the polynomial slopes in \protect\subref{fig:COMBshapesSimNoLinFit} and of the fitted line in \protect\subref{fig:COMBshapesNonSimLinFit}.}
+  \label{fig:COMBshapesSimNonSimCompare}
+\end{figure}
+
+\begin{figure}[h]
+  \includegraphics[width=1.0\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_p0_p1_comb.pdf}
+  \caption{Linear parameters constraining the first order Chebychev polynomial constants obtained from simultaneous fit to data (red points) and MC (black points) sidebands shown in the p0 (constant coefficient) - p1 (slope coefficinet) plane with their fitted uncertainties.}
+  \label{fig:COMBshapesCompareDataMC}
+\end{figure}
+
+Having validated the procedure for the background shape parametrisation and its use in the simultaneous fit we next describe the summary of the full fit configuration intended to be employed on data.
+
+
 
 \subsection{Summary of the Fit Configuration}
 \label{subsec:FitConfig}
