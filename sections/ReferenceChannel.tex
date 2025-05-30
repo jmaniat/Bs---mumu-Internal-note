@@ -53,16 +53,48 @@ In each step of the fit, a high quality migrad status is required. If this is no
 
 This section details the systematics studied associated with choices made in the reference channel fit. These choices are devided into two categories: (1) choices pertaining to the PDFs used and (2) choices pertaining to the MC. The systematics in the first category are:
 \begin{description}
-    \item[Choice of $B^{\pm}\to J\psi K^\pm$ PDF] 
+    \item[Choice of $B^{\pm}\to J\psi K^\pm$ PDF] Several different models were evaluated on the $B^{\pm}\to J\psi K^\pm$ MC. The best performing model, based on the $\chi^2$ test, is two JohnsonSu functions. The second best model was a JohnsonSu plus a gaussian. These models are shown in Figure \ref{fig:RefCh-Alt-BK-MC} with the $B^{\pm}\to J\psi K^\pm$ MC. For the default fit, the double JohnsonSu model is used. To evaluate the systematic in this choice, a dedicated fit to the data is made with a Johnson plus Gaussian model. The difference in the yields 
 
-    \item[Choice of $B^{\pm}\to J\psi \pi^\pm$ PDF] 
-    
-    \item[Choice of PRD1 PDF] 
-    
-    \item[Choice of PRD2 PDF] 
+    \item[Choice of $B^{\pm}\to J\psi \pi^\pm$ PDF] Fits with alternate models on the $B^{\pm}\to J\psi \pi^\pm$ MC are shown in Figure \ref{fig:RefCh-Alt-BPi-MC}, the best performing model is again the JohnsonSu + JohnsonSu, but it is only marginally better than the simpler JohnsonSu + Gaussian. Since the performance of both models is similar, the simpler Johnson+Gaussian model is opted for in the default fit. To evaluate the systematic, a dedicated fit is made with the Johnson+Johnson model.
 
-    \item [Choice of Combinatorial PDF] 
+
+    \item[Choice of PRD1 PDF] Fits with a sigmoid and FermiDirac+exponential model on the PRD1 MC are shown in Figure \ref{fig:fig:RefCh-Alt-PRD1-MC}. The sigmoid has lower pulls through the entire mass range, and does so with only two parameters as opposed to the Fermi-Dirac plus exponential which uses 4 parameters. The sigmoid is chosen as the default PDF, and a dedicated fit using the fermi-dirac + exponential is made to evaluate the systematic associated with this choice. 
+    
+    \item[Choice of PRD2 PDF] Fits with alternate models on the PRD2 MC are shown in Figure \ref{fig:fig:RefCh-Alt-PRD2-MC}. Although the pull plot shows very similar performance between the two models, the ExpGaus acheives this fit with less parameters, and therefore has a lower $\chi^2$. The ExpGaus is chosen as the default pdf, and a dedicated fit is performed with the Crystal ball function to evaluate the systematic associated with this choice. 
+
+    \item [Choice of Combinatorial PDF] The combinatorial is not constrained by MC, so the best performing PDF is determined by its $\chi^2$ on data. Two shapes are used, an exponential and a second order chebychev polynomial. The Chebychev fit has lower $\chi^2$ when applied to the data and is therefore chosen as the default PDF. To evaluate the systematic associated with this choice, a dedicated fit is executed using an exponential as the combinatorial pdf.
+
 \end{description}
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/ReferenceChannel/250206-BK-JJ-JG-log.pdf}
+    \caption{Fits to the $B^{\pm}\to J\psi K^\pm$ MC with alternate PDFs.}
+    \label{fig:RefCh-Alt-BK-MC}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/ReferenceChannel/250222-MCfits-BPi.pdf}
+    \caption{Fits to the $B^{\pm}\to J\psi \pi^\pm$ MC with alternate PDFs.}
+    \label{fig:RefCh-Alt-BPi-MC}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/ReferenceChannel/250206-PRD1-Sigmoid-ErrorExp.pdf}
+    \caption{Fits to the PRD1 MC with alternate PDFs.}
+    \label{fig:RefCh-Alt-PRD1-MC}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/ReferenceChannel/250206-PRD2-CB-ExpGaus.pdf}
+    \caption{Fits to the PRD2 MC with alternate PDFs.}
+    \label{fig:RefCh-Alt-PRD2-MC}
+\end{figure}
+
 
 The systematics in the second category are 
 \begin{description}
@@ -75,6 +107,15 @@ The systematics in the second category are
 \end{description}
 
 Each of these systematics is evaluated with a fit and the effect on the yield is shown in ...
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ReferenceChannel/250407-systematics-UPDATEME.pdf}
+    \caption{Yield values from all systematics studied.}
+    \label{fig:RefCh-Alt-BK-MC}
+\end{figure}
+
 
 
 \subsection{Closure Test}
