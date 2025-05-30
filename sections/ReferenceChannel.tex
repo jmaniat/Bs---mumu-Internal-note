@@ -1,2 +1,86 @@
 \section{Reference Channel Fit}
 \label{sec:ReferenceChannel}
+
+
+\subsection{Background Composition}
+\label{subsec:refBackground}
+
+
+
+\subsection{Fit Procedure}
+\label{subsec:refFit}
+
+The reference channel yield is extracted using an unbinned maximum likelihood fit in the mass range 4930 MeV to 5630 MeV. This section describes the fit procedure and the pdfs used for the reference channel and each of the background components.
+
+The data pdf is the sum of the reference channel signal and four background contributions: $B^{\pm}\to J\psi K^\pm$, $B^{\pm}\to J\psi \pi^\pm$, PRD1, PRD2, and combinatorial. The decays from PRD3 are not included in the data fit because their flat distribution is heavily correlated with the combinatorial background. The exlusion of PRD3 is treated as a systematic. 
+
+The PDFs used in the fit are the following:
+\begin{description}
+\item [$B^{\pm}\to J\psi K^\pm$] This fit is performed using the sum of two Johnson SU pdfs. The paramaterization is the following: 
+\begin{equation}
+    PDF = \frac{\delta}{\lambda \sqrt{2\pi}} \frac{1}{\sqrt{1+(\frac{x-\mu}{\lambda})^2}} exp[-\frac{1}{2}(\gamma + \delta \sinh ^{-1}(\frac{x-\mu}{\lambda}))^2]
+\end{equation}
+
+\item[$B^{\pm}\to J\psi \pi^\pm$] This shape is modeled using the sum of a Johnson Su function and a gaussian. 
+
+\item[PRD1] This shape is modeled using a sigmoid. The sigmoid used is paramaterized as follows
+\begin{equation}
+    1-\frac{x}{\sqrt(1+x^2)}% 1-(x/TMath::Sqrt(1+ x*x))
+\end{equation}
+where $x = \sigma_PRD1 (m-\mu_PRD1)$. The PRD1 shape falls off around 5150 MeV. Many standard step functions like the error function and fermi dirac function required an additional exponential component to model the complex curvature without significant pulls. This choice of sigmoid accurately models the steep drop off at 5150 MeV and the tail resembeling an exponential after 5200 MeV with only two parameters, which significantly improves the fit convergence and simplifies systematic studies on the PRD composition. 
+
+\item[PRD2] An ExpGaus \cite{expgauss} function is chosed to model PRD2. PRD2 has a central peak that appears gaussian but an extended tail. Typically this type of distribution is fit using a Crystal ball function, however, the crystal ball parameters are unweildy and the PRD2 is a small component in the fit. Therefore, the simpler ExpGaus model was used. The ExpGau model is paramaterized as:
+\begin{equation}
+    \begin{cases}
+        exp(-0.5(\frac{m-\mu}{\sigma})^2) & \text{if } m <= \mu-k\sigma \\
+        exp(\frac{k^2}{2} + k\frac{m-\mu}{\sigma}) & \text{if } m > \mu-k\sigma \\
+    \end{cases}
+\end{equation}
+% RooGenericPdf PRD2_ExpGaus_MC_NotExtended("PRD2_ExpGaus_MC_NotExtended","exp(-0.5*( ((mass_var-PRD2_mu_2)/PRD2_sigma_2)^2 )) * (mass_var<=PRD2_mu_2-PRD2_k*PRD2_sigma_2) + exp( 0.5*PRD2_k^2 + PRD2_k*((mass_var-PRD2_mu_2)/PRD2_sigma_2) )* (mass_var>PRD2_mu_2-PRD2_k*PRD2_sigma_2)",RooArgSet(mass_var,PRD2_mu_2,PRD2_sigma_2,PRD2_k)) ;
+
+\item [Combinatorial] The combinatorial background spans the entire mass window. It's occurance decreases towards higher mass. A second order Chebyshev polynomial is used to for its shape. 
+\end{description}
+
+The fit to data is performed simultaneously with the MC sub-samples to constrain the background models. An identical PDF is used to fit the corresponding MC distribution except for the yield, which is a free parameter in the data fit. The MC sub-samples used are the $B^{\pm}\to J\psi K^\pm$, $B^{\pm}\to J\psi \pi^\pm$, PRD1, and PRD2. The only shape not constrained by MC is the combinatorial background. A gaussian convolution with a common mean and standard deviation is applied to the MC shapes to account for discrepancies between the MC and detector resolution. 
+
+The fitting procedure is done in 5 steps. The first step is fitting the MC alone. The MC fits all use a single PDF and are robust to changing initial conditions. This sets the initial conditions for the shape parameters in the remaining steps on data. The second step is a simultaneous fit with data and MC. For this step, the yeild of each fit component is set to the partial run 2 fraction scaled to the full run 2 dataset yield. The systematic from this choice is accounted for in the closure test. The smearing gaussian and combinatorial shape parameter initial condition are chosen to resemble the partial run 2 values. This choice is treated as a systematic in the next section. For the second step, the shape parameters are kept frozen to their MC values. This allows the values not constrained be the MC to find reasonable initial values before the fit reaches its maximal complexity. In the remaining steps (steps 3-5), the shape parameters are released based on their size in the fit and their proximity to the signal. In step 3, all parameters of the $B^{\pm}\to J\psi K^\pm$ are released. In step 4, all parameters of the $B^{\pm}\to J\psi \pi^\pm$ are released. Finally, in step 5 the PRD1 and PRD2 shape parameters are released. 
+
+In each step of the fit, a high quality migrad status is required. If this is not acheives, the fit is re-ran with a more robust migrad algorithm. The hesse algorithm is used to compute the parameter errors, except for the $B^{\pm}\to J\psi K^\pm$ yield, which uses the minos algorithm. 
+
+
+\subsection{Systematics}
+\label{subsec:refFit}
+
+This section details the systematics studied associated with choices made in the reference channel fit. These choices are devided into two categories: (1) choices pertaining to the PDFs used and (2) choices pertaining to the MC. The systematics in the first category are:
+\begin{description}
+    \item[Choice of $B^{\pm}\to J\psi K^\pm$ PDF] 
+
+    \item[Choice of $B^{\pm}\to J\psi \pi^\pm$ PDF] 
+    
+    \item[Choice of PRD1 PDF] 
+    
+    \item[Choice of PRD2 PDF] 
+
+    \item [Choice of Combinatorial PDF] 
+\end{description}
+
+The systematics in the second category are 
+\begin{description}
+    \item [Charge asymmetry in the MC] Based on fits to the data separated by wheather it is negative hadron or positive hadron matched, 50.6\% of the data candidates have a positively charged hadron. This contradicts the MC prediction of 48.6\%. To evaluate the systematic induced by this difference, the MC was reweighted to represent different fractions of positive hadron events in the MC. The fractions evaluated were 0, 48.6,50.6,52.6,100 \%. 
+
+    \item[Kinematic Reweighting] To asses the systematic induced by the DDW and QLC weights on the MC, a dedicated fit is performed without both of these weights on the MC. The difference in the yield is taken as the systematic error. 
+    
+    \item[PRD Composition] 
+
+\end{description}
+
+Each of these systematics is evaluated with a fit and the effect on the yield is shown in ...
+
+
+\subsection{Closure Test}
+\label{subsec:refClosure}
+
+A closure test is developed to evaluate if the fit procedure can reproduce the yield with different underlying fractions of PDF. The final fit result using the default setup is taken. Each yield is veried randomly according to a poisson distribution centered on the fit value. Then pseudo-data is generated using the fit shapes and the varied yield. An identical fit procedure as applied to the data is applied to the pseudo-data and the fit yield is compared with the true yield. The results...
+
+\subsection{Yield Result}
+\label{subsec:refFit}
