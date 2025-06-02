@@ -88,15 +88,138 @@ The average values of the \Bdmumu signal shape parameters from the bootstrapped 
 \subsection{Resonant Background Model}
 \label{subsec:ResonantBkgModel}
 
-\subsubsection{Vertex Mass Correction}
-\label{subsubsec:VTXmassCorrection}
+The resonant background consists of \Bhh decays such as \BKpKm, \BKpmpimp, and \Bpippim, where both hadrons are misidentified as muons. Due to the misreconstruction of $K \to \mu$, and to a smaller extent $\pi \to \mu$, the peak of the \Bhh decays is shifted to lower masses and the their mass distribution becomes highly superimposed with the \Bd signal.
+
+To accurately model the \Bhh background and extract the data-driven normalisation for this crucial to the final fit background component, trigger-level and mass-level corrections are necessary to be applied to the \Bhh MC samples. These corrections account for the difference in trigger efficiencies and invariant mass reconstruction between real muons and hadron fakes, ensuring realistic treatment of this backgrounds contribution in the signal region.
+
+\subsubsection{Trigger and Mass Corrections}
+\label{subsubsec:BhhCorrections}
+
+\textcolor{red}{Add descriptions of the correction applied on the \Bhh MC to extract the shape parameters used in the data fits with the ABCD method.}
 
 \subsubsection{\Bhh Model}
 \label{subsubsec:BhhModel}
 
+Applying the corrections described in section~\ref{subsubsec:BhhCorrections}, the Tight-Tight (T-T) final state muon Working Point (WP) \Bhh MC is fit with the same model as the signals: a double Gaussian PDF shown in equation~\ref{eq:DoubleGaussian}. The resulting shape parameters from this fit are used to define the baseline model \Bhh component and were found to be:
+\begin{itemize}
+\item $\mu_1$: 5232 $\pm$ 40
+\item $\sigma_1$: 185 $\pm$ 50
+\item $\mu_2$: 5249 $\pm$ 12
+\item $\sigma_2$: 81 $\pm$ 16
+\item $f$: 0.28 $\pm$ 0.21 
+\end{itemize}
+, where $f$ is the fraction of Gaussian 1 with respect to Gaussian 2. 
+
 \subsubsection{\Bhh Normalisation}
 \label{subsubsec:BhhNormalisation}
 
+To get a realistic measurement of the \Bd signal yield, which could otherwise be unrealistically inflated (or deflated) by the \Bhh and \Bdmumu invariant mass overlap when fitted to data, the \Bhh normalisation will be externally constrained in the final fit to data and hence a realistic estimate of the resonant background yield is required.
+
+SM predicted estimates can be calculated by considering the \Bhh equivalent of the master euqation~\ref{eq:BRFormula}, rearranged for the dimuon yield and using the latest measurements of the \Bhh branching ratios from PDG \cite{ParticleDataGroup:2024cfk}. Such predictions have been calculated by incorporating the the estimated \Bpm  yield of Chapter~\ref{sec:ReferenceChannel}, ratio of acceptance times efficiency from Chapter~\ref{sec:AccepEffRatio}, and using the fake rates from Chapter~\ref{sec:FakeBackground} \textcolor{red}{Dont forget to update these chapters to sections where the numbers are. For now PR2 fakes rates are being used}.
+
+Table~\ref{tab:MasterEqEstMuonWPs} shows the SM predictions for \Bmumu and \Bhh yields for all combinations of Tight (T) and Loose (L) muons in the final states. By construction the Loose but Not Tight (LNT) muons pass the L muon WP but fail the T muon WP, and are therefore orthogonal to the T muons. With two muons in the final state, any combination of L-L, LNT-LNT, LNT-T or T-LNT are orthogonal regions to the T-T region and to each other, and can therefore be used in a fit to data of such regions to extract the \Bhh yield without unblinding and for validation of the full yield extraction procedure.
+
+\begin{table}[h]
+  \centering
+  \footnotesize
+  \begin{tabular}{|c|c|c|c|c|c|c|c|}
+    \cline{3-8}
+    \multicolumn{2}{c}{} 
+    & \multicolumn{2}{|c|}{\Bsmumu} 
+    & \multicolumn{2}{c|}{\Bdmumu} 
+    & \multicolumn{2}{c|}{\Bhh} \\
+    \hline
+    \multicolumn{2}{|c|}{Muon Type}
+    & \multicolumn{2}{c|}{Loose} 
+    & \multicolumn{2}{c|}{Loose} 
+    & \multicolumn{2}{c|}{Loose} \\
+    \cline{3-8}
+    \multicolumn{2}{|c|}{}
+    & Tight & Loose not Tight & Tight & Loose not Tight & Tight & Loose not Tight \\
+    \hline
+    \multirow{2}{*}{Loose} 
+    & Loose not Tight & 36.9 $\pm$ 3.5 & 4.03 $\pm$ 0.39 & 3.94 $\pm$ 0.34 & 0.431 $\pm$ 0.038 & 16.25 $\pm$ 0.75 & 24.9 $\pm$ 1.3 \\
+    \cline{2-8}
+    & Tight           & 337 $\pm$ 32 & 36.9 $\pm$ 3.5 & 36.1 $\pm$ 3.1  & 3.94 $\pm$ 0.34  & 10.59 $\pm$ 0.53 & 16.25 $\pm$ 0.75 \\
+    \hline
+  \end{tabular}
+  \caption{Estimated yields of \Bmumu and \Bhh events for Tight and Loose muon identification requirements based on muon efficiencies and hadron fake rates from MC simulation. \textcolor{red}{Currently these estimates use the intermediate SES\_d from ReA and Njpsi that is a sum of independent fits to individual data periods. Will have to update with proper numbers.}}
+  \label{tab:MasterEqEstMuonWPs}
+\end{table}
+
+Based upon these yields, we fit the LNT-LNT data region with the adjusted version of the baseline model described in section~\ref{subsec:FitConfig}. The LNT-LNT region provides the best environment to extract the \Bhh yield due to its higher fraction of events with respect to the \Bs and \Bd than the LNT-T or the T-LNT regions. The adjustments to the fit model include:
+\begin{itemize}
+\item Fixing the \Bs (\Bd) model parameters to the result of the simultaneous extended unbinned maximum likelihood fit in the LNT-LNT region \Bs (\Bd) MC sample to get a more suitable representation of the signal shape in this orthogonal to the signal region,
+\item Fixing the \Bhh shape parameters to the result of the corrected LNT-LNT \Bhh MC fit in Chapter~\ref{sec:FakeBackground} \textcolor{red}{change this to the actual section once written},
+\item Fixing the non-resonant background model parameters to the result of the data sidebands fit in the T-T region in section~\ref{subsubsec:SimultaneousSSSVplusCOMBcombinedFitMCandDataSB},
+\item Leaving the non-resonant background components normalisations free,
+\item Fixing the signal yields to the simulation-based master equation estimates of table~\ref{tab:MasterEqEstMuonWPs}
+
+\end{itemize}
+
+Figure~\ref{fig:LNT-LNTdatafit} shows the result of the LNT-LNT data fit with the adjusted model above. Visually the fitted shape reproduces the data well and with a reasonable fit quality. Due to the limited statistics in the signal BDT bins and a large number of free parameters the fit quality is not satisfactory in the BDT bin of Figure~\ref{fig:LNT-LNTdatafitBin1}, however this is not the most signal sensitive BDT bin and due to the large uncertainties associated with the low mass bin content, the shape is still satisfactorily reproduced and poses no concern. The resulting \Bhh yield was found to be $N^{LNT-LNT}_{hh'} = 13.6 \pm 5.5$ ($24.9 \pm 1.3$ expected \textcolor{red}{Note this expectation is not right due to us using PR2 fake rates still here}) events in the LNT-LNT region.
+\begin{figure}[h]
+  \centering
+  \subfloat[BDT bin 0 fit with BDT boundaries at {[0.1609,0.2636]}.]{
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_Bhh_Bs_Bd_LNT-LNT_Bhh_json_all_other_T-T_nBs_nBd_fixed_pos_def_can_LNT-LNT_BDT_1_ETA_1.pdf}
+    \label{fig:LNT-LNTdatafitBin0}
+  }
+  \subfloat[BDT bin 1 fit with BDT boundaries at {[0.2636,0.3405]}.]{
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_Bhh_Bs_Bd_LNT-LNT_Bhh_json_all_other_T-T_nBs_nBd_fixed_pos_def_can_LNT-LNT_BDT_2_ETA_1.pdf}
+    \label{fig:LNT-LNTdatafitBin1}
+  }
+  \\
+  \subfloat[BDT bin 2 fit with BDT boundaries at {[0.3405,0.4055]}.]{
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_Bhh_Bs_Bd_LNT-LNT_Bhh_json_all_other_T-T_nBs_nBd_fixed_pos_def_can_LNT-LNT_BDT_3_ETA_1.pdf}
+    \label{fig:LNT-LNTdatafitBin2}
+  }
+  \subfloat[BDT bin 3 fit with BDT boundaries at {[0.4055,1.0000]}.]{
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_Bhh_Bs_Bd_LNT-LNT_Bhh_json_all_other_T-T_nBs_nBd_fixed_pos_def_can_LNT-LNT_BDT_4_ETA_1.pdf}
+    \label{fig:LNT-LNTdatafitBin3}
+  }
+  \caption{Unbinned extended maximum likelihood fit performed simultaneously in BDT bin 0 \protect\subref{fig:LNT-LNTdatafitBin0}, 1 \protect\subref{fig:LNT-LNTdatafitBin1}, 2 \protect\subref{fig:LNT-LNTdatafitBin2}, and 3 \protect\subref{fig:LNT-LNTdatafitBin3} on the LNT-LNT data with the adjusted baseline model as described in text.} 
+  \label{fig:LNT-LNTdatafit}
+\end{figure}
+
+To get a prediction in the T-T signal region to be used as a constraint on the \Bhh yield in the full baseline model intended on data, we translate the LNT-LNT data \Bhh yield into the T-T region using a ratio of counted \Bhh MC events in the full fit BDT range using all available events including those outside the mass fit range:
+\begin{eqnarray}
+  N_{hh'}^{T-T} = \frac{MC_{hh'}^{T-T}}{MC_{hh'}^{LNT-LNT}} \times N_{hh'}^{LNT-LNT}
+  = (0.64 \pm 0.17) \times (13.6 \pm 5.5) = (8.7 \pm 4.2) \text{ events}.
+  \label{eq:T-T_LNT-LNT_dataBhhYield} 
+\end{eqnarray}
+
+As a cross-check of the procedure used to translate the LNT-LNT \Bhh yield into the T-T region we also translate the LNT-LNT \Bhh yield into the T-LNT + LNT-T region, which is then compared to the result of a direct fit in the T-LNT + LNT-T data. For the T-LNT + LNT-T data fit the \Bhh yield is constrained to the result of the LNT-LNT data \Bhh yield translated into the T-LNT + LNT-T region. The constraint is therefore:
+\begin{eqnarray}
+  N_{hh'}^{T-LNT+LNT-T} = \frac{MC_{hh'}^{T-LNT+LNT-T}}{MC_{hh'}^{LNT-LNT}} \times N_{hh'}^{LNT-LNT}
+  = (1.46 \pm 0.31) \times (13.6 \pm 5.5) = (19.8 \pm 9.0) \text{ events}.
+  \label{eq:T-LNT-LNT-T_LNT-LNT_dataBhhYield} 
+\end{eqnarray}
+
+Figure~\ref{fig:T-LNT-LNT-Tdatafit} shows the result of the T-LNT + LNT-T data fit with the constraint on the \Bhh yield from equation~\ref{eq:T-LNT-LNT-T_LNT-LNT_dataBhhYield}. The fitted shape reproduces the data reasonably well with a satisfactory quality of the fit in each BDT bin. The resulting \Bhh yield was found to be $N^{T-LNT+LNT-T}_{hh'} = 8.7 \pm 8.0$ ($32.5 \pm 1.1$ expected). The result of the T-LNT + LNT-T data fit is consistent with the result of the LNT-LNT data fit translated into the T-LNT + LNT-T region within the uncertainties on these values. The deviation in the central value between the two T-LNT + LNT-T \Bhh yields is therefore considered as a fit systematic effect and added in quadrature to the fit uncertainty of the fitted LNT-LNT \Bhh yield intended to be constrained in the final fit on data \text{red}{Still to figure this one out}. 
+\begin{figure}[h]
+  \centering
+  \subfloat[BDT bin 0 fit with BDT boundaries at {[0.1609,0.2636]}.]{
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_Bhh_Bs_Bd_T-LNT-LNT-T_Bhh_json_all_other_T-T_nBs_nBd_fixed_nBhh_constr_LNT_LNT_pos_def_can_T-LNT-LNT-T_BDT_1_ETA_1.pdf}
+    \label{fig:T-LNT-LNT-TdatafitBin0}
+  }
+  \subfloat[BDT bin 1 fit with BDT boundaries at {[0.2636,0.3405]}.]{
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_Bhh_Bs_Bd_T-LNT-LNT-T_Bhh_json_all_other_T-T_nBs_nBd_fixed_nBhh_constr_LNT_LNT_pos_def_can_T-LNT-LNT-T_BDT_2_ETA_1.pdf}
+    \label{fig:T-LNT-LNT-TdatafitBin1}
+  }
+  \\
+  \subfloat[BDT bin 2 fit with BDT boundaries at {[0.3405,0.4055]}.]{
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_Bhh_Bs_Bd_T-LNT-LNT-T_Bhh_json_all_other_T-T_nBs_nBd_fixed_nBhh_constr_LNT_LNT_pos_def_can_T-LNT-LNT-T_BDT_3_ETA_1.pdf}
+    \label{fig:T-LNT-LNT-TdatafitBin2}
+  }
+  \subfloat[BDT bin 3 fit with BDT boundaries at {[0.4055,1.0000]}.]{
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_Bhh_Bs_Bd_T-LNT-LNT-T_Bhh_json_all_other_T-T_nBs_nBd_fixed_nBhh_constr_LNT_LNT_pos_def_can_T-LNT-LNT-T_BDT_4_ETA_1.pdf}
+    \label{fig:T-LNT-LNT-TdatafitBin3}
+  }
+  \caption{Unbinned extended maximum likelihood fit performed simultaneously in BDT bin 0 \protect\subref{fig:T-LNT-LNT-TdatafitBin0}, 1 \protect\subref{fig:T-LNT-LNT-TdatafitBin1}, 2 \protect\subref{fig:T-LNT-LNT-TdatafitBin2}, and 3 \protect\subref{fig:T-LNT-LNT-TdatafitBin3} on the T-LNT + LNT-T data with the adjusted baseline model as described in text and an additional constraint on the \Bhh yield from the translated LNT-LNT data fit result.} 
+  \label{fig:T-LNT-LNT-Tdatafit}
+\end{figure}
+
+The ratio $\frac{N_{hh'}^{LNT-LNT}}{N_{hh'}^{T-LNT+LNT-T}} = 1.6 \pm 9.7$ measures directly the single-leg hadron species-averaged fake rate for the \Bhh daughters. From the data measurements we can can also estimate the species-averaged per-leg T vs L relative fake rate $\frac{N_{hh'}^{T-LNT+LNT-T}}{N_{hh'}^{T-LNT+LNT-T} + 2 \times N_{hh'}^{LNT-LNT}} = 0.24 \pm 0.18$. \textcolor{red}{Also all this needs to be checked over, quite large uncertainties, and not sure how useful this is to be given here.}
 
 \subsection{Non-Resonant Background Components Models}
 \label{subsec:NonResonantBkgModel}
