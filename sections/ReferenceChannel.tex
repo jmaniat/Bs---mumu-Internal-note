@@ -1,11 +1,58 @@
 \section{Reference Channel Fit}
 \label{sec:ReferenceChannel}
 
+The reference channel is $B^{\pm}\to J\psi K^\pm$. This section described the procedure for extracting the reference yield. 
+\subsection{Samples and Preselection}
+\label{subsec:refSamples}
+
+In order to minimize systematic uncertainties in the relative efficiencies of the two signals, the $B^{\pm}\to J\psi K^\pm$ signal is extracted from data with selections as close as possible to the ones that will be used for the $B^{0}_{(s)}\to \mu^+ \mu^-$ signal. The reference channel triggers are described in Table \ref{tab:triggers_reference}. The kinematic cuts applied to the reference channle are in Table \ref{tab:baselineSelection}. The same BDT applied to the signal channel is applied to the reference channel, and the same cut value of $0.2747$ is used. As with the signal channel, these cuts significantly reduce the combinatorial background. 
+
+Five MC samples are used in the reference channel fit: $B^{+}\to J\psi K^{+}$, $B^{-}\to J\psi K^{-}$, $B^{+}\to J\psi \pi^{+}$, $B^{-}\to J\psi \pi^{-}$, and \bbJpsiX with \JpsiMuMu. Each MC sample has PV weights, muon reconstruction weights, muon trigger weights, QLC, and DDWs. The DDW weights were deduced from events in even run numbers, so this study uses only events from odd run numbers, which is roughly have of the events passing the selections. The normalized BDT score distributions for each of the MC and data is shown in Figure \ref{fig:RefCh-BDTall}. The cutflow for each of the MC and the data is shown in Table \ref{tab:ref_cutflow}. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{}
+    \caption{Normalized BDT score distributions for each of the MC samples and the data used in the reference channel yield extraction. }
+    \label{fig:RefCh-BDTall}
+\end{figure}
+
+
+\begin{table}[!hbp]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+    \hline
+    \multirow{2}{*}{Cut} & \multicolumn{2}{c|}{Data} & \multicolumn{2}{c|}{$B^{\pm}\to J\psi K^\pm$} &\multicolumn{2}{c|}{$B^{\pm}\to J\psi \pi^\pm$} &\multicolumn{2}{c|}{\bbJpsiX}\\
+    \cline{2-9}
+    & Eff. & Yield & Eff. & Yield& Eff. & Yield& Eff. & Yield\\
+    \hline
+    Skimmed & 0 & 0 & 0& 0 & 0 & 0 &0&0\\
+    Trigger & 0 & 0 & 0& 0 & 0 & 0 &0&0\\
+    B mass & 0 & 0 & 0& 0 & 0 & 0 &0&0\\
+    $J/\psi$ mass + $\chi^2$ & 0 & 0 & 0& 0 & 0 & 0 &0&0\\
+    B kinematics & 0 & 0 & 0& 0 & 0 & 0 &0&0\\
+    Muon kinematics & 0 & 0 & 0& 0 & 0 & 0 &0&0\\
+    $p_T(K)$ & 0 & 0 & 0& 0 & 0 & 0 &0&0\\
+    No Signal & 0 & 0 & 0& 0 & 0 & 0 &0&0\\
+    BDT & 0 & 0 & 0& 0 & 0 & 0 &0&0\\
+    \hline
+    \end{tabular}
+    \caption{Cutflow efficiency table for each of the MC samples and data used in the reference channel yield extraction. The charge conjugated MC samples are combined.}\label{tab:ref_cutflow}
+  \end{table}
+
 
 \subsection{Background Composition}
 \label{subsec:refBackground}
 
+After all the kinematic cuts, the remaining background contribution can be divided into three categories. The combinatorial background is still present, although significantly reduced. The remaining decays from the \bbJpsiX are partially reconstructed decays (PRDs). These decays are B mesons decaying to N hadrons and a J/psi, however only one of the hadrons is reconstructed so the decay is kinematically similar to the reference channel. These decays can be further divided into three categories: 
+\begin{description}
+    \item[PRD Type 1 (PRD1)] These are most PRD decays. Most often, a B meson decays to an excited kaon state, which decays to a kaon and pion, but the pion is lost. Thus there is missing energy from the B meson mass. These decays have a cutoff approximately 150 MeV below the B meson mass. In the data, there is a visible shoulder. 
 
+    \item[PRD Type 2 (PRD2)] These decays are similar to PRD1, however the B meson decays to 
+
+
+    \item[PRD Type 3 (PRD3)] Fits
+
+\end{description}
 
 \subsection{Fit Procedure}
 \label{subsec:refFit_procedure}
