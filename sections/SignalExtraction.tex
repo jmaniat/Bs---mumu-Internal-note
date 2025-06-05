@@ -67,13 +67,13 @@ The \Bsmumu and \Bdmumu signals are both modelled by a superposition of two Gaus
 \end{eqnarray}
 , where to take into account the radiative tails of these signals the means of the two gaussians ($\mu_1$,$\mu_2$) are modelled independently. The other parameters in equation~\ref{eq:DoubleGaussian} include the independent sigmas of the two Gaussians ($\sigma_1$,$\sigma_2$), as well as the fraction of first Gaussian with respect to the second Gaussian ($f$). To extract the shape parameters of these distribution the signal MC is fit with the signal model. It was found that the shape parameters are not dependent on the BDT output as expected.
 
-Both the \Bsmumu and \Bdmumu MC samples of O($10^5$) events used in this study are significantly larger than the statistics expected in data of O(400) for \Bsmumu and O(40) for \Bdmumu. Due to the large MC sample size the fit would be sensitive to subtle details in the PDF shape, which are completely irrelevant for the fit to data where these details are indistinguishable due to the limited statistics. For this reason the fit is performed on bootstrapped MC samples where the bootstrapping procedure is:
+Both the \Bsmumu and \Bdmumu MC samples of O($10^5$) events used in this study are significantly larger than the statistics expected in data of O(300) for \Bsmumu and O(30) for \Bdmumu. Due to the large MC sample size the fit would be sensitive to subtle details in the PDF shape, which are completely irrelevant for the fit to data where these details are indistinguishable due to the limited statistics. For this reason the fit is performed on bootstrapped MC samples where the bootstrapping procedure is:
 \begin{enumerate}
-    \item Separate the signal MC into 4 subsamples \textcolor{red}{for each of the 4 BDT bins}
-    \item For each of the subsamples select at random 4000 events
-    \item Simultaneously fit the 4 bootstrapped MC subsamples with a constraint that the shape is the same across all BDT bins
-    \item Repeat the procedure 1000 times
-    \item Take the average of the shape parameters from each bootstrap repetition
+    \item Separate the signal MC into 4 subsamples for each of the 4 BDT bins,
+    \item From each of the subsamples select 4000 events at random to create four bootstrapped MC subsamples,
+    \item Simultaneously fit the 4 bootstrapped MC subsamples with a constraint that the shape is the same across all BDT bins,
+    \item Repeat the procedure 1000 times,
+    \item Calculate the average of the shape parameters from the 1000 repitions of the simultaneous bootstrapped MC fits.
 \end{enumerate}
 
 \textcolor{red}{Paragraph about the mass offset from PGD values , check also for the reference channel}
@@ -92,12 +92,29 @@ The average values of the \Bsmumu signal shape parameters from the bootstrapped 
 \item $\sigma_2$: 196.6 $\pm$ 7.0
 \item $f$: 0.863 $\pm$ 0.016 
 \end{itemize}
-, where the uncertainties are given as the RMS from the corresponding fitted shape parameter histogram. Figure~\ref{fig:example_fit_Bs} shows 1 of 1000 bootstrapped MC sample fits. The shape parameters \textcolor{red}{add whether they are different or not to PR2 analysis and if yes give an answer why.}
+, where the uncertainties are given as the RMS from the corresponding fitted shape parameter histogram. Figure~\ref{fig:example_fit_Bs} shows 1 of 1000 bootstrapped MC sample fits. The shape parameters in FR2 are consistent with those in PR2 version of the analysis \cite{Cerri:2311593}.
 
-\begin{figure}[h]
-    \includegraphics[width=1.0\textwidth]{figures/SignalExtraction/example_fit_Bs.pdf}
-    \caption{Example of 1 random fit from 1000 bootstrapped \Bsmumu MC samples, where the green line is the first Gaussian and the red line is the second Gaussian.}
-    \label{fig:example_fit_Bs}
+\begin{figure}[ht!]
+  \centering
+  \subfloat[BDT bin 0 fit with BDT boundaries at {[0.1609,0.2636]}.]{
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/Bs_v2p4_bin0.pdf}
+    \label{fig:BsBootstrappedMCfitBin0}
+  }
+  \subfloat[BDT bin 1 fit with BDT boundaries at {[0.2636,0.3405]}.]{
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/Bs_v2p4_bin1.pdf}
+    \label{fig:BsBootstrappedMCfitBin1}
+  }
+  \\
+  \subfloat[BDT bin 2 fit with BDT boundaries at {[0.3405,0.4055]}.]{
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/Bs_v2p4_bin2.pdf}
+    \label{fig:BsBootstrappedMCfitBin2}
+  }
+  \subfloat[BDT bin 3 fit with BDT boundaries at {[0.4055,1.0000]}.]{
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/Bs_v2p4_bin3.pdf}
+    \label{fig:BsBootstrappedMCfitBin3}
+  }
+  \caption{1 of 1000 unbinned extended maximum likelihood fits performed simultaneously in BDT bin 0 \protect\subref{fig:BsBootstrappedMCfitBin0}, 1 \protect\subref{fig:BsBootstrappedMCfitBin1}, 2 \protect\subref{fig:BsBootstrappedMCfitBin2}, and 3 \protect\subref{fig:BsBootstrappedMCfitBin3} bootstrapped \Bsmumu MC samples.} 
+  \label{fig:example_fit_Bs}
 \end{figure}
 
 
@@ -112,14 +129,32 @@ The average values of the \Bdmumu signal shape parameters from the bootstrapped 
    \item $\sigma_2$: 172.5 $\pm$ 6.4
    \item $f$: 0.815 $\pm$ 0.024 
 \end{itemize}
-, where the uncertainties are given as the RMS from the corresponding fitted shape parameter histogram. Figure~\ref{fig:example_fit_Bd} shows 1 of 1000 bootstrapped MC sample fits. The shape parameters \textcolor{red}{add whether they are different or not to PR2 analysis and if yes give an answer why.}
+, where the uncertainties are given as the RMS from the corresponding fitted shape parameter histogram. Figure~\ref{fig:example_fit_Bd} shows 1 of 1000 bootstrapped MC sample fits. The shape parameters in FR2 are consistent with those in PR2 version of the analysis \cite{Cerri:2311593}.
 
-\begin{figure}[h]
-    \includegraphics[width=1.0\textwidth]{figures/SignalExtraction/example_fit_Bd.pdf}
-    \caption{Example of 1 random fit from 1000 bootstrapped \Bdmumu MC samples, where the green line is the first Gaussian and the red line is the second Gaussian.}
-    \label{fig:example_fit_Bd}
+\begin{figure}[ht!]
+  \centering
+  \subfloat[BDT bin 0 fit with BDT boundaries at {[0.1609,0.2636]}.]{
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/Bd_v2p4_bin0.pdf}
+    \label{fig:BdBootstrappedMCfitBin0}
+  }
+  \subfloat[BDT bin 1 fit with BDT boundaries at {[0.2636,0.3405]}.]{
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/Bd_v2p4_bin1.pdf}
+    \label{fig:BdBootstrappedMCfitBin1}
+  }
+  \\
+  \subfloat[BDT bin 2 fit with BDT boundaries at {[0.3405,0.4055]}.]{
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/Bd_v2p4_bin2.pdf}
+    \label{fig:BdBootstrappedMCfitBin2}
+  }
+  \subfloat[BDT bin 3 fit with BDT boundaries at {[0.4055,1.0000]}.]{
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/Bd_v2p4_bin3.pdf}
+    \label{fig:BdBootstrappedMCfitBin3}
+  }
+  \caption{1 of 1000 unbinned extended maximum likelihood fits performed simultaneously in BDT bin 0 \protect\subref{fig:BdBootstrappedMCfitBin0}, 1 \protect\subref{fig:BdBootstrappedMCfitBin1}, 2 \protect\subref{fig:BdBootstrappedMCfitBin2}, and 3 \protect\subref{fig:BdBootstrappedMCfitBin3} bootstrapped \Bdmumu MC samples.} 
+  \label{fig:example_fit_Bd}
 \end{figure}
 
+\clearpage
 
 \subsection{Resonant Background Model}
 \label{subsec:ResonantBkgModel}
@@ -194,7 +229,7 @@ Based upon these yields, we fit the LNT-LNT data region with the adjusted versio
 \end{itemize}
 
 Figure~\ref{fig:LNT-LNTdatafit} shows the result of the LNT-LNT data fit with the adjusted model above. Visually the fitted shape reproduces the data well and with a reasonable fit quality. Due to the limited statistics in the signal BDT bins and a large number of free parameters the fit quality is not satisfactory in the BDT bin of Figure~\ref{fig:LNT-LNTdatafitBin1}, however this is not the most signal sensitive BDT bin and due to the large uncertainties associated with the low mass bin content, the shape is still satisfactorily reproduced and poses no concern. The resulting \Bhh yield was found to be $N^{LNT-LNT}_{hh'} = 13.6 \pm 5.5$ ($24.9 \pm 1.3$ expected \textcolor{red}{Note this expectation is not right due to us using PR2 fake rates still here}) events in the LNT-LNT region.
-\begin{figure}[h]
+\begin{figure}[ht!]
   \centering
   \subfloat[BDT bin 0 fit with BDT boundaries at {[0.1609,0.2636]}.]{
     \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_Bhh_Bs_Bd_LNT-LNT_Bhh_json_all_other_T-T_nBs_nBd_fixed_pos_def_can_LNT-LNT_BDT_1_ETA_1.pdf}
@@ -231,8 +266,8 @@ As a cross-check of the procedure used to translate the LNT-LNT \Bhh yield into 
   \label{eq:T-LNT-LNT-T_LNT-LNT_dataBhhYield} 
 \end{eqnarray}
 
-Figure~\ref{fig:T-LNT-LNT-Tdatafit} shows the result of the T-LNT + LNT-T data fit with the constraint on the \Bhh yield from equation~\ref{eq:T-LNT-LNT-T_LNT-LNT_dataBhhYield}. The fitted shape reproduces the data reasonably well with a satisfactory quality of the fit in each BDT bin. The resulting \Bhh yield was found to be $N^{T-LNT+LNT-T}_{hh'} = 8.7 \pm 8.0$ ($32.5 \pm 1.1$ expected). The result of the T-LNT + LNT-T data fit is consistent with the result of the LNT-LNT data fit translated into the T-LNT + LNT-T region within the uncertainties on these values. The deviation in the central value between the two T-LNT + LNT-T \Bhh yields is therefore considered as a fit systematic effect and added in quadrature to the fit uncertainty of the fitted LNT-LNT \Bhh yield intended to be constrained in the final fit on data \text{red}{Still to figure this one out}. 
-\begin{figure}[h]
+Figure~\ref{fig:T-LNT-LNT-Tdatafit} shows the result of the T-LNT + LNT-T data fit with the constraint on the \Bhh yield from equation~\ref{eq:T-LNT-LNT-T_LNT-LNT_dataBhhYield}. The fitted shape reproduces the data reasonably well with a satisfactory quality of the fit in each BDT bin. The resulting \Bhh yield was found to be $N^{T-LNT+LNT-T}_{hh'} = 8.7 \pm 8.0$ ($32.5 \pm 1.1$ expected). The result of the T-LNT + LNT-T data fit is consistent with the result of the LNT-LNT data fit translated into the T-LNT + LNT-T region within the uncertainties on these values. 
+\begin{figure}[ht!]
   \centering
   \subfloat[BDT bin 0 fit with BDT boundaries at {[0.1609,0.2636]}.]{
     \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_Bhh_Bs_Bd_T-LNT-LNT-T_Bhh_json_all_other_T-T_nBs_nBd_fixed_nBhh_constr_LNT_LNT_pos_def_can_T-LNT-LNT-T_BDT_1_ETA_1.pdf}
@@ -257,6 +292,8 @@ Figure~\ref{fig:T-LNT-LNT-Tdatafit} shows the result of the T-LNT + LNT-T data f
 
 The ratio $\frac{N_{hh'}^{LNT-LNT}}{N_{hh'}^{T-LNT+LNT-T}} = 1.6 \pm 9.7$ measures directly the single-leg hadron species-averaged fake rate for the \Bhh daughters. From the data measurements we can can also estimate the species-averaged per-leg T vs L relative fake rate $\frac{N_{hh'}^{T-LNT+LNT-T}}{N_{hh'}^{T-LNT+LNT-T} + 2 \times N_{hh'}^{LNT-LNT}} = 0.24 \pm 0.18$. \textcolor{red}{Also all this needs to be checked over, quite large uncertainties, and not sure how useful this is to be given here.}
 
+\clearpage 
+
 \subsection{Non-Resonant Background Components Models}
 \label{subsec:NonResonantBkgModel}
 
@@ -275,7 +312,7 @@ The large \bbmumuX MC sample is used to study the different non-resonant backgro
 Separately studied on exclusive MC samples are the semileptonic decays \AntiLPMuNu, \LPMuNu, \BsKmMupNu, and \BdPimMuPNu, for which the final state hadron can be misidentified as a muon. Furthermore, at the limit of neutrinos carrying a low fraction of \Bpt, the di-muon invariant mass of the candidate can occupy the signal region.
 
 The BDT and invariant mass distributions for the \bbmumuX MC sample compared to the data mass sidebands after applying all the selection cuts \textcolor{red}{Note this is DDW1516 , will need to be updated to new DDW} (except for the BDT selection) is presented in Figure~\ref{fig:BDTMassDistrbbmumuX}. The combinatorial background of Figure~\ref{fig:MassDistrbbmumuX} shows a relatively mild dependence on the di-muon invariant mass \textcolor{red}{(add statement about the consistency of MC with data similar to PR2 int note)}. This trend is described more in detail in section~\ref{subsubsec:COMBbkg}. The other backgrounds have a sharper dependence on the di-muon invariant mass and hence mostly populate the low-mass region. Figure~\ref{fig:BDTDistrbbmumuX} shows the combinatorial background dominating the low BDT values, whereas the SS+SV and to a less extent the \Bc backgrounds become more important at higher BDT values where the signal will be extracted in the final fit. The \bQuark-Onia background is completely eliminated by the BDT selection in the higher BDT bins, however because a small contribution is still present in the lowest BDT bin this component is merged with the SS+SV background.
-\begin{figure}[h]
+\begin{figure}[ht!]
   \centering
   \subfloat[Continuum BDT distributions comparison in mass sidebands. The black vertical dashed lines correspond to the BDT bin boundaries used in the final fit.]{
     \includegraphics[width=0.95\textwidth]{figures/SignalExtraction/hist_bdt_Scaled_FR2_DDW1516_Data_all_noSignal_blinded.pdf}
@@ -300,6 +337,7 @@ The signal extraction strategy is supported by these considerations:
 \end{itemize}
 The following sections will discuss the parametrisation of these background components, individual fits to MC, and combined fits to MC and data sidebands.
 
+\clearpage
 
 \subsubsection{Combinatorial Background}
 \label{subsubsec:COMBbkg}
@@ -311,37 +349,38 @@ The combinatorial background is modelled by a first order Chebychev polynomial i
 \end{eqnarray}
 , where $\alpha$ is the Chebychev constant that is normalised to the mass fit window of 1200 MeV.
 
-Figure~\ref{fig:CombMCfit} shows the fits performed on the combinatorial component of the \bbmumuX MC (including the unmatched decays as discussed in section~\ref{subsec:NonResonantBkgModel} in the four BDT bins intended for the final fit: all the fits show a similar falling behaviour with increasing \B-candidate mass, satisfactorily reproducing the MC shape in the three highest BDT bins as can be seen in the residual distributions. Figure~\ref{fig:CombMCfitBin0} shows that the fit quality is not satisfactory (with a $p$-value = 0.001) only in BDT bin 0, however this was  found to be due to a very large number of fitted events and the fit quality can be improved by splitting this BDT bin into more equal-event BDT bins: this does not imply mismodeling but rather that the statistical test used to evaluate the fit performance behaves differently at increased statistics. Since the BDT bin 0 is primarily used to constrain the background rather than extract the signal, this lower $p$-value is likely a statistical effect rather than fundamental mismodeling and is therefore not an issue. 
-\begin{figure}[h]
+Figure~\ref{fig:CombMCfit} shows the fits performed on the combinatorial component of the \bbmumuX MC (including the unmatched decays as discussed in section~\ref{subsec:NonResonantBkgModel} in the four BDT bins intended for the final fit: all the fits show a similar falling behaviour with increasing dimuon invariant mass, satisfactorily reproducing the MC shape in the three highest BDT bins as can be seen in the residual distributions. Figures~\ref{fig:CombMCfitBin0}, \ref{fig:CombMCfitBin2} and \ref{fig:CombMCfitBin3} show that the fit quality is not satisfactory (with a $p$-value < 0.05), however this was found to be due to a very large number of fitted events. The fit quality was found to be improved by splitting these BDT bins into more equal number of events BDT bins, which does not imply mismodeling but rather that the statistical test used to evaluate the fit performance behaves differently at increased statistics. Therefore, the lower $p$-values are likely a statistical effect rather than fundamental mismodeling and are therefore not an issue for the analysis. 
+\begin{figure}[ht!]
   \centering
   \subfloat[BDT bin 0 fit with BDT boundaries at {[0.1609,0.2636]}.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_non_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_COMB_bin_0.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_bkg_non_sim_FR2_v2p4_residuals_can_COMB_bin_0.pdf}
     \label{fig:CombMCfitBin0}
   }
   \subfloat[BDT bin 1 fit with BDT boundaries at {[0.2636,0.3405]}.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_non_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_COMB_bin_1.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_bkg_non_sim_FR2_v2p4_residuals_can_COMB_bin_1.pdf}
     \label{fig:CombMCfitBin1}
   }
   \\
   \subfloat[BDT bin 2 fit with BDT boundaries at {[0.3405,0.4055]}.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_non_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_COMB_bin_2.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_bkg_non_sim_FR2_v2p4_residuals_can_COMB_bin_2.pdf}
     \label{fig:CombMCfitBin2}
   }
   \subfloat[BDT bin 3 fit with BDT boundaries at {[0.4055,1.0000]}.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_non_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_COMB_bin_3.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_bkg_non_sim_FR2_v2p4_residuals_can_COMB_bin_3.pdf}
     \label{fig:CombMCfitBin3}
   }
-  \caption{Unbinned extended maximum likelihood fits performed independently in BDT bin 0 \protect\subref{fig:CombMCfitBin0}, 1 \protect\subref{fig:CombMCfitBin1}, 2 \protect\subref{fig:CombMCfitBin2}, and 3 \protect\subref{fig:CombMCfitBin3} on the combinatorial background component of the \bbmumuX MC sample. The fitted Chebychev first order polynomial PDF \textcolor{red}{(describe the quality of the fit from the residuals distribution)}.} 
+  \caption{Unbinned extended maximum likelihood fits performed independently in BDT bin 0 \protect\subref{fig:CombMCfitBin0}, 1 \protect\subref{fig:CombMCfitBin1}, 2 \protect\subref{fig:CombMCfitBin2}, and 3 \protect\subref{fig:CombMCfitBin3} on the combinatorial background component of the \bbmumuX MC sample.} 
   \label{fig:CombMCfit}
 \end{figure}
 
-The Chebychev constants from these fits are shown in Figure~\ref{fig:ChebConstsLinear} as a function of the average BDT output value of the fitted events in the corresponding BDT bin. The Chebychev constants have a linear dependence with respect to the average BDT output: this dependence is consistent with the binned linear fit to a satisfactory probability of $p$-value = 0.08. The same linear dependence is confirmed on the fit to data sidebands in section~\ref{subsubsec:FitsMcDataSB} and therefore a linear function is used to constraint the shape of the combinatorial background in the four BDT bins of the final fit. Systematic uncertainties will be included to account for this assumption. 
-\begin{figure}[h]
-    \includegraphics[width=1.0\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_non_sim_FR2_BDT2024_BestNoMu_mu6mu4_line_COMB_const_avg_bdt_fit.pdf}
-    \caption{Chebychev first order polynomial constants (slopes) from the fits performed individually in each of the four BDT bins on the combinatorial component of the \bbmumuX MC sample. The x-axis shows the average BDT output value for the fitted events in the corresponding BDT bin. The Chebychev constants present a linear dependence on the average BDT output which is confirmed by the binned linear fit in red with a satisfactory probability. The fitted slope (p0) and the y-intercept (p1) of binned linear fit are also shown.}
-    \label{fig:ChebConstsLinear}
+The Chebychev constants from these fits are shown in Figure~\ref{fig:ChebConstsLinear} as a function of the average BDT output value of the fitted events in the corresponding BDT bin. The Chebychev constants have a linear dependence with respect to the average BDT output: this dependence is consistent with the binned linear fit to a satisfactory probability of $p$-value = 0.1687. The same linear dependence is confirmed on the fit to data sidebands in section~\ref{subsubsec:FitsMcDataSB} and therefore a linear function is used to constraint the shape of the combinatorial background in the four BDT bins of the final fit. Systematic uncertainties will be included to account for this assumption. 
+\begin{figure}[ht!]
+  \includegraphics[width=1.0\textwidth]{figures/SignalExtraction/out_fit_test_bkg_non_sim_FR2_v2p4_residuals_line_COMB_const_avg_bdt_fit.pdf}
+  \caption{Chebychev first order polynomial constants (slopes) from the fits performed individually in each of the four BDT bins on the combinatorial component of the \bbmumuX MC sample. The x-axis shows the average BDT output value for the fitted events in the corresponding BDT bin. The Chebychev constants present a linear dependence on the average BDT output which is confirmed by the binned linear fit in red with a satisfactory probability. The fitted slope (p0) and the y-intercept (p1) of binned linear fit are also shown.}
+  \label{fig:ChebConstsLinear}
 \end{figure}
 
+\clearpage
 
 \subsubsection{SS+SV Background}
 \label{subsubsec:SSSVbkg}
@@ -353,105 +392,107 @@ The SS+SV background falls fast with di-muon invariant mass, and therefore peaks
 \end{eqnarray}
 , where $\alpha$ is the exponential constant.
 
-Figure~\ref{fig:sssvMCfit} \textcolor{red}{( or Figure~\ref{fig:sssvOnlyMCfit} if we choose to only show the sssv part of \bbmumuX MC without \bQuark-Onia or \Bc background samples absorbed)} shows the fits performed independently on the SS+SV component of the \bbmumuX MC in the four BDT bins intended for the final fit: all the fits show a similar sharply falling behaviour with increasing \B-candidate mass, satisfactorily reproducing the MC shape as shown in the residual distributions. The quality of the fit performed in the lower two BDT bins is not satisfactory, however this was found to improve when splitting these BDT bins into more equal-event BDT bins. Similarly to the case of fit quality for low BDT bin fit in section~\ref{subsubsec:COMBbkg}, these lower $p$-value are likely a statistical effect rather than fundamental mismodeling and since the lower BDT bins have lower sensitivity to the signal this is not an issue.
-\begin{figure}[h]
-  \centering
-  \subfloat[BDT bin 0 fit with BDT boundaries at {[0.1609,0.2636]}.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_non_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_SSSV_bin_0.pdf}
-    \label{fig:sssvMCfitBin0}
-  }
-  \subfloat[BDT bin 1 fit with BDT boundaries at {[0.2636,0.3405]}.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_non_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_SSSV_bin_1.pdf}
-    \label{fig:sssvMCfitBin1}
-  }
-  \\
-  \subfloat[BDT bin 2 fit with BDT boundaries at {[0.3405,0.4055]}.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_non_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_SSSV_bin_2.pdf}
-    \label{fig:sssvMCfitBin2}
-  }
-  \subfloat[BDT bin 3 fit with BDT boundaries at {[0.4055,1.0000]}.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_non_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_SSSV_bin_3.pdf}
-    \label{fig:sssvMCfitBin3}
-  }
-  \caption{Unbinned extended maximum likelihood fits performed independently in BDT bin 0 \protect\subref{fig:sssvMCfitBin0}, 1 \protect\subref{fig:sssvMCfitBin1}, 2 \protect\subref{fig:sssvMCfitBin2}, and 3 \protect\subref{fig:sssvMCfitBin3} on the SS+SV background component of the \bbmumuX MC sample (which includes the absorbed \bQuark-Onia and \Bc background components from the same MC sample). The fitted exponential PDF \textcolor{red}{(describe the quality of the fit from the residuals distribution)}.} 
-  \label{fig:sssvMCfit}
-\end{figure}
+Figure~\ref{fig:sssvOnlyMCfit} shows the fits performed independently on the SS+SV component of the \bbmumuX MC in the four BDT bins intended for the final fit: all the fits show a similar sharply falling behaviour with increasing dimuon invariant mass, satisfactorily reproducing the MC shape as shown in the residual distributions. The quality of the fit performed in the lower two BDT bins is not satisfactory, however this was found to improve when splitting these BDT bins into more equal number of events BDT bins. Similar to the case of the fit quality for certain BDT bins of the combinatorial background MC in section~\ref{subsubsec:COMBbkg}, these lower $p$-values are likely a statistical effect rather than fundamental mismodeling, and since these lower BDT bins have lower sensitivity to the signals, this is not an issue for the analsysis.
+%\begin{figure}[ht!]
+%  \centering
+%  \subfloat[BDT bin 0 fit with BDT boundaries at {[0.1609,0.2636]}.]{
+%    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_non_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_SSSV_bin_0.pdf}
+%    \label{fig:sssvMCfitBin0}
+%  }
+%  \subfloat[BDT bin 1 fit with BDT boundaries at {[0.2636,0.3405]}.]{
+%    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_non_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_SSSV_bin_1.pdf}
+%    \label{fig:sssvMCfitBin1}
+%  }
+%  \\
+%  \subfloat[BDT bin 2 fit with BDT boundaries at {[0.3405,0.4055]}.]{
+%    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_non_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_SSSV_bin_2.pdf}
+%    \label{fig:sssvMCfitBin2}
+%  }
+%  \subfloat[BDT bin 3 fit with BDT boundaries at {[0.4055,1.0000]}.]{
+%    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_non_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_SSSV_bin_3.pdf}
+%    \label{fig:sssvMCfitBin3}
+%  }
+%  \caption{Unbinned extended maximum likelihood fits performed independently in BDT bin 0 \protect\subref{fig:sssvMCfitBin0}, 1 \protect\subref{fig:sssvMCfitBin1}, 2 \protect\subref{fig:sssvMCfitBin2}, and 3 \protect\subref{fig:sssvMCfitBin3} on the SS+SV background component of the \bbmumuX MC sample (which includes the absorbed \bQuark-Onia and \Bc background components from the same MC sample). The fitted exponential PDF \textcolor{red}{(describe the quality of the fit from the residuals distribution)}.} 
+%  \label{fig:sssvMCfit}
+%\end{figure}
 
-\begin{figure}[h]
+\begin{figure}[ht!]
   \centering
   \subfloat[BDT bin 0 fit with BDT boundaries at {[0.1609,0.2636]}.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_sssv_only_FR2_BDT2024_BestNoMu_mu6mu4_can_sssv_bin_0.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_bkg_non_sim_FR2_v2p4_residuals_can_SSSV_bin_0.pdf}
     \label{fig:sssvMCfitBin0}
   }
   \subfloat[BDT bin 1 fit with BDT boundaries at {[0.2636,0.3405]}.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_sssv_only_FR2_BDT2024_BestNoMu_mu6mu4_can_sssv_bin_1.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_bkg_non_sim_FR2_v2p4_residuals_can_SSSV_bin_1.pdf}
     \label{fig:sssvMCfitBin1}
   }
   \\
   \subfloat[BDT bin 2 fit with BDT boundaries at {[0.3405,0.4055]}.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_sssv_only_FR2_BDT2024_BestNoMu_mu6mu4_can_sssv_bin_2.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_bkg_non_sim_FR2_v2p4_residuals_can_SSSV_bin_2.pdf}
     \label{fig:sssvMCfitBin2}
   }
   \subfloat[BDT bin 3 fit with BDT boundaries at {[0.4055,1.0000]}.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_sssv_only_FR2_BDT2024_BestNoMu_mu6mu4_can_sssv_bin_3.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_bkg_non_sim_FR2_v2p4_residuals_can_SSSV_bin_3.pdf}
     \label{fig:sssvMCfitBin3}
   }
   \caption{Unbinned extended maximum likelihood fits performed independently in BDT bin 0 \protect\subref{fig:sssvMCfitBin0}, 1 \protect\subref{fig:sssvMCfitBin1}, 2 \protect\subref{fig:sssvMCfitBin2}, and 3 \protect\subref{fig:sssvMCfitBin3} on the SS+SV background component of the \bbmumuX MC sample. The fitted exponential PDF \textcolor{red}{(describe the quality of the fit from the residuals distribution)}.} 
   \label{fig:sssvOnlyMCfit}
 \end{figure}
 
-The exponential constants from these fits are shown in Figure~\ref{fig:sssvConstsConst} \textcolor{red}{( or Figure~\ref{fig:sssvOnlyConstsConst} if we choose to only show the sssv part of \bbmumuX MC without \bQuark-Onia or \Bc background samples absorbed)} as a function of the average BDT output value of the fitted events in the corresponding BDT bin. The exponential constants are compatible with a flat line in BDT output as confirmed by the constant fit with a high probability of $p$-value = 0.96. The independence of the exponential constants from the average BDT output value of the fitted events is confirmed on data sidebands in section~\ref{subsubsec:FitsMcDataSB}, therefore the exponential constant for the SS+SV background is treated as a common parameter among the bins in the final simultaneous fit 
-\begin{figure}[h]
-    \includegraphics[width=1.0\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_non_sim_FR2_BDT2024_BestNoMu_mu6mu4_line_SSSV_const_avg_bdt_fit.pdf}
-    \caption{Exponential constants from the fits performed individually in each of the four BDT bins on the SS+SV component of the \bbmumuX MC sample (which includes the absorbed \bQuark-Onia and \Bc background components from the same MC sample). The x-axis shows the average BDT output value for the fitted events in the corresponding BDT bin. The exponential constants present a constant dependence on the average BDT output which is confirmed by the binned constant fit in red with a satisfactory probability. The fitted exponential slope (p0) of binned constant fit is also shown.}
-    \label{fig:sssvConstsConst}
-\end{figure}
+The exponential constants from these fits are shown in Figure~\ref{fig:sssvOnlyConstsConst} as a function of the average BDT output value of the fitted events in the corresponding BDT bin. The exponential constants are compatible with a flat line in BDT output as confirmed by the constant fit with a high probability of $p$-value = 0.9917. The independence of the exponential constants from the average BDT output value of the fitted events is confirmed on data sidebands in section~\ref{subsubsec:FitsMcDataSB}, therefore the exponential constant for the SS+SV background is treated as a common parameter among the BDT bins in the final simultaneous fit.
+%\begin{figure}[ht!]
+%    \includegraphics[width=1.0\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_non_sim_FR2_BDT2024_BestNoMu_mu6mu4_line_SSSV_const_avg_bdt_fit.pdf}
+%    \caption{Exponential constants from the fits performed individually in each of the four BDT bins on the SS+SV component of the \bbmumuX MC sample (which includes the absorbed \bQuark-Onia and \Bc background components from the same MC sample). The x-axis shows the average BDT output value for the fitted events in the corresponding BDT bin. The exponential constants present a constant dependence on the average BDT output which is confirmed by the binned constant fit in red with a satisfactory probability. The fitted exponential slope (p0) of binned constant fit is also shown.}
+%    \label{fig:sssvConstsConst}
+%\end{figure}
 
-\begin{figure}[h]
-  \includegraphics[width=1.0\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_sssv_only_FR2_BDT2024_BestNoMu_mu6mu4_line_sssv_const_avg_bdt_fit.pdf}
+\begin{figure}[ht!]
+  \includegraphics[width=1.0\textwidth]{figures/SignalExtraction/out_fit_test_bkg_non_sim_FR2_v2p4_residuals_line_SSSV_const_avg_bdt_fit.pdf}
   \caption{Exponential constants from the fits performed individually in each of the four BDT bins on the SS+SV component of the \bbmumuX MC sample. The x-axis shows the average BDT output value for the fitted events in the corresponding BDT bin. The exponential constants present a constant dependence on the average BDT output which is confirmed by the binned constant fit in red with a satisfactory probability. The fitted exponential slope (p0) of binned constant fit is also shown.}
   \label{fig:sssvOnlyConstsConst}
 \end{figure}
 
-
+\clearpage
 
 \subsubsection{\Bc Background}
 \label{subsubsec:BcBkg}
 
-The \Bc background is a much smaller component with respect to the SS+SV and the combinatorial backgrounds: in the four highest BDT bins the number of expected \Bc events in MC corresponds to 0.9\% (23.8\%), 1.7\% (10.8\%), 2.3\% (5.5\%), and 2.0\% (2.8\%) of the total (or SS+SV + \bQuark-Onia + \Bc) background in BDT bin 0 , BDT bin 1, BDT bin 2, and BDT bin 3 respectively \textcolor{red}{(change these to the ratios from the MC when the final DDW are applied)}. The di-muon mass distribution for \Bc decays peaks below the signal region similar to the SS+SV background, and is modelled by the same exponential PDF as shown in equation~\ref{eq:SSSVpdf}.
+The \Bc background is a much smaller component with respect to the SS+SV and the combinatorial backgrounds: in the four highest BDT bins the number of expected \Bc events in MC corresponds to \iffalse 0.9\% (23.8\%), 1.7\% (10.8\%), 2.3\% (5.5\%), and 2.0\% (2.8\%) of the total (or SS+SV + \bQuark-Onia + \Bc), these numbers were from v2.3 ntuples \fi 0.9\%, 1.6\%, 2.1\% and 2.3\% of the total \bbmumuX background in BDT bin 0 , BDT bin 1, BDT bin 2, and BDT bin 3 respectively in the mass fit range considered for the signal extraction \textcolor{red}{(change these to the ratios from the MC when the final DDW are applied)}. The di-muon mass distribution for \Bc decays peaks below the signal region similar to the SS+SV background, and is modelled by the same exponential PDF as shown in equation~\ref{eq:SSSVpdf}.
 
-Figure~\ref{fig:BcMCfit} shows the fits performed independently on the \Bc component of the \bbmumuX MC in the four BDT bins intended for the final fit: the exponential PDF reproduces the di-muon mass MC distribution reasonably well where the fit quality is not sufficient with $p$-value = 0.001 only in BDT bin 0. This is entirely due to a single (lowest) mass bin from the residuals distribution in Figure~\ref{fig:BcMCfitBin0}, otherwise the fit quality is satisfactory and the fitted shape is entirely consistent with the MC. 
-\begin{figure}[h]
+Figure~\ref{fig:BcMCfit} shows the fits performed independently on the \Bc component of the \bbmumuX MC in the four BDT bins intended for the final fit: the exponential PDF reproduces the di-muon mass MC distribution reasonably well where the fit quality is not sufficient with $p$-value = 0.002 only in BDT bin 0. This is entirely due to a single (lowest) mass bin from the residuals distribution in Figure~\ref{fig:BcMCfitBin0}, otherwise the fit quality is satisfactory and the fitted shape is entirely consistent with the MC. 
+\begin{figure}[ht!]
   \centering
   \subfloat[BDT bin 0 fit with BDT boundaries at {[0.1609,0.2636]}.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_Bc_FR2_BDT2024_BestNoMu_mu6mu4_can_Bc_bin_0.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_Bc_FR2_v2p4_residuals_can_Bc_bin_0.pdf}
     \label{fig:BcMCfitBin0}
   }
   \subfloat[BDT bin 1 fit with BDT boundaries at {[0.2636,0.3405]}.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_Bc_FR2_BDT2024_BestNoMu_mu6mu4_can_Bc_bin_1.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_Bc_FR2_v2p4_residuals_can_Bc_bin_1.pdf}
     \label{fig:BcMCfitBin1}
   }
   \\
   \subfloat[BDT bin 2 fit with BDT boundaries at {[0.3405,0.4055]}.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_Bc_FR2_BDT2024_BestNoMu_mu6mu4_can_Bc_bin_2.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_Bc_FR2_v2p4_residuals_can_Bc_bin_2.pdf}
     \label{fig:BcMCfitBin2}
   }
   \subfloat[BDT bin 3 fit with BDT boundaries at {[0.4055,1.0000]}.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_Bc_FR2_BDT2024_BestNoMu_mu6mu4_can_Bc_bin_3.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_Bc_FR2_v2p4_residuals_can_Bc_bin_3.pdf}
     \label{fig:BcMCfitBin3}
   }
-  \caption{Unbinned extended maximum likelihood fits performed independently in BDT bin 0 \protect\subref{fig:BcMCfitBin0}, 1 \protect\subref{fig:BcMCfitBin1}, 2 \protect\subref{fig:BcMCfitBin2}, and 3 \protect\subref{fig:BcMCfitBin3} on the \Bc background component of the \bbmumuX MC sample. The fitted exponential PDF \textcolor{red}{(describe the quality of the fit from the residuals distribution)}.} 
+  \caption{Unbinned extended maximum likelihood fits performed independently in BDT bin 0 \protect\subref{fig:BcMCfitBin0}, 1 \protect\subref{fig:BcMCfitBin1}, 2 \protect\subref{fig:BcMCfitBin2}, and 3 \protect\subref{fig:BcMCfitBin3} on the \Bc background component of the \bbmumuX MC sample.} 
   \label{fig:BcMCfit}
 \end{figure}
 
-The resulting exponential constants are shown as a function of the average BDT output value of the fitted events in the corresponding BDT bin in Figure~\ref{fig:BcConsts}. The exponential constants are compatible with a flat line in BDT output as confirmed by the constant fit with a high probablity of $p$-value = 0.85. 
-\begin{figure}[h]
-  \includegraphics[width=1.0\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_Bc_FR2_BDT2024_BestNoMu_mu6mu4_line_Bc_const_avg_bdt_fit.pdf}
+The resulting exponential constants are shown as a function of the average BDT output value of the fitted events in the corresponding BDT bin in Figure~\ref{fig:BcConsts}. The exponential constants are compatible with a flat line in BDT output as confirmed by the constant fit with a high probablity of $p$-value = 0.7260. 
+\begin{figure}[ht!]
+  \includegraphics[width=1.0\textwidth]{figures/SignalExtraction/out_fit_test_Bc_FR2_v2p4_residuals_line_Bc_const_avg_bdt_fit.pdf}
   \caption{Exponential constants from the fits performed individually in each of the four BDT bins on the \Bc component of the \bbmumuX MC sample. The x-axis shows the average BDT output value for the fitted events in the corresponding BDT bin. The exponential constants present a constant dependence on the average BDT output which is confirmed by the binned constant fit in red with a satisfactory probability. The fitted exponential slope (p0) of binned constant fit is also shown.}
   \label{fig:BcConsts}
 \end{figure}
 
-Given that the \Bc background yields compose a small fraction of the total and the SS+SV backgrounds, these events are expected to be absorbed by the Chebychev first order polynomial and the SS+SV exponential PDFs: therefore no additional PDFs are added for the \Bc background to the fit model. The exclusion of the \Bc background component PDF from the fit model is taken into account in the evaluation of the fit systematic uncertainties in section~\ref{subsec:SystUncertaintySimultaneousFit}.
+Given that the \Bc background yields compose a small fraction of the total \bbmumuX background, these events are expected to be absorbed by the Chebychev first order polynomial and the SS+SV exponential PDFs: therefore no additional PDFs are added for the \Bc background to the fit model. The exclusion of the \Bc background component PDF from the fit model is taken into account in the evaluation of the fit systematic uncertainties in section~\ref{subsec:SystUncertaintySimultaneousFit}.
+
+\clearpage
 
 \subsubsection{Semi-leptonic Backgrounds}
 \label{subsubsec:SemilepBkg}
@@ -466,57 +507,59 @@ With these few events expected to enter in the fit region we assume that the exp
        = f \cdot \text{exp}(\alpha x) + (1 - f) \cdot \frac{1}{\sqrt{2\pi\sigma^2}} \text{exp}\left[-\frac{(x - \mu)^2}{2\sigma^2}\right]
   \label{eq:expGaussTail}
 \end{eqnarray}
-, where $\alpha$ is the exponential constant, $f$ is the fraction of the exponetial with respect to the Gaussian, and the $\mu$ and $\sigma$ are resepctively the mean and sigma of the Gaussian.
+, where $\alpha$ is the exponential constant, $f$ is the fraction of the exponetial with respect to the Gaussian, and where $\mu$ and $\sigma$ are resepctively the mean and sigma of the Gaussian.
 
-To validate the chosen PDF for the semi-leptonic background we fit the \B-candidate VTX mass distribution from the merged exclusive MC samples for the three modes with the PDF in equation~\ref{eq:expGaussTail} using a loosened selection: all final selections apart from the muon quality requirements and passing the online trigger are applied to the merged MC sample to allow for more statistics necessary for a good quality fit and convergence. Loosening the selections on the semi-leptonic MC to extract the shape parameters for this background is justified because this PDF is only used in evaluation of the the fit systematics and is not intended for the final fit on data. The loosened selection MC fit results are shown in Figure~\ref{fig:semilepMCfitLoose} with the fitted PDF in all BDT output bins satisfactory reproducing the shape of the MC sample as can be seen from the residual distributions. With enough statistics the fit quality is also satisfactory with $p-value$ > 0.05 in each bin of the BDT output. These fitted shape parameters are used to fix the shape parameters for the fit in the full selection merged semi-leptonic MC sample as an extra step of validation: the shape from the loosened selection MC fit must be compatible with the full selection fit to validate this approach.
-\begin{figure}[h]
+To validate the chosen PDF for the semi-leptonic background we fit the dimuon VTX mass distribution from the merged exclusive MC samples for the three modes with the PDF in equation~\ref{eq:expGaussTail}. The ID-based VTX mass is used instead of the MUCALC mass since fake muons frequently fail to produce combined muon tracks which are required in the baseline selection, leading to reduced statistics. Applied to the semil-leptonic MC sample is a loosened selection: all final selections apart from the muon quality requirements and passing the online trigger are applied to the merged MC sample to allow for more statistics necessary for a good quality fit and convergence. Loosening the selections on the semi-leptonic MC to extract the shape parameters for this background is justified because this PDF is only used in evaluation of the the fit systematics and is not intended for the final fit on data.
+
+Figure~\ref{fig:semilepMCfitLoose} shows the loosened selection MC fit results with the fitted PDF in all BDT output bins satisfactory reproducing the shape of the MC sample as can be seen from the residual distributions. With enough statistics the fit quality is also satisfactory with $p$-value > 0.05 in each bin of the BDT output. The loose MC fitted shape parameter values are then fixed in the fit to the full selection merged semi-leptonic MC sample as an extra step of validation: the shape from the loosened selection MC fit must be compatible with the full selection MC fit to validate this approach and confirm that the shape from loose selection also applies to full selection MC.
+\begin{figure}[ht!]
   \centering
   \subfloat[BDT bin 0 fit with BDT boundaries at {[0.1609,0.2636]}.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_semilep_TwoMuonNoTrig_FR2_BDT2024_BestNoMu_mu6mu4_can_bin_0.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_semilep_v2p4_can_bin_0.pdf}
     \label{fig:semilepMCfitLooseBin0}
   }
   \subfloat[BDT bin 1 fit with BDT boundaries at {[0.2636,0.3405]}.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_semilep_TwoMuonNoTrig_FR2_BDT2024_BestNoMu_mu6mu4_can_bin_1.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_semilep_v2p4_can_bin_1.pdf}
     \label{fig:semilepMCfitLooseBin1}
   }
   \\
   \subfloat[BDT bin 2 fit with BDT boundaries at {[0.3405,0.4055]}.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_semilep_TwoMuonNoTrig_FR2_BDT2024_BestNoMu_mu6mu4_can_bin_2.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_semilep_v2p4_can_bin_2.pdf}
     \label{fig:semilepMCfitLooseBin2}
   }
   \subfloat[BDT bin 3 fit with BDT boundaries at {[0.4055,1.0000]}.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_semilep_TwoMuonNoTrig_FR2_BDT2024_BestNoMu_mu6mu4_can_bin_3.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_semilep_v2p4_can_bin_3.pdf}
     \label{fig:semilepMCfitLooseBin3}
   }
   \caption{Unbinned extended maximum likelihood fits performed independently in BDT bin 0 \protect\subref{fig:semilepMCfitLooseBin0}, 1 \protect\subref{fig:semilepMCfitLooseBin1}, 2 \protect\subref{fig:semilepMCfitLooseBin2}, and 3 \protect\subref{fig:semilepMCfitLooseBin3} on the merged \BdPiMuNu, \BsKMuNu, \LPMuNu, and \LPMuNu exclusive MC samples. Applied to the merged MC sample is a loosened selection which comprises of all the final selections except the online trigger (and matching), additionally requiring only one of the offline muons to pass the tight WP and be a combined muon (the other muon is required to only pass the loose WP).} 
   \label{fig:semilepMCfitLoose}
 \end{figure}
 
-Figure~\ref{fig:semilepMCfit} shows the full selection merged semi-leptonic MC sample fitted with the PDF in equation~\ref{eq:expGaussTail} but with the shape parameters fixed to the results of the loosened MC fit result in Figure~\ref{fig:semilepMCfitLoose}. Even with the low statistics due to passing the online trigger requirement, the fixed shape parameters from the loosened selection formulate a PDF that is consistent with the full selection MC, reproducing satisfactorily the MC shape and with a good fit quality in all bins of the BDT output. The fit on the full selection MC converges with the shape parameters from fit to the loosened selection even at low statistics which justifies their use in the semi-leptonic PDF construction intended for the evaluation of the fit systematics. 
-\begin{figure}[h]
+Figure~\ref{fig:semilepMCfit} shows the full selection merged semi-leptonic MC sample fitted with the PDF in equation~\ref{eq:expGaussTail} but with the shape parameters fixed to the results of the loosened MC fit result in Figure~\ref{fig:semilepMCfitLoose}. Even with the low statistics due to passing the online trigger requirement, the fixed shape parameters from the loosened selection formulate a PDF that is consistent with the full selection MC, reproducing satisfactorily the MC shape and with a good fit quality in all bins of the BDT output. The fit in the full selection MC with the shape parameters from fit to the loosened selection converges even at low statistics, which justifies the loose MC shapes used in the semi-leptonic PDF construction intended for the evaluation of the fit systematics. 
+\begin{figure}[ht!]
   \centering
   \subfloat[BDT bin 0 fit with BDT boundaries at {[0.1609,0.2636]}.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_semilep_BmumuSemiLepCombMuonSKIM_massIDVTX_mu6mu4_FR2_BDT2024_BestNoMu_fixed_to_loose_can_bin_0.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_semilep_v2p4_loose_params_fixed_can_bin_0.pdf}
     \label{fig:semilepMCfitBin0}
   }
   \subfloat[BDT bin 1 fit with BDT boundaries at {[0.2636,0.3405]}.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_semilep_BmumuSemiLepCombMuonSKIM_massIDVTX_mu6mu4_FR2_BDT2024_BestNoMu_fixed_to_loose_can_bin_1.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_semilep_v2p4_loose_params_fixed_can_bin_1.pdf}
     \label{fig:semilepMCfitBin1}
   }
   \\
   \subfloat[BDT bin 2 fit with BDT boundaries at {[0.3405,0.4055]}.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_semilep_BmumuSemiLepCombMuonSKIM_massIDVTX_mu6mu4_FR2_BDT2024_BestNoMu_fixed_to_loose_can_bin_2.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_semilep_v2p4_loose_params_fixed_can_bin_2.pdf}
     \label{fig:semilepMCfitBin2}
   }
   \subfloat[BDT bin 3 fit with BDT boundaries at {[0.4055,1.0000]}.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_semilep_BmumuSemiLepCombMuonSKIM_massIDVTX_mu6mu4_FR2_BDT2024_BestNoMu_fixed_to_loose_can_bin_3.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_semilep_v2p4_loose_params_fixed_can_bin_3.pdf}
     \label{fig:semilepMCfitBin3}
   }
-  \caption{Unbinned extended maximum likelihood fits performed independently in BDT bin 0 \protect\subref{fig:semilepMCfitLooseBin0}, 1 \protect\subref{fig:semilepMCfitLooseBin1}, 2 \protect\subref{fig:semilepMCfitLooseBin2}, and 3 \protect\subref{fig:semilepMCfitLooseBin3} on the merged \BdPiMuNu, \BsKMuNu, \LPMuNu, and \LPMuNu exclusive MC samples. Applied to the merged MC sample are the final selections including requirements to pass the online trigger (and matching) but with only one muon passing the truth cuts. The shape parameters are fixed to the result of fit in Figure~\ref{fig:semilepMCfitLoose}.} 
+  \caption{Unbinned extended maximum likelihood fits performed independently in BDT bin 0 \protect\subref{fig:semilepMCfitLooseBin0}, 1 \protect\subref{fig:semilepMCfitLooseBin1}, 2 \protect\subref{fig:semilepMCfitLooseBin2}, and 3 \protect\subref{fig:semilepMCfitLooseBin3} on the merged \BdPiMuNu, \BsKMuNu, \LPMuNu, and \LPMuNu exclusive MC samples. Applied to the merged MC sample are the final selections including requirements to pass the online trigger (and matching) but with only one muon passing the truth cuts. The shape parameters are fixed to the result of the fit in Figure~\ref{fig:semilepMCfitLoose}.} 
   \label{fig:semilepMCfit}
 \end{figure}
 
-
+\clearpage
 
 \subsection{Non-Resonant Background Fits to MC and Data Sidebands}
 \label{subsubsec:FitsMcDataSB}
@@ -529,46 +572,46 @@ The non-resonant backgrounds in the fit to data are intended to be parametrised 
 In order to validate the combined background model (exponential + first order Chebychev polynomial) a blinded fit on the entire \bbmumuX MC sample is performed separately in each of the BDT bins considered. The slopes of the two PDFs along with the relevant uncertainties are then extracted and compared with what was obtained in the individual model fits to individual background MC samples of section~\ref{subsubsec:SSSVbkg} and section~\ref{subsubsec:COMBbkg}. The blinded fit results on combined MC sample are then compared to the blinded fit results on data.
 
 Figure~\ref{fig:blindedMCfitNonSim} shows the independent blinded fits on the entire \bbmumuX MC sample performed independently in the four BDT bins at high BDT output considered. The fits in all the BDT bins satisfactorily reproduce the MC shape with a $p$-value > 0.05. Similar fits are then performed on the data sidebands shown in Figure~\ref{fig:blindedDatafitNonSim}, where again the data shape is satisfactorily reproduced with a $p$-value > 0.05 in each BDT bin. 
-\begin{figure}[h]
+\begin{figure}[ht!]
   \centering
   \subfloat[BDT bin 0 fit with BDT boundaries at {[0.1609,0.2636]}.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_non_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_MC_bin_0.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_bkg_non_sim_FR2_v2p4_can_MC_bin_0_non_sim.pdf}
     \label{fig:blindedMCfitNonSimBin0}
   }
   \subfloat[BDT bin 1 fit with BDT boundaries at {[0.2636,0.3405]}.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_non_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_MC_bin_1.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_bkg_non_sim_FR2_v2p4_can_MC_bin_1_non_sim.pdf}
     \label{fig:blindedMCfitNonSimBin1}
   }
   \\
   \subfloat[BDT bin 2 fit with BDT boundaries at {[0.3405,0.4055]}.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_non_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_MC_bin_2.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_bkg_non_sim_FR2_v2p4_can_MC_bin_2_non_sim.pdf}
     \label{fig:blindedMCfitNonSimBin2}
   }
   \subfloat[BDT bin 3 fit with BDT boundaries at {[0.4055,1.0000]}.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_non_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_MC_bin_3.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_bkg_non_sim_FR2_v2p4_can_MC_bin_3_non_sim.pdf}
     \label{fig:blindedMCfitNonSimBin3}
   }
   \caption{Unbinned extended maximum likelihood fits performed independently in BDT bin 0 \protect\subref{fig:blindedMCfitNonSimBin0}, 1 \protect\subref{fig:blindedMCfitNonSimBin1}, 2 \protect\subref{fig:blindedMCfitNonSimBin2}, and 3 \protect\subref{fig:blindedMCfitNonSimBin3} on the full \bbmumuX MC sample with a combined background model (exponential + first order Chebychev Polynomial). The MC sample has all final selections applied and is weighted.}
   \label{fig:blindedMCfitNonSim}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[ht!]
   \centering
   \subfloat[BDT bin 0 fit with BDT boundaries at {[0.1609,0.2636]}.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_non_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_data_bin_0.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_bkg_non_sim_FR2_v2p4_can_data_bin_0_non_sim.pdf}
     \label{fig:blindedDatafitNonSimBin0}
   }
   \subfloat[BDT bin 1 fit with BDT boundaries at {[0.2636,0.3405]}.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_non_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_data_bin_1.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_bkg_non_sim_FR2_v2p4_can_data_bin_1_non_sim.pdf}
     \label{fig:blindedDatafitNonSimBin1}
   }
   \\
   \subfloat[BDT bin 2 fit with BDT boundaries at {[0.3405,0.4055]}.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_non_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_data_bin_2.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_bkg_non_sim_FR2_v2p4_can_data_bin_2_non_sim.pdf}
     \label{fig:blindedDatafitNonSimBin2}
   }
   \subfloat[BDT bin 3 fit with BDT boundaries at {[0.4055,1.0000]}.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_non_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_data_bin_3.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_bkg_non_sim_FR2_v2p4_can_data_bin_3_non_sim.pdf}
     \label{fig:blindedDatafitNonSimBin3}
   }
   \caption{Unbinned extended maximum likelihood fits performed independently in BDT bin 0 \protect\subref{fig:blindedMCfitNonSimBin0}, 1 \protect\subref{fig:blindedMCfitNonSimBin1}, 2 \protect\subref{fig:blindedMCfitNonSimBin2}, and 3 \protect\subref{fig:blindedMCfitNonSimBin3} on data sidebands with a combined background model (exponential + first order Chebychev Polynomial).}
@@ -577,23 +620,26 @@ Figure~\ref{fig:blindedMCfitNonSim} shows the independent blinded fits on the en
 
 Figure~\ref{fig:shapesNonSim} shows the resulting slopes from all the fits on the Y-axis, whereas the X-axis is the average BDT output of the fitted events in each BDT bin. Bins at lower BDT outputs are not considered as they are not intended to be used in the extraction of the signal. The slopes of the first order Chebychev polynomials are shown in Figure~\ref{fig:COMBshapesNonSim} and the slopes of the exponentials are shown in Figure~\ref{fig:SSSVshapesNonSim}. Both the polynomial and the exponential slopes obtained with the combined model (red points) are compatible with those obtained independently (black points), which validates the combination of the SS+SV and combinatorial backgrounds functional forms in the final PDF intended to be used for the fit to data.
 
-The polynomial slopes of Figure~\ref{fig:COMBshapesNonSim} obtained from the data sidebands fits (green points) are compatible with those obtained from the MC sidebands fits (red points), which is in part due to their larger uncertainties. The larger data sidebands polynomial slope uncertainties are due to the reduced statistics available in data sidebands with respect to those available in the \bbmumuX MC sidebands. Visually linear dependence of the polynomial slope as a function of the average BDT output is present for the fits to both data and MC sidebands, and is consistent with observation made in section~\ref{subsubsec:COMBbkg}, hence confirming the choice of this linear constraint in the signal extraction model.
-
-The constant dependence of the exponential slopes with the average BDT output of Figure~\ref{fig:SSSVshapesNonSim} obtained from the data sidebands (green points) and MC sidebands (red points) is consistent with the observations made in section~\ref{subsubsec:SSSVbkg}, validating the flat line constraint for the exponential component in BDT bins to be included in the signal extraction model. 
-\begin{figure}[h]
+\begin{figure}[ht!]
   \centering
   \subfloat[Exponential slopes.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_non_sim_FR2_BDT2024_BestNoMu_mu6mu4_SSSV_compare_points.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_bkg_non_sim_FR2_v2p4_SSSV_compare_points_non_sim.pdf}
     \label{fig:SSSVshapesNonSim}
   }
   \subfloat[First order Chebychev polynomial slopes.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_non_sim_FR2_BDT2024_BestNoMu_mu6mu4_COMB_compare_points.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_bkg_non_sim_FR2_v2p4_COMB_compare_points_non_sim.pdf}
     \label{fig:COMBshapesNonSim}
   }
-  \caption{Exponential \protect\subref{fig:SSSVshapesNonSim} and first order Chebychev polynomial \protect\subref{fig:COMBshapesNonSim} constants from the fits performed individually in each of the four BDT bins. The X-axis shows the average BDT output value for the fitted events in the corresponding BDT bin, with horizontal error bars corresponding to the standard deviation of BDT output from events used in the fit. The black points represent the constants from the exponential and first order Chebychev polynomial fits to the individual SS+SV and combinatorial background components of the \bbmumuX MC sample respectively, whereas the red points represent the constants from the blinded fit to the entire \bbmumuX MC sample with the combined background model. The green points represent the constants obtained from the same fit configuration as was employed to obtain the red points but performed on the data sidebands. }
+  \caption{Exponential \protect\subref{fig:SSSVshapesNonSim} and first order Chebychev polynomial \protect\subref{fig:COMBshapesNonSim} constants from the fits performed individually in each of the four BDT bins. The X-axis shows the average BDT output value for the fitted events in the corresponding BDT bin, with horizontal error bars corresponding to the standard deviation of BDT output from events used in the fit. The black points represent the constants from the exponential and first order Chebychev polynomial fits to the individual SS+SV and combinatorial background components of the \bbmumuX MC sample respectively, whereas the red points represent the constants from the sidebands fit to the entire \bbmumuX MC sample with the combined background model. The green points represent the constants obtained from the same fit configuration as was employed to obtain the red points but performed on the data sidebands. }
   \label{fig:shapesNonSim}
 \end{figure}
 
+
+The polynomial slopes of Figure~\ref{fig:COMBshapesNonSim} obtained from the data sidebands fits (green points) are compatible with those obtained from the MC sidebands fits (red points), which is in part due to their larger uncertainties. The larger data sidebands polynomial slope uncertainties are due to the reduced statistics available in data sidebands with respect to those available in the \bbmumuX MC sidebands. Visually linear dependence of the polynomial slope as a function of the average BDT output is present for the fits to both data and MC sidebands, and is consistent with observation made in section~\ref{subsubsec:COMBbkg}, hence confirming the choice of this linear constraint in the signal extraction model.
+
+The constant dependence of the exponential slopes with the average BDT output of Figure~\ref{fig:SSSVshapesNonSim} obtained from the data sidebands (green points) and MC sidebands (red points) is consistent with the observations made in section~\ref{subsubsec:SSSVbkg}, validating the flat line constraint for the exponential component in BDT bins to be included in the signal extraction model. 
+
+\clearpage
 
 \subsubsection{BDT-Simultaneous SS+SV and Combinatorial Combined Fit to MC and Data Sidebands}
 \label{subsubsec:SimultaneousSSSVplusCOMBcombinedFitMCandDataSB}
@@ -601,90 +647,90 @@ The constant dependence of the exponential slopes with the average BDT output of
 To reduce the complexity in the fit and based on the conclusions made in section~\ref{subsubsec:SSSVplusCOMBcombinedFitMCandDataSB} on the constraints of the background shapes, the final fit on data is inteded to be performed simultaneously in the four BDT bins. In this section we validate the additional constraints introduced by the simultaneous fit by performing it first on the \bbmumuX MC sidebands and then on data sidebands. The resulting shape parameters are then compared with the results of the non-simultaneous fit results of section~\ref{subsubsec:SSSVplusCOMBcombinedFitMCandDataSB} to validate this approach.
 
 In the simultaneous fit configuration The polynomial slopes are constrained to depend linearly on the average BDT output of the fitted events in each BDT bin, whereas the exponential slopes in each BDT bin are parametrised by a single shared exponential constant; the normalisations of the PDFs are allowed to be free. Figure~\ref{fig:blindedMCfitSim} shows the results of the simultaneous fit performed on the \bbmumuX MC sidebands and Figure~\ref{fig:blindedDatafitSim} shows the same fit configuration performed on data sidebands. Both these fits fully converge and satisfactorily reproduce the corresponding sample shape with $p$-value $\geq$ 0.05 in each BDT bin.
-\begin{figure}[h]
+\begin{figure}[ht!]
   \centering
   \subfloat[BDT bin 0 fit with BDT boundaries at {[0.1609,0.2636]}.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 30, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_MC_bin_0.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_bkg_sim_FR2_v2p4_can_MC_bin_0_sim.pdf}
     \label{fig:blindedMCfitSimBin0}
   }
   \subfloat[BDT bin 1 fit with BDT boundaries at {[0.2636,0.3405]}.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 30, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_MC_bin_1.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_bkg_sim_FR2_v2p4_can_MC_bin_1_sim.pdf}
     \label{fig:blindedMCfitSimBin1}
   }
   \\
   \subfloat[BDT bin 2 fit with BDT boundaries at {[0.3405,0.4055]}.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 30, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_MC_bin_2.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_bkg_sim_FR2_v2p4_can_MC_bin_2_sim.pdf}
     \label{fig:blindedMCfitSimBin2}
   }
   \subfloat[BDT bin 3 fit with BDT boundaries at {[0.4055,1.0000]}.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 30, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_MC_bin_3.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_bkg_sim_FR2_v2p4_can_MC_bin_3_sim.pdf}
     \label{fig:blindedMCfitSimBin3}
   }
   \caption{Unbinned extended maximum likelihood fit performed simultaneously in BDT bin 0 \protect\subref{fig:blindedMCfitSimBin0}, 1 \protect\subref{fig:blindedMCfitSimBin1}, 2 \protect\subref{fig:blindedMCfitSimBin2}, and 3 \protect\subref{fig:blindedMCfitSimBin3} on the full \bbmumuX MC sample with a combined background model (exponential + first order Chebychev Polynomial). The shape parameter constraints are described in text and the MC sample has all final selections and weights applied.}
   \label{fig:blindedMCfitSim}
 \end{figure}
-\begin{figure}[h]
+\begin{figure}[ht!]
   \centering
   \subfloat[BDT bin 0 fit with BDT boundaries at {[0.1609,0.2636]}.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 30, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_data_bin_0.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_bkg_sim_FR2_v2p4_can_data_bin_0_sim.pdf}
     \label{fig:blindedDatafitSimBin0}
   }
   \subfloat[BDT bin 1 fit with BDT boundaries at {[0.2636,0.3405]}.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 30, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_data_bin_1.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_bkg_sim_FR2_v2p4_can_data_bin_1_sim.pdf}
     \label{fig:blindedDatafitSimBin1}
   }
   \\
   \subfloat[BDT bin 2 fit with BDT boundaries at {[0.3405,0.4055]}.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 30, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_data_bin_2.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_bkg_sim_FR2_v2p4_can_data_bin_2_sim.pdf}
     \label{fig:blindedDatafitSimBin2}
   }
   \subfloat[BDT bin 3 fit with BDT boundaries at {[0.4055,1.0000]}.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 30, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_data_bin_3.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_bkg_sim_FR2_v2p4_can_data_bin_3_sim.pdf}
     \label{fig:blindedDatafitSimBin3}
   }
   \caption{Unbinned extended maximum likelihood fit performed simultaneously in BDT bin 0 \protect\subref{fig:blindedMCfitSimBin0}, 1 \protect\subref{fig:blindedMCfitSimBin1}, 2 \protect\subref{fig:blindedMCfitSimBin2}, and 3 \protect\subref{fig:blindedMCfitSimBin3} on data sidebands with a combined background model (exponential + first order Chebychev Polynomial). The shape parameter constraints are described in text.}
   \label{fig:blindedDatafitSim}
 \end{figure}
 
-Figure~\ref{fig:SSSVshapesSimNonSimCompare} shows the slopes of the exponential from the independent fits to \bbmumuX MC and data sidebands in the four BDT bins as described in section~\ref{subsubsec:SSSVplusCOMBcombinedFitMCandDataSB} (Figure~\ref{fig:SSSVshapesNonSimLinFit}), comparing these to the slopes of the exponential from the BDT bin simultaneous fit to \bbmumuX and data sidebands (Figure~\ref{fig:SSSVshapesSimNoLinFit}). The exponential slopes from BDT bin independent fits are fitted with a constant function, the result of which is compared to the corresponding exponential slope shared between the BDT bins in the simultaneous fit. The constant fit on MC and data sidebands is of good quality with $p$-value > 0.05. The BDT bin simultaneous exponential slope (Figure~\ref{fig:SSSVshapesSimNoLinFit}) is consistent with the result of the constant fit to BDT bin independent exponential slopes (Figure~\ref{fig:SSSVshapesNonSimLinFit}) both for MC (blue lines) and data (green lines) sidebands. The exponential slopes obtained from the simultaneous fit are not consistent between MC and data sidebands; this inconsistency is attributed to the imperfect modelling of the data by the MC and is taken into account in the systematics study in section~\ref{subsec:SystUncertaintySimultaneousFit}.
-\begin{figure}[h]
+Figure~\ref{fig:SSSVshapesSimNonSimCompare} shows the slopes of the exponential from the independent fits to \bbmumuX MC and data sidebands in the four BDT bins as described in section~\ref{subsubsec:SSSVplusCOMBcombinedFitMCandDataSB} (Figure~\ref{fig:SSSVshapesNonSimLinFit}), comparing these to the slopes of the exponential from the BDT bin simultaneous fit to \bbmumuX MC and data sidebands (Figure~\ref{fig:SSSVshapesSimNoLinFit}). The exponential slopes from BDT bin independent fits are fitted with a constant function, the result of which is compared to the corresponding exponential slope shared between the BDT bins in the simultaneous fit. The constant fit on MC and data sidebands is of good quality with $p$-value > 0.05. The BDT bin simultaneous exponential slope (Figure~\ref{fig:SSSVshapesSimNoLinFit}) is consistent with the result of the constant fit to BDT bin independent exponential slopes (Figure~\ref{fig:SSSVshapesNonSimLinFit}) both for MC (blue lines) and data (green lines) sidebands. The exponential slopes obtained from the simultaneous fit are not consistent between MC and data sidebands; this inconsistency is attributed to the imperfect modelling of the data by the MC and is taken into account in the systematics study in section~\ref{subsec:SystUncertaintySimultaneousFit}.
+\begin{figure}[ht!]
   \centering
   \subfloat[Exonential slopes from independent fits to BDT bins.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_non_sim_FR2_BDT2024_BestNoMu_mu6mu4_SSSV_compare_fit.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_bkg_non_sim_FR2_v2p4_SSSV_compare_fit_non_sim.pdf}
     \label{fig:SSSVshapesNonSimLinFit}
   }
   \subfloat[Exponential slopes from simultaneous fit to BDT bins.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_sim_FR2_BDT2024_BestNoMu_mu6mu4_SSSV_compare_fit.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_bkg_sim_FR2_v2p4_SSSV_compare_fit_sim.pdf}
     \label{fig:SSSVshapesSimNoLinFit}
   }
   \caption{Exponential constants from the fits performed individually in each of the four BDT bins \protect\subref{fig:SSSVshapesNonSimLinFit} compared to the exponential constants from the fit perfromed simultaneously in the four BDT bins \protect\subref{fig:SSSVshapesSimNoLinFit}. The X-axis shows the average BDT output value for the fitted events in the corresponding BDT bin, with horizontal error bars corresponding to the standard deviation of BDT output from events used in the fit. The black points represent the constants from the combined background model fit to \bbmumuX MC sidebands, whereas the red points represent the same fit on data sidebands. The blue and green lines in \protect\subref{fig:SSSVshapesNonSimLinFit} represent the result of the constant fit to the exponential constants in MC and data sidebands respectively, whereas the dashed lines represent the constant fit result error. Numerical fit results as well as the goodness of constant fit are also shown. The blue and green lines in \protect\subref{fig:SSSVshapesSimNoLinFit} represent the fitted value of the exponential constat shared between the four BDT bins in MC and data sidebands respectively, whereas the dashed lines represent the fitted exponential constant uncertainty. Numerical fit results along with their fit errors are also shown. The parameter p0 represents the shared exponential constant in \protect\subref{fig:SSSVshapesSimNoLinFit} and the result of the constant fit in \protect\subref{fig:SSSVshapesNonSimLinFit}.}
   \label{fig:SSSVshapesSimNonSimCompare}
 \end{figure}
 
-Figure~\ref{fig:COMBshapesSimNonSimCompare} shows the slopes of the first order Chebychev polynomial from the independent fits to \bbmumuX MC and data sidebands in the four BDT bins as described in section~\ref{subsubsec:SSSVplusCOMBcombinedFitMCandDataSB} (Figure~\ref{fig:COMBshapesNonSimLinFit}), comparing these to the polynomial slopes from the BDT bin simultaneous fit to \bbmumuX and data sidebands (Figure~\ref{fig:COMBshapesSimNoLinFit}). The polynomial slopes from BDT bin independent fits are fitted with a linear function, the result of which is compared to the fitted linear parameters used to constrain the polynomial slopes in the simultaneous fit. The linear fit on MC and data sidebands is of good quality with $p$-value > 0.05. The fitted linear parameters constraining the polynomial slopes in the simultaneous fit (p0 and p1 in Figure~\ref{fig:COMBshapesSimNoLinFit} are consistent with the fitted linear parameters from the fit to the independent polynomial slopes (p0 and p1 in Figure~\ref{fig:COMBshapesNonSimLinFit})) both for MC (green lines) and data (blue lines) sidebands. Figure~\ref{fig:COMBshapesCompareDataMC} shows a direct comparison of the linear parameters constraining polynomial slopes obtained from data (red) and MC sidebands (black) simultaneous fits; the two sets of parameters are consistent within 2$\sigma$. Any inconsistency between the linear parametrisation of the shape constraint for the combinatorial background in data and MC is taken into account in the systematics study of section~\ref{subsec:SystUncertaintySimultaneousFit}. 
-\begin{figure}[h]
+Figure~\ref{fig:COMBshapesSimNonSimCompare} shows the slopes of the first order Chebychev polynomial from the independent fits to \bbmumuX MC and data sidebands in the four BDT bins as described in section~\ref{subsubsec:SSSVplusCOMBcombinedFitMCandDataSB} (Figure~\ref{fig:COMBshapesNonSimLinFit}), comparing these to the polynomial slopes from the BDT bin simultaneous fit to \bbmumuX and data sidebands (Figure~\ref{fig:COMBshapesSimNoLinFit}). The polynomial slopes from BDT bin independent fits are fitted with a linear function, the result of which is compared to the fitted linear parameters used to constrain the polynomial slopes in the simultaneous fit. The linear fit on MC and data sidebands is of good quality with $p$-value > 0.05. The fitted linear parameters constraining the polynomial slopes in the simultaneous fit (p0 and p1 in Figure~\ref{fig:COMBshapesSimNoLinFit}) are consistent with the fitted linear parameters from the fit to the independent polynomial slopes (p0 and p1 in Figure~\ref{fig:COMBshapesNonSimLinFit}) both for MC (green lines) and data (blue lines) sidebands. Figure~\ref{fig:COMBshapesCompareDataMC} shows a direct comparison of the linear parameters constraining polynomial slopes obtained from data (red) and MC sidebands (black) simultaneous fits; the two sets of parameters are consistent within 2$\sigma$. Any inconsistency between the linear parametrisation of the shape constraint for the combinatorial background in data and MC is taken into account in the systematics study of section~\ref{subsec:SystUncertaintySimultaneousFit}. 
+\begin{figure}[ht!]
   \centering
   \subfloat[Polynomial slopes from independent fits to BDT bins.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_non_sim_FR2_BDT2024_BestNoMu_mu6mu4_COMB_compare_fit.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_bkg_non_sim_FR2_v2p4_COMB_compare_fit_non_sim.pdf}
     \label{fig:COMBshapesNonSimLinFit}
   }
   \subfloat[Polynomial slopes from simultaneous fit to BDT bins.]{
-    \includegraphics[width=0.5\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_sim_FR2_BDT2024_BestNoMu_mu6mu4_COMB_compare_fit.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_bkg_sim_FR2_v2p4_COMB_compare_fit_sim.pdf}
     \label{fig:COMBshapesSimNoLinFit}
   }
   \caption{First order Chebychev polynomial constants from the fits performed individually in each of the four BDT bins \protect\subref{fig:COMBshapesNonSimLinFit} compared to the polynomial constants from the fit perfromed simultaneously in the four BDT bins \protect\subref{fig:COMBshapesSimNoLinFit}. The X-axis shows the average BDT output value for the fitted events in the corresponding BDT bin, with horizontal error bars corresponding to the standard deviation of BDT output from events used in the fit. The black points represent the constants from the combined background model fit to \bbmumuX MC sidebands, whereas the red points represent the same fit on data sidebands. The blue and green lines in \protect\subref{fig:COMBshapesNonSimLinFit} represent the result of the linear fit to the polynomial constants in MC and data sidebands respectively. Numerical results as well as the goodness of linear fit are also shown. The blue and green lines in \protect\subref{fig:COMBshapesSimNoLinFit} represent the fitted linear constraints on the polynomial slopes in MC and data sidebands respectively. Numerical fit results for the linear parameters constraining the polynomial slopes along with their fit errors are also shown. The parameters p0 and p1 represent respectively the constant and slope coefficients of the line constraning the polynomial slopes in \protect\subref{fig:COMBshapesSimNoLinFit} and of the fitted line in \protect\subref{fig:COMBshapesNonSimLinFit}.}
   \label{fig:COMBshapesSimNonSimCompare}
 \end{figure}
 
-\begin{figure}[h]
-  \includegraphics[width=1.0\textwidth, trim=0 0 0 40, clip]{figures/SignalExtraction/out_fit_test_totbkg_full_PRD_SSSV_sim_FR2_BDT2024_BestNoMu_mu6mu4_can_p0_p1_comb.pdf}
+\begin{figure}[ht!]
+  \includegraphics[width=1.0\textwidth]{figures/SignalExtraction/out_fit_test_bkg_sim_FR2_v2p4_can_p0_p1_comb_sim.pdf}
   \caption{Linear parameters constraining the first order Chebychev polynomial constants obtained from simultaneous fit to data (red points) and MC (black points) sidebands shown in the p0 (constant coefficient) - p1 (slope coefficinet) plane with their fitted uncertainties.}
   \label{fig:COMBshapesCompareDataMC}
 \end{figure}
 
 Having validated the procedure for the background shape parametrisation and its use in the simultaneous fit we next describe the summary of the full fit configuration intended to be employed on data.
 
-
+\clearpage
 
 \subsection{Summary of the Fit Configuration}
 \label{subsec:FitConfig}
