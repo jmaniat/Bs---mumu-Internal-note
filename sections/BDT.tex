@@ -1,11 +1,62 @@
 \section{Combinatorial Background Reduction}
 \label{sec:BDT}
 
+A Multi-Variate Analysis (MVA) based on a boosted decision tree (BDT) algorithm is used to reduce the combinatorial background. The BDT algorithm is implemented in the TMVA package. The training signal sample is \Bdmumu MC and the training background sample is \Bdmumu sideband data. The BDT is trained using 15 input variables in analogy with the Partial Run 2 and Run 1 analysis. The 15 variables are summarized in Table \ref{tab:baselineSelection}. A five-fold cross validation configuration is used for the BDT training and the hyperparameters have been optimized. This section will describe the variables used in the training, the BDT configuration, the performace metrics, and the hyperpameter optimization. Plots of the final BDT performance are also shown. Tests of alternate BDT configurations and some validations are in Appendix \ref{}
+
+The input variables can be divided into two categories. The first is variables related to the isolation of the B candidate and the second is variables related to B candidate topology. The variable definitions are largely unchanged from the Partial Run 2 analysis, except for the $Biso$. A dedicated study found a more optimal definition of Bisolation variables \cite{Aidens Biso Note}. Each variable in the signal and background samples is plotted in Figure \ref{fig:BDTvariables}. Some variables, such as $\Delta R$ and $|\alpha_{2D}|$ have visible separation and thus are more important in the BDT training. The separation score of each variable is imbedded in Figure \ref{fig:BDTvariables} and summarized in Table \ref{tab:BDTvarSummary}. 
+
+%%% Make Table showing the 5 fold BDT configuration
+
+ 
+The training uses a five-fold cross validation configuration. The data is split into five numbered parts (folds) and five BDTs are trained. For each BDT, one fold of the data is used for validation, one fold is used for evaluation, and the remaining three folds are used for training. The folds used for validation and evaluation are permutated for each BDT. This configuration allows each fold of the data to have a corresponding BDT that was trained and validated on completely independent data. The five-fold training configuration is summarized in table \ref{tab:BDT5FoldConfig}.
+
+%%% Make Table showing the 5 fold BDT configuration
+
+
+The BDT was evaluated based on three different metrics. First was the background efficiency at 25\% signal efficiency. This metric was chosen because it is near the expected top BDT score bin boundary used in the analysis, and thus is most impactful on the final result. The second metric was the total area under the ROC curve (AUC). This metric is a measurement of the BDTs overall performance. This final metric was a Kolmogorov-Smirnov (K-S) test between the BDT distributions of the training and validation sets. This metric is used to determine if the BDT is overtrained thus causing differences in the BDT distributions. 
+
+The BDT uses the AdaBoost algorithm. A gradient boost algorithm was tried but did not show improvement compared to the AdaBoost. The  hyperparameters are sensitive to the training sample size and thus needed to be reoptimized on the Full Run 2 dataset. The training is most sensitive to hyperparameters related to the descision tree properties like the maximum node depth (MaxDepth), the minimum node size (MinNodeSize), and the number of trees (NTrees). The training is also sensitive to the learning rate parameter of the AdaBoost algorithm (AdaBoostBeta). The error fraction saturates after about 200 trees, so the NTrees hyperparameter is set conservatively at 500. The optimal MinNodeSize, AdaBoostBeta, and MaxDepth parameters are found using a grid search. The final values used in the BDT training are summarized in Table \ref{tab:BDThyperParams}. 
+
+%%% Make Table of BDT Hyperparameters
+
+The training and validation BDT score distribution for BDT1 are shown in Figure \ref{fig:BDT-KStest}. The K-S score is \~0.6, which far above the chosen threshold of 0.1. The pulls between the distributions do not show significant structure, indicating that the BDT is not overtrained on a feature unique to the validation set. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/BDT/KStest_BDT2024_Nom_Set1_MD5MNS0p1_ABB0p7_NT500KS.pdf}
+    \caption{Signal and background BDT score distributions for the training and validation sets used in BDT1. A K-S test is performed between the training and validation distributions for the signal and background. }
+    \label{fig:BDT-KStest}
+\end{figure}
+
+The ROC curve for each of the five BDT distributions and a combined ROC curve are shown in Figure \ref{fig:BDT-5FoldROCCurves}. The ROC curves made on a single validation set are from 1/5th of the dataset, and the combined ROC curve is made by adding each validation set together. The combined ROC curve is used to extract the comparison metrics. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/BDT/250607-5F-bestNoMu-AllSets-withCombined.pdf}
+    \caption{Signal and background BDT score distributions for the training and validation sets used in BDT1. A K-S test is performed between the training and validation distributions for the signal and background. }
+    \label{fig:BDT-5FoldROCCurves}
+\end{figure}
+
+The importance of the 15 variables used in the training are summarized in table \ref{tab:BDTvarSummary}. The most important variables are $\Delta R$ and $|\alpha_{2D}|$ which are also the variables with the greatest separation between their background and signal distributions. Several variables have more importance in the BDT than their separation would indicate, which is likely due to correlations between other training varaibles that are present for the signal but not background. The correlations between each of the BDT training variables is shown in Figure \ref{fig:BDTcorrMatrixSig} for signal and \ref{fig:BDTcorrMatrixBkg} for the background. In addition the correlation with the BDT score and mass variable are shown. The correlation with the BDT score generally follows the importance in the BDT. Since the yield results are extracted using fits to the invariant mass distribution, its essential that the BDT score has a low correlation with the mass. No variable used in the training is significanly correlated with the mass and the mass is not significantly correlated with the BDT score. 
+
+
+%%% Make Table showing the 5 fold variable importance and separation with their ranks.
+    % $|\Delta \phi_{\mu\mu}|$ has an importance ranking of 6 and a separation rank of 15. This can be explained be its /
+
+%%% Make correlation matrix figure for signal variables
+%%% Make correlation matric figure for background variables. 
+
+
+
 \subsection{BDT Cut Optimisation}
 \label{subsec:BDTcutOptimisation}
 
+
+
 \subsection{BDT Binning Definition}
 \label{subsec:BDTbinningDefinition}
+
+
 
 \subsubsection{Empirical Evaluation of BDT Binning Performance}
 \label{subsubsec:EmpEvalBDTbinPerform}
