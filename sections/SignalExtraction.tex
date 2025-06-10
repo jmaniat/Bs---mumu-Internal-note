@@ -33,7 +33,7 @@ The continuum BDT output bin boundaries used in this analysis have been selected
 \end{table}
 
 For the 3 and 4 BDT bin fit configurations the most signal sensitive (top) BDT bin boundary has been adjusted to include a 20\% and 50\% larger/smaller signal efficiency respectively. This was done to evaluate the change in signal sensitivity to variations in BDT boundary selection for the most signal sensitive bin. In both these cases the signal sensitivity was not found to vary significantly. Overall the 5 equal signal efficiency BDT bin configuration showed the best sensitivity to both the signals, however, this improvement is still negligible with respect to the expected statistical uncertainty on the signal branching ratios. With this consideration, the fact that a reasonably simple model is required for the complex fit on data, and for consistency with the PR2 BDT binning strategy, the equal 18\% signal efficiency 4 BDT bin configuration is chosen for this analysis. The resulting edges of the 4 BDT bins are therefore: 
-\begin{itemize}
+\begin{itemize} 
 \item Bin 0: 0.1609 - 0.2636,
 \item Bin 1: 0.2636 - 0.3405,
 \item Bin 2: 0.3405 - 0.4055,
@@ -376,7 +376,7 @@ Figure~\ref{fig:CombMCfit} shows the fits performed on the combinatorial compone
 The Chebychev constants from these fits are shown in Figure~\ref{fig:ChebConstsLinear} as a function of the average BDT output value of the fitted events in the corresponding BDT bin. The Chebychev constants have a linear dependence with respect to the average BDT output: this dependence is consistent with the binned linear fit to a satisfactory probability of $p$-value = 0.1687. The same linear dependence is confirmed on the fit to data sidebands in section~\ref{subsubsec:FitsMcDataSB} and therefore a linear function is used to constraint the shape of the combinatorial background in the four BDT bins of the final fit. Systematic uncertainties will be included to account for this assumption. 
 \begin{figure}[ht!]
   \includegraphics[width=1.0\textwidth]{figures/SignalExtraction/out_fit_test_bkg_non_sim_FR2_v2p4_residuals_line_COMB_const_avg_bdt_fit.pdf}
-  \caption{Chebychev first order polynomial constants (slopes) from the fits performed individually in each of the four BDT bins on the combinatorial component of the \bbmumuX MC sample. The x-axis shows the average BDT output value for the fitted events in the corresponding BDT bin. The Chebychev constants present a linear dependence on the average BDT output which is confirmed by the binned linear fit in red with a satisfactory probability. The fitted slope (p0) and the y-intercept (p1) of binned linear fit are also shown.}
+  \caption{Chebychev first order polynomial constants (slopes) from the fits performed individually in each of the four BDT bins on the combinatorial component of the \bbmumuX MC sample. The x-axis shows the average BDT output value for the fitted events in the corresponding BDT bin. The Chebychev constants present a linear dependence on the average BDT output which is confirmed by the binned linear fit in red with a satisfactory probability. The fitted slope ($p0$) and the y-intercept ($p1$) of binned linear fit are also shown.}
   \label{fig:ChebConstsLinear}
 \end{figure}
 
@@ -448,7 +448,7 @@ The exponential constants from these fits are shown in Figure~\ref{fig:sssvOnlyC
 
 \begin{figure}[ht!]
   \includegraphics[width=1.0\textwidth]{figures/SignalExtraction/out_fit_test_bkg_non_sim_FR2_v2p4_residuals_line_SSSV_const_avg_bdt_fit.pdf}
-  \caption{Exponential constants from the fits performed individually in each of the four BDT bins on the SS+SV component of the \bbmumuX MC sample. The x-axis shows the average BDT output value for the fitted events in the corresponding BDT bin. The exponential constants present a constant dependence on the average BDT output which is confirmed by the binned constant fit in red with a satisfactory probability. The fitted exponential slope (p0) of binned constant fit is also shown.}
+  \caption{Exponential constants from the fits performed individually in each of the four BDT bins on the SS+SV component of the \bbmumuX MC sample. The x-axis shows the average BDT output value for the fitted events in the corresponding BDT bin. The exponential constants present a constant dependence on the average BDT output which is confirmed by the binned constant fit in red with a satisfactory probability. The fitted exponential slope ($p0$) of binned constant fit is also shown.}
   \label{fig:sssvOnlyConstsConst}
 \end{figure}
 
@@ -457,7 +457,7 @@ The exponential constants from these fits are shown in Figure~\ref{fig:sssvOnlyC
 \subsubsection{\Bc Background}
 \label{subsubsec:BcBkg}
 
-The \Bc background is a much smaller component with respect to the SS+SV and the combinatorial backgrounds: in the four highest BDT bins the number of expected \Bc events in MC corresponds to \iffalse 0.9\% (23.8\%), 1.7\% (10.8\%), 2.3\% (5.5\%), and 2.0\% (2.8\%) of the total (or SS+SV + \bQuark-Onia + \Bc), these numbers were from v2.3 ntuples \fi 0.9\%, 1.6\%, 2.1\% and 2.3\% of the total \bbmumuX background in BDT bin 0 , BDT bin 1, BDT bin 2, and BDT bin 3 respectively in the mass fit range considered for the signal extraction \textcolor{red}{(change these to the ratios from the MC when the final DDW are applied)}. The di-muon mass distribution for \Bc decays peaks below the signal region similar to the SS+SV background, and is modelled by the same exponential PDF as shown in equation~\ref{eq:SSSVpdf}.
+The \Bc background is a much smaller component with respect to the SS+SV and the combinatorial backgrounds: in the four highest BDT bins the number of expected \Bc events in MC corresponds to \iffalse 0.9\% (23.8\%), 1.7\% (10.8\%), 2.3\% (5.5\%), and 2.0\% (2.8\%) of the total (or SS+SV + \bQuark-Onia + \Bc), these numbers were from v2.3 ntuples\fi 0.9\%, 1.6\%, 2.1\% and 2.3\% of the total \bbmumuX background in BDT bin 0 , BDT bin 1, BDT bin 2, and BDT bin 3 respectively in the mass fit range considered for the signal extraction \textcolor{red}{(change these to the ratios from the MC when the final DDW are applied)}. The di-muon mass distribution for \Bc decays peaks below the signal region similar to the SS+SV background, and is modelled by the same exponential PDF as shown in equation~\ref{eq:SSSVpdf}.
 
 Figure~\ref{fig:BcMCfit} shows the fits performed independently on the \Bc component of the \bbmumuX MC in the four BDT bins intended for the final fit: the exponential PDF reproduces the di-muon mass MC distribution reasonably well where the fit quality is not sufficient with $p$-value = 0.002 only in BDT bin 0. This is entirely due to a single (lowest) mass bin from the residuals distribution in Figure~\ref{fig:BcMCfitBin0}, otherwise the fit quality is satisfactory and the fitted shape is entirely consistent with the MC. 
 \begin{figure}[ht!]
@@ -486,7 +486,7 @@ Figure~\ref{fig:BcMCfit} shows the fits performed independently on the \Bc compo
 The resulting exponential constants are shown as a function of the average BDT output value of the fitted events in the corresponding BDT bin in Figure~\ref{fig:BcConsts}. The exponential constants are compatible with a flat line in BDT output as confirmed by the constant fit with a high probablity of $p$-value = 0.7260. 
 \begin{figure}[ht!]
   \includegraphics[width=1.0\textwidth]{figures/SignalExtraction/out_fit_test_Bc_FR2_v2p4_residuals_line_Bc_const_avg_bdt_fit.pdf}
-  \caption{Exponential constants from the fits performed individually in each of the four BDT bins on the \Bc component of the \bbmumuX MC sample. The x-axis shows the average BDT output value for the fitted events in the corresponding BDT bin. The exponential constants present a constant dependence on the average BDT output which is confirmed by the binned constant fit in red with a satisfactory probability. The fitted exponential slope (p0) of binned constant fit is also shown.}
+  \caption{Exponential constants from the fits performed individually in each of the four BDT bins on the \Bc component of the \bbmumuX MC sample. The x-axis shows the average BDT output value for the fitted events in the corresponding BDT bin. The exponential constants present a constant dependence on the average BDT output which is confirmed by the binned constant fit in red with a satisfactory probability. The fitted exponential slope ($p0$) of binned constant fit is also shown.}
   \label{fig:BcConsts}
 \end{figure}
 
@@ -703,11 +703,11 @@ Figure~\ref{fig:SSSVshapesSimNonSimCompare} shows the slopes of the exponential 
     \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_bkg_sim_FR2_v2p4_SSSV_compare_fit_sim.pdf}
     \label{fig:SSSVshapesSimNoLinFit}
   }
-  \caption{Exponential constants from the fits performed individually in each of the four BDT bins \protect\subref{fig:SSSVshapesNonSimLinFit} compared to the exponential constants from the fit perfromed simultaneously in the four BDT bins \protect\subref{fig:SSSVshapesSimNoLinFit}. The X-axis shows the average BDT output value for the fitted events in the corresponding BDT bin, with horizontal error bars corresponding to the standard deviation of BDT output from events used in the fit. The black points represent the constants from the combined background model fit to \bbmumuX MC sidebands, whereas the red points represent the same fit on data sidebands. The blue and green lines in \protect\subref{fig:SSSVshapesNonSimLinFit} represent the result of the constant fit to the exponential constants in MC and data sidebands respectively, whereas the dashed lines represent the constant fit result error. Numerical fit results as well as the goodness of constant fit are also shown. The blue and green lines in \protect\subref{fig:SSSVshapesSimNoLinFit} represent the fitted value of the exponential constat shared between the four BDT bins in MC and data sidebands respectively, whereas the dashed lines represent the fitted exponential constant uncertainty. Numerical fit results along with their fit errors are also shown. The parameter p0 represents the shared exponential constant in \protect\subref{fig:SSSVshapesSimNoLinFit} and the result of the constant fit in \protect\subref{fig:SSSVshapesNonSimLinFit}.}
+  \caption{Exponential constants from the fits performed individually in each of the four BDT bins \protect\subref{fig:SSSVshapesNonSimLinFit} compared to the exponential constants from the fit perfromed simultaneously in the four BDT bins \protect\subref{fig:SSSVshapesSimNoLinFit}. The X-axis shows the average BDT output value for the fitted events in the corresponding BDT bin, with horizontal error bars corresponding to the standard deviation of BDT output from events used in the fit. The black points represent the constants from the combined background model fit to \bbmumuX MC sidebands, whereas the red points represent the same fit on data sidebands. The blue and green lines in \protect\subref{fig:SSSVshapesNonSimLinFit} represent the result of the constant fit to the exponential constants in MC and data sidebands respectively, whereas the dashed lines represent the constant fit result error. Numerical fit results as well as the goodness of constant fit are also shown. The blue and green lines in \protect\subref{fig:SSSVshapesSimNoLinFit} represent the fitted value of the exponential constat shared between the four BDT bins in MC and data sidebands respectively, whereas the dashed lines represent the fitted exponential constant uncertainty. Numerical fit results along with their fit errors are also shown. The parameter $p0$ represents the shared exponential constant in \protect\subref{fig:SSSVshapesSimNoLinFit} and the result of the constant fit in \protect\subref{fig:SSSVshapesNonSimLinFit}.}
   \label{fig:SSSVshapesSimNonSimCompare}
 \end{figure}
 
-Figure~\ref{fig:COMBshapesSimNonSimCompare} shows the slopes of the first order Chebychev polynomial from the independent fits to \bbmumuX MC and data sidebands in the four BDT bins as described in section~\ref{subsubsec:SSSVplusCOMBcombinedFitMCandDataSB} (Figure~\ref{fig:COMBshapesNonSimLinFit}), comparing these to the polynomial slopes from the BDT bin simultaneous fit to \bbmumuX and data sidebands (Figure~\ref{fig:COMBshapesSimNoLinFit}). The polynomial slopes from BDT bin independent fits are fitted with a linear function, the result of which is compared to the fitted linear parameters used to constrain the polynomial slopes in the simultaneous fit. The linear fit on MC and data sidebands is of good quality with $p$-value > 0.05. The fitted linear parameters constraining the polynomial slopes in the simultaneous fit (p0 and p1 in Figure~\ref{fig:COMBshapesSimNoLinFit}) are consistent with the fitted linear parameters from the fit to the independent polynomial slopes (p0 and p1 in Figure~\ref{fig:COMBshapesNonSimLinFit}) both for MC (green lines) and data (blue lines) sidebands. Figure~\ref{fig:COMBshapesCompareDataMC} shows a direct comparison of the linear parameters constraining polynomial slopes obtained from data (red) and MC sidebands (black) simultaneous fits; the two sets of parameters are consistent within 2$\sigma$. Any inconsistency between the linear parametrisation of the shape constraint for the combinatorial background in data and MC is taken into account in the systematics study of section~\ref{subsec:SystUncertaintySimultaneousFit}. 
+Figure~\ref{fig:COMBshapesSimNonSimCompare} shows the slopes of the first order Chebychev polynomial from the independent fits to \bbmumuX MC and data sidebands in the four BDT bins as described in section~\ref{subsubsec:SSSVplusCOMBcombinedFitMCandDataSB} (Figure~\ref{fig:COMBshapesNonSimLinFit}), comparing these to the polynomial slopes from the BDT bin simultaneous fit to \bbmumuX and data sidebands (Figure~\ref{fig:COMBshapesSimNoLinFit}). The polynomial slopes from BDT bin independent fits are fitted with a linear function, the result of which is compared to the fitted linear parameters used to constrain the polynomial slopes in the simultaneous fit. The linear fit on MC and data sidebands is of good quality with $p$-value > 0.05. The fitted linear parameters constraining the polynomial slopes in the simultaneous fit ($p0$ and $p1$ in Figure~\ref{fig:COMBshapesSimNoLinFit}) are consistent with the fitted linear parameters from the fit to the independent polynomial slopes ($p0$ and $p1$ in Figure~\ref{fig:COMBshapesNonSimLinFit}) both for MC (green lines) and data (blue lines) sidebands. Figure~\ref{fig:COMBshapesCompareDataMC} shows a direct comparison of the linear parameters constraining polynomial slopes obtained from data (red) and MC sidebands (black) simultaneous fits; the two sets of parameters are consistent within 2$\sigma$. Any inconsistency between the linear parametrisation of the shape constraint for the combinatorial background in data and MC is taken into account in the systematics study of section~\ref{subsec:SystUncertaintySimultaneousFit}. 
 \begin{figure}[ht!]
   \centering
   \subfloat[Polynomial slopes from independent fits to BDT bins.]{
@@ -718,13 +718,13 @@ Figure~\ref{fig:COMBshapesSimNonSimCompare} shows the slopes of the first order 
     \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_bkg_sim_FR2_v2p4_COMB_compare_fit_sim.pdf}
     \label{fig:COMBshapesSimNoLinFit}
   }
-  \caption{First order Chebychev polynomial constants from the fits performed individually in each of the four BDT bins \protect\subref{fig:COMBshapesNonSimLinFit} compared to the polynomial constants from the fit perfromed simultaneously in the four BDT bins \protect\subref{fig:COMBshapesSimNoLinFit}. The X-axis shows the average BDT output value for the fitted events in the corresponding BDT bin, with horizontal error bars corresponding to the standard deviation of BDT output from events used in the fit. The black points represent the constants from the combined background model fit to \bbmumuX MC sidebands, whereas the red points represent the same fit on data sidebands. The blue and green lines in \protect\subref{fig:COMBshapesNonSimLinFit} represent the result of the linear fit to the polynomial constants in MC and data sidebands respectively. Numerical results as well as the goodness of linear fit are also shown. The blue and green lines in \protect\subref{fig:COMBshapesSimNoLinFit} represent the fitted linear constraints on the polynomial slopes in MC and data sidebands respectively. Numerical fit results for the linear parameters constraining the polynomial slopes along with their fit errors are also shown. The parameters p0 and p1 represent respectively the constant and slope coefficients of the line constraning the polynomial slopes in \protect\subref{fig:COMBshapesSimNoLinFit} and of the fitted line in \protect\subref{fig:COMBshapesNonSimLinFit}.}
+  \caption{First order Chebychev polynomial constants from the fits performed individually in each of the four BDT bins \protect\subref{fig:COMBshapesNonSimLinFit} compared to the polynomial constants from the fit perfromed simultaneously in the four BDT bins \protect\subref{fig:COMBshapesSimNoLinFit}. The X-axis shows the average BDT output value for the fitted events in the corresponding BDT bin, with horizontal error bars corresponding to the standard deviation of BDT output from events used in the fit. The black points represent the constants from the combined background model fit to \bbmumuX MC sidebands, whereas the red points represent the same fit on data sidebands. The blue and green lines in \protect\subref{fig:COMBshapesNonSimLinFit} represent the result of the linear fit to the polynomial constants in MC and data sidebands respectively. Numerical results as well as the goodness of linear fit are also shown. The blue and green lines in \protect\subref{fig:COMBshapesSimNoLinFit} represent the fitted linear constraints on the polynomial slopes in MC and data sidebands respectively. Numerical fit results for the linear parameters constraining the polynomial slopes along with their fit errors are also shown. The parameters $p0$ and $p1$ represent respectively the constant and slope coefficients of the line constraning the polynomial slopes in \protect\subref{fig:COMBshapesSimNoLinFit} and of the fitted line in \protect\subref{fig:COMBshapesNonSimLinFit}.}
   \label{fig:COMBshapesSimNonSimCompare}
 \end{figure}
 
 \begin{figure}[ht!]
   \includegraphics[width=1.0\textwidth]{figures/SignalExtraction/out_fit_test_bkg_sim_FR2_v2p4_can_p0_p1_comb_sim.pdf}
-  \caption{Linear parameters constraining the first order Chebychev polynomial constants obtained from simultaneous fit to data (red points) and MC (black points) sidebands shown in the p0 (constant coefficient) - p1 (slope coefficinet) plane with their fitted uncertainties.}
+  \caption{Linear parameters constraining the first order Chebychev polynomial constants obtained from simultaneous fit to data (red points) and MC (black points) sidebands shown in the $p0$ (constant coefficient) - $p1$ (slope coefficinet) plane with their fitted uncertainties.}
   \label{fig:COMBshapesCompareDataMC}
 \end{figure}
 
@@ -734,6 +734,75 @@ Having validated the procedure for the background shape parametrisation and its 
 
 \subsection{Summary of the Fit Configuration}
 \label{subsec:FitConfig}
+
+The baseline model is a simultaneous PDF , with individual full model PDFs for each of the 4 BDT bins. For each of the simultaneous full model PDFs the following components and their PDFs are included:
+
+\begin{enumerate}
+\item Signal PDFs: The \Bsmumu and \Bdmumu signals are each described by a separate double Gaussian PDF in dimuon invariant mass. The values for the two means, two sigmas, and the fraction of Gaussian 1 with repsect to Gaussian 2 are fixed to the result of the bootstrapped MC study for \Bsmumu PDF in section~\ref{subsubsec:BsmumuModel} and separately for \Bdmumu PDF in section~\ref{subsubsec:BdmumuModel}. The number of signal events in each BDT bin is defined to contain a fraction of the total signal yield in the signal BDT bins via the parameterisation $N_{\text{Bin}} = f_{\text{Bin}}\times N_{\text{Tot}}$. The fractions of events are all designed to contain 1/3 of the total number of events in the signal BDT bins. In the top two BDT bins the fractions of events are Gaussian constrained to the systematic uncertainty on the relative fractions of signal in the BDT bins derrived in section \textcolor{red}{Add the section here}; the first bin is defined as a derrived parameter such that $f_{\text{Bin1}} = 1 - f_{\text{Bin2}} - f_{\text{Bin3}}$. Due to the definition of the BDT bins to each contain an equal number of signal events, and because in BDT bin 0 the signal content was found not to increase the signal sensitivity, the fraction of signal events in BDT bin 0 is fixed for consistency to the average content of the signal BDT bins (1/3). The total signal yields are initialised to the SM prediction based off the master equation~\ref{eq:BRFormula}. Two additional smearing parameters describing the correlated systematic error in the fit to the number of signal events are included in the model, discussed in detail in section~\ref{subsec:SystUncertaintySimultaneousFit}.
+\item Resonant background PDF: The \Bhh background is described by a double Gaussian PDF in dimuon invariant mass. The shape parameters are fixed to the result of the fit to corrected \Bhh MC as shown in section~\ref{subsubsec:BhhModel}. The normalisation of the \Bhh PDF in the signal BDT bins is defined to contain exactly 1/3 of the total number of \Bhh events, with the fraction of events in BDT bin 0 fixed to the average of the other three (1/3) for consistency. The total \Bhh yield is initialised to the result of the data-driven \Bhh yield estimate extrapolated from LNT-LNT data to the signal region using MC counting approach discussed in detail in section~\ref{subsubsec:BhhNormalisation}. A Gaussian constraint is applied on the total \Bhh normalisation to incorporate the systematic effect from the estimate derrivation fit strategy and the muon fake-rate probabilities.
+\item SSSV background PDF: The SSSV background is described by a falling exponential PDF in dimuon invariant mass. Due to the observations made in section~\ref{subsubsec:FitsMcDataSB}, the shape is assumed unifrom across all BDT bins. This assumption is addressed in the systematics study of section~\ref{subsec:SystUncertaintySimultaneousFit}. The SSSV background normalisations are defined separately in each BDT bin as free parameters, with initial values from the result of the data sidebands combined background model fit in section~\ref{subsubsec:SimultaneousSSSVplusCOMBcombinedFitMCandDataSB} extrapolated into the full mass fit range.
+\item Combinatorial background PDF: The combinatorial background is described by a $1^{\text{st}}$ order Chebychev polynomial PDF in dimuon invariant mass. Due to the observations made in section~\ref{subsubsec:FitsMcDataSB} the slopes of the Chebychev polynomials in each BDT bin are constrained to a line as a function of the average BDT output of the events in the corresponding BDT bin such that $\alpha_{\text{Chebychev}}^{\text{Bin}} = p0 + p1 \times BDT_{\text{avg.}}^{\text{Bin}}$. This assumption is addressed in the systematics study of section~\ref{subsec:SystUncertaintySimultaneousFit}. The combinatorial background normalisations are defined separately in each BDT bin as free parameters, with initial values from the result of the data sidebands combined background model fit in section~\ref{subsubsec:SimultaneousSSSVplusCOMBcombinedFitMCandDataSB} extrapolated into the full mass fit range.
+\end{enumerate}
+
+All the components and parameters of the baseline model for the signal yield extraction fit, except the two Gaussian smearing parameters on the signal yield due to their correlation, are summarised in Table~\ref{tab:BaselineModelParams}.
+
+\begin{table}[ht]
+  \centering
+  \footnotesize
+  \renewcommand{\arraystretch}{0.95}
+  \begin{tabular}{|p{0.1\linewidth}|p{0.085\linewidth}|p{0.076\linewidth}|p{0.085\linewidth}|p{0.15\linewidth}|p{0.35\linewidth}|}
+    \hline
+    Component & PDF & Parameters & State & Initial value origin & Description \\
+    \hline
+    \multirow{6}{*}{\Bsmumu} & \multirow{6}{=}{Double\\Gaussian} & $\mu_{1}$ & Fixed & Bootstrapped MC & Mean of Gaussian 1 \\
+    & & $\mu_{2}$ & Fixed & Bootstrapped MC & Mean of Gaussian 2 \\
+    & & $\sigma_{1}$ & Fixed & Bootstrapped MC & Sigma of Gaussian 1 \\
+    & & $\sigma_{2}$ & Fixed & Bootstrapped MC & Sigma of Gaussian 2 \\
+    & & $f_{1}$ & Fixed & Bootstrapped MC & Fraction of Gaussian 1 \\
+    & & $N_{\text{Tot}}$ & Free & SM prediction & Total yield in signal BDT bins \\
+    \hline
+    \multirow{6}{*}{\Bdmumu} & \multirow{6}{=}{Double\\Gaussian} & $\mu_{1}$ & Free & Bootstrapped MC & Mean of Gaussian 1 \\
+    & & $\mu_{2}$ & Fixed & Bootstrapped MC & Mean of Gaussian 2 \\
+    & & $\sigma_{1}$ & Fixed & Bootstrapped MC & Sigma of Gaussian 1 \\
+    & & $\sigma_{2}$ & Fixed & Bootstrapped MC & Sigma of Gaussian 2 \\
+    & & $f_{1}$ & Fixed & Bootstrapped MC & Fraction of Gaussian 1 \\
+    & & $N_{\text{Tot}}$ & Free & SM prediction & Total yield in signal BDT bins \\
+    \hline
+    \multirow{7}{=}{Signal\\normalisation\\in BDT bins} & & $f_{\text{Bin0}}$ & Fixed & Signal MC & Fraction of signal events in BDT bin 0 \\
+    & & $f_{\text{Bin2}}$ & Constrained & Signal MC & Fraction of signal events in BDT bin 2 \\
+    & & $f_{\text{Bin3}}$ & Constrained & Signal MC & Fraction of signal events in BDT bin 3 \\
+    & & $\mu_{f_{\text{Bin2}}}$ & Fixed & Signal MC & Mean of Gaussian constraint on the fraction of signal events in BDT bin 2 \\
+    & & $\sigma_{f_{\text{Bin2}}}$ & Fixed & Signal MC & Sigma of Gaussian constraint on the fraction of signal events in BDT bin 2 \\
+    & & $\mu_{f_{\text{Bin3}}}$ & Fixed & Signal MC & Mean of Gaussian constraint on the fraction of signal events in BDT bin 3 \\
+    & & $\sigma_{f_{\text{Bin3}}}$ & Fixed & Signal MC & Sigma of Gaussian constraint on the fraction of signal events in BDT bin 3 \\
+    \hline
+    \multirow{8}{*}{\Bhh} & \multirow{8}{=}{Double\\Gaussian} & $\mu_{1}$ & Fixed & Corrected MC & Mean of Gaussian 1 \\
+    & & $\mu_{2}$ & Fixed & Corrected MC & Mean of Gaussian 2 \\
+    & & $\sigma_{1}$ & Fixed & Corrected MC & Sigma of Gaussian 1 \\
+    & & $\sigma_{2}$ & Fixed & Corrected MC & Sigma of Gaussian 2 \\
+    & & $f_{1}$ & Fixed & Corrected MC & Fraction of Gaussian 1 \\
+    & & $N_{\text{Tot}}$ & Constrained & LNT-LNT muon WP data & Total yield in signal BDT bins \\
+    & & $\mu_{N_{\text{Tot}}}$ & Fixed & LNT-LNT muon WP data & Mean of Gaussian constraint on the total yield in signal BDT bins \\
+    & & $\sigma_{N_{\text{Tot}}}$ & Fixed & LNT-LNT muon WP data & Sigma of the Gaussian constraint on the total yield in signal BDT bins \\
+    \hline
+    \multirow{5}{*}{SSSV} & \multirow{5}{*}{Exponential} & $\alpha_{\text{Exp}}$ & Free & Data sidebands & Exponential constant \\
+    & & $N_{\text{Bin0}}$ & Free & Data sidebands & Yield in BDT bin 0 \\
+    & & $N_{\text{Bin1}}$ & Free & Data sidebands & Yield in BDT bin 1 \\
+    & & $N_{\text{Bin2}}$ & Free & Data sidebands & Yield in BDT bin 2 \\
+    & & $N_{\text{Bin3}}$ & Free & Data sidebands & Yield in BDT bin 3 \\
+    \hline
+    \multirow{6}{*}{Combinatorial} & \multirow{6}{=}{1$^{\text{st}}$ Order\\Chebychev\\polynomial} & $p0$ & Free & Data sidebands & Chebychev constant vs average BDT y-intercept \\
+    & & $p1$ & Free & Data sidebands & Chebychev constant vs average BDT slope \\
+    & & $N_{\text{Bin0}}$ & Free & Data sidebands & Yield in BDT bin 0 \\
+    & & $N_{\text{Bin1}}$ & Free & Data sidebands & Yield in BDT bin 1 \\
+    & & $N_{\text{Bin2}}$ & Free & Data sidebands & Yield in BDT bin 2 \\
+    & & $N_{\text{Bin3}}$ & Free & Data sidebands & Yield in BDT bin 3 \\
+    \hline
+  \end{tabular}
+  \caption{Parameter summary table for all components in the baseline signal yield extraction model.}
+  \label{tab:BaselineModelParams}
+\end{table}
+
 
 
 \subsection{Fit to \Bs and \Bd from Toy Experiments}
