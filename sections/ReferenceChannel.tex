@@ -8,7 +8,7 @@
 
 
 \subsection{Fit Procedure}
-\label{subsec:refFit}
+\label{subsec:refFit_procedure}
 
 The reference channel yield is extracted using an unbinned maximum likelihood fit in the mass range 4930 MeV to 5630 MeV. This section describes the fit procedure and the pdfs used for the reference channel and each of the background components.
 
@@ -49,7 +49,7 @@ In each step of the fit, a high quality migrad status is required. If this is no
 
 
 \subsection{Systematics}
-\label{subsec:refFit}
+\label{subsec:refFit_systematics}
 
 This section details the systematics studied associated with choices made in the reference channel fit. These choices are devided into two categories: (1) choices pertaining to the PDFs used and (2) choices pertaining to the MC. The systematics in the first category are:
 \begin{description}
@@ -58,9 +58,9 @@ This section details the systematics studied associated with choices made in the
     \item[Choice of $B^{\pm}\to J\psi \pi^\pm$ PDF] Fits with alternate models on the $B^{\pm}\to J\psi \pi^\pm$ MC are shown in Figure \ref{fig:RefCh-Alt-BPi-MC}, the best performing model is again the JohnsonSu + JohnsonSu, but it is only marginally better than the simpler JohnsonSu + Gaussian. Since the performance of both models is similar, the simpler Johnson+Gaussian model is opted for in the default fit. To evaluate the systematic, a dedicated fit is made with the Johnson+Johnson model.
 
 
-    \item[Choice of PRD1 PDF] Fits with a sigmoid and FermiDirac+exponential model on the PRD1 MC are shown in Figure \ref{fig:fig:RefCh-Alt-PRD1-MC}. The sigmoid has lower pulls through the entire mass range, and does so with only two parameters as opposed to the Fermi-Dirac plus exponential which uses 4 parameters. The sigmoid is chosen as the default PDF, and a dedicated fit using the fermi-dirac + exponential is made to evaluate the systematic associated with this choice. 
+    \item[Choice of PRD1 PDF] Fits with a sigmoid and FermiDirac+exponential model on the PRD1 MC are shown in Figure \ref{fig:RefCh-Alt-PRD1-MC}. The sigmoid has lower pulls through the entire mass range, and does so with only two parameters as opposed to the Fermi-Dirac plus exponential which uses 4 parameters. The sigmoid is chosen as the default PDF, and a dedicated fit using the fermi-dirac + exponential is made to evaluate the systematic associated with this choice. 
     
-    \item[Choice of PRD2 PDF] Fits with alternate models on the PRD2 MC are shown in Figure \ref{fig:fig:RefCh-Alt-PRD2-MC}. Although the pull plot shows very similar performance between the two models, the ExpGaus acheives this fit with less parameters, and therefore has a lower $\chi^2$. The ExpGaus is chosen as the default pdf, and a dedicated fit is performed with the Crystal ball function to evaluate the systematic associated with this choice. 
+    \item[Choice of PRD2 PDF] Fits with alternate models on the PRD2 MC are shown in Figure \ref{fig:RefCh-Alt-PRD2-MC}. Although the pull plot shows very similar performance between the two models, the ExpGaus acheives this fit with less parameters, and therefore has a lower $\chi^2$. The ExpGaus is chosen as the default pdf, and a dedicated fit is performed with the Crystal ball function to evaluate the systematic associated with this choice. 
 
     \item [Choice of Combinatorial PDF] The combinatorial is not constrained by MC, so the best performing PDF is determined by its $\chi^2$ on data. Two shapes are used, an exponential and a second order chebychev polynomial. The Chebychev fit has lower $\chi^2$ when applied to the data and is therefore chosen as the default PDF. To evaluate the systematic associated with this choice, a dedicated fit is executed using an exponential as the combinatorial pdf.
 
@@ -98,22 +98,38 @@ This section details the systematics studied associated with choices made in the
 
 The systematics in the second category are 
 \begin{description}
-    \item [Charge asymmetry in the MC] Based on fits to the data separated by wheather it is negative hadron or positive hadron matched, 50.6\% of the data candidates have a positively charged hadron. This contradicts the MC prediction of 48.6\%. To evaluate the systematic induced by this difference, the MC was reweighted to represent different fractions of positive hadron events in the MC. The fractions evaluated were 0, 48.6,50.6,52.6,100 \%. 
+    \item [Charge asymmetry in the MC] The data fit uses events with both a positive hadron and a negative hadron. The fraction of positive hadrons in a sample is defined as $f_+=\frac{N_+}{N_++N_-}$ where $N_+$ is the number of samples with a positively charged hadron and $N_-$ is the number of samples with a negative hadron. The data was separated into two categories based on the hadron charge and fit. Fron these fits, it was determined the $f_+=50.6\%$ in data. This contradicts the MC prediction of$f_+=48.6\%$. To evaluate the systematic induced by this difference, the MC was reweighted to represent different values of $f_+$. Care was taken to ensure the total weighted number of MC samples remained constant, since reducing the MC sample size effects the fit result. The fit was performed with  $f_+ = 0,48.6,50.6,52.6,100 \%$. The result of the fit is shown in Figure \ref{fig:RefCh-ChargeAsymmetry}.
 
-    \item[Kinematic Reweighting] To asses the systematic induced by the DDW and QLC weights on the MC, a dedicated fit is performed without both of these weights on the MC. The difference in the yield is taken as the systematic error. 
+    \item[Kinematic Reweighting] To asses the systematic induced by the DDW and QLC weights on the MC, a dedicated fit is performed without both of these weights on the MC. The difference in the yield is taken as the systematic error.
     
-    \item[PRD Composition] 
+    \item[PRD Composition] The PRD is generated based on a list of decays with their PDG decay rates. In many cases, the error on the PDG decay rate exceeds the statistical error expected in the sample, and therefore the composition of the PRD sample might be biased. To evaluate this systematic uncertainty, the error on the major PRDs represented in the PRD1 and PRD2 samples are calculated. Then, each channel in the PRD is bootstrapped to a new number of events. The new number is the original number times a statistical fluctuation from a poisson distribution times a random number based on the PDG uncertainty on that channels branching ratio. This bootstrapping procudure is repeated 1000 times, each time the boostrapped PRD dataset is fit and the parameters are saved. The correlation between the paramters for PRD1 and PRD2 are shown in figure \ref{fig:}. Then, the distributions of the fit parameters is used to create a correlation matrix between the PRD shape parameters. This matrix is passed into the full data fit instead of performing the fit simultaneously with the PRD samples. The correlation matrix contains information about the variance in the fit parameters from the bootstrapping, and thus this PRD constrained fit is an evaluation of our systematic uncertainty from the PRD composition. 
 
 \end{description}
 
-Each of these systematics is evaluated with a fit and the effect on the yield is shown in ...
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/ReferenceChannel/250530-ChargeAsymmetry.pdf}
+    \caption{The reference channel yield with different fractions of positive hadron data in the $B^{\pm}\to J\psi K^\pm$ MC. }
+    \label{fig:RefCh-ChargeAsymmetry}
+\end{figure}
+
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=0.6\textwidth]{figures/ReferenceChannel/250530-PRDcomposition.pdf}
+%     \caption{The shape parameters in the PRD1 (left) and PRD2 (right) datasets when fit to samples bootstrapped based on the PDG branching ratio errors.}
+%     \label{fig:RefCh-ChargeAsymmetry}
+% \end{figure}
+
+
+
+Each of these systematics is evaluated on a fit to data. Plots showing these fits are saved in Appendix.... The yields from these fits are summarized in Figure \ref{fig:RefCh-AllSystematics}. 
 
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{figures/ReferenceChannel/250407-systematics-UPDATEME.pdf}
+    \includegraphics[width=0.8\textwidth]{figures/ReferenceChannel/250530-systematics.pdf}
     \caption{Yield values from all systematics studied.}
-    \label{fig:RefCh-Alt-BK-MC}
+    \label{fig:RefCh-AllSystematics}
 \end{figure}
 
 
