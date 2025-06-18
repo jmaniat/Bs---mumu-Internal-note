@@ -29,7 +29,7 @@
 
 %-------------------------------------------------------------------------------
 % Extra packages:
-\usepackage[full=true]{\ATLASLATEXPATH atlaspackage}
+\usepackage[full=true, subcaption=true]{\ATLASLATEXPATH atlaspackage}
 % Commonly used options:
 %  biblatex=true|false   Use biblatex (default) or bibtex for the bibliography.
 %  backend=bibtex        Use the bibtex backend rather than biber.
@@ -65,7 +65,11 @@
 
 % Add you own definitions here (file ANA-BPHY-2019-03-INT1-defs.sty).
 \usepackage{ANA-BPHY-2019-03-INT1-defs}
+\usepackage{graphicx}
 \usepackage{multirow}
+%\usepackage{subcaption}
+\usepackage{pgffor}
+\usepackage{float}
 %\usepackage{subcaption} % For subfigures and subcaptions
 %-------------------------------------------------------------------------------
 % Generic document information
@@ -136,5 +140,9 @@ The list should be printed either here or before the Table of Contents.
 \input{sections/Appendix_Samples.tex}
 \clearpage
 \input{sections/Appendix_QLCs.tex}
+\clearpage
+\input{sections/Appendix_Kinematic_correction}
+\clearpage
+\input{sections/Appendix_Fake_Rates}
 
 \end{document}
