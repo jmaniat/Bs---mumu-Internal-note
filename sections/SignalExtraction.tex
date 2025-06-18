@@ -39,7 +39,7 @@ For the 3 and 4 BDT bin fit configurations the most signal sensitive (top) BDT b
 \item Bin 2: 0.3405 - 0.4055,
 \item Bin 3: 0.4055 - 1.0000,
 \end{itemize}
-where Bin 0 has the lowest signal to background ratio and is used to aid on constraining the background, and BDT bins 1-3 are henceforth reffered to as the signal BDT bins with higher signal to background ratio and hence signal sensitivity.
+where BDT Bin 0, reffered to as the background BDT bin, has the lowest signal to background ratio and is used to aid on constraining the background, and where BDT bins 1-3 are henceforth reffered to as the signal BDT bins with higher signal to background ratio and hence signal sensitivity.
 
 In the remainder of this chapter the functional forms of the components relevant to the signal yield extraction along with their implementation in procedures to estimate the sensitivity to the signal will be defined. The following studies are presented:
 
@@ -232,20 +232,24 @@ Figure~\ref{fig:LNT-LNTdatafit} shows the result of the LNT-LNT data fit with th
 \begin{figure}[ht!]
   \centering
   \subfloat[BDT bin 0 fit with BDT boundaries at {[0.1609,0.2636]}.]{
-    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_Bhh_Bs_Bd_LNT-LNT_Bhh_json_all_other_T-T_nBs_nBd_fixed_pos_def_can_LNT-LNT_BDT_1_ETA_1.pdf}
+    %\includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_Bhh_Bs_Bd_LNT-LNT_Bhh_json_all_other_T-T_nBs_nBd_fixed_pos_def_can_LNT-LNT_BDT_1_ETA_1.pdf}  % p-value from Pearson Chi2 
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_Bhh_LNT_LNT_toy_MC_p_val_can_LNT-LNT_BDT_1_ETA_1.pdf}  % p-value from toy MC , BC Chi2 
     \label{fig:LNT-LNTdatafitBin0}
   }
   \subfloat[BDT bin 1 fit with BDT boundaries at {[0.2636,0.3405]}.]{
-    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_Bhh_Bs_Bd_LNT-LNT_Bhh_json_all_other_T-T_nBs_nBd_fixed_pos_def_can_LNT-LNT_BDT_2_ETA_1.pdf}
+    %\includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_Bhh_Bs_Bd_LNT-LNT_Bhh_json_all_other_T-T_nBs_nBd_fixed_pos_def_can_LNT-LNT_BDT_2_ETA_1.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_Bhh_LNT_LNT_toy_MC_p_val_can_LNT-LNT_BDT_2_ETA_1.pdf}  % p-value from toy MC , BC Chi2 
     \label{fig:LNT-LNTdatafitBin1}
   }
   \\
   \subfloat[BDT bin 2 fit with BDT boundaries at {[0.3405,0.4055]}.]{
-    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_Bhh_Bs_Bd_LNT-LNT_Bhh_json_all_other_T-T_nBs_nBd_fixed_pos_def_can_LNT-LNT_BDT_3_ETA_1.pdf}
+    %\includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_Bhh_Bs_Bd_LNT-LNT_Bhh_json_all_other_T-T_nBs_nBd_fixed_pos_def_can_LNT-LNT_BDT_3_ETA_1.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_Bhh_LNT_LNT_toy_MC_p_val_can_LNT-LNT_BDT_3_ETA_1.pdf}  % p-value from toy MC , BC Chi2 
     \label{fig:LNT-LNTdatafitBin2}
   }
   \subfloat[BDT bin 3 fit with BDT boundaries at {[0.4055,1.0000]}.]{
-    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_Bhh_Bs_Bd_LNT-LNT_Bhh_json_all_other_T-T_nBs_nBd_fixed_pos_def_can_LNT-LNT_BDT_4_ETA_1.pdf}
+    %\includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_Bhh_Bs_Bd_LNT-LNT_Bhh_json_all_other_T-T_nBs_nBd_fixed_pos_def_can_LNT-LNT_BDT_4_ETA_1.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_Bhh_LNT_LNT_toy_MC_p_val_can_LNT-LNT_BDT_4_ETA_1.pdf}  % p-value from toy MC , BC Chi2 
     \label{fig:LNT-LNTdatafitBin3}
   }
   \caption{Unbinned extended maximum likelihood fit performed simultaneously in BDT bin 0 \protect\subref{fig:LNT-LNTdatafitBin0}, 1 \protect\subref{fig:LNT-LNTdatafitBin1}, 2 \protect\subref{fig:LNT-LNTdatafitBin2}, and 3 \protect\subref{fig:LNT-LNTdatafitBin3} on the LNT-LNT data with the adjusted baseline model as described in text.} 
@@ -741,7 +745,7 @@ The baseline model is a simultaneous PDF , with individual full model PDFs for e
 \item Signal PDFs: The \Bsmumu and \Bdmumu signals are each described by a separate double Gaussian PDF in dimuon invariant mass. The values for the two means, two sigmas, and the fraction of Gaussian 1 with repsect to Gaussian 2 are fixed to the result of the bootstrapped MC study for \Bsmumu PDF in section~\ref{subsubsec:BsmumuModel} and separately for \Bdmumu PDF in section~\ref{subsubsec:BdmumuModel}. The number of signal events in each BDT bin is defined to contain a fraction of the total signal yield in the signal BDT bins via the parameterisation $N_{\text{Bin}} = f_{\text{Bin}}\times N_{\text{Tot}}$. The fractions of events are all designed to contain 1/3 of the total number of events in the signal BDT bins. In the top two BDT bins the fractions of events are Gaussian constrained to the systematic uncertainty on the relative fractions of signal in the BDT bins derrived in section \textcolor{red}{Add the section here}; the first bin is defined as a derrived parameter such that $f_{\text{Bin1}} = 1 - f_{\text{Bin2}} - f_{\text{Bin3}}$. Due to the definition of the BDT bins to each contain an equal number of signal events, and because in BDT bin 0 the signal content was found not to increase the signal sensitivity, the fraction of signal events in BDT bin 0 is fixed for consistency to the average content of the signal BDT bins (1/3). The total signal yields are initialised to the SM prediction based off the master equation~\ref{eq:BRFormula}. Two additional smearing parameters describing the correlated systematic error in the fit to the number of signal events are included in the model, discussed in detail in section~\ref{subsec:SystUncertaintySimultaneousFit}.
 \item Resonant background PDF: The \Bhh background is described by a double Gaussian PDF in dimuon invariant mass. The shape parameters are fixed to the result of the fit to corrected \Bhh MC as shown in section~\ref{subsubsec:BhhModel}. The normalisation of the \Bhh PDF in the signal BDT bins is defined to contain exactly 1/3 of the total number of \Bhh events, with the fraction of events in BDT bin 0 fixed to the average of the other three (1/3) for consistency. The total \Bhh yield is initialised to the result of the data-driven \Bhh yield estimate extrapolated from LNT-LNT data to the signal region using MC counting approach discussed in detail in section~\ref{subsubsec:BhhNormalisation}. A Gaussian constraint is applied on the total \Bhh normalisation to incorporate the systematic effect from the estimate derrivation fit strategy and the muon fake-rate probabilities.
 \item SSSV background PDF: The SSSV background is described by a falling exponential PDF in dimuon invariant mass. Due to the observations made in section~\ref{subsubsec:FitsMcDataSB}, the shape is assumed unifrom across all BDT bins. This assumption is addressed in the systematics study of section~\ref{subsec:SystUncertaintySimultaneousFit}. The SSSV background normalisations are defined separately in each BDT bin as free parameters, with initial values from the result of the data sidebands combined background model fit in section~\ref{subsubsec:SimultaneousSSSVplusCOMBcombinedFitMCandDataSB} extrapolated into the full mass fit range.
-\item Combinatorial background PDF: The combinatorial background is described by a $1^{\text{st}}$ order Chebychev polynomial PDF in dimuon invariant mass. Due to the observations made in section~\ref{subsubsec:FitsMcDataSB} the slopes of the Chebychev polynomials in each BDT bin are constrained to a line as a function of the average BDT output of the events in the corresponding BDT bin such that $\alpha_{\text{Chebychev}}^{\text{Bin}} = p0 + p1 \times BDT_{\text{avg.}}^{\text{Bin}}$. This assumption is addressed in the systematics study of section~\ref{subsec:SystUncertaintySimultaneousFit}. The combinatorial background normalisations are defined separately in each BDT bin as free parameters, with initial values from the result of the data sidebands combined background model fit in section~\ref{subsubsec:SimultaneousSSSVplusCOMBcombinedFitMCandDataSB} extrapolated into the full mass fit range.
+\item Combinatorial background PDF: The combinatorial background is described by a $1^{\text{st}}$ order Chebychev polynomial PDF in dimuon invariant mass. Due to the observations made in section~\ref{subsubsec:FitsMcDataSB} the slopes of the Chebychev polynomials in each BDT bin are constrained to a line as a function of the average BDT output of the events in the corresponding BDT bin such that $\alpha_{\text{Chebychev}}^{\text{Bin}} = p0 + p1 \times \text{BDT}_{\text{avg.}}^{\text{Bin}}$. This assumption is addressed in the systematics study of section~\ref{subsec:SystUncertaintySimultaneousFit}. The combinatorial background normalisations are defined separately in each BDT bin as free parameters, with initial values from the result of the data sidebands combined background model fit in section~\ref{subsubsec:SimultaneousSSSVplusCOMBcombinedFitMCandDataSB} extrapolated into the full mass fit range.
 \end{enumerate}
 
 All the components and parameters of the baseline model for the signal yield extraction fit, except the two Gaussian smearing parameters on the signal yield due to their correlation, are summarised in Table~\ref{tab:BaselineModelParams}.
@@ -761,7 +765,7 @@ All the components and parameters of the baseline model for the signal yield ext
     & & $f_{1}$ & Fixed & Bootstrapped MC & Fraction of Gaussian 1 \\
     & & $N_{\text{Tot}}$ & Free & SM prediction & Total yield in signal BDT bins \\
     \hline
-    \multirow{6}{*}{\Bdmumu} & \multirow{6}{=}{Double\\Gaussian} & $\mu_{1}$ & Free & Bootstrapped MC & Mean of Gaussian 1 \\
+    \multirow{6}{*}{\Bdmumu} & \multirow{6}{=}{Double\\Gaussian} & $\mu_{1}$ & Fixed & Bootstrapped MC & Mean of Gaussian 1 \\
     & & $\mu_{2}$ & Fixed & Bootstrapped MC & Mean of Gaussian 2 \\
     & & $\sigma_{1}$ & Fixed & Bootstrapped MC & Sigma of Gaussian 1 \\
     & & $\sigma_{2}$ & Fixed & Bootstrapped MC & Sigma of Gaussian 2 \\
@@ -808,6 +812,9 @@ All the components and parameters of the baseline model for the signal yield ext
 \subsection{Fit to \Bs and \Bd from Toy Experiments}
 \label{subsec:ToyExperimentFits}
 
+The central values of the \BRBsmumu and \BRBdmumu in section~\ref{subsec:BranchingRatio} will be extracted from the maximum likelihood contours \textcolor{red}{(or Neyman Construction, will need to check how likelihood looks like first to decide)} in the baseline model fit to data. It is therefore necessary to assess the statistical relevance of the \BRBmumu maximum likelihood central values, which is done by assessing their bias as a function of the expected \BRBsmumu and \BRBdmumu. The assessment is performed for expected \BRBmumu values each spanning from zero to two times their corresponding expected SM value in steps of 20 \textcolor{red}{Need to revise this}.
+
+Figure \textcolor{red}{Add figure and text describing the bias pull/residual plots}.
 
 \subsection{Systematic Uncertainties in the BDT-Simultaneous Fit to \Bs and \Bd}
 \label{subsec:SystUncertaintySimultaneousFit}
