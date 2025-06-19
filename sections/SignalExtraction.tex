@@ -209,9 +209,11 @@ Table~\ref{tab:MasterEqEstMuonWPs} shows the SM predictions for \Bmumu and \Bhh 
     & Tight & Loose not Tight & Tight & Loose not Tight & Tight & Loose not Tight \\
     \hline
     \multirow{2}{*}{Loose} 
-    & Loose not Tight & 36.9 $\pm$ 3.5 & 4.03 $\pm$ 0.39 & 3.94 $\pm$ 0.34 & 0.431 $\pm$ 0.038 & 16.25 $\pm$ 0.75 & 24.9 $\pm$ 1.3 \\
+    %& Loose not Tight & 36.9 $\pm$ 3.5 & 4.03 $\pm$ 0.39 & 3.94 $\pm$ 0.34 & 0.431 $\pm$ 0.038 & 16.25 $\pm$ 0.75 & 24.9 $\pm$ 1.3 \\ % Bhh estimated using PR2 fake rates
+    & Loose not Tight & 36.9 $\pm$ 3.5 & 4.03 $\pm$ 0.39 & 3.94 $\pm$ 0.34 & 0.431 $\pm$ 0.038 &  14.9 $\pm$ 4.2 & 21.0 $\pm$ 5.5 \\ % Bhh estimated from using Bhh/B+ ReA in T-T , scaled to other WPs using Bhh MC counting
     \cline{2-8}
-    & Tight           & 337 $\pm$ 32 & 36.9 $\pm$ 3.5 & 36.1 $\pm$ 3.1  & 3.94 $\pm$ 0.34  & 10.59 $\pm$ 0.53 & 16.25 $\pm$ 0.75 \\
+    %& Tight           & 337 $\pm$ 32 & 36.9 $\pm$ 3.5 & 36.1 $\pm$ 3.1  & 3.94 $\pm$ 0.34  & 10.59 $\pm$ 0.53 & 16.25 $\pm$ 0.75 \\  % Bhh estimated using PR2 fake rates
+    & Tight           & 337 $\pm$ 32 & 36.9 $\pm$ 3.5 & 36.1 $\pm$ 3.1  & 3.94 $\pm$ 0.34  & 13.39 $\pm$ 0.56 & 15.7 $\pm$ 4.4 \\  % Bhh estimated from using Bhh/B+ ReA in T-T , scaled to other WPs using Bhh MC counting
     \hline
   \end{tabular}
   \caption{Estimated yields of \Bmumu and \Bhh events for Tight and Loose muon identification requirements based on muon efficiencies and hadron fake rates from MC simulation. \textcolor{red}{Currently these estimates use the intermediate SES\_d from ReA and Njpsi that is a sum of independent fits to individual data periods. Will have to update with proper numbers.}}
@@ -230,7 +232,7 @@ Based upon these yields, we fit the LNT-LNT data region with the adjusted versio
 
 The fit quality for low statistic cases, like the LNT-LNT data fit, is evaluated using a different statistic than the Pearson $\chi^2$, which breaks down at low event counts where the $\chi^{2}$ distribution approximation no longer holds. Instead, the Baker-Cousins $\chi^{2}$ ($\chi^{2}_{BC}$) statistic is used since it incorporates the exact Poisson likelihood and hence can accomodate the low statistics Poisson regime. However, the $\chi^{2}_{BC}$ does not follow standard $\chi^{2}$ distribution with a well defined number of degrees of freedom so analytical methods of approximating the p-value with this test statistic are unsuitable. Instead we resort to the frequentist toy MC based approach in calculation of the p-value. The p-value for the goodness of fit is calculated as the fraction of toy MC datasets generated according to the fitted model that provide a $\chi^{2}_{BC}$ that is higher than or equal to the one observed in the fit to the original dataset. This method will hence forth be used in the goodness of fit p-value evaluations of low statistic sample fits due to its reliability in such regimes.
 
-Figure~\ref{fig:LNT-LNTdatafit} shows the result of the LNT-LNT data fit with the adjusted model described earlier in thi section. Visually, the fitted shape reproduces the data well and with a reasonable fit quality in each BDT bin. The goodness of fit was evaluated using the $\chi^{2}_{BC}$, and provides satisfactory p-values in each of the BDT bins. The resulting \Bhh yield was found to be $N^{LNT-LNT}_{hh'} = 13.6 \pm 5.5$ ($24.9 \pm 1.3$ expected \textcolor{red}{Note this expectation is not right due to us using PR2 fake rates still here}) events in the LNT-LNT region.
+Figure~\ref{fig:LNT-LNTdatafit} shows the result of the LNT-LNT data fit with the adjusted model described earlier in thi section. Visually, the fitted shape reproduces the data well and with a reasonable fit quality in each BDT bin. The goodness of fit was evaluated using the $\chi^{2}_{BC}$, and provides satisfactory p-values in each of the BDT bins. The resulting \Bhh yield was found to be $N^{LNT-LNT}_{hh'} = 13.6 \pm 5.5$ ($21.0 \pm 5.5$ expected) events in the LNT-LNT region.
 \begin{figure}[ht!]
   \centering
   \subfloat[BDT bin 0 fit with BDT boundaries at {[0.1609,0.2636]}.]{
@@ -261,18 +263,19 @@ Figure~\ref{fig:LNT-LNTdatafit} shows the result of the LNT-LNT data fit with th
 To get a prediction in the T-T signal region to be used as a constraint on the \Bhh yield in the full baseline model intended on data, we translate the LNT-LNT data \Bhh yield into the T-T region using a ratio of counted \Bhh MC events in the full fit BDT range using all available events including those outside the mass fit range:
 \begin{eqnarray}
   N_{hh'}^{T-T} = \frac{MC_{hh'}^{T-T}}{MC_{hh'}^{LNT-LNT}} \times N_{hh'}^{LNT-LNT}
-  = (0.64 \pm 0.17) \times (13.6 \pm 5.5) = (8.7 \pm 4.2) \text{ events}.
+  = (0.64 \pm 0.17) \times (13.4 \pm 5.5) = (8.6 \pm 4.1) \text{ events}
   \label{eq:T-T_LNT-LNT_dataBhhYield} 
 \end{eqnarray}
+(compared to the expectation of $13.39 \pm 0.56$ events). This data driven estimate will be used as the constraint on the \Bhh yield in the final fit.
 
-As a cross-check of the procedure used to translate the LNT-LNT \Bhh yield into the T-T region we also translate the LNT-LNT \Bhh yield into the T-LNT + LNT-T region, which is then compared to the result of a direct fit in the T-LNT + LNT-T data. For the T-LNT + LNT-T data fit the \Bhh yield is constrained to the result of the LNT-LNT data \Bhh yield translated into the T-LNT + LNT-T region. The constraint is therefore:
+As a loose cross-check of the procedure used to translate the LNT-LNT \Bhh yield into the T-T region we also translate the LNT-LNT \Bhh yield into the T-LNT + LNT-T region, which is then compared to the result of a direct fit to the T-LNT + LNT-T data. For the T-LNT + LNT-T data fit the \Bhh yield is constrained to the result of the LNT-LNT data \Bhh yield translated into the T-LNT + LNT-T region as a mean of assessing the compatibility of the scaled result in data. The constraint is therefore
 \begin{eqnarray}
   N_{hh'}^{T-LNT+LNT-T} = \frac{MC_{hh'}^{T-LNT+LNT-T}}{MC_{hh'}^{LNT-LNT}} \times N_{hh'}^{LNT-LNT}
-  = (1.46 \pm 0.31) \times (13.6 \pm 5.5) = (19.8 \pm 9.0) \text{ events}.
+  = (1.46 \pm 0.31) \times (13.4 \pm 5.5) = (19.6 \pm 9.0) \text{ events}
   \label{eq:T-LNT-LNT-T_LNT-LNT_dataBhhYield} 
 \end{eqnarray}
 
-Figure~\ref{fig:T-LNT-LNT-Tdatafit} shows the result of the T-LNT + LNT-T data fit with the constraint on the \Bhh yield from equation~\ref{eq:T-LNT-LNT-T_LNT-LNT_dataBhhYield}. The fitted shape reproduces the data reasonably well with a satisfactory quality of the fit in each BDT bin. The resulting \Bhh yield was found to be $N^{T-LNT+LNT-T}_{hh'} = 8.7 \pm 8.0$ ($32.5 \pm 1.1$ expected). The result of the T-LNT + LNT-T data fit is consistent with the result of the LNT-LNT data fit translated into the T-LNT + LNT-T region within the uncertainties on these values. 
+Figure~\ref{fig:T-LNT-LNT-Tdatafit} shows the result of the T-LNT + LNT-T data fit with the constraint on the \Bhh yield from equation~\ref{eq:T-LNT-LNT-T_LNT-LNT_dataBhhYield}. The fitted shape reproduces the data reasonably well with a satisfactory quality of the fit in each BDT bin. The resulting \Bhh yield was found to be $N^{T-LNT+LNT-T}_{hh'} = 8.9 \pm 7.9$ ($30.6 \pm 7.5$ expected). The MC based scaling method of data driven yield estimates into orthogonal regions is consistent for the loose cross check region, and is therefore applicable for the scaling of the $Bhh$ yield into the signal region. 
 \begin{figure}[ht!]
   \centering
   \subfloat[BDT bin 0 fit with BDT boundaries at {[0.1609,0.2636]}.]{
