@@ -1,0 +1,70 @@
+\subsection{Semi-leptonic Backgrounds}
+\label{subsubsec:SemilepBkg}
+
+The semi-leptonic background originates from few-body semi-leptonic \B-decays where in the limit of low energy neutrinos a hadron can fake a muon ($h\rightarrow\mu$): the main contributions to this background are the \BdPiMuNu and the \BsKMuNu decays. Also contributing to this background are the \LPMuNu (and its charge conjugate \AntiLPMuNu) decays, for which the mass distribution extends closer to the signal region. Together these semi-leptonic modes are expected to contribute significantly less than the second largest contribution to the total background (SS+SV decays), hence the BDT output bin content for these decays is expected to also be very low.
+
+\textcolor{red}{Describe the procedure to get estimation of the semileptonic yields from the fake rates.}
+
+With these few events expected to enter in the fit region we assume that the exponential (SS+SV) and Chebychev first degree polynomial (combinatorial) PDFs to absorb this contribution, so no explicit semi-leptonic component PDF is added to the default fit model. This assumption is taken into account in the evaluation of the fit systematic uncertainties in section~\ref{subsec:SystUncertaintySimultaneousFit}. To evaluate the impact of this fit systematic by including the semileptonic PDF in the full model, a functional form for this component is needed. The semi-leptonic decays are modelled by an exponential plus a gaussian tail as shown in equation~\ref{eq:expGaussTail}
+\begin{eqnarray}
+  F(x) = f \cdot E(x; \alpha) + (1 - f) \cdot G(x; \mu, \sigma)  
+       = f \cdot \text{exp}(\alpha x) + (1 - f) \cdot \frac{1}{\sqrt{2\pi\sigma^2}} \text{exp}\left[-\frac{(x - \mu)^2}{2\sigma^2}\right]
+  \label{eq:expGaussTail}
+\end{eqnarray}
+, where $\alpha$ is the exponential constant, $f$ is the fraction of the exponetial with respect to the Gaussian, and where $\mu$ and $\sigma$ are resepctively the mean and sigma of the Gaussian.
+
+To validate the chosen PDF for the semi-leptonic background we fit the dimuon VTX mass distribution from the merged exclusive MC samples for the three modes with the PDF in equation~\ref{eq:expGaussTail}. The ID-based VTX mass is used instead of the MUCALC mass since fake muons frequently fail to produce combined muon tracks which are required in the baseline selection, leading to reduced statistics. Applied to the semil-leptonic MC sample is a loosened selection: all final selections apart from the muon quality requirements and passing the online trigger are applied to the merged MC sample to allow for more statistics necessary for a good quality fit and convergence. Loosening the selections on the semi-leptonic MC to extract the shape parameters for this background is justified because this PDF is only used in evaluation of the the fit systematics and is not intended for the final fit on data.
+
+Figure~\ref{fig:semilepMCfitLoose} shows the loosened selection MC fit results with the fitted PDF in all BDT output bins satisfactory reproducing the shape of the MC sample as can be seen from the residual distributions. With enough statistics the fit quality is also satisfactory with $p$-value > 0.05 in each bin of the BDT output. The loose MC fitted shape parameter values are then fixed in the fit to the full selection merged semi-leptonic MC sample as an extra step of validation: the shape from the loosened selection MC fit must be compatible with the full selection MC fit to validate this approach and confirm that the shape from loose selection also applies to full selection MC.
+\begin{figure}[ht!]
+  \centering
+  \subfloat[BDT bin 0 fit with BDT boundaries at {[0.1609,0.2636]}.]{
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_semilep_v2p4_can_bin_0.pdf}
+    \label{fig:semilepMCfitLooseBin0}
+  }
+  \subfloat[BDT bin 1 fit with BDT boundaries at {[0.2636,0.3405]}.]{
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_semilep_v2p4_can_bin_1.pdf}
+    \label{fig:semilepMCfitLooseBin1}
+  }
+  \\
+  \subfloat[BDT bin 2 fit with BDT boundaries at {[0.3405,0.4055]}.]{
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_semilep_v2p4_can_bin_2.pdf}
+    \label{fig:semilepMCfitLooseBin2}
+  }
+  \subfloat[BDT bin 3 fit with BDT boundaries at {[0.4055,1.0000]}.]{
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_semilep_v2p4_can_bin_3.pdf}
+    \label{fig:semilepMCfitLooseBin3}
+  }
+  \caption{Unbinned extended maximum likelihood fits performed independently in BDT bin 0 \protect\subref{fig:semilepMCfitLooseBin0}, 1 \protect\subref{fig:semilepMCfitLooseBin1}, 2 \protect\subref{fig:semilepMCfitLooseBin2}, and 3 \protect\subref{fig:semilepMCfitLooseBin3} on the merged \BdPiMuNu, \BsKMuNu, \LPMuNu, and \LPMuNu exclusive MC samples. Applied to the merged MC sample is a loosened selection which comprises of all the final selections except the online trigger (and matching), additionally requiring only one of the offline muons to pass the tight WP and be a combined muon (the other muon is required to only pass the loose WP).} 
+  \label{fig:semilepMCfitLoose}
+\end{figure}
+
+Figure~\ref{fig:semilepMCfit} shows the full selection merged semi-leptonic MC sample fitted with the PDF in equation~\ref{eq:expGaussTail} but with the shape parameters fixed to the results of the loosened MC fit result in Figure~\ref{fig:semilepMCfitLoose}. Even with the low statistics due to passing the online trigger requirement, the fixed shape parameters from the loosened selection formulate a PDF that is consistent with the full selection MC, reproducing satisfactorily the MC shape and with a good fit quality in all bins of the BDT output. The fit in the full selection MC with the shape parameters from fit to the loosened selection converges even at low statistics, which justifies the loose MC shapes used in the semi-leptonic PDF construction intended for the evaluation of the fit systematics. 
+\begin{figure}[ht!]
+  \centering
+  \subfloat[BDT bin 0 fit with BDT boundaries at {[0.1609,0.2636]}.]{
+    %\includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_semilep_v2p4_loose_params_fixed_can_bin_0.pdf} % using Pearson Chi2 and p-value
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_semilep_v2p4_loose_params_fixed_BC_toy_MC_p_val_can_bin_0.pdf} % using toy MC BC Chi2 and p-value
+    \label{fig:semilepMCfitBin0}
+  }
+  \subfloat[BDT bin 1 fit with BDT boundaries at {[0.2636,0.3405]}.]{
+    %\includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_semilep_v2p4_loose_params_fixed_can_bin_1.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_semilep_v2p4_loose_params_fixed_BC_toy_MC_p_val_can_bin_1.pdf} % using toy MC BC Chi2 and p-value
+    \label{fig:semilepMCfitBin1}
+  }
+  \\
+  \subfloat[BDT bin 2 fit with BDT boundaries at {[0.3405,0.4055]}.]{
+    %\includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_semilep_v2p4_loose_params_fixed_can_bin_2.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_semilep_v2p4_loose_params_fixed_BC_toy_MC_p_val_can_bin_2.pdf} % using toy MC BC Chi2 and p-value
+    \label{fig:semilepMCfitBin2}
+  }
+  \subfloat[BDT bin 3 fit with BDT boundaries at {[0.4055,1.0000]}.]{
+    %\includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_semilep_v2p4_loose_params_fixed_can_bin_3.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_semilep_v2p4_loose_params_fixed_BC_toy_MC_p_val_can_bin_3.pdf} % using toy MC BC Chi2 and p-value
+    \label{fig:semilepMCfitBin3}
+  }
+  \caption{Unbinned extended maximum likelihood fits performed independently in BDT bin 0 \protect\subref{fig:semilepMCfitLooseBin0}, 1 \protect\subref{fig:semilepMCfitLooseBin1}, 2 \protect\subref{fig:semilepMCfitLooseBin2}, and 3 \protect\subref{fig:semilepMCfitLooseBin3} on the merged \BdPiMuNu, \BsKMuNu, \LPMuNu, and \LPMuNu exclusive MC samples. Applied to the merged MC sample are the final selections including requirements to pass the online trigger (and matching) but with only one muon passing the truth cuts. The shape parameters are fixed to the result of the fit in Figure~\ref{fig:semilepMCfitLoose}. Also shown are the fixed shape parameters, as well as the Baker-Cousins $\chi^{2}$, along with the p-value obtained by the frequentist toy MC approach discussed in section~\ref{subsubsec:BhhNormalisation}.} 
+  \label{fig:semilepMCfit}
+\end{figure}
+
+\clearpage
