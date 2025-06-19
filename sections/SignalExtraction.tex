@@ -228,7 +228,9 @@ Based upon these yields, we fit the LNT-LNT data region with the adjusted versio
 
 \end{itemize}
 
-Figure~\ref{fig:LNT-LNTdatafit} shows the result of the LNT-LNT data fit with the adjusted model above. Visually the fitted shape reproduces the data well and with a reasonable fit quality. Due to the limited statistics in the signal BDT bins and a large number of free parameters the fit quality is not satisfactory in the BDT bin of Figure~\ref{fig:LNT-LNTdatafitBin1}, however this is not the most signal sensitive BDT bin and due to the large uncertainties associated with the low mass bin content, the shape is still satisfactorily reproduced and poses no concern. The resulting \Bhh yield was found to be $N^{LNT-LNT}_{hh'} = 13.6 \pm 5.5$ ($24.9 \pm 1.3$ expected \textcolor{red}{Note this expectation is not right due to us using PR2 fake rates still here}) events in the LNT-LNT region.
+The fit quality for low statistic cases, like the LNT-LNT data fit, is evaluated using a different statistic than the Pearson $\chi^2$, which breaks down at low event counts where the $\chi^{2}$ distribution approximation no longer holds. Instead, the Baker-Cousins $\chi^{2}$ ($\chi^{2}_{BC}$) statistic is used since it incorporates the exact Poisson likelihood and hence can accomodate the low statistics Poisson regime. However, the $\chi^{2}_{BC}$ does not follow standard $\chi^{2}$ distribution with a well defined number of degrees of freedom so analytical methods of approximating the p-value with this test statistic are unsuitable. Instead we resort to the frequentist toy MC based approach in calculation of the p-value. The p-value for the goodness of fit is calculated as the fraction of toy MC datasets generated according to the fitted model that provide a $\chi^{2}_{BC}$ that is higher than or equal to the one observed in the fit to the original dataset. This method will hence forth be used in the goodness of fit p-value evaluations of low statistic sample fits due to its reliability in such regimes.
+
+Figure~\ref{fig:LNT-LNTdatafit} shows the result of the LNT-LNT data fit with the adjusted model described earlier in thi section. Visually, the fitted shape reproduces the data well and with a reasonable fit quality in each BDT bin. The goodness of fit was evaluated using the $\chi^{2}_{BC}$, and provides satisfactory p-values in each of the BDT bins. The resulting \Bhh yield was found to be $N^{LNT-LNT}_{hh'} = 13.6 \pm 5.5$ ($24.9 \pm 1.3$ expected \textcolor{red}{Note this expectation is not right due to us using PR2 fake rates still here}) events in the LNT-LNT region.
 \begin{figure}[ht!]
   \centering
   \subfloat[BDT bin 0 fit with BDT boundaries at {[0.1609,0.2636]}.]{
@@ -252,7 +254,7 @@ Figure~\ref{fig:LNT-LNTdatafit} shows the result of the LNT-LNT data fit with th
     \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_Bhh_LNT_LNT_toy_MC_p_val_can_LNT-LNT_BDT_4_ETA_1.pdf}  % p-value from toy MC , BC Chi2 
     \label{fig:LNT-LNTdatafitBin3}
   }
-  \caption{Unbinned extended maximum likelihood fit performed simultaneously in BDT bin 0 \protect\subref{fig:LNT-LNTdatafitBin0}, 1 \protect\subref{fig:LNT-LNTdatafitBin1}, 2 \protect\subref{fig:LNT-LNTdatafitBin2}, and 3 \protect\subref{fig:LNT-LNTdatafitBin3} on the LNT-LNT data with the adjusted baseline model as described in text.} 
+  \caption{Unbinned extended maximum likelihood fit performed simultaneously in BDT bin 0 \protect\subref{fig:LNT-LNTdatafitBin0}, 1 \protect\subref{fig:LNT-LNTdatafitBin1}, 2 \protect\subref{fig:LNT-LNTdatafitBin2}, and 3 \protect\subref{fig:LNT-LNTdatafitBin3} on the LNT-LNT data with the adjusted baseline model as described in text. Also shown are the the Baker-Cousins $\chi^{2}$, along with the p-value obtained by the frequentist toy MC approach.} 
   \label{fig:LNT-LNTdatafit}
 \end{figure}
 
@@ -543,23 +545,27 @@ Figure~\ref{fig:semilepMCfit} shows the full selection merged semi-leptonic MC s
 \begin{figure}[ht!]
   \centering
   \subfloat[BDT bin 0 fit with BDT boundaries at {[0.1609,0.2636]}.]{
-    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_semilep_v2p4_loose_params_fixed_can_bin_0.pdf}
+    %\includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_semilep_v2p4_loose_params_fixed_can_bin_0.pdf} % using Pearson Chi2 and p-value
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_semilep_v2p4_loose_params_fixed_BC_toy_MC_p_val_can_bin_0.pdf} % using toy MC BC Chi2 and p-value
     \label{fig:semilepMCfitBin0}
   }
   \subfloat[BDT bin 1 fit with BDT boundaries at {[0.2636,0.3405]}.]{
-    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_semilep_v2p4_loose_params_fixed_can_bin_1.pdf}
+    %\includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_semilep_v2p4_loose_params_fixed_can_bin_1.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_semilep_v2p4_loose_params_fixed_BC_toy_MC_p_val_can_bin_1.pdf} % using toy MC BC Chi2 and p-value
     \label{fig:semilepMCfitBin1}
   }
   \\
   \subfloat[BDT bin 2 fit with BDT boundaries at {[0.3405,0.4055]}.]{
-    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_semilep_v2p4_loose_params_fixed_can_bin_2.pdf}
+    %\includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_semilep_v2p4_loose_params_fixed_can_bin_2.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_semilep_v2p4_loose_params_fixed_BC_toy_MC_p_val_can_bin_2.pdf} % using toy MC BC Chi2 and p-value
     \label{fig:semilepMCfitBin2}
   }
   \subfloat[BDT bin 3 fit with BDT boundaries at {[0.4055,1.0000]}.]{
-    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_semilep_v2p4_loose_params_fixed_can_bin_3.pdf}
+    %\includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_test_semilep_v2p4_loose_params_fixed_can_bin_3.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/SignalExtraction/out_fit_semilep_v2p4_loose_params_fixed_BC_toy_MC_p_val_can_bin_3.pdf} % using toy MC BC Chi2 and p-value
     \label{fig:semilepMCfitBin3}
   }
-  \caption{Unbinned extended maximum likelihood fits performed independently in BDT bin 0 \protect\subref{fig:semilepMCfitLooseBin0}, 1 \protect\subref{fig:semilepMCfitLooseBin1}, 2 \protect\subref{fig:semilepMCfitLooseBin2}, and 3 \protect\subref{fig:semilepMCfitLooseBin3} on the merged \BdPiMuNu, \BsKMuNu, \LPMuNu, and \LPMuNu exclusive MC samples. Applied to the merged MC sample are the final selections including requirements to pass the online trigger (and matching) but with only one muon passing the truth cuts. The shape parameters are fixed to the result of the fit in Figure~\ref{fig:semilepMCfitLoose}.} 
+  \caption{Unbinned extended maximum likelihood fits performed independently in BDT bin 0 \protect\subref{fig:semilepMCfitLooseBin0}, 1 \protect\subref{fig:semilepMCfitLooseBin1}, 2 \protect\subref{fig:semilepMCfitLooseBin2}, and 3 \protect\subref{fig:semilepMCfitLooseBin3} on the merged \BdPiMuNu, \BsKMuNu, \LPMuNu, and \LPMuNu exclusive MC samples. Applied to the merged MC sample are the final selections including requirements to pass the online trigger (and matching) but with only one muon passing the truth cuts. The shape parameters are fixed to the result of the fit in Figure~\ref{fig:semilepMCfitLoose}. Also shown are the fixed shape parameters, as well as the Baker-Cousins $\chi^{2}$, along with the p-value obtained by the frequentist toy MC approach discussed in section~\ref{subsubsec:BhhNormalisation}.} 
   \label{fig:semilepMCfit}
 \end{figure}
 
