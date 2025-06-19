@@ -188,37 +188,8 @@ To get a realistic measurement of the \Bd signal yield, which could otherwise be
 
 SM predicted estimates can be calculated by considering the \Bhh equivalent of the master euqation~\ref{eq:BRFormula}, rearranged for the dimuon yield and using the latest measurements of the \Bhh branching ratios from PDG \cite{ParticleDataGroup:2024cfk}. Such predictions have been calculated by incorporating the the estimated \Bpm  yield of Chapter~\ref{sec:ReferenceChannel}, ratio of acceptance times efficiency from Chapter~\ref{sec:AccepEffRatio}, and using the fake rates from Chapter~\ref{sec:FakeBackground} \textcolor{red}{Dont forget to update these chapters to sections where the numbers are. For now PR2 fakes rates are being used}.
 
-Table~\ref{tab:MasterEqEstMuonWPs} shows the SM predictions for \Bmumu and \Bhh yields for all combinations of Tight (T) and Loose (L) muons in the final states. By construction the Loose but Not Tight (LNT) muons pass the L muon WP but fail the T muon WP, and are therefore orthogonal to the T muons. With two muons in the final state, any combination of L-L, LNT-LNT, LNT-T or T-LNT are orthogonal regions to the T-T region and to each other, and can therefore be used in a fit to data of such regions to extract the \Bhh yield without unblinding and for validation of the full yield extraction procedure.
-
-%\begin{table}[h]
-%  \centering
-%  \footnotesize
-%  \begin{tabular}{|c|c|c|c|c|c|c|c|}
-%    \cline{3-8}
-%    \multicolumn{2}{c}{} 
-%    & \multicolumn{2}{|c|}{\Bsmumu} 
-%    & \multicolumn{2}{c|}{\Bdmumu} 
-%    & \multicolumn{2}{c|}{\Bhh} \\
-%    \hline
-%    \multicolumn{2}{|c|}{Muon Type}
-%    & \multicolumn{2}{c|}{Loose} 
-%    & \multicolumn{2}{c|}{Loose} 
-%    & \multicolumn{2}{c|}{Loose} \\
-%    \cline{3-8}
-%    \multicolumn{2}{|c|}{}
-%    & Tight & Loose not Tight & Tight & Loose not Tight & Tight & Loose not Tight \\
-%    \hline
-%    \multirow{2}{*}{Loose} 
-%    %& Loose not Tight & 36.9 $\pm$ 3.5 & 4.03 $\pm$ 0.39 & 3.94 $\pm$ 0.34 & 0.431 $\pm$ 0.038 & 16.25 $\pm$ 0.75 & 24.9 $\pm$ 1.3 \\ % Bhh estimated using PR2 fake rates
-%    & Loose not Tight & 36.9 $\pm$ 3.5 & 4.03 $\pm$ 0.39 & 3.94 $\pm$ 0.34 & 0.431 $\pm$ 0.038 &  14.9 $\pm$ 4.2 & 21.0 $\pm$ 5.5 \\ % Bhh estimated from using Bhh/B+ ReA in T-T , scaled to other WPs using Bhh MC counting
-%    \cline{2-8}
-%    %& Tight           & 337 $\pm$ 32 & 36.9 $\pm$ 3.5 & 36.1 $\pm$ 3.1  & 3.94 $\pm$ 0.34  & 10.59 $\pm$ 0.53 & 16.25 $\pm$ 0.75 \\  % Bhh estimated using PR2 fake rates
-%    & Tight           & 337 $\pm$ 32 & 36.9 $\pm$ 3.5 & 36.1 $\pm$ 3.1  & 3.94 $\pm$ 0.34  & 13.39 $\pm$ 0.56 & 15.7 $\pm$ 4.4 \\  % Bhh estimated from using Bhh/B+ ReA in T-T , scaled to other WPs using Bhh MC counting
-%    \hline
-%  \end{tabular}
-%  \caption{Estimated yields of \Bmumu and \Bhh events for Tight and Loose muon identification requirements based on muon efficiencies and hadron fake rates from MC simulation. \textcolor{red}{Currently these estimates use the intermediate SES\_d from ReA and Njpsi that is a sum of independent fits to individual data periods. Will have to update with proper numbers.}}
-%  \label{tab:MasterEqEstMuonWPs}
-%\end{table}
+\DJcomment{Table~\ref{tab:MasterEqEstMuonWPs} shows the SM predictions for \Bmumu and \Bhh yields for all combinations of Tight (T) and Loose (L) muons in the final states.}{Why are LNT-T and T-LNT exactly the same for the signals but not Bhh?} 
+By construction the Loose but Not Tight (LNT) muons pass the L muon WP but fail the T muon WP, and are therefore orthogonal to the T muons. With two muons in the final state, any combination of L-L, LNT-LNT, LNT-T or T-LNT are orthogonal regions to the T-T region and to each other, and can therefore be used in a fit to data of such regions to extract the \Bhh yield without unblinding and for validation of the full yield extraction procedure.
 
 \begin{table}[h]
   \centering
@@ -233,7 +204,8 @@ Table~\ref{tab:MasterEqEstMuonWPs} shows the SM predictions for \Bmumu and \Bhh 
         T-T & $337 \pm 32$ & $36.1 \pm 3.1$ & $13.39 \pm 0.56$ \\ 
         \bottomrule
   \end{tabular}
-  \caption{Estimated yields of \Bmumu and \Bhh events for Tight and Loose muon identification requirements based on muon efficiencies and hadron fake rates from MC simulation. \textcolor{red}{Currently these estimates use the intermediate SES\_d from ReA and Njpsi that is a sum of independent fits to individual data periods. Will have to update with proper numbers.}}
+    \caption{Estimated yields of \Bmumu and \Bhh events for Tight and Loose muon identification requirements based on muon efficiencies and hadron fake rates from MC simulation. 
+  \textcolor{red}{Currently these estimates use the intermediate SES\_d from ReA and Njpsi that is a sum of independent fits to individual data periods. Will have to update with proper numbers.}}
   \label{tab:MasterEqEstMuonWPs}
 \end{table}
 

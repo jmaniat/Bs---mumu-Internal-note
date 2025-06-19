@@ -46,10 +46,16 @@
       {\textcolor{magenta}{#2}\todo[color=pink, linecolor=magenta]{#3}\xspace}
       {\textcolor{magenta}{#2}\todo[color=pink, linecolor=magenta, #1]{#3}\xspace}
   }
+  \newcommand{\DJcomment}[3][]{%
+    \ifthenelse{ \equal{#1}{} }
+      {\textcolor{blue}{#2}\todo[color=cyan!40, linecolor=blue]{Dom:~#3}\xspace}
+      {\textcolor{blue}{#2}\todo[color=cyan!40, linecolor=blue, #1]{Dom:~#3}\xspace}
+  }
 \else
   \typeout{atlascomment: not showing comments}
   \RequirePackage[disable]{todonotes}
   \newcommand{\LEcomment}[3][]{\todo[#1]{#2}\xspace}
+  \newcommand{\DJcomment}[3][]{\todo[#1]{#2}\xspace}
 \fi
 
 % \presetkeys{todonotes}{fancyline, color=blue!30}{}
