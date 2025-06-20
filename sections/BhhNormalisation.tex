@@ -8,23 +8,45 @@ SM predicted estimates can be calculated by considering the \Bhh equivalent of t
 \DJcomment{Table~\ref{tab:MasterEqEstMuonWPs} shows the SM predictions for \Bmumu and \Bhh yields for all combinations of Tight (T) and Loose (L) muons in the final states.}{Why are LNT-T and T-LNT exactly the same for the signals but not Bhh?} 
 By construction the Loose but Not Tight (LNT) muons pass the L muon WP but fail the T muon WP, and are therefore orthogonal to the T muons. With two muons in the final state, any combination of L-L, LNT-LNT, LNT-T or T-LNT are orthogonal regions to the T-T region and to each other, and can therefore be used in a fit to data of such regions to extract the \Bhh yield without unblinding and for validation of the full yield extraction procedure.
 
+% Here the Bs and Bd estimates are calculated in the T-T region using SES_d , and then taken to other regions using muon efficiencies for those WPs. The Bhh estimates here use Emanuele's ReA(Bhh/B+) to get the T-T region estimated, which is then scaled to other WP regions via MC counting ratio of WP-WP / T-T in the corresponding component MC
+%\begin{table}[h] 
+%  \centering
+%  \footnotesize
+%    \begin{tabular}{cccc}
+%        \toprule
+%        Region & \Bsmumu & \Bdmumu & \Bhh \\
+%        \midrule
+%        LNT-LNT & $4.03 \pm 0.39$ & $0.431 \pm 0.038$ & $21.0 \pm 5.5$ \\ 
+%        LNT-T & $36.9 \pm 3.5$ & $3.94 \pm 0.34$ & $14.9 \pm 4.2$ \\ 
+%        T-LNT & $36.9 \pm 3.5$ & $3.94 \pm 0.34$ & $15.7 \pm 4.4$ \\ 
+%        T-T & $337 \pm 32$ & $36.1 \pm 3.1$ & $13.39 \pm 0.56$ \\ 
+%        \bottomrule
+%  \end{tabular}
+%    \caption{Estimated yields of \Bmumu and \Bhh events for Tight and Loose muon identification requirements based on muon efficiencies and hadron fake rates from MC simulation. 
+%  \textcolor{red}{Currently these estimates use the intermediate SES\_d from ReA and Njpsi that is a sum of independent fits to individual data periods. Will have to update with proper numbers.}}
+%  \label{tab:MasterEqEstMuonWPs}
+%\end{table}
+
+% Here the Bs, Bd and Bhh estimates are calculated in the T-T region using SES_d (for Bhh its SES_d(Bhh/B+)) , and then taken to other regions using MC counting ratio of WP-WP / T-T in the corresponding component MC. I have commented out LNT-T and T-LNT individual estimates since we are only interested in their combination T-LNT+LNT-T, but keeping here for comparison with the previous table above
 \begin{table}[h]
   \centering
   \footnotesize
-    \begin{tabular}{cccc}
-        \toprule
-        Region & \Bsmumu & \Bdmumu & \Bhh \\
-        \midrule
-        LNT-LNT & $4.03 \pm 0.39$ & $0.431 \pm 0.038$ & $21.0 \pm 5.5$ \\ 
-        LNT-T & $36.9 \pm 3.5$ & $3.94 \pm 0.34$ & $14.9 \pm 4.2$ \\ 
-        T-LNT & $36.9 \pm 3.5$ & $3.94 \pm 0.34$ & $15.7 \pm 4.4$ \\ 
-        T-T & $337 \pm 32$ & $36.1 \pm 3.1$ & $13.39 \pm 0.56$ \\ 
-        \bottomrule
+  \begin{tabular}{cccc}
+    \toprule
+    Region & \Bsmumu & \Bdmumu & \Bhh \\
+    \midrule
+    LNT-LNT & $3.40 \pm 0.33$ & $0.377 \pm 0.033$ & $21.0 \pm 5.5$ \\ 
+    %LNT-T & $34.5 \pm 3.3$ & $3.65 \pm 0.31$ & $14.9 \pm 4.2$ \\ 
+    %T-LNT & $34.4 \pm 3.3$ & $3.72 \pm 0.32$ & $15.7 \pm 4.4$ \\ 
+    T-LNT+LNT-T & $68.8 \pm 6.6$ & $7.37 \pm 0.63$ & $30.6 \pm 7.5$ \\
+    T-T & $337 \pm 32$ & $36.1 \pm 3.1$ & $13.39 \pm 0.56$ \\ 
+    \bottomrule
   \end{tabular}
-    \caption{Estimated yields of \Bmumu and \Bhh events for Tight and Loose muon identification requirements based on muon efficiencies and hadron fake rates from MC simulation. 
-  \textcolor{red}{Currently these estimates use the intermediate SES\_d from ReA and Njpsi that is a sum of independent fits to individual data periods. Will have to update with proper numbers.}}
+  \caption{Estimated yields of \Bmumu and \Bhh events for Tight and Loose muon identification requirements based on acceptance and efficiency ratio in MC with respect to the reference channel in the T-T signal region. The signal region estimates are translated into the orthogonal regions using MC counting ratio in the corresponding component MC.  
+    \textcolor{red}{Currently these estimates use the intermediate SES\_d from ReA and Njpsi that is a sum of independent fits to individual data periods. Will have to update with proper numbers.}}
   \label{tab:MasterEqEstMuonWPs}
 \end{table}
+\todo{}
 
 Based upon these yields, we fit the LNT-LNT data region with the adjusted version of the baseline model described in section~\ref{subsec:FitConfig}. The LNT-LNT region provides the best environment to extract the \Bhh yield due to its higher fraction of events with respect to the \Bs and \Bd than the LNT-T or the T-LNT regions. The adjustments to the fit model include:
 \begin{itemize}

@@ -163,13 +163,19 @@ As discussed in section~\ref{sec:FakeBackground}, a resonant background is forme
 
 %To accurately model the \Bhh background and extract the data-driven normalisation for this crucial to the final fit background component, trigger-level and mass-level corrections are necessary to be applied to the \Bhh MC samples. These corrections account for the difference in trigger efficiencies and invariant mass reconstruction between real muons and hadron fakes, ensuring realistic treatment of this background's contribution in the signal region.
 
-The derivation of the function from for the \Bhh background is described in section~\ref{subsec:BhhFunctionalForm}. 
-In each BDT bin, a double Guassian PDF is used with the following shape parameters.
-\todo{Stan: Add Bhh shape paramaeters per bin.}  
+The derivation of the function from for the \Bhh background is described in section~\ref{subsec:BhhFunctionalForm}. In each BDT bin, a double Guassian PDF is used with the following shape parameters:
+\begin{itemize}
+\item $\mu_1$: 5239 $\pm$ 35
+\item $\sigma_1$: 187 $\pm$ 45
+\item $\mu_2$: 5252.6 $\pm$ 9.9
+\item $\sigma_2$: 80 $\pm$ 14
+\item $f$: 0.28 $\pm$ 0.18 
+\end{itemize}
+, where $f$ is the fraction of Gaussian 1 with respect to Gaussian 2. 
+%\todo{Stan: Add Bhh shape paramaeters per bin.}  
 
-The normalisation of the \Bhh background is constrained in the signal fits using the estimation described in section~\ref{subsubsec:BhhNormalisation}. 
-The final value is...
-\todo{Stan: Add final value used.}
+The normalisation of the \Bhh background is constrained in the signal fits using the estimation described in section~\ref{subsubsec:BhhNormalisation}. The final value is $8.6 \pm 4.1$.
+\todo{Stan: Add final value used, after using updated Bs and Bd estimated yields as constraints}
 
 %Applying the corrections described in section~\ref{subsubsec:BhhCorrections}, the Tight-Tight (T-T) final state muon Working Point (WP) \Bhh MC is fit with the same model as the signals: a double Gaussian PDF shown in equation~\ref{eq:DoubleGaussian}. The resulting shape parameters from this fit are used to define the baseline model \Bhh component and were found to be:
 %\begin{itemize}
