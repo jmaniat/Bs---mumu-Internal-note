@@ -1,9 +1,48 @@
 \section{\Bs and \Bd Signal Extraction}
 \label{sec:SignalExtraction}
 
-In order to extract the \Bds signal yields, an extended simultaneous unbinned maximum-likelihood fit is performed on the invariant mass distribution of \Bds events that are classified according to different intervals in the BDT output. This strategy is similar to the one followed by \lhcb \cite{LHCb:2021vsc} and \cms \cite{CMS:2022mgd}, along with the \atlas Partial Run 2 version of the analysis \cite{ATLAS:2018cur}. Unless otherwise stated, throughout this chapter we assume the latest SM branching fraction predictions \BRBdmumu = $3.66 \times 10^{-9}$ and \BRBsmumu = $1.03 \times 10^{-10}$ as mentioned in Section~\ref{sec:intro}. To prevent introduction of biases or double counting effects during the development of the fitting procedure, MC samples have been used for preparatory studies and where possible verified on data sidebands.
+To extract the \Bds signal yields, an extended simultaneous unbinned maximum-likelihood fit is performed on the invariant mass distribution of \Bds events in different intervals in the BDT output, after applying the selections detailed in Table~\ref{tab:baselineSelection}.
+This strategy is similar to the one followed by \lhcb \cite{LHCb:2021vsc} and \cms \cite{CMS:2022mgd}, along with the \atlas Partial Run 2 version of the analysis \cite{ATLAS:2018cur}. Unless otherwise stated, throughout this chapter we assume the latest SM branching fraction predictions \BRBdmumu = $3.66 \times 10^{-9}$ and \BRBsmumu = $1.03 \times 10^{-10}$ as mentioned in Section~\ref{sec:intro}. To prevent introduction of biases or double counting effects during the development of the fitting procedure, MC samples have been used for preparatory studies and where possible verified on data sidebands.
 
-The continuum BDT output bin boundaries used in this analysis have been selected to correspond to 18\% signal efficiency in each of the BDT bins with increasing signal to background ratio for higher BDT output bins, similar to the PR2 analysis \cite{ATLAS:2018cur}. A dedicated study was performed to identify potential improvements to the signal sensitivity by considering alternative number of BDT bins and signal efficiencies in these bins. In this study, 10000 toy MC samples were generated and fit with the baseline fit model (described in detail in section~\ref{subsec:FitConfig}) for each of the BDT bin configurations considered. The average fit error on the \BRBsmumu and \BRBdmumu were compared to the 4 BDT bin equal signal efficiency errors. Table~\ref{tab:BDTbinningResults} shows the result of a subset of tested fit configurations (the full list of which can be found in Appendix~\textcolor{red}{Add appenfix for this}).
+In this section, a summary of the background models is first provided after which the derivation of the BDT bin boundaries is discussed followed by details of the functional forms of the signal and background components and sensitivity studies are presented. 
+Specifically, there are the following subsections:
+\begin{itemize}
+    \item A summary of the signal and background processes and how they are modelled or accounted for in the signal channel fit. 
+    \item The BDT bin boundaries are discussed in Section~\ref{subsec:BDTbins} 
+    \item The \Bds signal models are discussed in Section~\ref{subsec:SignalModels} 
+    \item The resonant \Bhh background model is discussed in Section~\ref{subsec:ResonantBkgModel}
+    \item The Combinatorial and SSSV background models are discussed in Section~\ref{subsec:NonResonantBkgModel}
+    \item Fits of the non-resonant backgrounds to data and MC sidebands are discussed in Section~\ref{subsubsec:FitsMcDataSB}.
+    %\item The BDT-simultaneous non-resonant backgrounds combined fits to MC and data sidebands comparison is discussed in Section~\ref{subsubsec:SimultaneousSSSVplusCOMBcombinedFitMCandDataSB}
+    \item A summary of the baseline fit model is provided in Section~\ref{subsec:FitConfig}
+    \item The studies of the sensitivity to the signal is shown in Section~\ref{subsec:ToyExperimentFits}
+    \item Systematic uncertainties on the fit are discussed in Section~\ref{subsec:SystUncertaintySimultaneousFit}
+\end{itemize}
+
+\subsection{Summary of Signal and Background Processes}
+\label{subsec:ProcessSummary}
+In each BDT bin in the signal channel the following processes are modelled explicitly:
+\begin{itemize}
+  \item The \Bsmumu and \Bdmumu signal processes, each modelled with a double Gaussian. 
+  \item The Same-Side Same-Vertex (SSSV) background: partially reconstructed candidates with two real muons that originate from the same $b$-quark fragmentation (in some instances the same vertex). This background is situated at lower mass values than the signals and is modelled using a decaying exponential function.   
+  \item The Combinatorial background: originating from candidates in which the muons come from different $b/\bar{b}$-quark fragmentations. Although greatly reduced by the BDT output requirement, this background is still present in the SR. Its invariant mass distribution is relatively flat across the range considered here and as such it is modelled using a first order Chebyshev polynomial. 
+  \item The Resonant Background due to \Bhh: Consisting of candidates with two fake muons as discussed in Section~\ref{sec:FakeBackground}. This background peaks at invariant masses slightly lower than the \Bmumu signals. This background is also modelled with a double Gaussian but has its normalisation constrained, as discussed in section~\ref{subsec:BhhNormalisation}. 
+\end{itemize}
+
+On top of these processes, two additional backgrounds are considered but are not modelled explicitly, the lack of explicit modelling instead being treated as systematic uncertainties. 
+Specifically, the following processes are considered:
+\begin{itemize}
+  \item The \Bc background, mainly due to $B_c^+\to \mu^{+}\nu + J/\psi(\mu^{+}\mu^{-})$ decays.  
+  \item Backgrounds due to semi-leptonic decays in which the $B$-candidate is formed from one real muon and one fake muon. In particular the decays \AntiLPMuNu, \LPMuNu, \BsKmMupNu, and \BdPimMuPNu are considered. 
+\end{itemize} 
+Both of these backgrounds have a decaying exponential shape and are expected to be sufficiently small such that they can be safely absorbed into the SSSV exponential. 
+This is tested using toy psuedo-experiments discussed in section~\ref{subsec:SystUncertaintySimultaneousFit} 
+
+
+\subsection{BDT bin boundaries}
+\label{subsec:BDTbins}
+
+The continuum BDT output bin boundaries used in this analysis have been selected to correspond to 18\% signal efficiency in each of the BDT bins with increasing signal to background ratio for higher BDT output bins, the same as in the PR2 analysis \cite{ATLAS:2018cur}. A dedicated study was performed to identify potential improvements to the signal sensitivity by considering alternative number of BDT bins and signal efficiencies in these bins. In this study, 10000 toy MC samples were generated and fit with the baseline fit model (described in detail in section~\ref{subsec:FitConfig}) for each of the BDT bin configurations considered. The average fit uncertainties on the \BRBsmumu and \BRBdmumu were compared to the uncertainties from using the 4-equal signal efficiency bin errors. Table~\ref{tab:BDTbinningResults} shows the result of a subset of tested fit configurations (the full list of which can be found in Appendix~\textcolor{red}{Add appendix for this}).
 \renewcommand{\arraystretch}{1.5}
 \begin{table}[h]
   \centering
@@ -32,59 +71,51 @@ The continuum BDT output bin boundaries used in this analysis have been selected
   \label{tab:BDTbinningResults}
 \end{table}
 
-For the 3 and 4 BDT bin fit configurations the most signal sensitive (top) BDT bin boundary has been adjusted to include a 20\% and 50\% larger/smaller signal efficiency respectively. This was done to evaluate the change in signal sensitivity to variations in BDT boundary selection for the most signal sensitive bin. In both these cases the signal sensitivity was not found to vary significantly. Overall the 5 equal signal efficiency BDT bin configuration showed the best sensitivity to both the signals, however, this improvement is still negligible with respect to the expected statistical uncertainty on the signal branching ratios. With this consideration, the fact that a reasonably simple model is required for the complex fit on data, and for consistency with the PR2 BDT binning strategy, the equal 18\% signal efficiency 4 BDT bin configuration is chosen for this analysis. The resulting edges of the 4 BDT bins are therefore: 
+For the 3 and 4 BDT bin fit configurations the most signal sensitive (top) BDT bin boundary has been adjusted to include a 20\% and 50\% larger/smaller signal efficiency respectively. This was done to evaluate the change in signal sensitivity to variations in BDT boundary selection for the most sensitive signal bin. In both these cases the signal sensitivity was not found to vary significantly. Overall the 5 equal signal efficiency BDT bin configuration showed the best sensitivity to both the signals, however, the improvement is small compared to the four equal signal efficiency bin setup. 
+Given this, and that increasing the number of bins also increases the complexity of the fit, the equal 18\% signal efficiency 4 BDT bin configuration is chosen for this analysis. 
+The resulting edges of the 4 BDT bins are: 
 \begin{itemize} 
 \item Bin 0: 0.1609 - 0.2636,
 \item Bin 1: 0.2636 - 0.3405,
 \item Bin 2: 0.3405 - 0.4055,
 \item Bin 3: 0.4055 - 1.0000,
 \end{itemize}
-where BDT Bin 0, reffered to as the background BDT bin, has the lowest signal to background ratio and is used to aid on constraining the background, and where BDT bins 1-3 are henceforth reffered to as the signal BDT bins with higher signal to background ratio and hence signal sensitivity.
+where BDT Bin 0, referred to as the background BDT bin, has the lowest signal to background ratio and is used to aid on constraining the background, and where BDT bins 1-3 are henceforth referred to as the signal BDT bins with higher signal to background ratio and hence signal sensitivity.
 
-In the remainder of this chapter the functional forms of the components relevant to the signal yield extraction along with their implementation in procedures to estimate the sensitivity to the signal will be defined. The following studies are presented:
-
-\begin{itemize}
-    \item The \Bds signal models are discussed in Section~\ref{subsec:SignalModels} 
-    \item The resonant \Bhh background model is discussed in Section~\ref{subsec:ResonantBkgModel}
-    \item The Combinatorial and SSSV background models are discussed in Section~\ref{subsec:NonResonantBkgModel}
-    \item The non-resonant backgrounds combined fits to MC and data sidebands are discussed in Section~\ref{subsubsec:SSSVplusCOMBcombinedFitMCandDataSB}
-    \item The BDT-simultaneous non-resonant backgrounds combined fits to MC and data sidebands comparison is discussed in Section~\ref{subsubsec:SimultaneousSSSVplusCOMBcombinedFitMCandDataSB}
-    \item The description of the baseline fit model and configuration is discussed in Section~\ref{subsec:FitConfig}
-    \item The studies of the sensitivity to the signal is shown in Section~\ref{subsec:ToyExperimentFits}
-    \item Systematic uncertainties on the fit are discussed in Section~\ref{subsec:SystUncertaintySimultaneousFit}
-\end{itemize}
 
 
 \subsection{Signal Models}
 \label{subsec:SignalModels}
 
-The \Bsmumu and \Bdmumu signals are both modelled by a superposition of two Gaussians as shown in equation~\ref{eq:DoubleGaussian}
+The \Bsmumu and \Bdmumu signals are both modelled by a superposition of two Gaussian distributions as shown in equation~\ref{eq:DoubleGaussian}
 \begin{eqnarray}
   \hbox{\hspace{-16mm}}F(x) = f \cdot G(x; \mu_1, \sigma_1) + (1 - f) \cdot G(x; \mu_2, \sigma_2) =
   \hbox{\hspace{-0mm}}f \cdot \frac{1}{\sqrt{2\pi}\sigma_1} \exp\left[-\frac{(x-\mu_1)^2}{2\sigma_1^2}\right] + (1-f) \cdot \frac{1}{\sqrt{2\
-      \pi}\sigma_2} \exp\left[-\frac{(x-\mu_2)^2}{2\sigma_2^2}\right]
+      \pi}\sigma_2} \exp\left[-\frac{(x-\mu_2)^2}{2\sigma_2^2}\right],
   \label{eq:DoubleGaussian} 
 \end{eqnarray}
-, where to take into account the radiative tails of these signals the means of the two gaussians ($\mu_1$,$\mu_2$) are modelled independently. The other parameters in equation~\ref{eq:DoubleGaussian} include the independent sigmas of the two Gaussians ($\sigma_1$,$\sigma_2$), as well as the fraction of first Gaussian with respect to the second Gaussian ($f$). To extract the shape parameters of these distribution the signal MC is fit with the signal model. It was found that the shape parameters are not dependent on the BDT output as expected.
+where, to take into account the radiative tails of these signals, the means of the two gaussians ($\mu_1$,$\mu_2$) are modelled independently. The other parameters in equation~\ref{eq:DoubleGaussian} include the independent sigmas of the two Gaussians ($\sigma_1$,$\sigma_2$), as well as the fraction of first Gaussian with respect to the second Gaussian ($f$). To extract the shape parameters of these distributions the signal \Bsmumu and \Bdmumu samples are each fit with this model. 
+It was tested that, as in the Partial Run 2 analysis, the shape parameters are not dependent on the BDT output.
 
-Both the \Bsmumu and \Bdmumu MC samples of O($10^5$) events used in this study are significantly larger than the statistics expected in data of O(300) for \Bsmumu and O(30) for \Bdmumu. Due to the large MC sample size the fit would be sensitive to subtle details in the PDF shape, which are completely irrelevant for the fit to data where these details are indistinguishable due to the limited statistics. For this reason the fit is performed on bootstrapped MC samples where the bootstrapping procedure is:
+Both the \Bsmumu and \Bdmumu MC samples are of O($10^5$), significantly larger than the statistics expected in data of O(300) for \Bsmumu and O(30) for \Bdmumu. 
+Due to the large MC sample size the fit would be sensitive to subtle details in the PDF shape, which are irrelevant for the fit to data where these details are indistinguishable due to the limited statistics. For this reason the fit is performed on bootstrapped MC samples where the bootstrapping procedure is:
 \begin{enumerate}
     \item Separate the signal MC into 4 subsamples for each of the 4 BDT bins,
     \item From each of the subsamples select 4000 events at random to create four bootstrapped MC subsamples,
     \item Simultaneously fit the 4 bootstrapped MC subsamples with a constraint that the shape is the same across all BDT bins,
     \item Repeat the procedure 1000 times,
-    \item Calculate the average of the shape parameters from the 1000 repitions of the simultaneous bootstrapped MC fits.
+    \item Calculate the average of the shape parameters from the 1000 repetitions of the simultaneous bootstrapped MC fits.
 \end{enumerate}
 
 \textcolor{red}{Paragraph about the mass offset from PGD values , check also for the reference channel}
 
-The mass scale variation will be taken into account in the systematics study.
+\DJcomment{The mass scale variation will be taken into account in the systematics study.}{I think no need for this sentence here}
 
 
 \subsubsection{\Bsmumu Model}
 \label{subsubsec:BsmumuModel}
 
-The average values of the \Bsmumu signal shape parameters from the bootstrapped MC subsamples are therefore:
+The average values of the \Bsmumu signal shape parameters from the bootstrapped MC subsamples are:
 \begin{itemize}
 \item $\mu_1$: 5360.07 $\pm$ 0.92
 \item $\sigma_1$: 84.3 $\pm$ 1.3
@@ -92,7 +123,7 @@ The average values of the \Bsmumu signal shape parameters from the bootstrapped 
 \item $\sigma_2$: 196.6 $\pm$ 7.0
 \item $f$: 0.863 $\pm$ 0.016 
 \end{itemize}
-, where the uncertainties are given as the RMS from the corresponding fitted shape parameter histogram. Figure~\ref{fig:example_fit_Bs} shows 1 of 1000 bootstrapped MC sample fits. The shape parameters in FR2 are consistent with those in PR2 version of the analysis \cite{Cerri:2311593}.
+ The uncertainties are given as the RMS from the corresponding fitted shape parameter histogram. Figure~\ref{fig:example_fit_Bs} shows 1 of 1000 bootstrapped MC sample fits. The shape parameters in FR2 are consistent with those in PR2 version of the analysis \cite{Cerri:2311593}.
 
 \begin{figure}[ht!]
   \centering
@@ -121,7 +152,7 @@ The average values of the \Bsmumu signal shape parameters from the bootstrapped 
 \subsubsection{\Bdmumu Model}
 \label{subsubsec:BdmumuModel}
 
-The average values of the \Bdmumu signal shape parameters from the bootstrapped MC subsamples are therefore:
+The average values of the \Bdmumu signal shape parameters from the bootstrapped MC subsamples are:
 \begin{itemize}
    \item $\mu_1$: 5273.80 $\pm$ 0.90
    \item $\sigma_1$: 79.6 $\pm$ 1.6
@@ -129,7 +160,7 @@ The average values of the \Bdmumu signal shape parameters from the bootstrapped 
    \item $\sigma_2$: 172.5 $\pm$ 6.4
    \item $f$: 0.815 $\pm$ 0.024 
 \end{itemize}
-, where the uncertainties are given as the RMS from the corresponding fitted shape parameter histogram. Figure~\ref{fig:example_fit_Bd} shows 1 of 1000 bootstrapped MC sample fits. The shape parameters in FR2 are consistent with those in PR2 version of the analysis \cite{Cerri:2311593}.
+Again the uncertainties are given as the RMS from the corresponding fitted shape parameter histogram. Figure~\ref{fig:example_fit_Bd} shows 1 of 1000 bootstrapped MC sample fits. The shape parameters in FR2 are again consistent with those in PR2 version of the analysis \cite{Cerri:2311593}.
 
 \begin{figure}[ht!]
   \centering
@@ -169,9 +200,9 @@ The derivation of the function from for the \Bhh background is described in sect
 \item $\sigma_1$: 187 $\pm$ 45
 \item $\mu_2$: 5252.6 $\pm$ 9.9
 \item $\sigma_2$: 80 $\pm$ 14
-\item $f$: 0.28 $\pm$ 0.18 
+\item $f$: 0.28 $\pm$ 0.18, 
 \end{itemize}
-, where $f$ is the fraction of Gaussian 1 with respect to Gaussian 2. 
+where $f$ is the fraction of Gaussian 1 with respect to Gaussian 2. 
 %\todo{Stan: Add Bhh shape paramaeters per bin.}  
 
 The normalisation of the \Bhh background is constrained in the signal fits using the estimation described in section~\ref{subsubsec:BhhNormalisation}. The final value is $8.8 \pm 4.2$.
@@ -394,7 +425,7 @@ Given that the \Bc background yields compose a small fraction of the total \bbmu
 
 The non-resonant backgrounds in the fit to data are intended to be parametrised by an exponential (SS+SV background in the low-mass region) plus a first oder Chebychev polynomial (slowly falling combinatorial background in the full mass fit range). First we validate the combination of the chosen functional forms in section~\ref{subsubsec:SSSVplusCOMBcombinedFitMCandDataSB}, after which we validate the additional constraints on the exponential and polynomial slopes (arising from introducing the BDT-simultaneous fit strategy) in section~\ref{subsubsec:SimultaneousSSSVplusCOMBcombinedFitMCandDataSB}. In both these validations the MC fit results are compared to those from data by performing the relevant fits on the mass sidebands defined in section~\ref{sec:StrategyOverview}.
 
-\subsubsection{SS+SV and Combinatorial Combined Fit to MC and Data Sidebands}
+\subsubsection{Fits Per BDT bin}
 \label{subsubsec:SSSVplusCOMBcombinedFitMCandDataSB}
 
 In order to validate the combined background model (exponential + first order Chebychev polynomial) a blinded fit on the entire \bbmumuX MC sample is performed separately in each of the BDT bins considered. The slopes of the two PDFs along with the relevant uncertainties are then extracted and compared with what was obtained in the individual model fits to individual background MC samples of section~\ref{subsubsec:SSSVbkg} and section~\ref{subsubsec:COMBbkg}. The blinded fit results on combined MC sample are then compared to the blinded fit results on data.
@@ -469,10 +500,10 @@ The constant dependence of the exponential slopes with the average BDT output of
 
 \clearpage
 
-\subsubsection{BDT-Simultaneous SS+SV and Combinatorial Combined Fit to MC and Data Sidebands}
+\subsubsection{Simultaneous fits across BDT bins}
 \label{subsubsec:SimultaneousSSSVplusCOMBcombinedFitMCandDataSB}
 
-To reduce the complexity in the fit and based on the conclusions made in section~\ref{subsubsec:SSSVplusCOMBcombinedFitMCandDataSB} on the constraints of the background shapes, the final fit on data is inteded to be performed simultaneously in the four BDT bins. In this section we validate the additional constraints introduced by the simultaneous fit by performing it first on the \bbmumuX MC sidebands and then on data sidebands. The resulting shape parameters are then compared with the results of the non-simultaneous fit results of section~\ref{subsubsec:SSSVplusCOMBcombinedFitMCandDataSB} to validate this approach.
+To reduce the complexity in the fit and based on the conclusions made in section~\ref{subsubsec:SSSVplusCOMBcombinedFitMCandDataSB} on the constraints of the background shapes, the final fit on data is intended to be performed simultaneously in the four BDT bins. In this section we validate the additional constraints introduced by the simultaneous fit by performing it first on the \bbmumuX MC sidebands and then on data sidebands. The resulting shape parameters are then compared with the results of the non-simultaneous fit results of section~\ref{subsubsec:SSSVplusCOMBcombinedFitMCandDataSB} to validate this approach.
 
 In the simultaneous fit configuration The polynomial slopes are constrained to depend linearly on the average BDT output of the fitted events in each BDT bin, whereas the exponential slopes in each BDT bin are parametrised by a single shared exponential constant; the normalisations of the PDFs are allowed to be free. Figure~\ref{fig:blindedMCfitSim} shows the results of the simultaneous fit performed on the \bbmumuX MC sidebands and Figure~\ref{fig:blindedDatafitSim} shows the same fit configuration performed on data sidebands. Both these fits fully converge and satisfactorily reproduce the corresponding sample shape with $p$-value $\geq$ 0.05 in each BDT bin.
 \begin{figure}[ht!]

@@ -1,7 +1,10 @@
 \section{Combinatorial Background Reduction}
 \label{sec:BDT}
 
-A Multi-Variate Analysis (MVA) based on a boosted decision tree (BDT) algorithm is used to reduce the combinatorial background. The BDT algorithm is implemented in the TMVA package. The training signal sample is \DJcomment{\Bdmumu MC}{Both Bs and Bd? Make clear.} and the training background sample is \Bdmumu sideband data. The BDT is trained using 15 input variables in analogy with the Partial Run 2 and Run 1 analysis. The 15 variables are summarized in Table \ref{tab:KinematicVariables}. A five-fold cross validation configuration is used for the BDT training and the hyperparameters have been optimized. This section will describe the variables used in the training, the BDT configuration, the performance metrics, and the hyperpameter optimization. Plots of the final BDT performance are also shown. Tests of alternate BDT configurations and some validations are in Appendix \ref{}
+This section discusses the training of the boosted decision tree (BDT) algorithm which is used to significantly reduce the combinatorial background. 
+The choice of cut and binning value using the BDT output is discussed in Section~\ref{sec:SignalExtraction}.
+
+The BDT algorithm is implemented in the TMVA package. The training signal sample is \DJcomment{\Bdmumu MC}{Both Bs and Bd? Make clear.} and the training background sample is \Bdmumu sideband data. The BDT is trained using 15 input variables in analogy with the Partial Run 2 and Run 1 analysis. The 15 variables are summarized in Table \ref{tab:KinematicVariables}. A five-fold cross validation configuration is used for the BDT training and the hyperparameters have been optimized. This section will describe the variables used in the training, the BDT configuration, the performance metrics, and the hyperpameter optimization. Plots of the final BDT performance are also shown. Tests of alternate BDT configurations and some validations are in Appendix \ref{}
 
 The input variables can be divided into two categories. The first is variables related to the isolation of the B candidate and the second is variables related to B candidate topology. The variable definitions the same as in the Partial Run 2 analysis, except for \biso, \docaxtrk and \nclosetrk which use the updated track-to-vertex associated discussed in section~\ref{subsec:KinematicVariables}.
 Each variable in the signal and background samples is plotted in Figure \ref{fig:BDTvariables}. Some variables, such as $\Delta R$ and $|\alpha_{2D}|$ have visible separation and thus are more important in the BDT training. The separation score of each variable is imbedded in Figure \ref{fig:BDTvariables} and summarized in Table \ref{tab:BDTvarSummary}. 
@@ -108,15 +111,4 @@ The \DJcomment{importance}{Define how importance is computed here} of the 15 var
 
 
 
-\subsection{BDT Cut Optimisation}
-\label{subsec:BDTcutOptimisation}
 
-
-
-\subsection{BDT Binning Definition}
-\label{subsec:BDTbinningDefinition}
-
-
-
-\subsubsection{Empirical Evaluation of BDT Binning Performance}
-\label{subsubsec:EmpEvalBDTbinPerform}
