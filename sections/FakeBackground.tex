@@ -2,16 +2,16 @@
 \label{sec:FakeBackground}
 Fake backgrounds for \Bmumu arise from the misidentification of final-state hadrons (mostly pions and kaons) as muons, referred to here as fake muons. %
 Background processes with either two fake muons or one real muon and one fake muon can enter the signal region (SR) and so both need to be considered. 
-Decays of the form \Bhh (where $h,h'$ are hadrons) are expected to form a peaking background at the $B$-meson mass when both the hadrons in the final state are misidentified as muons. %
+In particular, decays of the form \Bhh (where $h,h'$ are hadrons) are expected to form a peaking background at the $B$-meson mass when both the hadrons in the final state are misidentified as muons. %
 Since all decays with only one real muon in the final state necessarily also have a neutrino in the final state, these processes do not peak at the B-mass in the same way as \Bhh with the invariant mass of the fake muon and real muon tending to be smaller. 
 However, the tail of the invariant mass distribution for this background can extend into the tight \Bds mass windows.  
 
 Due to the extremely low branching ratio (\(\sim \mathcal{O}(10^{-10})\)) of the \Bmumu decays, the measurement of \BRBmumu is very sensitive to the estimation of these fake backgrounds.
-For \Bhh, this is despite the anticipated $\mathcal{O}(10^{-3})$ probability for a hadron to be misidentified as a muon as, due to the large hadronic branching fractions of $B$-meson decays, the expected yield of \Bhh in the SR is comparable to that of \Bmumu. 
+For \Bhh, this is despite the anticipated $\mathcal{O}(10^{-3})$ probability for a hadron to be misidentified as a muon as, due to the large hadronic branching fractions of $B$-meson decays, the expected yield of \Bhh in the SR is comparable to that of \Bdmumu. 
 
 The difficulty in modelling fake backgrounds with MC simulation arises from the difficulty to accurately model the interaction of hadrons with the calorimeters (including the details of shower development) in MC simulation.
 The mechanism by which hadrons leave signatures in the detector that resemble those of leptons primarily depends on their behaviour in the calorimeter. 
-In the case of faking muons, it depends on whether they can escape the hadronic calorimeter and leave a signature in the muon spectrometer. Because MC simulations have limitations in accurately modelling hadron–calorimeter interactions, the analysis of fake backgrounds needs to be at least partially data-driven. 
+In the case of fake muons, it depends on whether they can escape the hadronic calorimeter and leave a signature in the muon spectrometer. Because MC simulations have limitations in accurately modelling hadron–calorimeter interactions, the analysis of fake backgrounds needs to be at least partially data-driven. 
 While peaking and combinatorial backgrounds can be modelled to some extent with MC simulation, fake backgrounds remain difficult to model accurately due to the complexity of hadron–calorimeter interactions and the low probability of hadrons faking muons (\(\sim \mathcal{O}(10^{-3})\)), which makes MC simulation computationally expensive to obtain a good estimate of the fake backgrounds in MC simulation.
 
 This section is split as follows, section~\ref{subsec:outline-of-strategy} first provides an outline of the fake estimation strategy after which more details are provided in the subsequent subsections. 
@@ -24,16 +24,16 @@ This section is split as follows, section~\ref{subsec:outline-of-strategy} first
 The data-driven method for estimating fake backgrounds in the \Bmumu analysis consists of four main steps:
 
 \begin{itemize}
-    \item \textbf{Compute Faking Probabilities}: Calculate, from data (for kaons) or MC (for pions), the probability that a hadron fakes a muon.
-    \item \textbf{Derive Functional Forms for \Bhh in the SR}: based upon applying various corrections to MC, including the faking probabilities from the previous step.
-    \item \textbf{Estimate the yield of \Bhh in the SR}: both using a modified version of the master equation and verifying using data in control regions
-    \item \textbf{Estimate the yield of Semi-leptonic backgrounds in the SR}: by using the yields in data sidebands and the faking probabilities. 
+    \item \textbf{Compute Faking Probabilities}: Calculate, from data (for kaons) or MC (for pions), the probability that kaons and pions fake muons, in bins of \pT and $\eta$.
+    \item \textbf{Derive Functional Forms for \Bhh in the SR}: based upon applying various corrections to \Bhh MC, including the faking probabilities from the previous step.
+    \item \textbf{Estimate the yield of \Bhh in the SR}: both using a modified version of equation~\ref{eq:BRFormula} and verifying using data in control regions.
+    \item \textbf{Estimate the functional form and yield of Semi-leptonic backgrounds (with one fake muon) in the SR}: using the yields in data sidebands, faking probabilities and dedicated MC of these backgrounds.s 
 \end{itemize}
 
 \subsection{Estimation of the Faking Probabilities}
 \label{subsubsec:estimation-of-faking-probabilities}
 
-To estimate the probability that a hadron \( h \) fakes a muon, we use a control region where hadrons are the dominant source of reconstructed muons.
+To estimate the probability that a hadron \( h \) fakes a muon, control regions where hadrons are the dominant source of reconstructed muons are used.
 %In "traditional" analyses, the control region is often obtained by inverting the leptons' identification criteria. However, such an approach is not directly amenable to \( B \)-physics analysis.
 %\begin{itemize}
 %    \item The “traditional” analyses typically target isolated, prompt leptons. Here, ``prompt'' means that they do not originate from decays-in-flight, i.e., from heavy-flavor decays; ``isolated'' means that there is not much hadronic activity around the lepton in the calorimeter and/or in the tracker. The variables used to discriminate between a region dominated by real leptons and fake leptons rely on the assumption of high$-p_{\text{T}}$ prompt leptons, e.g., inverting the cut on the lepton identification measure or inverting the isolation variables. %
@@ -42,10 +42,14 @@ To estimate the probability that a hadron \( h \) fakes a muon, we use a control
 %    In particular, the fake-lepton contributions in this control region, just like the signal in the signal region, will be swamped by combinatorial as well as partially reconstructed decays. 
 %\end{itemize}
 %We thus need to develop a different approach to obtain a fake-enriched region. %
-We follow the approach outlined in \textbf{CITE FABIOLA'S QT REPORT and RUN1 paper} wherein we utilize the decays of $B$-hadrons to unambiguously identify hadrons and thus isolate a hadron-enriched region that we then use to derive the faking probabilities of the said hadron. %
-To estimate the probability that a hadron $h$ fakes a muon, i.e., $P(h\rightarrow\mu)$, we first identify a decay channel of a heavier hadron that can be used to tag the hadron of interest. %
-A natural choice for the parent hadron is a $B$-hadron since it automatically puts us in a phase-space that is not dissimilar to the phase-space that would be occupied by hadrons faking leptons in our analysis. %
-Specifically, we use the decay channel $B^+\to J/\psi(\to \mu^+\mu^-)K^+$ to tag kaons and estimate the probability \( P(K^\pm \rightarrow \mu^\pm) \). The same approach is used for pions via the decay channel $B^+\to J/\psi(\to \mu^+\mu^-)\pi^+$. However, since we cannot distinguish between kaons and pions, combined with the fact that this decay is CKM suppressed, it cannot be effectively isolated in data. We thus estimate the probability \( P(K^\pm \rightarrow \mu^\pm) \) from the MC samples of the $B^+\to J/\psi(\to \mu^+\mu^-)\pi^+$ decay. Notice that kaons have a significantly higher probability to fake a muon than pions, thus, the potential inaccuracy in the MC-based estimation of \( P(K^\pm \rightarrow \mu^\pm) \) is expected to be negligible\footnote{We can, in principle, utilize the decay \( B^0 \rightarrow J/\psi(\mu^+\mu^-)K^{*0}(\rightarrow K^+\pi^-) \), allowing us to estimate \( P(\pi^\pm \rightarrow \mu^\pm) \) from data. While ATLAS cannot effectively discriminate between the $K^\pm$ and $\pi^\pm$, the fact that they come from a common $K^{\ast 0}$-vertex provides us with a good enough handle on their particle identification -- based on checking if assigning the $K^+$ mass hypothesis to the positively charged meson (and $\pi^-$ mass hypothesis to the negatively charged meson) leads to a dimeson mass that is closer to the PDG value of the $K^{\ast 0}$ mass compared to reverting the mass-hypothesis assignments.}.
+The approach outlined in~\cite{run2muonfakes} is followed wherein decays of $B$-hadrons to unambiguously identify hadrons are utilized to define hadron-enriched regions that are used to derive the faking probabilities of the said hadron. %
+To estimate the probability that a hadron $h$ fakes a muon, i.e., $P(h\rightarrow\mu)$, a decay channel of a heavier hadron that can be used to tag the hadron of interest needs to be first be identified. %
+%A natural choice for the parent hadron is a $B$-hadron since it automatically puts us in a phase-space that is not dissimilar to the phase-space that would be occupied by hadrons faking leptons in our analysis. %
+Specifically, the decay channel $B^+\to J/\psi(\to \mu^+\mu^-)K^+$ is used to tag kaons and estimate the probability \( P(K^\pm \rightarrow \mu^\pm) \).
+The same approach is used for pions via the \DJcomment{decay channel $B^+\to J/\psi(\to \mu^+\mu^-)\pi^+$}{Is it? Later it's written B0 to J/psi Kstar is used?}. 
+However, as kaons and pions cannot in general be distinguished in ATLAS, combined with the fact that this decay is CKM suppressed, it cannot be effectively isolated in data. 
+Consequently, the probability \( P(K^\pm \rightarrow \mu^\pm) \) is estimated from MC samples of the $B^+\to J/\psi(\to \mu^+\mu^-)\pi^+$ decay. 
+Notice that \DJcomment{kaons have a significantly higher probability to fake a muon than pions}{We should check this, wasn't the case in PR2 (based upon Bhh MC).}, thus, the potential inaccuracy in the MC-based estimation of \( P(K^\pm \rightarrow \mu^\pm) \) is expected to be negligible\footnote{We can, in principle, utilize the decay \( B^0 \rightarrow J/\psi(\mu^+\mu^-)K^{*0}(\rightarrow K^+\pi^-) \), allowing us to estimate \( P(\pi^\pm \rightarrow \mu^\pm) \) from data. While ATLAS cannot effectively discriminate between the $K^\pm$ and $\pi^\pm$, the fact that they come from a common $K^{\ast 0}$-vertex provides us with a good enough handle on their particle identification -- based on checking if assigning the $K^+$ mass hypothesis to the positively charged meson (and $\pi^-$ mass hypothesis to the negatively charged meson) leads to a dimeson mass that is closer to the PDG value of the $K^{\ast 0}$ mass compared to reverting the mass-hypothesis assignments.}.
 
 The faking probability is calculated as:
 \[
@@ -53,29 +57,31 @@ P(h \rightarrow \mu^\pm) = \frac{N_{h \rightarrow \mu^\pm}}{N_h}
 \]
 where \( N_{h \rightarrow \mu^\pm} \) is the number of hadrons that are reconstructed as muons, and \( N_h \) is the total number of tagged hadrons.
 
-We derive the following faking probabilities using this approach: 
+The following faking probabilities are derived using this approach: 
 \begin{itemize}
     \item $P(K^\pm \to \mu^\pm)$
     \item $P(\pi^\pm \to \mu^\pm)$
 \end{itemize}
 
-where, in this context, $\rightarrow\equiv \xrightarrow[\text{reconstructed as}]{}$ and \underline{not} a decay (albeit some of the misidentifications come from in-flight decays). 
+where, in this context, $\rightarrow\equiv \xrightarrow[\text{reconstructed as}]{}$ and \underline{not} a decay. % (albeit some of the misidentifications come from in-flight decays). 
 
 \subsubsection{Estimation of $P(K^\pm\to\mu^\pm)$}
 \label{subsubsec:estimation-of-K-to-ell}
 The faking probabilities of the kaons are derived using the decay channel $B^\pm\to J/\psi(\to \mu^+\mu^-)K^\pm$. %
-In particular, the $B^\pm\to J/\psi(\to \mu^+\mu^-)K^\pm$ candidates are reconstructed by fitting two well-identified muon tracks and an additional charged track to a common vertex. %
+The $B^\pm\to J/\psi(\to \mu^+\mu^-)K^\pm$ candidates are reconstructed by fitting two well-identified muon tracks and an additional charged track to a common vertex. %
 No particle identification criteria are applied to the additional charged track. %
 Simple cuts on the quality of the $B$-vertex fit, the displacement of the $B$-vertex from the primary vertex, and the pointing angle are applied to suppress the combinatorial background. %
 Finally, the reconstructed mass of the $B^\pm$-meson is calculated after constraining the mass of the dimuon system to the PDG value of the $J/\psi$ mass. %
-Now, two yields are extracted:
+Two yields are then extracted:
 \begin{itemize}
     \item The yield of all of the $B^\pm$-candidates is obtained using an unbinned extended maximum likelihood fit to the reconstructed mass of the $B^\pm$-candidates. %
-    This yield is our roundabout way of obtaining the number of kaons, i.e., $N_{K^\pm}$. Recall that we are not really interested in the $B^\pm$-decay itself, but rather, we simply use this decay to tag the kaons. An example mass fit to the reconstructed $B$-mass to extract the yield of $N_{K^\pm}$ is shown in \ref{fig:fakeMuonMassFitForKaons} (left). %
-    \item We select a subset of the $B^+$-candidates wherein we can match the ID track of the kaon to the ID track of a reconstructed lepton (at a given lepton identification working point). The yield of all such $B^+$-candidates is now obtained using an unbinned extended maximum likelihood fit to the reconstructed mass of the $B^+$-candidates. %
-    This yield is our roundabout way of obtaining the number of kaons that fake a lepton, i.e., $N_{K^\pm\rightarrow\mu^\pm}$. %
+    This yield is taken to be the total number of kaons, i.e., $N_{K^\pm}$. %Recall that we are not really interested in the $B^\pm$-decay itself, but rather, we simply use this decay to tag the kaons. 
+    An example mass fit to the reconstructed $B$-mass to extract the yield of $N_{K^\pm}$ is shown in \ref{fig:fakeMuonMassFitForKaons} (left). %
+    \item A subset of the $B^+$-candidates wherein the ID track of the kaon can be matched to the ID track of a reconstructed muon (at a given muon identification working point) is then seelcted. The yield of all such $B^+$-candidates is obtained using an unbinned extended maximum likelihood fit to the reconstructed mass of the $B^+$-candidates. %
+    This yield is used as the number of kaons that fake a lepton, i.e., $N_{K^\pm\rightarrow\mu^\pm}$. %
     An example mass fit to the reconstructed $B$-mass to extract the yield of $N_{K^\pm\to\mu^\pm}$ is shown in \ref{fig:fakeMuonMassFitForKaons} (right). %
 \end{itemize}
+
 \begin{figure}[!ht]
     \centering 
     \includegraphics[width=0.45\textwidth]{figures/FakeRatesFit/fakeMuonFitDenom.png}
@@ -83,12 +89,22 @@ Now, two yields are extracted:
     \caption{Example mass fit to the reconstructed $B$-mass to extract the yield of $N_{K^\pm}$ (left) and $N_{K^\pm\to\mu^\pm}$ (right).}
     \label{fig:fakeMuonMassFitForKaons}
 \end{figure}
-Finally, the faking probability of the kaons is obtained as:
+
+With these yields, the faking probability of the kaons is obtained as:
 \begin{equation}
     P(K^\pm\to\mu^\pm) = \frac{N_{K^\pm\to\mu^\pm}}{N_{K^\pm}}
 \end{equation}
 This procedure is repeated in bins of $p_{\text{T}}$ of the kaon ID track for both the Barrel and the Endcap regions of the ATLAS detector. %
-The results for the faking probabilities of the kaons are shown in \ref{fig:K-to-ell-faking-probabilities} (left). The fit results for all bins in the $p_{\text{T}} - \eta$ space are given in the Appendices ~\ref{subsec:Fake_Rates_Fits_Kaon} - ~\ref{subsec:Fake_Rates_Fits_Kaon_Muon}%
+The results for the faking probabilities of the kaons are shown in \ref{fig:K-to-ell-faking-probabilities}. The fit results for all bins in the $p_{\text{T}} - \eta$ space are given in the Appendices ~\ref{subsec:Fake_Rates_Fits_Kaon} - ~\ref{subsec:Fake_Rates_Fits_Kaon_Muon}%
+
+
+\begin{figure}[!ht]
+    \centering 
+    \includegraphics[width=0.45\textwidth]{figures/FakeRatesFit/FakeRates/FakeRatesLoose.pdf}
+    \includegraphics[width=0.45\textwidth]{figures/FakeRatesFit/FakeRates/FakeRatesTight.pdf}
+    \caption{ Fake Rates for $P(K^\pm \to \mu^\pm)$ in Barrel and Endcap for the Loose WP (left) and tight WP (right).}
+    \label{fig:K-to-ell-faking-probabilities}
+\end{figure}
 
 \subsubsection{Estimation of $P(\pi^\pm \to \mu^\pm)$}
 The faking probabilities of the pions are derived using the decay channel $B^0\to J/\psi(\to \mu^+\mu^-)K^{\ast 0}(\to K^+\pi^-)$. %
@@ -117,42 +133,47 @@ Finally, after repeating the equivalent procedure for the negatively charged pio
     P(\pi^\pm\to\mu^\pm) = \frac{N_{\pi^\pm\to\mu^\pm}}{N_{\pi^\pm}}
 \end{equation}
 This procedure is repeated in bins of $p_{\text{T}}$ of the pion ID track for both the Barrel and the Endcap regions of the ATLAS detector. %
-The results for the faking probabilities of the pions are shown in \ref{fig:K-to-ell-faking-probabilities} (right). %
+The results for the faking probabilities of the pions are shown in \ref{fig:pi-to-ell-faking-probabilities} (right). %
 It should be noted that the faking probabilities that are shown here are from MC, and the equivalent probabilities are not yet derived using data (as the relevant data samples needed for performing this analysis are yet in the production stage). The fit results for all bins in the $p_{\text{T}} - \eta$ space are given in the Appendices ~\ref{subsec:Fake_Rates_Fits_Pion} - ~\ref{subsec:Fake_Rates_Fits_Pion_Muon}%
+
+
 \begin{figure}[!ht]
     \centering 
-    \includegraphics[width=0.45\textwidth]{figures/FakeRatesFit/FakeRates/FakeRatesLoose.pdf}
     \includegraphics[width=0.45\textwidth]{figures/FakeRatesFit/FakeRatesPions/FakeRatesPionsLoose.pdf}
-    \caption{ Fake Rates for $P(K^\pm \to \mu^\pm)$ (left) and $P(\pi^\pm \to \mu^\pm)$ (right) in Barrel and Endcap. Results for the tight working point are given in the Appendix-~\ref{subsec:Fake_Rates_Pion_TW}}
-    \label{fig:K-to-ell-faking-probabilities}
+    \includegraphics[width=0.45\textwidth]{figures/FakeRatesFit/FakeRatesPions/FakeRatesPionsTight.pdf}
+    \caption{ Fake Rates for $P(\pi^\pm \to \mu^\pm)$ in Barrel and Endcap for the loose WP (left) and tight WP (right).}
+    \label{fig:pi-to-ell-faking-probabilities}
 \end{figure}
-\subsubsection{Perform Analysis without Lepton Identification cuts}
-We now want to perform the entire analysis on the MC samples of the decays identified in the previous step to check how they contribute to the signal region of the analysis. %
-We carefully remove all analysis choices that either implicitly or explicitly impose lepton identification criteria. %
-We then correct for this exclusion of lepton identification criteria by applying the faking probabilities derived in \ref{subsubsec:estimation-of-fake-background} to each of the events passing the rest of the analysis selection. %
-There are two main ways in which the lepton identification criteria can be imposed:
-\begin{itemize}
-    \item Offline lepton identification criteria are imposed on the reconstructed lepton objects, e.g., requiring that the ratio between the energy deposited in the hadronic calorimeter and the energy deposited in the electromagnetic calorimeter is less than a certain threshold, etc. We simply remove these criteria from the analysis selection. %
-    \item Online lepton identification criteria are imposed on the reconstructed lepton objects during the trigger selection. The specific criteria are in one-to-one correspondence with the offline lepton identification criteria, however, they are applied on the lepton objects reconstructed by the trigger software instead of the more carefully reconstructed lepton objects in the offline analysis. We thus do not impose any trigger selection criteria while performing the analysis on the MC samples of the final state signatures. %
-\end{itemize}
-Additionally, there is a hidden way in which the offline lepton identification criteria are intertwined with the usual analysis workflow, namely, through the lepton-specific kinematic reconstruction. The kinematics of the charged tracks that are identified as muons is reconstructed using the Combined (CB) muon approach wherein both the tracks in the ID and the matched track in the Muon Spectrometer (MS) are utilized to reconstruct the kinematics of the muons. However, the CB reconstruction is initiated only for those ID tracks that qualify as muons in some loose sense (namely, they can be matched to an MS track). Thus, if we do not want to impose the lepton identification criteria on the reconstructed lepton objects, then we also need to not ask for the CB tracks for these objects - otherwise, we will be implicitly imposing a lepton identification criterion. This forces us to use the kinematics of the ID tracks for the reconstructed lepton objects. We will correct for this difference in the kinematic reconstruction of the lepton objects later on. %
 
 
 \subsection{Deriving Functional Form for \Bhh in the SR}
 \label{subsec:BhhFunctionalForm}
 
 %Once the faking probabilities are known, the fake background in the signal region is estimated by applying these probabilities to MC samples of background processes that can contribute to a peaking fake background. 
-Once the faking probabilities are known, a functional form for \Bhh in the SR can be derived by applying these probabilities to MC samples of background processes that can contribute to a peaking fake background. 
-However, it is important to note that we do not rely on the MC modeling of the process through which a hadron fakes a lepton, rather, we will utilize the faking probabilities that we derived in the previous section by selecting the relevant hadrons in the MC sample and assigning them with the relevant probability to fake a lepton. What we are utilizing from the MC simulation is the decay kinematics. The strategy is as follows:
-
+A functional form for the peaking \Bhh in the SR can be derived using MC simulation and the faking probabilities.
+Specifically, the following steps are taken 
 \begin{itemize}
-    \item \textbf{Prepare MC Samples}: Generate MC samples for all decays that can reasonably contribute to a fake background peaking in the signal region. For \Bmumu, these are mainly \( B_{(s)}^0 \rightarrow K^\pm K^\mp \), \( B_{(s)}^0 \rightarrow \pi^\pm K^\mp \), \( B_{(s)}^0 \rightarrow K^\pm \pi^\mp \), and \( B_{(s)}^0 \rightarrow \pi^\pm \pi^\mp \).
-    \item \textbf{Perform Analysis Without Lepton Identification Cuts}: Run the analysis on these MC samples without requiring muon identification cuts.
+    \item \textbf{Prepare MC Samples}: Generate MC samples for all decays that can reasonably contribute to a fake background peaking in the signal region. For \Bmumu, these are mainly \( B_{(s)}^0 \rightarrow K^\pm K^\mp \), \( B_{(s)}^0 \rightarrow \pi^\pm K^\mp \), \( B_{(s)}^0 \rightarrow K^\pm \pi^\mp \), and \( B_{(s)}^0 \rightarrow \pi^\pm \pi^\mp \) which are produced as an inclusive \Bhh sample, with the proportions of each decay set to current PDG values.
+    \item \textbf{Apply Signal Channel selections without Lepton Identification Cuts and Trigger Requirements}: Apply the signal channel selection on these MC samples without requiring muon identification cuts or online trigger requirements. 
     \item \textbf{Apply Faking Probabilities}: Weight each event by the faking probability derived from data.
     \item \textbf{Kinematic Corrections}: Correct for differences in track reconstruction between hadron and muon tracks.
     \item \textbf{Trigger Weights}: Correct for the removal of online (trigger-level) muon identification cuts using weights derived from a reference channel.
 \end{itemize}
 
+The benefit of this approach is that MC simulation is used only to model the decay kinematics, not the process through which hadrons fake muons. 
+More details on each of the above steps are provided in the following subsections.
+
+\subsubsection{Selection without Lepton Identification cuts}
+The signal channel selection, detailed in Table~\ref{tab:baselineSelection}, is applied to the \Bhh MC samples removing requirements that either implicitly or explicitly impose lepton identification criteria. %
+%We then correct for this exclusion of lepton identification criteria by applying the faking probabilities derived in the previous subsections to each of the events passing the rest of the analysis selection. %
+There are two main ways in which the lepton identification criteria can be imposed:
+\begin{itemize}
+    \item Offline lepton identification criteria are imposed on the reconstructed lepton objects, e.g., requiring that the ratio between the energy deposited in the hadronic calorimeter and the energy deposited in the electromagnetic calorimeter is less than a certain threshold, etc. We simply remove these criteria from the analysis selection. %
+    \item Online lepton identification criteria are imposed on the reconstructed lepton objects during the trigger selection. The specific criteria are in one-to-one correspondence with the offline lepton identification criteria, however, they are applied on the lepton objects reconstructed by the trigger software instead of the more carefully reconstructed lepton objects in the offline analysis. We thus do not impose any trigger selection criteria while performing the analysis on the MC samples of the final state signatures. %
+\end{itemize}
+Additionally, the lepton-specific kinematic reconstruction also needs to be considered. 
+The kinematics of the charged tracks that are identified as muons is reconstructed using the Combined (CB) muon approach wherein both the tracks in the ID and the matched track in the Muon Spectrometer (MS) are utilized to reconstruct the kinematics of the muons. However, the CB reconstruction is initiated only for those ID tracks that qualify as muons in some loose sense (namely, they can be matched to an MS track). Thus, to not impose any muon identification criteria on the reconstructed objects, then only the ID tracks can be used, not ask for the CB tracks.
+The change in invariant mass shape caused by this difference in track reconstruction is corrected for later on in section~\ref{subsec:kinematic-corrections}. 
 
 \subsubsection{Applying the Faking Probabilities}
 \label{subsec:applying-the-faking-probabilities}
