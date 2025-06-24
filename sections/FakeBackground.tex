@@ -107,25 +107,12 @@ The results for the faking probabilities of the kaons are shown in \ref{fig:K-to
 \end{figure}
 
 \subsubsection{Estimation of $P(\pi^\pm \to \mu^\pm)$}
-The faking probabilities of the pions are derived using the decay channel $B^0\to J/\psi(\to \mu^+\mu^-)K^{\ast 0}(\to K^+\pi^-)$. %
-The $B^0$-candidates are reconstructed by fitting two well-identified muon tracks and two additional charged tracks to a common vertex. %
-No particle identification criteria are applied to the additional charged tracks (recall that ATLAS cannot effectively distinguish between different mesons, certainly not above $1{\ {\text{ GeV}}}$). %
-Simple cuts on the quality of the $B$-vertex fit, the displacement of the $B$-vertex from the primary vertex, and the pointing angle are applied to suppress the combinatorial background. %
-At this point, we check if assigning the $K^+$ mass hypothesis to the positively charged meson (and $\pi^-$ mass hypothesis to the negatively charged meson) leads to a dimeson mass that is closer to the PDG value of the $K^{\ast 0}$ mass compared to reverting the mass-hypothesis assignments. %
-Depending on which mass hypothesis assignment leads to a dimeson mass that is closer to the PDG value of the $K^{\ast 0}$ mass, we assign the positively charged meson as either a $K^+$ or a $\pi^+$ and the negatively charged meson as either a $\pi^-$ or a $K^-$. %
-
-This assignment is then used for two different purposes:
-\begin{itemize}
-    \item The assigned mass hypotheses are used to calculate the reconstructed $B^0$-meson mass. %
-    \item The assigned mass hypotheses are also used to isolate the $\pi^\pm$ from the $K^\mp$ in the calculation of the faking probabilities. For example, in the following, we will focus on deriving the faking probabilities of the positively charged meson, i.e., $P(\pi^+ \to \mu^+)$. The negatively charged meson is treated in a similar way. %
-\end{itemize}
-In order to isolate the subset of $B^0$-candidates wherein the positively charged meson track is a $\pi^+$, we simply select the subset wherein the positively charged meson track is assigned the $\pi^+$ mass hypothesis via the procedure described above. %
-Finally, the reconstructed mass of the $B^{\ast 0}$-meson is calculated after constraining the mass of the dimuon system to the PDG value of the $J/\psi$ mass. %
+The faking probabilities of the pions are derived using the decay channel $B^+\to J/\psi(\to \mu^+\mu^-)\pi^+$ in MC, following an identical vertex-reconstruction and $B$-candidate selection approach as for $B^+\to J/\psi(\to \mu^+\mu^-)K^+$, except for relying on the identification of the pion using the MC-truth information. %
 Now, two yields are extracted:
 \begin{itemize}
-    \item The yield of all of the $B^0$-candidates is obtained using an unbinned extended maximum likelihood fit to the reconstructed mass of the $B^0$-candidates. %
-    This yield is our roundabout way of obtaining the number of positively charged pions, i.e., $N_{\pi^+}$. Recall that we are not really interested in the $B^0$-decay itself, but rather, we simply use this decay to tag the pions.
-    \item We select a subset of the $B^0$-candidates wherein we can match the ID track of the (positively charged) pion to the ID track of a (positively charged) reconstructed lepton (at a given lepton identification working point). The yield of all such $B^0$-candidates is now obtained using an unbinned extended maximum likelihood fit to the reconstructed mass of the $B^0$-candidates. %
+    \item The yield of all of the $B^+$-candidates is obtained using an unbinned extended maximum likelihood fit to the reconstructed mass of the $B^+$-candidates. %
+    This yield is our roundabout way of obtaining the number of positively charged pions, i.e., $N_{\pi^+}$. Recall that we are not really interested in the $B^+$-decay itself, but rather, we simply use this decay to tag the pions.
+    \item We select a subset of the $B^+$-candidates wherein we can match the ID track of the (positively charged) pion to the ID track of a (positively charged) reconstructed lepton (at a given lepton identification working point). The yield of all such $B^+$-candidates is now obtained using an unbinned extended maximum likelihood fit to the reconstructed mass of the $B^+$-candidates. %
     This yield is our roundabout way of obtaining the number of (positively charged) pions that fake a (positively charged) lepton, i.e., $N_{\pi^+\to\mu^+}$. %
 \end{itemize}
 Finally, after repeating the equivalent procedure for the negatively charged pions, the faking probability of the pions is obtained as:
@@ -134,7 +121,7 @@ Finally, after repeating the equivalent procedure for the negatively charged pio
 \end{equation}
 This procedure is repeated in bins of $p_{\text{T}}$ of the pion ID track for both the Barrel and the Endcap regions of the ATLAS detector. %
 The results for the faking probabilities of the pions are shown in \ref{fig:pi-to-ell-faking-probabilities} (right). %
-It should be noted that the faking probabilities that are shown here are from MC, and the equivalent probabilities are not yet derived using data (as the relevant data samples needed for performing this analysis are yet in the production stage). The fit results for all bins in the $p_{\text{T}} - \eta$ space are given in the Appendices ~\ref{subsec:Fake_Rates_Fits_Pion} - ~\ref{subsec:Fake_Rates_Fits_Pion_Muon}%
+It should be noted that the faking probabilities that are shown here are from MC, and the equivalent probabilities are not yet derived using data (which would require utilizing the $B^0\to K^{\ast 0}(\to K^+\pi^-)J/\psi(\to\mu^+\mu^-)$ channel as pointed out earlier)). The fit results for all bins in the $p_{\text{T}} - \eta$ space are given in the Appendices ~\ref{subsec:Fake_Rates_Fits_Pion} - ~\ref{subsec:Fake_Rates_Fits_Pion_Muon}%
 
 
 \begin{figure}[!ht]
