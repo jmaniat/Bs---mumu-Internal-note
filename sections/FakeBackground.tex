@@ -46,7 +46,7 @@ The approach outlined in~\cite{run2muonfakes} is followed wherein decays of $B$-
 To estimate the probability that a hadron $h$ fakes a muon, i.e., $P(h\rightarrow\mu)$, a decay channel of a heavier hadron that can be used to tag the hadron of interest needs to be first be identified. %
 %A natural choice for the parent hadron is a $B$-hadron since it automatically puts us in a phase-space that is not dissimilar to the phase-space that would be occupied by hadrons faking leptons in our analysis. %
 Specifically, the decay channel $B^+\to J/\psi(\to \mu^+\mu^-)K^+$ is used to tag kaons and estimate the probability \( P(K^\pm \rightarrow \mu^\pm) \).
-The same approach is used for pions via the \DJcomment{decay channel $B^+\to J/\psi(\to \mu^+\mu^-)\pi^+$}{Is it? Later it's written B0 to J/psi Kstar is used?}. 
+The same approach is used for pions via the \DJcomment{decay channel $B^+\to J/\psi(\to \mu^+\mu^-)\pi^+$}{Is this channel actually used? Later it's written B0 to J/psi Kstar is used?}. 
 However, as kaons and pions cannot in general be distinguished in ATLAS, combined with the fact that this decay is CKM suppressed, it cannot be effectively isolated in data. 
 Consequently, the probability \( P(K^\pm \rightarrow \mu^\pm) \) is estimated from MC samples of the $B^+\to J/\psi(\to \mu^+\mu^-)\pi^+$ decay. 
 Notice that \DJcomment{kaons have a significantly higher probability to fake a muon than pions}{We should check this, wasn't the case in PR2 (based upon Bhh MC).}, thus, the potential inaccuracy in the MC-based estimation of \( P(K^\pm \rightarrow \mu^\pm) \) is expected to be negligible\footnote{We can, in principle, utilize the decay \( B^0 \rightarrow J/\psi(\mu^+\mu^-)K^{*0}(\rightarrow K^+\pi^-) \), allowing us to estimate \( P(\pi^\pm \rightarrow \mu^\pm) \) from data. While ATLAS cannot effectively discriminate between the $K^\pm$ and $\pi^\pm$, the fact that they come from a common $K^{\ast 0}$-vertex provides us with a good enough handle on their particle identification -- based on checking if assigning the $K^+$ mass hypothesis to the positively charged meson (and $\pi^-$ mass hypothesis to the negatively charged meson) leads to a dimeson mass that is closer to the PDG value of the $K^{\ast 0}$ mass compared to reverting the mass-hypothesis assignments.}.
@@ -164,6 +164,7 @@ The benefit of this approach is that MC simulation is used only to model the dec
 More details on each of the above steps are provided in the following subsections.
 
 \subsubsection{Selection without Lepton Identification cuts}
+\label{subsec:SelectNoLepID}
 The signal channel selection, detailed in Table~\ref{tab:baselineSelection}, is applied to the \Bhh MC samples removing requirements that either implicitly or explicitly impose lepton identification criteria. %
 %We then correct for this exclusion of lepton identification criteria by applying the faking probabilities derived in the previous subsections to each of the events passing the rest of the analysis selection. %
 There are two main ways in which the lepton identification criteria can be imposed:
@@ -190,13 +191,14 @@ Thus, the combinatorics do not need to be accounted for in calculating the fakin
 The relevant ingredient probabilities are read from the faking probabilities of hadrons that are derived in \ref{subsubsec:estimation-of-faking-probabilities}. Notice that the faking probabilities are parametrized in the $p_{\text{T}}$ and $\eta$ of the ID track of the charged hadron, thus, a more explicit notation for $P_{h_i \rightarrow \mu_i}$ would read $P_{h_i \rightarrow \mu_i}(p_{\text{T}}^{\text{ID}}(h_i), \eta^{\text{ID}}(h_i))$. % 
 Another important point to note is that since the faking probabilities are dependent on the type of hadron that is faking the lepton, we must utilize the MC truth information to identify the type of the hadron $h_i$ in question ($K^\pm$ or $\pi^\pm$). %
 %\DM{EXPLAIN COMBINATORICS. HARD TO EXPLAIN WITHOUT USING ATLAS JARGON.}
+
 \subsubsection{Kinematic Corrections}
 \label{subsec:kinematic-corrections}
-When the analysis is performed without requiring lepton identification cuts, this implicitly involves using ID tracks instead of the CB tracks for muons. This induces differences in the reconstructed kinematics of the tracks, leading to differences in the reconstructed mass of the $B-$meson (the discriminating variable that is ultimately fit). Thus, it becomes crucial to correct for these differences.
-The MC samples of the reference channel (\Bmumu ) are used to derive this correction. %
+As discussed in section~\ref{subsec:SelectNoLepID}, when the analysis is performed without requiring lepton identification cuts, this implicitly involves using ID tracks instead of the CB tracks for muons. This induces differences in the reconstructed kinematics of the tracks, leading to differences in the reconstructed mass of the $B-$meson (the discriminating variable that is ultimately fit). Thus, it becomes crucial to correct for these differences.
+The signal \Bmumu MC samples are used to derive this correction. %
 Notice that a `bin-by-bin correction' approach cannot be applied since a given value of CB $p_{\text{T}}$ corresponds to multiple values of ID $p_{\text{T}}$. %
 Thus, bin-by-bin corrections derived using one sample will not be applicable to another sample. %
-Rather, we adopt the following approach wherein the response of $p_{\text{T}}$ is evaluated as
+Rather, the following approach is adopted wherein the response of $p_{\text{T}}$ is evaluated as
     \begin{align}
         \mathcal{R}_{p^+_{\text{T}}} &= \frac{p^+_{\text{T}}({\text{CB}}) - p^+_{\text{T}}({\text{ID}})}{p^+_{\text{T}}({\text{ID}})}\\
     \end{align}
@@ -212,13 +214,12 @@ This response is parametrized in the $3{\text{D}}$ space of the $p_{\text{T}}$ o
 
 \subsubsection{Applying Trigger Weights}
 \label{subsec:applying-trigger-weights}
-To correct for the lack of trigger-level lepton identification criteria, we derive the probability that a given $B$-candidate will pass the trigger selection, given that it has passed the offline selection. %
-Recall that we have already corrected for the lack of offline lepton identification criteria by applying the faking probabilities to the $B$-candidates. %
-Thus, we assume that if a hadron passes the offline lepton identification criteria, then its conditional probability of passing the trigger-level lepton identification criteria can be approximated by the same probability for a real lepton. %
-Consequently, we can use the reference channel to derive the trigger weights. %
-Currently, these weights are derived using the MC samples of the reference channels. %\DM{Say anything about data-driven?} %
+To correct for the lack of trigger-level lepton identification criteria, the probability that a given $B$-candidate will pass the trigger selection, given that it has passed the offline selection, is derived. %
+The offline lepton identification criteria has already been corrected for by applying the faking probabilities to the $B$-candidates.
+It is then assumed that if a hadron passes the offline lepton identification criteria, then its conditional probability of passing the trigger-level lepton identification criteria can be approximated by the same probability for a real lepton. %
+Consequently, the \DJcomment{reference channel}{Which channel? We refer to Bs as the signal channel.} is used to derive the trigger weights, using MC simulation. %\DM{Say anything about data-driven?} %
 These weights, intuitively, correspond to the probability that a given $B$-candidate will pass the trigger selection, given that it has passed the offline selection -- correspondingly, they are derived using the ratio of the number of events passing the trigger selection (and the offline lepton selection) to the number of events passing the offline selection. %
-However, to take into account the effect of prescales that are not simulated in the MC samples, each of the events in the numerator of the ratio is weighted by the prescale weight. %The details of how the prescale weights are derived are discussed in \secref{sec:prw-for-beex}. %
+However, to take into account the effect of \DJcomment{prescales that are not simulated in the MC samples}{We do have these for the nominal triggers}, each of the events in the numerator of the ratio is weighted by the prescale weight. %The details of how the prescale weights are derived are discussed in \secref{sec:prw-for-beex}. %
 The trigger weights are parametrized in the $p_{\text{T}}, \eta$ of the two leptons and the $\Delta R$ between the two leptons. %
 In order to avoid having to optimize binning in this $5{\text{D}}$ space, the parametrization is achieved using Gaussian Kernel Density Estimation (KDE). %
 Thus, the trigger weights are given by:
