@@ -1,11 +1,88 @@
 \subsection{Semi-leptonic Backgrounds}
 \label{subsec:SemilepBkg}
 
-The semi-leptonic background originates from few-body semi-leptonic \B-decays where in the limit of low energy neutrinos a hadron can fake a muon ($h\rightarrow\mu$): the main contributions to this background are the \BdPiMuNu and the \BsKMuNu decays. Also contributing to this background are the \LPMuNu (and its charge conjugate \AntiLPMuNu) decays, for which the mass distribution extends closer to the signal region. Together these semi-leptonic modes are expected to contribute significantly less than the second largest contribution to the total background (SS+SV decays), hence the BDT output bin content for these decays is expected to also be very low.
+The background containing one real muon and one fake muon originates from few-body semi-leptonic \B-decays.
+When the neutrino from such decay carries a low momentum, signal $B$-candidates can be formed with invariant masses falling into the mass window cuts, though are typically at lower mass values, i.e. in the lower mass sideband. 
+The main contributions to this background are the \BdPiMuNu and the \BsKMuNu decays. 
+Also contributing to this background are the \LPMuNu (and its charge conjugate \AntiLPMuNu) decays, for which the mass distribution extends closer to the signal region. 
+The total size of the one fake one real muon background entering into the SR is small such that in the baseline signal channel fit it is absorbed into other components, and the lack of explicit modelling of this background is treated as a systematic uncertainty. 
+To assess this uncertainty, what is needed is an estimate of the total size of the one fake and one muon background in the SR and its functional from. 
+These aspects are explained in the following subsections. 
 
-\textcolor{red}{Describe the procedure to get estimation of the semileptonic yields from the fake rates.}
+\subsubsection{Normalisation}
+\label{subsec:SemiLepNormalisation}
 
-With these few events expected to enter in the fit region we assume that the exponential (SS+SV) and Chebychev first degree polynomial (combinatorial) PDFs to absorb this contribution, so no explicit semi-leptonic component PDF is added to the default fit model. This assumption is taken into account in the evaluation of the fit systematic uncertainties in section~\ref{subsec:SystUncertaintySimultaneousFit}. To evaluate the impact of this fit systematic by including the semileptonic PDF in the full model, a functional form for this component is needed. The semi-leptonic decays are modelled by an exponential plus a gaussian tail as shown in equation~\ref{eq:expGaussTail}
+An estimate for the total amount of the one real one fake muon background in each of the BDT output score bins is computed by solving a set of simultaneous equations based upon the data counts in the low mass side band for different muon WPs and the ratio of tight to loose muon efficiencies for both real and fake muons.  
+Explicitly, requiring the two muons to pass only the loose WP, the data count in the lower mass side band can be written as 
+\begin{equation}
+  N_{LL} = N^{\text{ReRe}}_{LL} + N^{\text{ReF}}_{LL} + N^{\text{FF}}_{LL},
+  \label{eq:SemiLepLL}
+\end{equation}
+in which $N^{\text{ReRe}}_{LL}$ is the total amount of candidates in the Loose-Loose (LL) region formed of two Real ($\text{Re}$) muons, $N^{\text{ReF}}_{LL}$ is the number of candidates with one real and one fake (F) muons and $N^{\text{FF}}_{LL}$ is the number of candidates with two fake muons (expected to be very small). 
+Similar equations can be written for the requiring only one of the muons to be tight or both of the muons to be tight, 
+\begin{equation}
+  N_{TL} = N^{\text{ReRe}}_{TL} + N^{\text{ReF}}_{TL} + N^{\text{FF}}_{TL},
+  \label{eq:SemiLepTL}
+\end{equation}
+\begin{equation}
+  N_{TT} = N^{\text{ReRe}}_{TT} + N^{\text{ReF}}_{TT} + N^{\text{FF}}_{TT}.
+  \label{eq:SemiLepTT}
+\end{equation}
+Each of the components in the different regions can be related using the fake rates via,
+\begin{equation}
+  N^\text{ReRe}_{TT} = N^\text{ReRe}_{LL} (\epsilon^{\text{Re}}_{T}/\epsilon^{\text{Re}}_{L})^{2},  \\
+\end{equation}
+\begin{equation}
+  N^\text{ReF}_{TT} = N^\text{ReF}_{LL} (\epsilon^{\text{Re}}_{T}/\epsilon^{\text{Re}}_{L}) (\epsilon^{\text{F}}_{T}/\epsilon^{\text{F}}_{L}), \\ 
+\end{equation}
+\begin{equation}
+  N^\text{FF}_{TT} = N^\text{FF}_{LL} (\epsilon^{\text{F}}_{T}/\epsilon^{\text{F}}_{L})^{2},  
+\end{equation}
+where $\epsilon^{\text{Re}}_{T}$ is for example the tight WP efficiency for a real muon. 
+Similarly, for the LT region
+\begin{equation}
+  N^\text{ReRe}_{LT} = N^\text{ReRe}_{LL} (1-(\epsilon^{\text{Re}}_{LNT}/\epsilon^{\text{Re}}_{L})^{2}),
+\end{equation}
+\begin{equation}
+  N^\text{ReF}_{LT} = N^\text{ReF}_{LL} (1-(\epsilon^{\text{Re}}_{LNT}/\epsilon^{\text{Re}}_{L}) (\epsilon^{\text{F}}_{LNT}/\epsilon^{\text{F}}_{L})),  
+\end{equation}
+\begin{equation}
+  N^\text{FF}_{LT} = N^\text{FF}_{LL} (1-(\epsilon^{\text{F}}_{LNT}/\epsilon^{\text{F}}_{L})^{2},
+\end{equation}
+where for convenience the efficiencies for Loose-Not-Tight (LNT) selections are introduced. 
+Substituting these into equations~\ref{eq:SemiLepTL} and~\ref{eq:SemiLepTT} yields three equations with three unknowns which can be solved. 
+Further, noting that $\epsilon_{LNT} = \epsilon_{L} - \epsilon_{T}$, it can be seen the solution depends only on the ratio of $\epsilon_{T}/\epsilon_{L}$ for real and fake muons, not the absolute fake rates. 
+For real muons, this ratio is $\epsilon^{\text{Re}}_{T}/\epsilon^{\text{Re}}_{L} = (0.899 \pm 0.001) /(0.997 \pm 0.001) = 0.9017 \pm 0.0014$ where the uncertainty conservatively assumes the uncertainties on the individual efficiencies are uncorrelated.   
+
+For fake muons, the ratio is taken based upon the \Bhh MC yields in the previous subsection, which yields a value of $\epsilon^{\text{F}}_{T}/\epsilon^{\text{F}}_{L} = 0.45 \pm 0.04$. 
+As an alternative, the fake rates computed in sections~\ref{subsubsec:estimation-of-K-to-ell} and~\ref{subsubsec:estimation-of-Pi-to-ell} could be used, however using the \Bhh MC fake rates has the advantage of being in the SR phase space. 
+Additionally, this value for the ratio is higher than using the fake rates in the previous section, making this choice the more conservative approach. 
+
+Using these ratios and the data counts, the yields in Table~\ref{tab:SemiLepYields} are obtained.  
+From this it can be seen that the fraction of semi-leptonic events in the sideband ranges from 3\% - 37\% across the BDT bins, with a higher fraction in the more signal like bins.  
+These yields are used to normalise the merged semi-leptonic MC sample discussed in the next section. 
+\begin{table}[h]
+  \centering
+  \begin{tabular}{ccccc}
+    \toprule
+    BDT bin & $N^{\text{ReRe}}$ & $N^{\text{ReF}}$ & $N^{\text{FF}}$ & $N^{\text{Total}}$ \\ 
+    \midrule
+    0 & 9970 ± 89 & 333 ± 41 & 11.7 ± 2.5 & 10314 \\
+    1 & 1406 ± 30 & 146 ± 12 & 7.0 ± 1.5 & 1559 \\
+    2 & 398 ± 15 & 74.4 ± 6.1 & 3.12 ± 0.65 & 476 \\
+    3 & 99 ± 11 & 56.8 ± 5.8 & -0.43 ± 0.13 & 155 \\ 
+    \bottomrule
+  \end{tabular}
+  \caption{Yields of candidates with two real, one real-one fake, and two fake muons in the low mass sideband in the signal channel for both muon candidates passing the tight WP. }
+  \label{tab:SemiLepYields}
+\end{table}
+
+
+
+\subsubsection{Functional Form}
+\label{subsec:SemiLepNormalisation}
+
+To evaluate the impact of this fit systematic by including the semileptonic PDF in the full model, a functional form for this component is needed. The semi-leptonic decays are modelled by an exponential plus a gaussian tail as shown in equation~\ref{eq:expGaussTail}
 \begin{eqnarray}
   F(x) = f \cdot E(x; \alpha) + (1 - f) \cdot G(x; \mu, \sigma)  
        = f \cdot \text{exp}(\alpha x) + (1 - f) \cdot \frac{1}{\sqrt{2\pi\sigma^2}} \text{exp}\left[-\frac{(x - \mu)^2}{2\sigma^2}\right]
