@@ -6,7 +6,7 @@ When the neutrino from such decay carries a low momentum, signal $B$-candidates 
 The main contributions to this background are the \BdPiMuNu and the \BsKMuNu decays. 
 Also contributing to this background are the \LPMuNu (and its charge conjugate \AntiLPMuNu) decays, for which the mass distribution extends closer to the signal region. 
 The total size of the one fake one real muon background entering into the SR is small such that in the baseline signal channel fit it is absorbed into other components, and the lack of explicit modelling of this background is treated as a systematic uncertainty. 
-To assess this uncertainty, what is needed is an estimate of the total size of the one fake and one muon background in the SR and its functional from. 
+To assess this uncertainty, what is needed is an estimate of the total size of the one fake and one muon background in the SR and its functional from, the latter being assessed using a merged MC sample.  
 These aspects are explained in the following subsections. 
 
 \subsubsection{Normalisation}
@@ -79,20 +79,45 @@ These yields are used to normalise the merged semi-leptonic MC sample discussed 
 
 
 
-\subsubsection{Functional Form}
-\label{subsec:SemiLepNormalisation}
+\subsubsection{Merged Monte Carlo Sample}
+\label{subsec:SemiLepMCmerging}
 
-To evaluate the impact of this fit systematic by including the semileptonic PDF in the full model, a functional form for this component is needed. The semi-leptonic decays are modelled by an exponential plus a gaussian tail as shown in equation~\ref{eq:expGaussTail}
+To evaluate the impact of the semileptonic background, a functional form for this component is derived using MC simulation. 
+Separate MC samples are produced for the \BdPiMuNu, \BsKMuNu, \LPMuNu and \AntiLPMuNu decays. 
+These samples are then merged together into one semileptonic sample. 
+To get the relative normalisation of each of the samples for this merging, the following approach is taken. 
+First, the relative production rates of respective baryons are considered, with the \Bs and $\Lambda_{b}$ production fractions being lower than \Bd by the hadronic production fractions $f_{s}/f_{d}$ and $f_{\Lambda_{b}}/f_{d}$ respectively. 
+The values used are $f_{s}/f_{d} = 0.256$~\cite{HFLAV:2016hnz} and $f_{\Lambda_{b}}/f_{d} = 0.8$~\cite{LHCb:2011leg}, where in the latter it is taken that $f_{u} = f_{d}$.
+The ratio  $f_{\Lambda_{b}}/f_{\bar{\Lambda}_{b}}$ is also taken to be equal to one based upon the studies in Ref.~\cite{CMS:2012wje}.
+These values are only approximate, but are considered to be sufficient given the semileptonic background is treated as a systematic. 
+
+Second, the efficiencies of these samples passing the nominal selections is considered. 
+Due to the relatively small statistics and low fake rates, it is necessary to compute this efficiency in two stages. 
+The first stage is applying all the nominal selections except for the trigger and only requiring one of the muons to pass the ID requirements. 
+The second is computing the relative efficiency of requiring both muons to pass the ID requirements to only one of them needing to, but without the any of the other selections applied except for the leading (sub-leading) ID tracks to have $\pT > 6\,\GeV (\pT > 4\,\GeV)$. 
+This second factor gives an approximation of the relative muon fake rate for the different hadrons. 
+The product of these two factors, combined with the relative production fractions, is used to compute the overall relative composition of the semi leptonic background in the SR. 
+The relative fractions, for BDT output $>0.1609$ (i.e. the four BDT output bins merged) are found to be 65\% \BdPiMuNu, 16\% \AntiLPMuNu, 14\% \BsKMuNu and 5\% \LPMuNu.  
+
+
+\subsubsection{Functional Form}
+\label{subsec:SemiLepFunctionalForm}
+
+The functional form used for the semi-leptonic decays is exponential plus a Gaussian tail:
 \begin{eqnarray}
   F(x) = f \cdot E(x; \alpha) + (1 - f) \cdot G(x; \mu, \sigma)  
-       = f \cdot \text{exp}(\alpha x) + (1 - f) \cdot \frac{1}{\sqrt{2\pi\sigma^2}} \text{exp}\left[-\frac{(x - \mu)^2}{2\sigma^2}\right]
+       = f \cdot \text{exp}(\alpha x) + (1 - f) \cdot \frac{1}{\sqrt{2\pi\sigma^2}} \text{exp}\left[-\frac{(x - \mu)^2}{2\sigma^2}\right],
   \label{eq:expGaussTail}
 \end{eqnarray}
-, where $\alpha$ is the exponential constant, $f$ is the fraction of the exponetial with respect to the Gaussian, and where $\mu$ and $\sigma$ are resepctively the mean and sigma of the Gaussian.
+where $\alpha$ is the exponential constant, $f$ is the fraction of the exponential with respect to the Gaussian, and where $\mu$ and $\sigma$ are respectively the mean and sigma of the Gaussian.
 
-To validate the chosen PDF for the semi-leptonic background we fit the dimuon VTX mass distribution from the merged exclusive MC samples for the three modes with the PDF in equation~\ref{eq:expGaussTail}. The ID-based VTX mass is used instead of the MUCALC mass since fake muons frequently fail to produce combined muon tracks which are required in the baseline selection, leading to reduced statistics. Applied to the semil-leptonic MC sample is a loosened selection: all final selections apart from the muon quality requirements and passing the online trigger are applied to the merged MC sample to allow for more statistics necessary for a good quality fit and convergence. Loosening the selections on the semi-leptonic MC to extract the shape parameters for this background is justified because this PDF is only used in evaluation of the the fit systematics and is not intended for the final fit on data.
+To validate the chosen PDF for the semi-leptonic background we fit the dimuon VTX mass distribution from the merged semi-leptonic MC sample for the three modes with the PDF in equation~\ref{eq:expGaussTail}. 
+The ID-based VTX mass is used instead of the MUCALC mass since fake muons frequently fail to produce combined muon tracks which are required in the baseline selection, leading to reduced statistics. 
+Applied to the semileptonic MC sample is a loosened selection: all final selections apart from the muon quality requirements and passing the online trigger are applied to the merged MC sample to allow for more statistics. 
+Loosening the selections on the semi-leptonic MC to extract the shape parameters for this background is justified because this PDF is only used in evaluation of a systematic, it is not used explicitly in the signal channel fit.
 
-Figure~\ref{fig:semilepMCfitLoose} shows the loosened selection MC fit results with the fitted PDF in all BDT output bins satisfactory reproducing the shape of the MC sample as can be seen from the residual distributions. With enough statistics the fit quality is also satisfactory with $p$-value > 0.05 in each bin of the BDT output. The loose MC fitted shape parameter values are then fixed in the fit to the full selection merged semi-leptonic MC sample as an extra step of validation: the shape from the loosened selection MC fit must be compatible with the full selection MC fit to validate this approach and confirm that the shape from loose selection also applies to full selection MC.
+Figure~\ref{fig:semilepMCfitLoose} shows the loosened selection MC fit results with the fitted PDF in all BDT output bins satisfactory reproducing the shape of the MC sample as can be seen from the residual distributions. With enough statistics the fit quality is also satisfactory with $p$-value $>$ 0.05 in each bin of the BDT output. 
+
 \begin{figure}[ht!]
   \centering
   \subfloat[BDT bin 0 fit with BDT boundaries at {[0.1609,0.2636]}.]{
@@ -116,7 +141,10 @@ Figure~\ref{fig:semilepMCfitLoose} shows the loosened selection MC fit results w
   \label{fig:semilepMCfitLoose}
 \end{figure}
 
-Figure~\ref{fig:semilepMCfit} shows the full selection merged semi-leptonic MC sample fitted with the PDF in equation~\ref{eq:expGaussTail} but with the shape parameters fixed to the results of the loosened MC fit result in Figure~\ref{fig:semilepMCfitLoose}. Even with the low statistics due to passing the online trigger requirement, the fixed shape parameters from the loosened selection formulate a PDF that is consistent with the full selection MC, reproducing satisfactorily the MC shape and with a good fit quality in all bins of the BDT output. The fit in the full selection MC with the shape parameters from fit to the loosened selection converges even at low statistics, which justifies the loose MC shapes used in the semi-leptonic PDF construction intended for the evaluation of the fit systematics. 
+As a cross-check, these functional forms are checked with the full selection applied with the shape parameters fixed to the results from the fits in the loose regions. 
+Figure~\ref{fig:semilepMCfit} shows the results of these fits.
+Although the statistics are low, it can be seen the PDFs reproduce satisfactorily the MC shape and with a good fit quality in all bins of the BDT output. 
+
 \begin{figure}[ht!]
   \centering
   \subfloat[BDT bin 0 fit with BDT boundaries at {[0.1609,0.2636]}.]{
