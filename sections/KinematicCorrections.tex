@@ -63,3 +63,79 @@ This is because only these samples are used to compute efficiencies and acceptan
 
 \subsection{Data Driven Weights (DDWs)}
 \label{sec:DDWs}
+
+
+
+
+\subsection{L1-topo trigger efficiency studies}
+
+ As introduced in Section \ref{}, L1-topo trigger was used in collecting data in 2017 and 2018. Similarly to non-topological triggers, its efficiency in data is not ensured to be well reproduced in simulation. Therefore, a technique to evaluate this efficiency in data has been developed with the goal of producing scale factors (binned in di-muon transverse momentum, pseudorapidity and angular distance??) to be applied to signal and reference channel MC samples to correct for this potential mis-modeling. \\
+
+ \noindent
+ To do that, a dedicated study was performed using data and Monte Carlo samples collected with the \texttt{bDimu} trigger. This trigger was heavily prescaled in 2017 and 2018. Nevertheless, a total of XXXXX events has been collected.
+ The strategy is based on the reconstruction of \BpmKpmJpsi events in data using the dataset outlined above with the same trigger strategy used in the analysis (see Section \ref{}). An unbinned extended ML fit is performed in data to extract the \BpmKpmJpsi yield, after applying all requirements listed in Section \ref{}, except for the application of the continuum BDT requirement. Then, the same procedure is repeated on the same dataset after adding the requirement that events pass the corresponding L1-topo triggers. The ratio between the two yields represents the L1-topo trigger efficiency in data for the event selection and the trigger strategy related to this analysis. The same procedure is finally applied also to simulated \BpmKpmJpsi MC samples and the scale factors computed.
+ The triggers used are the following:
+
+ \begin{itemize}
+    \item non-TOPO triggers:
+    \begin{enumerate}
+        \item \texttt{L1\_2mu6} and \texttt{HLT\_2mu6\_bDimu\_Lxy0}
+        \item \texttt{L1\_mu6\_2mu4} and \texttt{HLT\_mu6\_mu4\_bDimu\_Lxy0}
+    \end{enumerate}
+    \item TOPO triggers:
+    \begin{enumerate}
+        \item \texttt{L1\_BPH-2M9-2MU6\_BPH-2DR15-2MU6} and \texttt{HLT\_2mu6\_bDimu\_L1BPH-2M9-2MU6\_BPH-2DR15-2MU6}
+        \item \texttt{L1\_BPH-2M9-MU6MU4\_BPH-0DR15-MU6MU4} and \\\texttt{HLT\_mu6\_mu4\_bDimu\_L1BPH-2M9-MU6MU4\_BPH-0DR15-MU6MU4}
+    \end{enumerate}
+\end{itemize}
+ 
+\noindent
+After the \BpmKpmJpsi fit in data is performed, a total of \textbf{24985} and \textbf{10560} events in the 2mu6 and mu6mu4 categories, for non-topo selection across both years is found, respectively. \\
+
+\textbf{ADD REFERENCE TO A PLOT?}. \\
+
+\noindent
+MC samples were then reweighted to reproduce the same relative admixture between the two trigger categories as seen in data.
+The fit procedure is then repeated after requiring on the same dataset that the TOPO triggers listed above are fired, and a total of XXXXX and YYYYY \BpmKpmJpsi events is found in the two categories.
+Tables \ref{tab:topo_data} (and Table \ref{tab:topo_MC}) show the number of \BpmKpmJpsi events in data (MC) for the two categories (2mu6 and mu6mu4) for Topo and non-TOPO triggers as well as the L1-topo trigger efficiencies computed using those numbers. 
+It turned out that the scale factor to be applied to MC samples is..... \\
+
+\noindent
+After \textbf{Binning procedure (?)}, for each bin(?) the ratio between the yields of events passing TOPO over the ones passing non-TOPO trigger observed in data and those predicted by simulation was computed. 
+%Finally, the ratio of these efficiency defines the scale factor that accounts for residual discrepancies between data and Monte Carlo due to the modeling of the TOPO trigger effects bin by bin.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+Trigger cat. & \BpmKpmJpsi yield non-topo & \BpmKpmJpsi yield TOPO & Eff. \\
+\hline
+2mu6 & & &  \\ 
+mu6mu4 & & &  \\ 
+\hline
+Total & & & \\
+\hline
+
+\end{tabular}
+\caption{\BpmKpmJpsi event yields in the two trigger categories (2mu6, mu6mu4) for the TOPO and non-TOPO triggers (explained in the text) across 2017 and 2018 years in data. The last column shows the L1-topo trigger efficiencies per category. The last row shows the numbers summed up across the two categories. }
+\label{tab:topo_data}
+\end{table}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|c|}
+    \hline
+Trigger cat. & \BpmKpmJpsi yield non-topo & \BpmKpmJpsi yield TOPO & Eff. \\
+\hline
+2mu6 &  913450&  683796&  0.749\\ 
+mu6mu4 &  960864&  821195&  0.855\\ 
+\hline
+Total &  &  & \\
+\hline
+
+\end{tabular}
+\caption{\BpmKpmJpsi event yields in the two trigger categories (2mu6, mu6mu4) for the TOPO and non-TOPO triggers (explained in the text) across 2017 and 2018 years in MC. The last column shows the L1-topo trigger efficiencies per category. The last row shows the numbers summed up across the two categories. }
+\label{tab:topo_MC}
+\end{table}
+
+\textred{systematic for topo}
