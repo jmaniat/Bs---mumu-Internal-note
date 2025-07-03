@@ -1,2 +1,266 @@
 \section{Efficiency and Acceptance Ratio Calcuation}
 \label{sec:AccepEffRatio}
+
+\textbf{Final numbers missing new DDW, Topo correction, new iso reweight.}\\
+
+\textbf{syst are evaluated with 15-16 weights and no topo or new iso correction.}\\
+
+\noindent
+Acceptances and efficiencies for both reference and signal channels enter in Eq. (\textbf{MASTER FORMULA}) through their ratio $R_{A \epsilon}$.\\
+$R_{A \epsilon}$ is defined in Eq. \ref{eq::efficiency ratio}:
+
+\begin{equation}
+    R_{A \epsilon}= \frac{A_{\BpmKmumu} \times \epsilon_{\BpmKmumu}}{A_{\Bsmumu}\times \epsilon_{\Bsmumu}}
+    \label{eq::efficiency ratio}
+\end{equation}
+
+\noindent
+where $A_i$ and $\epsilon_i$ represent, for $i=\BpmKmumu , \Bsmumu$, the kinematic acceptance and the reconstruction efficiency, respectively.
+This ratio is evaluated using \Bsmumu and \BpKpJpsi$\ $signal MC samples, after applying to both MC samples the quark level and data-driven corrections (see Section \textbf{APPROPRIATE}), the recommended pile-up re-weighting corrections, muon offline reconstruction efficiency corrections, and muon trigger efficiency and prescale corrections. 
+An additional correction is introduced in 2017-2018 years due to the usage of the L1-Topo trigger algorithm.
+Scale Factors to correct its efficiency in MC samples with respect to data were extracted and applied to both signal and reference channels (see Section \ref{}). \\
+%The scale factors as a function of muon transverse momentum and pseudorapidity are used (\textbf{MAYBE, MAYBE NOT}).
+
+\noindent
+As visible in Eq.\ref{eq::efficiency ratio}, each component of $R_{A \epsilon}$ is made of two separate terms:  the acceptance $A_i$ and the efficiency $\epsilon_i$. \\
+
+\noindent
+The term $A_i$ is defined as the acceptance of the final-state particles requirements, with respect to a specific fiducial volume of the B-candidate. 
+The fiducial volume is defined as $p_T^B > 8.0$ GeV and $|\eta_B| < 2.5$, while the final-state particle requirements are: $p_T^{\mu_{1,2}} > 3.5$ GeV and $|\eta_{\mu_{1,2}}| < 2.6$, $p_T^{K^{\pm}} > 0.9$ GeV and $|\eta_{K^\pm}| < 2.6$ for the kaon. 
+These requirements have been applied to "truth-only" samples. 
+The value of $A_i$ has been computed as the ratio between the number of events that pass the final-state particle cuts and the number of events in the fiducial volume. 
+Both the quark-level (QLC) and the data driven (DDW) corrections described in Section \ref{} have been applied to the \Bpt $\ $and $|\eta_B|$ distributions both at the numerator and the denominator, in order to reproduce the spectra really observed in data. 
+The values of the acceptance $A_i$ are reported in Table \ref{table::acceptances}.\\
+
+%These latter cuts have been chosen to reproduce the reconstruction level requirements needed to retrieve the DAOD sample used in the efficiency term. \\
+
+%It has been evaluated using a separate "un-biased" MC sample where only the phase-space fiducial volume cuts on the B meson were applied and that is different between the reference and the signal channels. 
+
+%\textred{Talk about difference w.r.t. past?}
+ %The comparison with Run 2 numbers is difficult to perform, having different thresholds but it can be performed with same older cuts is shown in appendix (\textbf{APPENDIX WITH COMPARISON TO PR2}) (\textbf{??????????????}). 
+    
+\noindent
+The term $\epsilon_i$ takes into account all the reconstruction effects (physics objects reconstruction efficiency, selection cuts and  trigger efficiency including prescales) affecting the two channels. 
+It is defined as the ratio between the number of events passing the final selection requirements listed in Section \ref{} including the requirement on the continuum BDT output to be greater than 0.2636 (which has an efficiency of 56\% on the $\B_s$ signal and of 51\% on the $\B^\pm$ signal ) and the number of events passing the final state particles kinematic requirements listed in the definition of the $A_i$ term applied to the appropriate truth level quantities. 
+Both terms are evaluated using the available reconstructed MC samples. Both the numerator and the denominator are corrected by applying QLC and DDW kinematic correction. 
+However, all corrections applied to reconstructed quantities are applied only at the numerator. 
+These corrections include: the pile-up reweighting (applied in order to have the same distribution of the number of primary vertices in the simulation and in the data), the trigger efficiency scale factors and the trigger prescale scale factors. 
+Furthermore, as explained in Section \ref{}, due to the mis-modelling in simulation of the isolation $I_{0.7}$ of the $B$-candidates with respect to data, scale factors were derived in data and used to correct for the distribution of this variable in MC samples. 
+Data from the reference channel (\BpKpJpsi) and the control channel (\BsJpsiPhi) have been used to this purpose.
+Both corrections lead to a variation of the terms of the efficiency and consequently of the $R_{A\epsilon}$ term by respectively: 5.2\% for $B^+$, 0.5\% for $B^0_s$ s and 5.1\% on $R_{A\epsilon}$.
+Finally, an additional correction is applied due to the different lifetime distribution in MC \Bsmumu signal samples. 
+The value used in simulation is the average of the two states ($B_H$ and $B_L$), while, according to the SM, the unique contributor in the \Bsmumu decay is the $B_H$ component. 
+Therefore, a reweighting based on the truth lifetime of each $B_s$ candidate has been applied. 
+The values for the lifetime of $B^0_s$ mesons in simulation is 1.533 ps \textbf{CHECK}, while the value of the lifetime of the $B_H$ component is taken from PDG as 1.624 ps \textbf{CITE THE PDG}. 
+The impact of this lifetime reweighting on the $B^0_s$ signal efficiency, and consequently on the efficiency ratio $R_{A\epsilon}$, has been found to be \textbf{HOW MUCH DOES IT CHANGE} \%. 
+The efficiencies $\epsilon_i$ expressed by year are shown in Tables \ref{table::efficiencies MC16A}-\ref{table::efficiencies MC16E}.\\
+
+
+\noindent
+The values for  $R_{A\epsilon}$ for the three periods are summarized in Table \ref{table:Ratio by year} respectively, together with the statistical uncertainty, which comes from the limited statistic available for the simulated samples used in the analysis, and systematic uncertainties \textred{missing}, described in the next Section \ref{section:syst on eff ratio}. \\
+
+\noindent
+A weighted average of $A_i$, $\epsilon_i$ and $R_{A\epsilon}$, based on the integrated luminosity collected in each period reported in Table \ref{table:mean eff and new ratio}, was finally performed. 
+This table summarizes the values of $A$, $\epsilon_i$, and $R_{A\epsilon}$ averaged over the three periods.\\
+The final value for $R_{A\epsilon}$ is therefore 0.1270 $\pm$ 0.006 (stat.) $\pm$ 0.0005 (syst.). \\
+
+\noindent
+The same procedure has been also applied for the evaluation of acceptance and efficiency terms for the \Bdmumu signal. \\
+Tables..... summarise the values of $A_i$, $\epsilon_i$ and $R_{A\epsilon}$. Similarly to the \Bsmumu signal, the integrated value of $R_{A\epsilon}$ has been computed  through the same weighted average procedure explained above. \\
+The final value for $R_{A\epsilon}$ is therefore XXXX $\pm$ YYYY (stat.) $\pm$ ZZZZ (syst.)
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|cc|}
+\hline
+                 & \multicolumn{1}{c|}{$B_s$}  & $B^+$                       \\ \hline
+\textbf{Num}     & \multicolumn{1}{c|}{121081} & 722205                      \\ \hline
+\textbf{Den}     & \multicolumn{1}{c|}{308055} & 4947750                     \\ \hline
+\textbf{A}       & \multicolumn{1}{c|}{0.3931} & \multicolumn{1}{c|}{0.1460} \\ \hline
+\textbf{A ratio} & \multicolumn{2}{c|}{0.3714}                               \\ \hline
+\end{tabular}
+\caption{Acceptances}
+\label{table::acceptances}
+\end{table}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|cccccccc|}
+\hline
+\multirow{2}{*}{2015 - 2016}            & \multicolumn{4}{c|}{$B_s$}                                                                                        & \multicolumn{4}{c|}{$B^+$}                                                                   \\ \cline{2-9} 
+                                       & \multicolumn{1}{c|}{1A} & \multicolumn{1}{c|}{1B}     & \multicolumn{1}{c|}{2A}     & \multicolumn{1}{c|}{total}  & \multicolumn{1}{c|}{1A} & \multicolumn{1}{c|}{1B}     & \multicolumn{1}{c|}{2A}     & total  \\ \hline
+\textbf{Num}                           & \multicolumn{1}{c|}{//} & \multicolumn{1}{c|}{29770}  & \multicolumn{1}{c|}{24029}  & \multicolumn{1}{c|}{53799}  & \multicolumn{1}{c|}{//} & \multicolumn{1}{c|}{72060}  & \multicolumn{1}{c|}{55780}  & 127840 \\ \hline
+\textbf{Den}                           & \multicolumn{1}{c|}{//} & \multicolumn{3}{c|}{618200}                                                             & \multicolumn{1}{c|}{//} & \multicolumn{3}{c|}{4269007}                                       \\ \hline
+$\boldsymbol{\epsilon}$                & \multicolumn{1}{c|}{//} & \multicolumn{1}{c|}{0.0481} & \multicolumn{1}{c|}{0.0389} & \multicolumn{1}{c|}{0.0870} & \multicolumn{1}{c|}{//} & \multicolumn{1}{c|}{0.0169} & \multicolumn{1}{c|}{0.0131} & 0.0300 \\ \hline
+\textbf{$\boldsymbol{\epsilon}$ ratio} & \multicolumn{8}{c|}{0.3448}                                                                                                                                                                                      \\ \hline
+\end{tabular}
+\caption{MC16A efficiencies}
+\label{table::efficiencies MC16A}
+\end{table}
+
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|cccccccc|}
+\hline
+\multirow{2}{*}{2017}                  & \multicolumn{4}{c|}{$B_s$}                                                                                            & \multicolumn{4}{c|}{$B^+$}                                                                       \\ \cline{2-9} 
+                                       & \multicolumn{1}{c|}{1A}     & \multicolumn{1}{c|}{1B}     & \multicolumn{1}{c|}{2A}     & \multicolumn{1}{c|}{total}  & \multicolumn{1}{c|}{1A}     & \multicolumn{1}{c|}{1B}     & \multicolumn{1}{c|}{2A}     & total  \\ \hline
+\textbf{Num}                           & \multicolumn{1}{c|}{43999}  & \multicolumn{1}{c|}{2262}   & \multicolumn{1}{c|}{30922}  & \multicolumn{1}{c|}{77183}  & \multicolumn{1}{c|}{148413} & \multicolumn{1}{c|}{285}    & \multicolumn{1}{c|}{4056}   & 152754 \\ \hline
+\textbf{Den}                           & \multicolumn{4}{c|}{771514}                                                                                           & \multicolumn{4}{c|}{5411952}                                                                     \\ \hline
+$\boldsymbol{\epsilon}$                & \multicolumn{1}{c|}{0.0570} & \multicolumn{1}{c|}{0.0034} & \multicolumn{1}{c|}{0.0401} & \multicolumn{1}{c|}{0.1000} & \multicolumn{1}{c|}{0.0274} & \multicolumn{1}{c|}{0.0002} & \multicolumn{1}{c|}{0.0008} & 0.0282 \\ \hline
+\textbf{$\boldsymbol{\epsilon}$ ratio} & \multicolumn{8}{c|}{0.2820}                                                                                                                                                                                               \\ \hline
+\end{tabular}
+\caption{MC16D efficiencies}
+\label{table::efficiencies MC16D}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|cccccccc|}
+\hline
+\multirow{2}{*}{2018}                  & \multicolumn{4}{c|}{$B_s$}                                                                                            & \multicolumn{4}{c|}{$B^+$}                                                                       \\ \cline{2-9} 
+                                       & \multicolumn{1}{c|}{1A}     & \multicolumn{1}{c|}{1B}     & \multicolumn{1}{c|}{2A}     & \multicolumn{1}{c|}{total}  & \multicolumn{1}{c|}{1A}     & \multicolumn{1}{c|}{1B}     & \multicolumn{1}{c|}{2A}     & total  \\ \hline
+\textbf{Num}                           & \multicolumn{1}{c|}{60786}  & \multicolumn{1}{c|}{3718}   & \multicolumn{1}{c|}{46096}  & \multicolumn{1}{c|}{110600} & \multicolumn{1}{c|}{203534} & \multicolumn{1}{c|}{6061}   & \multicolumn{1}{c|}{85524}  & 295119 \\ \hline
+\textbf{Den}                           & \multicolumn{4}{c|}{1048467}                                                                                          & \multicolumn{4}{c|}{7295008}                                                                     \\ \hline
+$\boldsymbol{\epsilon}$                & \multicolumn{1}{c|}{0.0580} & \multicolumn{1}{c|}{0.0035} & \multicolumn{1}{c|}{0.0440} & \multicolumn{1}{c|}{0.1055} & \multicolumn{1}{c|}{0.0279} & \multicolumn{1}{c|}{0.0008} & \multicolumn{1}{c|}{0.0117} & 0.0404 \\ \hline
+\textbf{$\boldsymbol{\epsilon}$ ratio} & \multicolumn{8}{c|}{0.3834}                                                                                                                                                                                              \\ \hline
+\end{tabular}
+\caption{MC16E efficiencies}
+\label{table::efficiencies MC16E}
+\end{table}
+
+
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|c|}\hline
+         &   2015 - 2016& 2017& 2018\\\hline
+         $R_{A \epsilon}$& 
+     0.1278& 0.1048& 0.1424\\\hline
+ Stat. unc& 0.0008& 0.0006& 0.0007\\ \hline\end{tabular}
+    \caption{Year by year $R_{A \epsilon}$}
+    \label{table:Ratio by year}
+\end{table}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|c|}\hline
+      &   $A$  & $\bar{\epsilon}$& $R_{A \epsilon}$\\\hline
+    $B^+$&  0.1460& 0.0338& \multirow{2}{*}{0.1270}\\
+    $B_s$&  0.3931& 0.0990&  \\\hline
+    \end{tabular}
+    \caption{Mean Acceptance end efficiency weighted by year luminosity and new weighted $R_{A \epsilon}$}
+    \label{table:mean eff and new ratio}
+\end{table}
+
+
+\textred{Still missing Bdmumu}
+
+\subsection{Systematic uncertainties}
+\label{section:syst on eff ratio}
+
+The systematic uncertainty affecting $R_{A\epsilon}$ comes from different sources: the uncertainty related to the various corrections applied (QLC + DDW, data driven TOPO and non-TOPO trigger efficiencies, pile-up re-weighting, muon ID SF and isolation re-weighting), the kaon tracking efficiency and the residual discrepancy between data and MC samples after the application of these corrections (except for the kaon tracking efficiency).\\
+
+\noindent
+\textred{Paragraph QLC-DDW missing}.\\
+
+\noindent
+The impact of weights such as PU-reweight and muon reconstruction SFs have been evaluated by scaling up and down the weights and accounting for the highest variation from the nominal value.\\
+The uncertainty provided by the pileup re-weighting on the efficiencies has been evaluated to be: -2.1\% for $B^0_s$, 2.4\% for $B^+$, while the combined uncertainty on $R_{A\epsilon}$ is found to be 0.4\%.\\
+The uncertainty on $\epsilon$ coming from the uncertainties related to the muon reconstruction SF has been evaluated to be: 5.1\% for $B^0_s$ and 4.9\% for $B^+$. The combined uncertainty on $R_{A\epsilon}$ is found to be 0.2\%.\\
+
+\noindent
+The uncertainty coming from the application of the isolation re-weighting has been evaluated performing a toy study has been by varying the corrections within their statistical uncertainties and recomputing each efficiency and $R_{A\epsilon}$ after each toy. Here, the RMS of the values obtained in each toy has been quoted as the systematic uncertainty on the resulting efficiencies and ratios. Regarding the efficencies, the values obtained are: 0.7\% for $B^0_s$ and 0.4\% for $B^+$. The combined uncertainty on $R_{A\epsilon}$ is found to be 0.8\%. \\
+
+\noindent
+\textred{Paragraph TRIGGER SF missing}.\\
+
+\noindent
+Another source of systematic uncertainty arises from the residual discrepancies between data and MC observed for \BpKpJpsi $\ $and \BsJpsiPhi $\ $decays. 
+The systematic uncertainty on $R_{A\epsilon}$ was assessed by considering the variation in the efficiency of the final selection after re-weighting MC samples to the observed data for the 15 variables used in the continuum BDT. 
+Data-MC discrepancies are extracted from \Bp events after the subtraction of the background as shown in section \textbf{BDT var WEIGHTS}.
+$R_{A\epsilon}$ is finally recomputed after re-weighting each variable, one at a time. 
+The discrepancy between the values obtained with this procedure and the central values has been considered to be the systematic uncertainty due to the mismodeling of the specific variable. \\
+For these studies, the isolation variable $B_{\text{iso}}$ weights for the $B_s$ MC signal are extracted from a fit to \BsJpsiPhi $\ $data, since differences in b-quark hadronization make the environment around the candidate B potentially different with respect to the \Bp $\ $case. \\
+The only variable treated differently in this evaluation is $\Delta \phi(\mu \mu)$ (the difference between the azimuthal angles of the two muons), because its weights cannot be applied to \Bs MC, given the difference in this distribution with respect to \Bp $\ $events where the two muons come from $J/\psi$.
+Table \ref{table::BDT syst impact on RAe} shows the impact of each BDT variable reweight on the efficiency ratio $R_{A\epsilon}$. \\
+The main contributions to the total systematic uncertainty on the efficiencies ratio comes from the isolation $B_{\text{iso}}$ and distance of closest approach DOCA discrepancies. For \Bs \textbf{MOST IMPORTANT SYSTS bs} have
+ an impact above \% on the efficiency, while for \Bp $\ $\textbf{MOST IMPORTANT SYSTS bp} have an impact of \%.\\
+
+\noindent
+In addition a systematic uncertainty associated to the kaon tracking efficiency has been considered. It has been derived from a conservative estimate of the difference in tracking efficiency between data and simulation, in agreement with the tracking CP group, and it amounts to \%. 
+Since this efficiency affects only the reference channel, it enters in $R_{A\epsilon}$ efficiency ratio with the same effect.\\
+ 
+\noindent
+The total systematic uncertainty on $R_{A\epsilon}$ due to the re-weighting procedure is the sum in quadrature of the single systematic uncertainties and it is combined with the other systematics of this analysis.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Systematic}                        & \textbf{Value{[}\%{]}} \\ \hline
+$P_L^{min}$                                &                        \\
+$L_{xy}$                                   & 0.45                   \\
+$\alpha_{2D}$                              &                        \\
+$B_{\text{iso}}$                           &                        \\
+$\Delta R$                                 &                        \\
+$\chi^2_{\mu ,x\ PV}$                      &                        \\
+$\text{log} [\chi^2_{\text{PV,SV}}]_{xy}$  &                        \\
+$|d_0|^{max}\ \text{sig.}$                 &                        \\
+$|d_0|^{min}\ \text{sig.}$                 &                        \\
+$\Delta \phi(\mu \mu)$                     &                        \\
+$\Delta R_{\text{flight}}$                 &                        \\
+$\text{DOCA}_{\text{xtrk}}$                &                        \\
+$\text{DOCA}_{\mu \mu}$                    &                        \\
+$N^{\text{close}}_{\text{trks}}$           &                        \\ \hline
+Combined                                   &                        \\ \hline
+\end{tabular}
+\caption{}
+\label{table::BDT syst impact on RAe}
+\end{table}
+
+\FloatBarrier
+
+\begin{sidewaystable}[htbp]
+
+    \begin{tabular}{|c|c c|c c|c c|c|c|c|c|c|c|}
+    \hline
+     & \multicolumn{2}{|c|}{\textbf{2015--2016}} & \multicolumn{2}{|c|}{\textbf{2017}} & \multicolumn{2}{|c|}{\textbf{2018}} & \multicolumn{6}{|c|}{\textbf{Total}} \\
+     \hline
+    ~ & Bs & Bp  & Bs & Bp  & Bs & Bp  & Ae Bs & Ae Bp & R & d(Ae Bs) & d(Ae Bp) & dR  \\ \hline
+    Nominal & 0,0870 & 0,0299  & 0,1000 & 0,0282  & 0,1055 & 0,0405  & 0,0389 & 0,00494 & 0,1270 & 0,00 & 0,00 & 0,00  \\ \hline
+        Lxy & 0,0857 & 0,0298  & 0,0976 & 0,0276  & 0,1044 & 0,0401  & 0,0383 & 0,00488 & 0,1275 & -1,61 & -1,17 & 0,45  \\ \hline
+        closeTrkDOCA & 0,0849 & 0,0292  & 0,0964 & 0,0270  & 0,1032 & 0,0392  & 0,0378 & 0,00478 & 0,1262 & -2,71 & -3,28 & -0,59  \\ \hline
+        closeTrkNtrksChi2 & 0,0834 & 0,0289  & 0,0950 & 0,0268  & 0,1016 & 0,0388  & 0,0372 & 0,00473 & 0,1270 & -4,26 & -4,20 & 0,07  \\ \hline
+        fabs(d0Min\_sig) & 0,0824 & 0,0292  & 0,0937 & 0,0270  & 0,1002 & 0,0392  & 0,0368 & 0,00478 & 0,1299 & -5,50 & -3,29 & 2,34  \\ \hline
+        fabs(d0Max\_sig) & 0,0838 & 0,0291  & 0,0953 & 0,0269  & 0,1019 & 0,0391  & 0,0374 & 0,00476 & 0,1273 & -3,90 & -3,62 & 0,29  \\ \hline
+        PlngMin2D & 0,0856 & 0,0298  & 0,0975 & 0,0279  & 0,1043 & 0,0402  & 0,0382 & 0,00490 & 0,1281 & -1,70 & -0,82 & 0,89  \\ \hline
+        chi2\_PVSV\_log2D & 0,0851 & 0,0294  & 0,0968 & 0,0272  & 0,1036 & 0,0395  & 0,0380 & 0,00481 & 0,1266 & -2,33 & -2,60 & -0,28  \\ \hline
+        fabs(a\_2D) & 0,0851 & 0,0295  & 0,0969 & 0,0274  & 0,1037 & 0,0397  & 0,0380 & 0,00483 & 0,1272 & -2,28 & -2,12 & 0,16  \\ \hline
+        DR & 0,0859 & 0,0299  & 0,0978 & 0,0277  & 0,1046 & 0,0401  & 0,0384 & 0,00489 & 0,1275 & -1,39 & -1,00 & 0,40  \\ \hline
+        fabs(B\_IDtrks\_deltaPhi) & 0,0855 & 0,0297  & 0,0974 & 0,0276  & 0,1042 & 0,0400  & 0,0382 & 0,00487 & 0,1276 & -1,82 & -1,31 & 0,51  \\ \hline
+        B\_IDtrks\_DCA & 0,0855 & 0,0295  & 0,0970 & 0,0275  & 0,1039 & 0,0397  & 0,0381 & 0,00484 & 0,1270 & -2,06 & -2,00 & 0,06  \\ \hline
+        Bvtx3DIP & 0,0858 & 0,0299  & 0,0973 & 0,0277  & 0,1042 & 0,0401  & 0,0382 & 0,00489 & 0,1279 & -1,76 & -1,05 & 0,72  \\ \hline
+        B\_minChi2MuonsIPtoAnyPV & 0,0824 & 0,0291  & 0,0936 & 0,0270  & 0,1002 & 0,0391  & 0,0367 & 0,00477 & 0,1297 & -5,53 & -3,51 & 2,14  \\ \hline
+        Total syst & ~ &   & ~ &   & ~ &   & ~ & ~ & ~ & 11,41 & 9,26 & 3,54  \\ \hline
+
+    \end{tabular}
+    \caption{systematic table for BDT variables: $B_s$ and $B^+$ efficiency divided by year and value of $A \epsilon$ and $R_{A \epsilon}$ value after each systematic reweight.}
+    \label{table::BDT variables syst}
+\end{sidewaystable}
+
+
+
+
+%\begin{table}[h]
+%\centering
+%\begin{tabular}{|c|c|c|}
+%\hline
+%                                             & \textbf{PR2} & \textbf{FR2} \\ \hline
+%$A_{\Bsmumu}$   & 1            & 2            \\ \hline
+%$A_{\BpKpJpsi}$ & 3            & 4            \\ \hline
+%\end{tabular}
+%\end{table}
+
+
+
